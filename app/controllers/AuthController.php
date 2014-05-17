@@ -16,13 +16,16 @@ class AuthController extends BaseController {
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
 
-            $message = 'Your unique GitHub user id is: ' . $result['id'] . ' and your name is ' . $result['login'];
-            echo $message . "<br/>";
-
             //Var_dump
             //display whole array().
-            echo Session::get("intent");
-            dd($result);
+            if (!Session::has("intent")) {
+                die("No intent :(");
+            }
+            if (Session::get("intent") === "judge") {
+                return View::make("judge", array("user" => $result['login']));
+            } else {
+                return View::make("participant", array("user" => $result['login']));
+            }
 
         } // if not ask for permission first
         else {
