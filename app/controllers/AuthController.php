@@ -3,6 +3,7 @@
 class AuthController extends BaseController {
     public function loginWithGitHub() {
         // get data from input
+        Session::reflash();
         $code = Input::get('code');
 
         $githubService = OAuth::consumer('GitHub');
@@ -20,6 +21,7 @@ class AuthController extends BaseController {
 
             //Var_dump
             //display whole array().
+            echo Session::get("intent");
             dd($result);
 
         } // if not ask for permission first
