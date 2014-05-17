@@ -1,6 +1,6 @@
 <?php
 
-class AuthController {
+class AuthController extends BaseController {
     public function loginWithGitHub() {
         // get data from input
         $code = Input::get('code');
