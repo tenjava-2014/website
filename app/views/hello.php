@@ -44,7 +44,7 @@
 <div class="container">
     <div class="row">
         <div class="three centered columns">
-            <p><img id="logo" src="https://cdn.mediacru.sh/IVc4Tvm8kffX.svg"></p>
+            <p><img id="logo" src="/assets/img/drawing_1.svg"></p>
         </div>
         <div class="twelve columns" id="intro">
             <p><strong>ten.java</strong> is an unofficial, bi-annual Bukkit plugin development contest. Created in early
