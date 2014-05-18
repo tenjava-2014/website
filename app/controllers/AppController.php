@@ -10,4 +10,8 @@ class AppController extends BaseController {
         return Redirect::to("/oauth/confirm")->with('intent', 'participant');
     }
 
+    public function processApplication() {
+        dd(Session::get("application_data"));
+    }
+
 } 

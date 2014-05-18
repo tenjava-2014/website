@@ -27,10 +27,15 @@ class AuthController extends BaseController {
             if (!Session::has("intent")) {
                 die("No intent :(");
             }
-            if (Session::get("intent") === "judge") {
-                return View::make("judge", array("user" => $result['login']));
+            $githubUsername = $result['login'];
+            $intent = Session::get("intent");
+
+            Session::put("application_data", array("username" => $githubUsername, "email" => $result['email'], "judge" => ($intent === "judge")));
+
+            if ($intent === "judge") {
+                return View::make("judge", array("user" => $githubUsername));
             } else {
-                return View::make("participant", array("user" => $result['login']));
+                return View::make("participant", array("user" => $githubUsername));
             }
 
         } // if not ask for permission first
