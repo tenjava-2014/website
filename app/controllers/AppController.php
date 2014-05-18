@@ -11,7 +11,19 @@ class AppController extends BaseController {
     }
 
     public function processApplication() {
-        dd(Session::get("application_data"));
+        $appData = Session::get("application_data");
+
+        if (!$appData['judge']) {
+            $app = new Application();
+            $app->gh_username = $appData['username'];
+            $app->github_email = json_encode($appData['emails']);
+            $app->judge = false;
+            $app->dbo_username = Input::get("dbo");
+            $app->save();
+            return View::make("thanks");
+        } else {
+            echo "NYI";
+        }
     }
 
 } 

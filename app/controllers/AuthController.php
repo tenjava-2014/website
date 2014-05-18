@@ -21,7 +21,7 @@ class AuthController extends BaseController {
 
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
-            dd($githubService->request("user/emails"));
+            $emails = json_decode($githubService->request("user/emails"), true);
             //Var_dump
             //display whole array().
             if (!Session::has("intent")) {
@@ -30,7 +30,7 @@ class AuthController extends BaseController {
             $githubUsername = $result['login'];
             $intent = Session::get("intent");
 
-            Session::put("application_data", array("username" => $githubUsername, "email" => $result['email'], "judge" => ($intent === "judge")));
+            Session::put("application_data", array("username" => $githubUsername, "emails" => array("public" => $result['email'], "others" => $emails), "judge" => ($intent === "judge")));
 
             if ($intent === "judge") {
                 return View::make("judge", array("user" => $githubUsername));
