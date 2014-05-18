@@ -15,6 +15,7 @@
             <li>Emails: {{{ $app->github_email }}}</li>
             <li>IRC: {{{ $app->irc_username }}}</li>
             <li>GMail: {{{ $app->gmail }}}</li>
+            <li>Twitch: {{{ $app->twitch_username }}}</li>
             <li>Judge app: {{{ $app->judge }}}</li>
         </ul>
     @endforeach

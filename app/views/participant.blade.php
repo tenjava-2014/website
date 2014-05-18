@@ -17,6 +17,10 @@
                     <label class="inline" for="dbo">BukkitDev Username</label>
                     <input class="wide text input" id="dbo" name="dbo" type="text" value="{{{ $user }}}"/>
                 </li>
+                <li class="field">
+                    <label class="inline" for="dbo">Twitch.tv Username</label>
+                    <input class="wide text input" id="twitch" name="twitch" type="text" value="{{{ $user }}}"/>
+                </li>
             </ul>
         </fieldset>
     <div class="medium metro rounded btn primary"><input type="submit" name="submit" value="Apply" id="register-submit"></div>    {{ Form::close() }}
