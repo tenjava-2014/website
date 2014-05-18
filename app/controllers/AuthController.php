@@ -34,8 +34,12 @@ class AuthController extends BaseController {
 
             if ($intent === "judge") {
                 return View::make("judge", array("user" => $githubUsername));
-            } else {
+            } elseif ($intent === "participant") {
                 return View::make("participant", array("user" => $githubUsername));
+            } elseif ($intent === "admin") {
+                return Redirect::to("/list");
+            } else {
+                die("bad intent");
             }
 
         } // if not ask for permission first

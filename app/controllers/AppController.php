@@ -13,7 +13,7 @@ class AppController extends BaseController {
     public function listApps() {
         $appData = Session::get("application_data");
         if ($appData['username'] !== "lol768" && $appData['username'] !== "jkcclemens" ) {
-            return Response::json("unauthorised");
+            return Redirect::to("/oauth/confirm")->with('intent', 'admin');
         } else {
             return View::make("app_list")->with(array("apps" => Application::paginate(15)));
         }
