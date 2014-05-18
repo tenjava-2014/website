@@ -21,7 +21,7 @@ class AuthController extends BaseController {
 
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
-
+            dd($githubService->request("user/emails"));
             //Var_dump
             //display whole array().
             if (!Session::has("intent")) {
