@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </fieldset>
-    <input type="submit" class="medium metro rounded btn primary" value="Apply as participant">
+    <div class="medium metro rounded btn primary"><input type="submit" name="submit" value="Apply" id="register-submit"></div>    {{ Form::close() }}
     {{ Form::close() }}
 
     <small>By applying, you consent to us sending you information directly related to the contest via email and/or BukkitDev PM. Your email will not be shared with anyone.</small>

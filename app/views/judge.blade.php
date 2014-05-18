@@ -34,16 +34,9 @@
                 <label class="inline" for="gdocs">Google docs/gmail address</label>
                 <input class="wide text input" id="gdocs" name="gdocs" type="text" value="{{{ $user }}}"/>
             </li>
-            <li class="field">
-                <label class="checkbox checked" for="previous">
-                    <input name="checkbox[]" id="previous" value="1" type="checkbox">
-                    <span></span> I've participated in ten.java before
-                </label>
-            </li>
         </ul>
     </fieldset>
-    <input type="submit" class="medium metro rounded btn primary" value="Apply as judge">
-    {{ Form::close() }}
+    <div class="medium metro rounded btn primary"><input type="submit" name="submit" value="Apply" id="register-submit"></div>    {{ Form::close() }}
 
 
     <small>By applying, you consent to us sending you information directly related to the contest via email and/or
