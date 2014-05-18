@@ -32,7 +32,7 @@
             </li>
             <li class="field">
                 <label class="inline" for="gdocs">Google drive/gmail address</label>
-                <input class="wide text input" id="gdocs" name="gdocs" type="text" value="{{{ $user }}}"/>
+                <input class="wide text input" id="gdocs" name="gdocs" type="text"/>
             </li>
         </ul>
     </fieldset>
