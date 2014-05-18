@@ -16,9 +16,6 @@ class HomeController extends BaseController {
     */
 
     public function showWelcome() {
-        if (!Input::has("dev")) {
-            return Response::json("Coming soon...");
-        }
         return View::make('hello');
     }
 
