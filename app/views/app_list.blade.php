@@ -5,7 +5,8 @@
     <p><a href="/"><img id="logo" src="/assets/img/drawing_1.svg"></a></p>
 </div>
 <div class="twelve columns" id="intro">
-    <h2>App list (restricted)</h2>
+    <h2>App list ({{{ $apps->getTotal() }}} applications)</h2>
+    <p>Filter: <a href="?judges=1">judge apps</a> <a href="?normal=1">participant apps</a> <a href="">all apps</a></p>
 
     <div class="pagination">{{ $apps->links() }}</div>
 
