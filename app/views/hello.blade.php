@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="three centered columns">
-    <p><img id="logo" src="/assets/img/drawing_1.svg"></p>
+    <p><a href="/"><img id="logo" src="/assets/img/drawing_1.svg"></a></p>
 </div>
 <div class="twelve columns" id="intro">
     <p><strong>ten.java</strong> is an unofficial, bi-annual Bukkit plugin development contest. Created in early
