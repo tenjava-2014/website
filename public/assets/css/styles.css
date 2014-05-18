@@ -86,3 +86,7 @@ body {
 .pagination-right {
     text-align: right;
 }
+
+tr > td:first-child {
+    width: 150px;
+}
