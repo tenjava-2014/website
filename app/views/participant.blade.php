@@ -15,7 +15,7 @@
             <ul>
                 <li class="field">
                     <label class="inline" for="dbo">BukkitDev Username</label>
-                    <input class="wide text input" id="dbo" name="dbo" type="text"/>
+                    <input class="wide text input" id="dbo" name="dbo" type="text" value="{{{ $user }}}"/>
                 </li>
             </ul>
         </fieldset>
