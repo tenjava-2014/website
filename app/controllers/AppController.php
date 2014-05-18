@@ -10,6 +10,15 @@ class AppController extends BaseController {
         return Redirect::to("/oauth/confirm")->with('intent', 'participant');
     }
 
+    public function listApps() {
+        $appData = Session::get("application_data");
+        if ($appData['username'] !== "lol768") {
+            return Response::json("unauthorised");
+        } else {
+            return View::make("app_list")->with(array("apps" => Application::paginate(15)));
+        }
+    }
+
     public function processApplication() {
         $appData = Session::get("application_data");
         if (Application::where("gh_username", $appData['username'])->first() != null) {
