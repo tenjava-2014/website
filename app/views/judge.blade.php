@@ -10,7 +10,7 @@
     <p>Before we sign you up, we need a little more information from you. Thanks for getting involved!</p>
 
     <p>Note: As a judge, you'll be responsible for scoring a share of the submissions. Judges will need to be able to
-        connect to the EsperNet IRC network and will also need to be able to access the voting spreadsheet. Finally,
+        connect to the EsperNet IRC network and will also need to be able to access the voting spreadsheet (shared via Google Drive). Finally,
         you'll need a paid Minecraft account to test the plugins.</p>
 
 
@@ -31,7 +31,7 @@
                 <input class="wide text input" id="mcign" name="mcign" type="text" value="{{{ $user }}}"/>
             </li>
             <li class="field">
-                <label class="inline" for="gdocs">Google docs/gmail address</label>
+                <label class="inline" for="gdocs">Google drive/gmail address</label>
                 <input class="wide text input" id="gdocs" name="gdocs" type="text" value="{{{ $user }}}"/>
             </li>
         </ul>
