@@ -1,5 +1,7 @@
 <?php
 
+use OAuth\Common\Http\Exception\TokenResponseException;
+
 class AuthController extends BaseController {
     public function loginWithGitHub() {
         // get data from input
@@ -11,7 +13,11 @@ class AuthController extends BaseController {
         if (!empty($code)) {
 
             // This was a callback request from github, get the token
-            $token = $githubService->requestAccessToken($code);
+            try {
+                $token = $githubService->requestAccessToken($code);
+            } catch (TokenResponseException $e) {
+                return Redirect::to("/");
+            }
 
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
