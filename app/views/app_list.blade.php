@@ -14,6 +14,10 @@
         <table class="striped rounded">
             <tbody>
             <tr>
+                <td>Created at</td>
+                <td><span title="{{{ $app->created_at }}}">{{{ $app->created_at->diffForHumans() }}}</span></td>
+            </tr>
+            <tr>
                 <td>DBO</td>
                 <td>{{{ $app->dbo_username }}}</td>
             </tr>
