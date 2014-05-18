@@ -25,7 +25,7 @@ class AuthController extends BaseController {
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
             $emails = array("fail" => "user rejected request");
-            if (Session::has("no-email")) {
+            if (!Session::has("no-email")) {
                 $emails = json_decode($githubService->request("user/emails"), true);
             }
             //Var_dump
