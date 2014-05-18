@@ -10,7 +10,7 @@
     <div class="pagination">{{ $apps->links() }}</div>
 
     @foreach ($apps as $app)
-        <h3 style="color: #{{ $app->judge : "0a0" ? "00a" }}">{{{ $app->gh_username }}} <a href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a></h3>
+        <h3 style="color: #{{ ($app->judge) ? "0a0" : "00a" }}">{{{ $app->gh_username }}} <a href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a></h3>
         <table class="striped rounded">
             <tbody>
             <tr>
