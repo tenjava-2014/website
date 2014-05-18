@@ -42,6 +42,7 @@ class AppController extends BaseController {
             $app->judge = false;
             $app->dbo_username = Input::get("dbo");
             $app->save();
+            $this->addUserRepo($appData['username']);
             return View::make("thanks");
         } else {
             $validator = Validator::make(
@@ -72,6 +73,13 @@ class AppController extends BaseController {
             $app->save();
             return View::make("thanks");
         }
+    }
+
+    public function addUserRepo($username) {
+        $client = new \Github\Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
+        $repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true);
+        $client->api('repo')->collaborators()->add($username, $username, 'tenjava');
     }
 
 } 

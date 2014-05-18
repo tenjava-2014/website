@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"artdarek/oauth-4-laravel": "dev-master"
+		"artdarek/oauth-4-laravel": "dev-master",
+        "guzzlehttp/guzzle": "~4.0",
+        "knplabs/github-api": "*"
 	},
 	"autoload": {
 		"classmap": [
