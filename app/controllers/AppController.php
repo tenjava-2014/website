@@ -12,11 +12,21 @@ class AppController extends BaseController {
 
     public function listApps() {
         $appData = Session::get("application_data");
+
         if ($appData['username'] !== "lol768" && $appData['username'] !== "jkcclemens" ) {
-            return Redirect::to("/oauth/confirm")->with('intent', 'admin');
+            if (!$appData['username']) {
+                return Redirect::to("/oauth/confirm")->with('intent', 'admin');
+            } else {
+                return Response::json("No auth.");
+            }
         } else {
             return View::make("app_list")->with(array("apps" => Application::paginate(15)));
         }
+    }
+
+    public function noEmail() {
+        Session::put("no-email", true);
+        return Redirect::to("/");
     }
 
     public function processApplication() {
@@ -44,7 +54,7 @@ class AppController extends BaseController {
             $app->judge = false;
             $app->dbo_username = Input::get("dbo");
             if (!Input::has("twitch")) {
-                $app->twitch_username = "USER_REJECTED"; //field not nullable so this will have to do
+                $app->twitch_username = "USER_REJECTED"; //field not nullable so this will have to do.
             } else {
                 $app->twitch_username = Input::get("twitch");
             }

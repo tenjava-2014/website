@@ -20,7 +20,13 @@
         email so that we can contact you if you win (this info will not be shared and will be used for the sole purpose
         of communications directly related to the contest). We also use the API to retrieve your GitHub username. This
         username is used to create a repository on the tenjava github account and then added to the newly-created repo with full
-        access.</p>
+        access.
+        @if (!$noEmail)
+        If you're unwilling to provide an email at any stage, please click <a href="/no-email">here</a> and then signup normally.
+        @else
+        You're currently opted out of email sharing.
+        @endif
+    </p>
 
     <div class=" centered" id="buttons">
         <div class="medium metro rounded btn primary icon-left entypo icon-trophy">

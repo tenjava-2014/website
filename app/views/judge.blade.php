@@ -13,6 +13,9 @@
         connect to the EsperNet IRC network and will also need to be able to access the voting spreadsheet (shared via Google Drive). Finally,
         you'll need a paid Minecraft account to test the plugins.</p>
 
+    @if ($noEmail)
+    <p>You've opted out of sharing your email with us. We'll communicate with you via your BukkitDev account.</p>
+    @endif
 
     {{ Form::open(array('url' => '/apply')) }}
     <fieldset>

@@ -16,7 +16,7 @@ class HomeController extends BaseController {
     */
 
     public function showWelcome() {
-        return View::make('hello');
+        return View::make('hello')->with(array("noEmail" => Session::has("no-email")));
     }
 
 }

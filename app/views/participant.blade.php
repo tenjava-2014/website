@@ -8,7 +8,9 @@
     <h2>Hey {{ $user }}!</h2>
 
     <p>Before we sign you up, we need a little more information from you. <strong>Note: If you don't want to stream or are unable to, just leave the box blank or fill it in with a username that does not exist.</strong> Thanks for getting involved!</p>
-
+    @if ($noEmail)
+    <p>You've opted out of sharing your email with us. We'll communicate with you via your BukkitDev account.</p>
+    @endif
     {{ Form::open(array('url' => '/apply')) }}
         <fieldset>
             <legend>Additional information</legend>

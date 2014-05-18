@@ -17,3 +17,4 @@ Route::get('/judge', "AppController@applyJudge");
 Route::any('/oauth/confirm', 'AuthController@loginWithGitHub');
 Route::post('/apply', 'AppController@processApplication');
 Route::get('/list', 'AppController@listApps');
+Route::get('/no-email', 'AppController@noEmail');

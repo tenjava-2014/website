@@ -7,8 +7,11 @@ class AuthController extends BaseController {
         // get data from input
         Session::reflash();
         $code = Input::get('code');
-
-        $githubService = OAuth::consumer('GitHub');
+        if (Session::has("no-email")) { // User doesn't want to give us access to any emails
+            $githubService = OAuth::consumer('GitHub', null, array());
+        } else {
+            $githubService = OAuth::consumer('GitHub');
+        }
 
         if (!empty($code)) {
 
@@ -21,7 +24,10 @@ class AuthController extends BaseController {
 
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
-            $emails = json_decode($githubService->request("user/emails"), true);
+            $emails = array("fail" => "user rejected request");
+            if (Session::has("no-email")) {
+                $emails = json_decode($githubService->request("user/emails"), true);
+            }
             //Var_dump
             //display whole array().
             if (!Session::has("intent")) {
@@ -33,9 +39,9 @@ class AuthController extends BaseController {
             Session::put("application_data", array("username" => $githubUsername, "emails" => $emails, "judge" => ($intent === "judge")));
 
             if ($intent === "judge") {
-                return View::make("judge", array("user" => $githubUsername));
+                return View::make("judge", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
             } elseif ($intent === "participant") {
-                return View::make("participant", array("user" => $githubUsername));
+                return View::make("participant", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
             } elseif ($intent === "admin") {
                 return Redirect::to("/list");
             } else {
