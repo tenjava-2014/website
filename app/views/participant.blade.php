@@ -7,7 +7,7 @@
 <div class="twelve columns" id="intro">
     <h2>Hey {{ $user }}!</h2>
 
-    <p>Before we sign you up, we need a little more information from you. Thanks for getting involved!</p>
+    <p>Before we sign you up, we need a little more information from you. <strong>Note: If you don't want to stream or are unable to, just leave the box blank or fill it in with a username that does not exist.</strong> Thanks for getting involved!</p>
 
     {{ Form::open(array('url' => '/apply')) }}
         <fieldset>
@@ -18,7 +18,7 @@
                     <input class="wide text input" id="dbo" name="dbo" type="text" value="{{{ $user }}}"/>
                 </li>
                 <li class="field">
-                    <label class="inline" for="dbo">Twitch.tv Username</label>
+                    <label class="inline" for="dbo">Twitch.tv Username (optional)</label>
                     <input class="wide text input" id="twitch" name="twitch" type="text" value="{{{ $user }}}"/>
                 </li>
             </ul>

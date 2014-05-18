@@ -32,7 +32,7 @@ class AppController extends BaseController {
                 ),
                 array(
                      'dbo' => 'required|max:255',
-                     'twitch' => 'required|max:255',
+                     'twitch' => 'max:255',
                 )
             );
             if ($validator->fails()) {
@@ -43,7 +43,11 @@ class AppController extends BaseController {
             $app->github_email = json_encode($appData['emails']);
             $app->judge = false;
             $app->dbo_username = Input::get("dbo");
-            $app->twitch_username = Input::get("twitch");
+            if (!Input::has("twitch")) {
+                $app->twitch_username = "USER_REJECTED"; //field not nullable so this will have to do
+            } else {
+                $app->twitch_username = Input::get("twitch");
+            }
             $app->save();
             $this->addUserRepo($appData['username']);
             return View::make("thanks")->with(array("repo" => $appData['username']));
