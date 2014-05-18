@@ -20,7 +20,7 @@ class AppController extends BaseController {
                 return Response::json("No auth.");
             }
         } else {
-            return View::make("app_list")->with(array("apps" => Application::paginate(15)));
+            return View::make("app_list")->with(array("apps" => Application::paginate(5)));
         }
     }
 

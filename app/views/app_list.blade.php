@@ -7,19 +7,40 @@
 <div class="twelve columns" id="intro">
     <h2>App list (restricted)</h2>
 
+    <div class="pagination">{{ $apps->links() }}</div>
+
     @foreach ($apps as $app)
-        <h3>{{{ $app->gh_username }}}</h3>
-        <ul>
-            <li>DBO: {{{ $app->dbo_username }}}</li>
-            <li>MC: {{{ $app->mc_username }}}</li>
-            <li>Emails: {{{ $app->github_email }}}</li>
-            <li>IRC: {{{ $app->irc_username }}}</li>
-            <li>GMail: {{{ $app->gmail }}}</li>
-            <li>Twitch: {{{ $app->twitch_username }}}</li>
-            <li>Judge app: {{{ $app->judge }}}</li>
-        </ul>
+        <h3 style="color: #{{ $app->judge : "0a0" ? "00a" }}">{{{ $app->gh_username }}} <a href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a></h3>
+        <table class="striped rounded">
+            <tbody>
+            <tr>
+                <td>DBO</td>
+                <td>{{{ $app->dbo_username }}}</td>
+            </tr>
+            <tr>
+                <td>MC *</td>
+                <td>{{{ $app->mc_username }}}</td>
+            </tr>
+            <tr>
+                <td>Emails</td>
+                <td>{{{ $app->github_email }}}</td>
+            </tr>
+            <tr>
+                <td>IRC *</td>
+                <td>{{{ $app->irc_username }}}</td>
+            </tr>
+            <tr>
+                <td>GMail *</td>
+                <td>{{{ $app->gmail }}}</td>
+            </tr>
+            <tr>
+                <td>Twitch</td>
+                <td>{{{ $app->twitch_username }}}</td>
+            </tr>
+            </tbody>
+        </table>
     @endforeach
 
-    {{ $apps->links() }}
+    <div class="pagination">{{ $apps->links() }}</div>
 </div>
 @stop
