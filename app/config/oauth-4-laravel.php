@@ -23,7 +23,7 @@ return array(
         'GitHub' => array(
             'client_id'     => '',
             'client_secret' => '',
-            'scope'         => array('user'),
+            'scope'         => array('user:email'),
         ),
 
     )

@@ -30,7 +30,7 @@ class AuthController extends BaseController {
             $githubUsername = $result['login'];
             $intent = Session::get("intent");
 
-            Session::put("application_data", array("username" => $githubUsername, "emails" => array("public" => $result['email'], "others" => $emails), "judge" => ($intent === "judge")));
+            Session::put("application_data", array("username" => $githubUsername, "emails" => $emails, "judge" => ($intent === "judge")));
 
             if ($intent === "judge") {
                 return View::make("judge", array("user" => $githubUsername));
