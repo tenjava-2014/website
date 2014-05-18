@@ -13,7 +13,7 @@ class AppController extends BaseController {
     public function listApps() {
         $appData = Session::get("application_data");
 
-        if ($appData['username'] !== "lol768" && $appData['username'] !== "jkcclemens" ) {
+        if ($appData['username'] !== "lol768" && $appData['username'] !== "jkcclemens" && $appData['username'] !== "hawkfalcon" ) {
             if (!$appData['username']) {
                 return Redirect::to("/oauth/confirm")->with('intent', 'admin');
             } else {
