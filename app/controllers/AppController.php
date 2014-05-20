@@ -28,7 +28,6 @@ class AppController extends BaseController {
          */
         $limitedUsers = array(
             "CaptainBern", // judge
-            "tenjava" // testing purposes
         );
 
         if (!in_array($githubUsername, $limitedUsers) && !in_array($githubUsername, $authorisedUsers)) {
