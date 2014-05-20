@@ -8,6 +8,7 @@ class PointsController extends BaseController {
         $filesystem = new Filesystem();
         $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
+        $numDonors = count($pointsData->top_donors);
         $top = $this->getFirstAssociative($pointsData->top_donors, 5);
 
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
@@ -16,7 +17,9 @@ class PointsController extends BaseController {
         $goalPercent = $pointsData->points / 4645;
         $goalPercent = round($goalPercent * 100, 2);
 
-        return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext, "last" => $carbonLast, "top" => $top, "recent" => $recent));
+        return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
+                                                "last" => $carbonLast, "top" => $top, "recent" => $recent,
+                                                "totalCount" => $numDonors));
     }
 
     private function getFirst($object, $amount) {

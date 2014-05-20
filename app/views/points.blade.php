@@ -9,7 +9,7 @@ Points -
         <p><a href="/"><img id="logo" src="/assets/img/drawing_1.svg"></a></p>
     </div>
     <div class="twelve columns" id="intro">
-        <h2>Points <span class="secondary badge" id="points">{{ $data->points }} total points</span></h2>
+        <h2>Points <span class="secondary badge" id="points">{{ $data->points }} total points from {{ $totalCount }} donors</span></h2>
         @if ($goal < 100)
             <div class="warning alert">Last year we received donations contributing to a total of 4,644 points (or $232.20 USD). This year, we're {{ $goal }}% of the way to beating that total.</div>
         @else
