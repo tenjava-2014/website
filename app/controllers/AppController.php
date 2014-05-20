@@ -30,7 +30,11 @@ class AppController extends BaseController {
     }
 
     public function noEmail() {
-        Session::put("no-email", true);
+        if (Input::has("undo")) {
+            Session::forget("no-email");
+        } else {
+            Session::put("no-email", true);
+        }
         return Redirect::to("/");
     }
 

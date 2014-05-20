@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row" id="content">
         @yield('content')
     </div>
     @yield('scripts')

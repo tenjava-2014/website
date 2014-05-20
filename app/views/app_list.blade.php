@@ -43,7 +43,7 @@ Applicant list -
                 <td>{{{ $app->gmail }}}</td>
             </tr>
             <tr>
-                <td>Twitch</td>
+                <td>Twitch #</td>
                 <td>{{{ $app->twitch_username }}}</td>
             </tr>
             </tbody>
