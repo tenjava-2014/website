@@ -23,7 +23,7 @@ Applicant list -
     <div class="pagination">{{ $apps->appends($append)->links() }}</div>
 
     @foreach ($apps as $app)
-        <h3 style="color: #{{ ($app->judge) ? "0a0" : "00a" }}">{{{ $app->gh_username }}} <a href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a></h3>
+        <h3 style="color: #{{ ($app->judge) ? "0a0" : "00a" }}">{{{ $app->gh_username }}} <a href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a> <a href="http://github.com/{{{ $app->gh_username }}}"><i class="icon-user"></i></a></h3>
         <table class="striped rounded">
             <tbody>
             <tr>
@@ -32,11 +32,11 @@ Applicant list -
             </tr>
             <tr>
                 <td>DBO</td>
-                <td>{{{ $app->dbo_username }}}</td>
+                <td><a href="http://dev.bukkit.org/profiles/{{{ $app->dbo_username }}}">{{{ $app->dbo_username }}}</a></td>
             </tr>
             <tr>
                 <td>MC *</td>
-                <td>{{{ $app->mc_username }}}</td>
+                <td><a href="https://minecraft.net/haspaid.jsp?user={{{ $app->mc_username }}}">{{{ $app->mc_username }}}</a></td>
             </tr>
             @if ($fullAccess)
                 <tr>
