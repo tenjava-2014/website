@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+Page not found -
+@stop
+
 @section('content')
 <div class="three centered columns">
     <p><a href="/"><img id="logo" src="/assets/img/drawing_1.svg"></a></p>
