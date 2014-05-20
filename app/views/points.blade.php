@@ -35,8 +35,8 @@ Points -
 
         <p>Points can be sent by using the <a href="http://store.curseforge.com">CurseForge store</a> and transferring to
             the 'tenjava' user.
-        </p>
-        <a href="http://store.curseforge.com"><img src="/assets/img/points.png" /></a>
+        </p><p>
+        <a href="http://store.curseforge.com"><img src="/assets/img/points.png" /></a></p>
 
         <small>This page is updated automatically. The last update was {{{ $last->diffForHumans() }}} and
             the next update is in {{{ $next->diffForHumans() }}}. Curse and Bukkit are in no way affiliated with this event.</small>
