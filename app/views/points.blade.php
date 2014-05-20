@@ -13,14 +13,18 @@
 
     <h3>Top donors</h3>
     <ul id="topDonations" class="list">
-        @foreach (array_slice($data->top_donors, 0, 5) as $key => $value)
+        <?php $i = 0; ?>
+        @foreach ($data->top_donors as $key => $value)
+            <?php if ($i > 5) { break; } ?>
             <li>{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
 
     <h3>Recent donations</h3>
     <ul id="recentTransactions" class="list">
-        @foreach (array_slice($data->recent_transactions, 0, 5) as $element)
+        <?php $i = 0; ?>
+        @foreach ($data->recent_transactions as $element)
+            <?php if ($i > 5) { break; } ?>
             <li>{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
