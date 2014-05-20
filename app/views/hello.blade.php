@@ -50,5 +50,8 @@
             </div>
         </div>
     </div>
+    <div style="text-align: center" class="ten centered columns">
+        <h3 style="color: #aaa">Total number of signups: {{{ $signups }}}</h3>
+    </div>
 </div>
 @stop
