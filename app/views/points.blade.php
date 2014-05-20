@@ -10,7 +10,11 @@ Points -
     </div>
     <div class="twelve columns" id="intro">
         <h2>Points <span class="secondary badge" id="points">{{ $data->points }} total points</span></h2>
-        <li class="default warning alert">Last year we received donations contributing to a total of 4,644 points (or $232.20 USD). This year, we're {{ $goal }}% of the way to beating that total.</li>
+        @if ($goal < 100)
+            <div class="warning alert">Last year we received donations contributing to a total of 4,644 points (or $232.20 USD). This year, we're {{ $goal }}% of the way to beating that total.</div>
+        @else
+            <div class="secondary alert">We've beaten last year's points total of 4,644 (or $232.20 USD)! This year, we've raised {{ $goal }}% of last year's amount!</div>
+        @endif
         <p>Prizes for the winners of the contest are in the form of CurseForge points which are given out to all developers
             who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with more popular
             projects will receive more points. We rely on point donations to form the contest prize. The more points given,
