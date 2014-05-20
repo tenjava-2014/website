@@ -26,7 +26,8 @@
             If you're unwilling to provide an email at any stage, please click <a href="/no-email">here</a> and then signup
             normally.
         @else
-            You're currently opted out of email sharing. If you wish to opt back in,  please click <a href="/no-email?undo=1">here</a> and then signup
+            You're currently opted out of email sharing. If you wish to opt back in, please click <a
+                href="/no-email?undo=1">here</a> and then signup
             normally.
         @endif
     </p>
@@ -39,15 +40,14 @@
             <div class="medium metro rounded btn primary icon-left entypo icon-users">
                 <a href="/judge">Apply as judge</a>
             </div>
-            <div class="row">
-                <div class="medium metro rounded btn default icon-left entypo icon-twitter">
-                    <a href="https://twitter.com/tenjava">Twitter</a>
-                </div>
-                <div class="medium metro rounded btn default icon-left entypo icon-heart">
-                    <a href="/points">Points leaderboard</a>
-                </div>
+        </div>
+        <div class="row">
+            <div class="medium metro rounded btn default icon-left entypo icon-twitter">
+                <a href="https://twitter.com/tenjava">Twitter</a>
             </div>
-
+            <div class="medium metro rounded btn default icon-left entypo icon-heart">
+                <a href="/points">Points leaderboard</a>
+            </div>
         </div>
     </div>
 </div>

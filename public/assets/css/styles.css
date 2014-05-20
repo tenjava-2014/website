@@ -98,3 +98,6 @@ li.list {
 #buttons {
     text-align: center;
 }
+#buttons .row:last-child {
+    margin-top: 10px;
+}
