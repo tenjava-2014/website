@@ -15,7 +15,7 @@
     <ul id="topDonations" class="list">
         <?php $i = 0; ?>
         @foreach ($data->top_donors as $key => $value)
-            <?php if ($i > 5) { break; } ?>
+            <?php if ($i > 5) { break; } $i++; ?>
             <li>{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
@@ -24,7 +24,7 @@
     <ul id="recentTransactions" class="list">
         <?php $i = 0; ?>
         @foreach ($data->recent_transactions as $element)
-            <?php if ($i > 5) { break; } ?>
+            <?php if ($i > 5) { break; } $i++; ?>
             <li>{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
