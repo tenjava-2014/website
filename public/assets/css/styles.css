@@ -90,3 +90,7 @@ body {
 tr > td:first-child {
     width: 150px;
 }
+
+li.list {
+    list-style: disc inside none;
+}
