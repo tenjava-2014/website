@@ -9,12 +9,14 @@ Points -
         <p><a href="/"><img id="logo" src="/assets/img/drawing_1.svg"></a></p>
     </div>
     <div class="twelve columns" id="intro">
-        <h2>Points <span class="secondary badge" id="points">{{ $data->points}} total points</span></h2>
-
+        <h2>Points <span class="secondary badge" id="points">{{ $data->points }} total points</span></h2>
+        <li class="default warning alert">Last year we received donations contributing to a total of 4,644 points (or $232.20 USD). This year, we're {{ $goal }}% of the way to beating that total.</li>
         <p>Prizes for the winners of the contest are in the form of CurseForge points which are given out to all developers
             who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with more popular
             projects will receive more points. We rely on point donations to form the contest prize. The more points given,
             the more we can give out to the winning developers.</p>
+
+
 
         <h3>Top donors</h3>
         <ul id="topDonations" class="list">

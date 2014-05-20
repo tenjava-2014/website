@@ -12,7 +12,11 @@ class PointsController extends BaseController {
 
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
         $carbonNext = Carbon::createFromTimestamp($pointsData->next_update);
-        return View::make("points")->with(array("data" => $pointsData, "next" => $carbonNext, "last" => $carbonLast, "top" => $top, "recent" => $recent));
+
+        $goalPercent = $pointsData->points / 4645;
+        $goalPercent = round($goalPercent * 100, 2);
+
+        return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext, "last" => $carbonLast, "top" => $top, "recent" => $recent));
     }
 
     private function getFirst($object, $amount) {
