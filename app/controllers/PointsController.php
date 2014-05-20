@@ -8,7 +8,7 @@ class PointsController extends BaseController {
         $filesystem = new Filesystem();
         $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
-        $top = $this->getFirst($pointsData->top_donors, 5);
+        $top = $this->getFirstAssociative($pointsData->top_donors, 5);
 
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
         $carbonNext = Carbon::createFromTimestamp($pointsData->next_update);
@@ -24,6 +24,19 @@ class PointsController extends BaseController {
                 break;
             }
             $new[] = $obj;
+        }
+        return $new;
+    }
+
+    private function getFirstAssociative($object, $amount) {
+        $i = 0;
+        $new = [];
+        foreach ($object as $obj => $value) {
+            $i++;
+            if ($i > $amount) {
+                break;
+            }
+            $new[$obj] = $value;
         }
         return $new;
     }
