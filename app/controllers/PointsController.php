@@ -8,7 +8,7 @@ class PointsController extends BaseController {
         $filesystem = new Filesystem();
         $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
-        $numDonors = count($pointsData->top_donors);
+        $numDonors = count(get_object_vars(($pointsData->top_donors)));
         $top = $this->getFirstAssociative($pointsData->top_donors, 5);
 
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
