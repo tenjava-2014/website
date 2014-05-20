@@ -12,20 +12,53 @@ class AppController extends BaseController {
 
     public function listApps() {
         $appData = Session::get("application_data");
+        $githubUsername = $appData['username'];
 
-        if ($appData['username'] !== "lol768" && $appData['username'] !== "jkcclemens" && $appData['username'] !== "hawkfalcon" ) {
-            if (!$appData['username']) {
+        /**
+         * These users can see contact information if the applicant chose to disclose it to us.
+         */
+        $authorisedUsers = array(
+            "lol768", // organiser
+            "jkcclemens", // organiser
+            "hawkfalcon" // organiser
+        );
+
+        /**
+         * These users (typically judges) can see IRC/twitch/DBO usernames but cannot see emails.
+         */
+        $limitedUsers = array(
+            "CaptainBern", // judge
+            "tenjava" // testing purposes
+        );
+
+        if (!in_array($githubUsername, $authorisedUsers + $limitedUsers)) {
+            if (!$githubUsername) {
                 return Redirect::to("/oauth/confirm")->with('intent', 'admin');
             } else {
                 return Response::json("No auth.");
             }
         } else {
-            if (Input::has("judges")) {
-                return View::make("app_list")->with(array("append" => array("judges" => "1"), "apps" => Application::where('judge', true)->paginate(5)));
-            } else if (Input::has("normal")) {
-                return View::make("app_list")->with(array("append" => array("normal" => "1"), "apps" => Application::where('judge', false)->paginate(5)));
+            $viewData = array(
+                "append" => array(),
+                "apps" => null,
+                "fullAccess" => false
+            );
+
+            if (in_array($githubUsername, $authorisedUsers)) {
+                $viewData["fullAccess"] = true;
             }
-            return View::make("app_list")->with(array("append" => array(), "apps" => Application::paginate(5)));
+
+            if (Input::has("judges")) {
+                $viewData['apps'] = Application::where('judge', true)->paginate(5);
+                $viewData['append'] = array("judges" => "1");
+            } else if (Input::has("normal")) {
+                $viewData['apps'] = Application::where('judge', false)->paginate(5);
+                $viewData['append'] = array("normal" => "1");
+            } else {
+                $viewData['apps'] = Application::paginate(5);
+            }
+
+            return View::make("app_list")->with($viewData);
         }
     }
 

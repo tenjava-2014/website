@@ -10,7 +10,15 @@ Applicant list -
 </div>
 <div class="twelve columns" id="intro">
     <h2>App list ({{{ $apps->getTotal() }}} applications)</h2>
-    <p>Filter: <a href="?judges=1">judge apps</a> <a href="?normal=1">participant apps</a> <a href="/list">all apps</a></p>
+    <div class="warning alert">This page is restricted.
+    @if ($fullAccess)
+        You currently have full access to all user data. You <strong>must not</strong> share this data with anyone (unless they too have this access).
+    @else
+        You currently have limited access to the information on this page. You <strong>must not</strong> share this data with anyone (unless they too have this access).
+    @endif
+    </div>
+
+    <p>Filter: <a href="?judges=1">judge apps</a>, <a href="?normal=1">participant apps</a>, <a href="/list">all apps</a></p>
 
     <div class="pagination">{{ $apps->appends($append)->links() }}</div>
 
@@ -30,18 +38,22 @@ Applicant list -
                 <td>MC *</td>
                 <td>{{{ $app->mc_username }}}</td>
             </tr>
-            <tr>
-                <td>Emails</td>
-                <td>{{{ $app->github_email }}}</td>
-            </tr>
+            @if ($fullAccess)
+                <tr>
+                    <td>Emails</td>
+                    <td>{{{ $app->github_email }}}</td>
+                </tr>
+            @endif
             <tr>
                 <td>IRC *</td>
                 <td>{{{ $app->irc_username }}}</td>
             </tr>
-            <tr>
-                <td>GMail *</td>
-                <td>{{{ $app->gmail }}}</td>
-            </tr>
+            @if ($fullAccess)
+                <tr>
+                    <td>GMail *</td>
+                    <td>{{{ $app->gmail }}}</td>
+                </tr>
+            @endif
             <tr>
                 <td>Twitch #</td>
                 <td>{{{ $app->twitch_username }}}</td>
