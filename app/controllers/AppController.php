@@ -25,7 +25,7 @@ class AppController extends BaseController {
             } else if (Input::has("normal")) {
                 return View::make("app_list")->with(array("append" => array("normal" => "1"), "apps" => Application::where('judge', false)->paginate(5)));
             }
-            return View::make("app_list")->with(array("apps" => Application::paginate(5)));
+            return View::make("app_list")->with(array("append" => array(), "apps" => Application::paginate(5)));
         }
     }
 
