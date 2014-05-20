@@ -14,14 +14,14 @@
     <h3>Top donors</h3>
     <ul id="topDonations" class="list">
         @foreach ($top as $key => $value)
-            <li data-i="{{ $i }}">{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
+            <li>{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
 
     <h3>Recent donations</h3>
     <ul id="recentTransactions" class="list">
         @foreach ($recent as $element)
-            <li data-i="{{ $i }}">{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span></li>
+            <li>{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span></li>
         @endforeach
     </ul>
 
