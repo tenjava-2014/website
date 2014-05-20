@@ -31,7 +31,7 @@ class AppController extends BaseController {
             "tenjava" // testing purposes
         );
 
-        if (!in_array($githubUsername, $authorisedUsers + $limitedUsers)) {
+        if (!in_array($githubUsername, $limitedUsers) && !in_array($githubUsername, $authorisedUsers)) {
             if (!$githubUsername) {
                 return Redirect::to("/oauth/confirm")->with('intent', 'admin');
             } else {
