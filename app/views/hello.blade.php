@@ -44,7 +44,9 @@
         <div class="row">
             <div class="medium metro rounded btn default icon-left entypo icon-twitter">
                 <a href="https://twitter.com/tenjava">Twitter</a>
-            </div>
+            </div> <div class="medium metro rounded btn default icon-left entypo icon-github">
+<a href="https://github.com/tenjava">GitHub</a>
+</div>
             <div class="medium metro rounded btn default icon-left entypo icon-heart">
                 <a href="/points">Points leaderboard</a>
             </div>
