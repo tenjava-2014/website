@@ -16,6 +16,7 @@ class ApiController extends BaseController {
     }
 
     public function getSessionData() {
+        dd(json_encode(Input::all()));
         return Response::json(Session::all());
     }
 
