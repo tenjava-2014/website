@@ -16,7 +16,7 @@ class SwitchToText extends Migration {
         });
 
         Schema::table('applications', function (Blueprint $table) {
-            $table->text("github_email");
+            $table->text("github_email")->default("unknown");
         });
     }
 
@@ -31,7 +31,7 @@ class SwitchToText extends Migration {
         });
 
         Schema::table('applications', function (Blueprint $table) {
-            $table->string("github_email");
+            $table->string("github_email")->default("unknown");
         });
     }
 

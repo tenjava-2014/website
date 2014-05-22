@@ -7,7 +7,9 @@
 		"laravel/framework": "4.1.*",
 		"artdarek/oauth-4-laravel": "dev-master",
         "guzzlehttp/guzzle": "~4.0",
-        "knplabs/github-api": "*"
+        "knplabs/github-api": "*",
+        "barryvdh/laravel-ide-helper": "1.*",
+        "doctrine/dbal": "v2.4.2"
 	},
 	"autoload": {
 		"classmap": [

@@ -7,6 +7,9 @@ class AuthController extends BaseController {
         // get data from input
         Session::reflash();
         $code = Input::get('code');
+        if (Input::has("error")) {
+            return Redirect::to("/");
+        }
         if (Session::has("no-email")) { // User doesn't want to give us access to any emails
             $githubService = OAuth::consumer('GitHub', null, array());
         } else {

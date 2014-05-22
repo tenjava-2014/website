@@ -19,3 +19,6 @@ Route::post('/apply', 'AppController@processApplication');
 Route::get('/list', 'AppController@listApps');
 Route::get('/no-email', 'AppController@noEmail');
 Route::get('/points', 'PointsController@showLeaderboard');
+
+Route::get('/api/participants', 'ApiController@getParticipants');
+Route::get('/api/points', 'ApiController@getPoints');
