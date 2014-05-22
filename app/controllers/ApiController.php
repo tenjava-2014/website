@@ -15,4 +15,8 @@ class ApiController extends BaseController {
         return $jsonResponse;
     }
 
+    public function getSessionData() {
+        return Response::json(Session::all());
+    }
+
 } 
