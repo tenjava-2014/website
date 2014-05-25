@@ -58,6 +58,12 @@ Applicant list -
                 <td>Twitch #</td>
                 <td>{{{ $app->twitch_username }}}</td>
             </tr>
+            @if ($fullAccess && $app->judge)
+                <tr>
+                    <td>Actions</td>
+                    <td><a href="/decline/{{{ $app->id }}}">Decline</a></td>
+                </tr>
+            @endif
             </tbody>
         </table>
     @endforeach

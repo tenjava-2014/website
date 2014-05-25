@@ -1,6 +1,33 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
+
 class AppController extends BaseController {
+    /**
+     * @return array
+     */
+    public static function getLimitedUsers() {
+        $limitedUsers = array(
+            "CaptainBern", // judge
+            "MasterEjay", // judge
+            "aerouk", // judge
+            "lDucks", // judge
+            "ttaylorr" // judge
+        );
+        return $limitedUsers;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getAuthorisedUsers() {
+        $authorisedUsers = array(
+            "lol768", // organiser
+            "jkcclemens", // organiser
+            "hawkfalcon" // organiser
+        );
+        return $authorisedUsers;
+    }
 
     public function applyJudge() {
         return Redirect::to("/oauth/confirm")->with('intent', 'judge');
@@ -10,6 +37,34 @@ class AppController extends BaseController {
         return Redirect::to("/oauth/confirm")->with('intent', 'participant');
     }
 
+    public function declineJudgeApp($id) {
+        $appData = Session::get("application_data");
+        $githubUsername = $appData['username'];
+
+        /**
+         * These users can see contact information if the applicant chose to disclose it to us.
+         */
+        $authorisedUsers = self::getAuthorisedUsers();
+
+        if (!in_array($githubUsername, $authorisedUsers)) {
+            if (!$githubUsername) {
+                return Redirect::to("/oauth/confirm")->with('intent', 'admin');
+            } else {
+                return Response::json("No auth.");
+            }
+        } else {
+            $app = Application::findOrFail($id);
+            $username = $app->gh_username;
+            $gmail = $app->gmail;
+            Mail::queue('emails.judge.decline', array("user" => $username), function($message) use ($gmail) {
+                $message->from('no-reply@tenjava.com', 'ten.java team');
+                $message->to($gmail)->subject('Your recent judge application');
+            });
+            $app->delete();
+            return Redirect::back();
+        }
+    }
+
     public function listApps() {
         $appData = Session::get("application_data");
         $githubUsername = $appData['username'];
@@ -17,22 +72,12 @@ class AppController extends BaseController {
         /**
          * These users can see contact information if the applicant chose to disclose it to us.
          */
-        $authorisedUsers = array(
-            "lol768", // organiser
-            "jkcclemens", // organiser
-            "hawkfalcon" // organiser
-        );
+        $authorisedUsers = self::getAuthorisedUsers();
 
         /**
          * These users (typically judges) can see IRC/twitch/DBO usernames but cannot see emails.
          */
-        $limitedUsers = array(
-            "CaptainBern", // judge
-            "MasterEjay", // judge
-            "aerouk", // judge
-            "lDucks", // judge
-            "ttaylorr" // judge
-        );
+        $limitedUsers = self::getLimitedUsers();
 
         if (!in_array($githubUsername, $limitedUsers) && !in_array($githubUsername, $authorisedUsers)) {
             if (!$githubUsername) {
