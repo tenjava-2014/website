@@ -57,7 +57,7 @@ class AppController extends BaseController {
             $username = $app->gh_username;
             $gmail = $app->gmail;
             Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function($message) use ($gmail) {
-                $message->from('no-reply@tenjava.com', 'ten.java team');
+                $message->from('no-reply@tenjava.com', 'ten.java Team');
                 $message->to($gmail)->subject('Your recent judge application');
             });
             $app->delete();
