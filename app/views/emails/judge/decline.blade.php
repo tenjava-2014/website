@@ -1,4 +1,4 @@
-Hi there, {{{ $user }}.
+Hi there, {{{ $user }}}.
 
 Thank you for your recent judge application. After carefully considering all of the candidates, we have made the decision to not accept your application at this time. Please don’t take this as anything personal; we have to ensure the number of judges involved does not become unmanageable for the organizational staff, so there is a limit to the number of people we can take on right now.
 
