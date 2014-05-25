@@ -12,7 +12,8 @@ class AppController extends BaseController {
             "MasterEjay", // judge
             "aerouk", // judge
             "lDucks", // judge
-            "ttaylorr" // judge
+            "ttaylorr", // judge
+            "njb-said", // judge
         );
         return $limitedUsers;
     }
