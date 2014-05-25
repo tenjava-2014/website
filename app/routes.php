@@ -24,5 +24,4 @@ Route::get('/points', 'PointsController@showLeaderboard');
 
 Route::get('/api/participants', 'ApiController@getParticipants');
 Route::get('/api/points', 'ApiController@getPoints');
-
 Route::get('/api/session', 'ApiController@getSessionData');
