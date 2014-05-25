@@ -56,7 +56,7 @@ class AppController extends BaseController {
             $app = Application::findOrFail($id);
             $username = $app->gh_username;
             $gmail = $app->gmail;
-            Mail::queue('emails.judge.decline', array("user" => $username), function($message) use ($gmail) {
+            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function($message) use ($gmail) {
                 $message->from('no-reply@tenjava.com', 'ten.java team');
                 $message->to($gmail)->subject('Your recent judge application');
             });
@@ -111,10 +111,6 @@ class AppController extends BaseController {
     }
 
     public function noEmail() {
-        Queue::push(function($job)
-        {
-            Log::info("Testing queue");
-        });
         if (Input::has("undo")) {
             Session::forget("no-email");
         } else {
