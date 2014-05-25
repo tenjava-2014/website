@@ -38,7 +38,9 @@ class RepoCleanupCommand extends Command {
         $list = Application::where("judge", false)->get();
         $apiClient = $this->getApiClient();
         foreach ($list as $entry) {
-            $this->info($entry->gh_username);
+            $this->comment("Deleting " . $entry->gh_username);
+            $apiClient->remove("tenjava", $entry->gh_username);
+            $this->info("Removed " . $entry->gh_username . "!");
         }
     }
 
