@@ -184,10 +184,10 @@ class AppController extends BaseController {
     }
 
     public function addUserRepo($username) {
-        $client = new \Github\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
-        $repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
-        $client->api('repo')->collaborators()->add("tenjava", $username, $username);
+        //$client = new \Github\Client();
+        //$client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
+        //$repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
+        //$client->api('repo')->collaborators()->add("tenjava", $username, $username);
     }
 
 } 
