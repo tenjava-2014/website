@@ -11,6 +11,8 @@ Applicant -
 </div>
 <div class="twelve columns" id="intro">
     <h2>Hey {{ $user }}!</h2>
+    
+    <div class="alert warning"><strong>Important!</strong> We're unlikely to accept applications from people with no BukkitDev plugins or plugin-related GitHub repositories. We need to know that you'll be able to assess code quality, so it's vital we have something to show us you know how to use Java and are somewhat familiar with the Bukkit API.</div>
 
     <p>Before we sign you up, we need a little more information from you. Thanks for getting involved!</p>
 
