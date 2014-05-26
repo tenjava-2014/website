@@ -12,7 +12,7 @@ Thanks -
 <div class="twelve columns" id="intro">
     <p>Thanks, your application has been received.</p>
     @if(isset($repo))
-        <p>As you've applied to be a participant, we've made you a repository <a href="http://github.com/tenjava/{{{ $repo }}}">here</a>. Feel free to commit a README with a link to your stream URL, forums profile etc but please <strong>don't write any code until the starting time</strong>.</p>
+        <p>As you've applied to be a participant, we'll make you a repository soon. You'll be able to select a timeslot soon too.</p>
     @else
         <p>As you've applied to be a judge, we'll contact you soon if your application was successful.</p>
     @endif
