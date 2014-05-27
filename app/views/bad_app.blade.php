@@ -8,7 +8,7 @@
     <h2>Error</h2>
 
     <p>Your application was rejected. The errors were:</p>
-    <ul>
+    <ul class="list">
         @foreach($messages->all('<li>:message</li>') as $message)
             {{ $message }}
         @endforeach

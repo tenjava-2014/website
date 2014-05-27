@@ -175,6 +175,8 @@ class AppController extends BaseController {
                 ),
                 array(
                      'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
+                     'mc.max' => 'Invalid Minecraft username specified.',
+                     'mc.required' => 'No Minecraft username specified.',
                 )
             );
             if ($validator->fails()) {
