@@ -155,18 +155,26 @@ class AppController extends BaseController {
             $this->addUserRepo($appData['username']);
             return View::make("thanks")->with(array("repo" => $appData['username']));
         } else {
+            $client = $this->getUserApiClient();
+            $numRepos = count($client->repositories($appData['username']));
+            $githubTest = ($numRepos != 0);
             $validator = Validator::make(
                 array(
                      'dbo' => Input::get("dbo"),
                      'mc' => Input::get("mcign"),
                      'gmail' => Input::get("gdocs"),
-                     'irc'   => Input::get("irc")
+                     'irc'   => Input::get("irc"),
+                     'githubAcceptable' => ($githubTest) ? "OK" : ""
                 ),
                 array(
                      'dbo' => 'required|max:255',
                      'mc' => 'required|max:16',
                      'irc' => 'required|max:255',
-                     'gmail' => 'required|email|max:255'
+                     'gmail' => 'required|email|max:255',
+                     'githubAcceptable' => 'required'
+                ),
+                array(
+                     'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
                 )
             );
             if ($validator->fails()) {
@@ -190,6 +198,15 @@ class AppController extends BaseController {
         //$client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
         //$repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
         //$client->api('repo')->collaborators()->add("tenjava", $username, $username);
+    }
+
+    /**
+     * @return \Github\Api\User
+     */
+    public function getUserApiClient() {
+        $client = new \Github\Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
+        return $client->api("user");
     }
 
 } 
