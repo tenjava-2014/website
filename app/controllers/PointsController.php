@@ -14,7 +14,7 @@ class PointsController extends BaseController {
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
         $carbonNext = Carbon::createFromTimestamp($pointsData->next_update);
 
-        $goalPercent = $pointsData->points / 4645;
+        $goalPercent = $pointsData->points / 4644;
         $goalPercent = round($goalPercent * 100, 2);
 
         return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
