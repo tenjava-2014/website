@@ -12,9 +12,6 @@
         "doctrine/dbal": "v2.4.2",
         "pda/pheanstalk": "2.0.*"
     },
-    "require-dev": {
-        "way/guard-laravel": "dev-master"
-    },
     "autoload": {
         "classmap": [
             "app/commands",
