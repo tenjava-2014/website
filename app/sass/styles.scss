@@ -57,6 +57,7 @@ ul.social-media {
   list-style: none;
   margin: 1em 0;
   padding: 0;
+  float: right;
 
   li {
     display: inline;
@@ -144,7 +145,7 @@ nav {
       display: list-item !important;
 
       &+li {
-        margin: 12px 0 0 0;
+        margin: 12px 0 0 0 !important;
         padding: 0;
       }
 
@@ -161,6 +162,15 @@ nav {
 
   footer, .push {
     height: 120px;
+  }
+
+  ul.social-media {
+    text-align: center;
+    float: none !important;
+  }
+
+  #header {
+    padding: 40px 0 !important;
   }
 }
 

@@ -31,7 +31,7 @@
 				ten.java (competition and website) is not affiliated with Bukkit, Curse, or Mojang in any way.</p>
 		</div>
 		<div class="grid-20">
-			<ul class="social-media pull-right">
+			<ul class="social-media">
 				<li><a href="mailto:contact@tenjava.com"><i class="fa fa-2x fa-envelope-square"></i></a></li>
 				<li><a  title="" target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
 				<li><a  target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-twitter-square"></i></a></li>
