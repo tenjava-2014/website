@@ -84,3 +84,16 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The View Composers File
+|--------------------------------------------------------------------------
+|
+| Next we will load the view composers file for the application. This
+| gives us a central location in which we specify which views receive
+| which additional information.
+|
+*/
+
+require app_path().'/view_composers.php';
