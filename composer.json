@@ -10,7 +10,8 @@
         "knplabs/github-api": "*",
         "barryvdh/laravel-ide-helper": "1.*",
         "doctrine/dbal": "v2.4.2",
-        "pda/pheanstalk": "2.0.*"
+        "pda/pheanstalk": "2.0.*",
+        "thujohn/twitter": "dev-master"
     },
     "autoload": {
         "classmap": [
