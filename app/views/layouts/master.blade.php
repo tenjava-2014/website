@@ -11,22 +11,7 @@
 </head>
 <body>
 <div id="wrapper">
-	<nav>
-		<div class="grid-container">
-			<div class="grid-30 brand">
-				<a href="#"><img src="https://cdn.mediacru.sh/PghQ0cj1j2YI.svg" height="50px" border="0" /></a>
-			</div>
-			<div class="grid-70">
-				<ul class="nav-links">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Signup</a></li>
-					<li><a href="#">Points</a></li>
-					<li><a href="#">Judges</a></li>
-					<li><a href="#">About</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	@include('partials.nav')
 	<div id="point-ticker">
 		<div class="grid-container">
 			<div class="grid-20 tablet-grid-20">Latest Donation: <span>alkarinv (2500)</span></div>
