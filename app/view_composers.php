@@ -1,2 +1,2 @@
 <?php
- 
+View::composer('*', 'GlobalComposer');
