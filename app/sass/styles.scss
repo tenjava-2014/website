@@ -128,7 +128,17 @@ nav {
   }
 }
 
-@media screen and (max-width: 950px) and (min-width: 758px) {
+@media (max-width: 758px) {
+  #wrapper {
+    margin: 0 auto -120px;
+  }
+
+  footer, .push {
+    height: 120px;
+  }
+}
+
+@media (max-width: 950px) {
   .brand {
     text-align: center;
   }
@@ -153,16 +163,6 @@ nav {
         font-size: 16px;
       }
     }
-  }
-}
-
-@media screen and (max-width: 758px) {
-  #wrapper {
-    margin: 0 auto -120px;
-  }
-
-  footer, .push {
-    height: 120px;
   }
 }
 
