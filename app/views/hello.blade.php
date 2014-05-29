@@ -3,8 +3,8 @@
 <div id="header">
 	<div class="grid-container">
 		<div class="grid-100 text-center">
-			Occaecat illustriora ea graviterque
-		</div>
+            Unofficial 10 hour Bukkit plugin contest.
+        </div>
 	</div>
 </div>
 <div class="content-back">
