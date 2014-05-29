@@ -128,7 +128,7 @@ nav {
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .brand {
     text-align: center;
   }
@@ -140,8 +140,8 @@ nav {
 
     li {
       width: 100%;
-      text-align: left;
-      display: list-item;
+      text-align: left !important;
+      display: list-item !important;
 
       &+li {
         margin: 12px 0 0 0;
@@ -149,8 +149,8 @@ nav {
       }
 
       a {
-        padding: 5px;
-        font-size: 16px;
+        padding: 5px !important;
+        font-size: 16px !important;
       }
     }
   }
