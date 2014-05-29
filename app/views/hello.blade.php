@@ -42,7 +42,7 @@
 			</p>
 			<p>
 				<a href="#" class="button button-block button-flat-highlight">Make a Donation</a>
-				<span class="text-light">We've raised 10000 points! That's a whopping $500!</span>
+				<span class="text-light">We've raised {{ $pointsData->points }} points! That's a whopping ${{ ($pointsData->points * 0.05) }}!</span>
 			</p>
 		</div>
 	</div>
