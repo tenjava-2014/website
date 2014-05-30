@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Mail;
 class AppController extends BaseController {
 
     public function  __construct() {
+        parent::__construct();
         $this->beforeFilter('AuthenticationFilter');
     }
 
@@ -38,11 +39,11 @@ class AppController extends BaseController {
     }
 
     public function applyJudge() {
-        return View::make("pages.forms.judge", array());
+        return View::make("pages.forms.judge");
     }
 
     public function applyParticipant() {
-        return View::make("pages.forms.participant", array());
+        return View::make("pages.forms.participant");
     }
 
     public function declineJudgeApp($id) {
