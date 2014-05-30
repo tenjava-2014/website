@@ -6,6 +6,7 @@ use Thujohn\Twitter\Twitter;
 class GlobalComposer {
 
     public function compose($view) {
+        echo "Composed!";
         $fs = new Filesystem();
         $appsCount = Application::where("judge", false)->count();
         $latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
