@@ -183,6 +183,11 @@ nav {
   #header {
     padding: 40px 0 !important;
   }
+
+  nav ul, nav li, nav a {
+    display: block;
+    width: 100%;
+  }
 }
 
 #point-ticker {
