@@ -4,18 +4,23 @@ use Illuminate\Filesystem\Filesystem;
 use Thujohn\Twitter\Twitter;
 
 class GlobalComposer {
-    private $count;
+    private $appsCount;
+    private $latestAppName;
+    private $tweets;
+    private $points;
+
+    public function __construct() {
+        $fs = new Filesystem();
+        $this->points = json_decode($fs->get(public_path("assets/data.json")));
+        $this->appsCount = Application::where("judge", false)->count();
+        $this->latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
+        $this->tweets = Cache::get("tweets");
+    }
 
     public function compose($view) {
-        $this->count++;
-        echo "Composed " . $this->count;
-        $fs = new Filesystem();
-        $appsCount = Application::where("judge", false)->count();
-        $latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
-	    $twitter = Cache::get("tweets");
-        $view->with('pointsData', json_decode($fs->get(public_path("assets/data.json"))));
-        $view->with('appsData', (object) ["count" => $appsCount, "latestUsername" => $latestAppName]);
-	    $view->with('lastTweet', $twitter);
+        $view->with('pointsData', $this->points);
+        $view->with('appsData', (object) ["count" => $this->appsCount, "latestUsername" => $this->latestAppName]);
+	    $view->with('lastTweet', $this->twitter);
     }
 
 }
