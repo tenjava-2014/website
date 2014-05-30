@@ -21,7 +21,7 @@ Route::group(array(), function () {
     Route::get('/privacy', 'PrivacyController@showPrivacyInfo');
     Route::get('/oauth/refusal', 'AuthController@showRefusal');
     Route::get('/oauth/confirm', 'AuthController@loginWithGitHub');
-    Route::get('/no-email', 'AppController@noEmail');
+    Route::get('/toggle-optout', 'AuthController@toggleOptout');
 });
 
 /* API - NO AUTH REQUIRED */

@@ -3,18 +3,21 @@
 use OAuth\Common\Http\Exception\TokenResponseException;
 
 class AuthController extends BaseController {
+
+    public function __construct(EmailOptOutInterface $optOut) {
+        parent::__construct();
+        $this->optOut = $optOut;
+    }
+
     public function loginWithGitHub() {
-        // get data from input
-        Session::reflash();
+
+        Session::reflash(); // pass data on for after POST back from GH
         $code = Input::get('code');
         if (Input::has("error")) {
-            return Redirect::to("/");
+            $this->throwOauthError();
         }
-        if (Session::has("no-email")) { // User doesn't want to give us access to any emails
-            $githubService = OAuth::consumer('GitHub', null, array());
-        } else {
-            $githubService = OAuth::consumer('GitHub');
-        }
+
+        $githubService = $this->getOauthConsumer(!$this->optOut->isOptedIn());
 
         if (!empty($code)) {
 
@@ -22,13 +25,13 @@ class AuthController extends BaseController {
             try {
                 $token = $githubService->requestAccessToken($code);
             } catch (TokenResponseException $e) {
-                return Redirect::to("/oauth/refusal");
+                $this->throwOauthError();
             }
 
             // Send a request with it
             $result = json_decode($githubService->request('user'), true);
             $emails = array("fail" => "user rejected request");
-            if (!Session::has("no-email")) {
+            if ($this->optOut->isOptedIn()) {
                 $emails = json_decode($githubService->request("user/emails"), true);
             }
             $githubUsername = $result['login'];
@@ -46,6 +49,26 @@ class AuthController extends BaseController {
 
     public function showRefusal() {
         return View::make("pages.auth.refusal");
+    }
+
+    private function throwOauthError() {
+        throw new FailedOauthException();
+    }
+
+    public function toggleOptOut() {
+
+    }
+
+    /**
+     * @param boolean $optOut If the user opts-out of email sharing.
+     * @return OAuth\OAuth2\Service\GitHub
+     */
+    private function getOauthConsumer($optOut) {
+        if ($optOut) {
+            return OAuth::consumer('GitHub', null, array());
+        } else {
+            return OAuth::consumer('GitHub');
+        }
     }
 
 } 

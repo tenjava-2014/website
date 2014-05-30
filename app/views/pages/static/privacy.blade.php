@@ -23,7 +23,7 @@
                 optionally, a twitch username. By providing this data you agree to allow us to make it publicly
                 available on the website, twitter page or otherwise. If you choose to stream, you agree to allow us to
                 display
-                thumbnail and channel status on the site. We do not require participants to provide a twitch
+                thumbnails and channel status on the site. We do not require participants to provide a twitch
                 username.</p>
 
             <p>We ask judges to provide an IRC nick, GMail address and Minecraft username. This is in addition to a
