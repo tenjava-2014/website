@@ -7,7 +7,6 @@ class StaffFilter {
     }
 
     public function filter() {
-        die($this->auth->getUsername());
         if (!$this->auth->isLoggedIn()) {
             return Redirect::to("/oauth/confirm");
         } else if (!$this->auth->isStaff()) {
