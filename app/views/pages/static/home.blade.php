@@ -28,12 +28,12 @@
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
             <p>
                 <a href="/register/participant" class="button button-large button-block button-flat-action">Register as Participant</a>
-                <span class="text-light">There are currently 123 participants</span>
+                <span class="text-light">There are currently {{ $appsData->count }} participants</span>
             </p>
 
             <p>
                 <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
-                <span class="text-light">There are currently 10 judges</span>
+                <span class="text-light">There are currently {{ $appsData->judgeCount }} judges</span>
             </p>
 
             <p>
