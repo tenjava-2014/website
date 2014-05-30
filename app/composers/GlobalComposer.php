@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
-use Thujohn\Twitter\Twitter;
 
 class GlobalComposer {
     private $appsCount;
