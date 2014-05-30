@@ -8,4 +8,12 @@ class GitHubEmailOptOut implements EmailOptOutInterface {
     public function isOptedIn() {
         return (!Session::has("opt-out"));
     }
-} 
+
+    public function setIsOptedIn($optedIn) {
+        if ($optedIn) {
+            Session::forget("opt-out");
+        } else {
+            Session::put("opt-out", true);
+        }
+    }
+}
