@@ -39,7 +39,7 @@ Route::group(array('before' => 'StaffFilter'), function () {
 });
 
 /* ORGANIZERS ONLY */
-Route::group(array('before' => 'StaffFilter'), function () {
+Route::group(array('before' => 'AdminFilter'), function () {
     Route::get('/decline/{id}', 'AppController@declineJudgeApp');
 });
 
