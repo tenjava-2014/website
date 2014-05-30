@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>ten.java 2014!</title>
+	<title>{{{ $titleAdd }}}</title>
 	<link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
 	<link href="/assets/css/grid.css" rel="stylesheet" />
 	<link href="/assets/css/styles.css" rel="stylesheet" />
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <meta name="description" content="Ten hour Bukkit plugin development contest." />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 </head>
 <body>
@@ -33,9 +34,10 @@
 		<div class="grid-20">
 			<ul class="social-media">
 				<li><a href="mailto:contact@tenjava.com"><i class="fa fa-2x fa-envelope-square"></i></a></li>
-				<li><a  title="" target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
-				<li><a  target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-twitter-square"></i></a></li>
-			</ul>
+				<li><a title="" target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
+				<li><a target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-twitter-square"></i></a></li>
+                <li><a target="_blank" href="http://forums.bukkit.org/threads/269253/"><i class="fa fa-2x fa-comments"></i></a></li>
+            </ul>
 		</div>
 	</div>
 </footer>

@@ -4,41 +4,55 @@ use Tools\UI\NavigationItem;
 
 class BaseController extends Controller {
 
-	private static $activeNavTitle = null;
+    private static $activeNavTitle = null;
+    private $pageTitle = "";
+    const BASE_TITLE = "ten.java 2014";
 
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+    /**
+     * Setup the layout used by the controller.
+     *
+     * @return void
+     */
+    protected function setupLayout() {
+        if (!is_null($this->layout)) {
+            $this->layout = View::make($this->layout);
+        }
+    }
 
-	public static function getNavigation(){
+    public static function getNavigation() {
 
-		$navigation['primary'] = array(
-			new NavigationItem("Home", "/"),
-			new NavigationItem("Signup", "/signup"),
-			new NavigationItem("Points", "/points"),
-			new NavigationItem("Judges", "/judges"),
-			new NavigationItem("About", "/about"),
-		);
+        $navigation['primary'] = array(
+            new NavigationItem("Home", "/"),
+            new NavigationItem("Signup", "/signup"),
+            new NavigationItem("Points", "/points"),
+            new NavigationItem("Judges", "/judges"),
+            new NavigationItem("About", "/about"),
+        );
 
-		foreach($navigation['primary'] as $navItem){
-			if(starts_with($navItem->getTitle(), self::$activeNavTitle)){
-				$navItem->setActive();
-			}
-		}
+        foreach ($navigation['primary'] as $navItem) {
+            if (starts_with($navItem->getTitle(), self::$activeNavTitle)) {
+                $navItem->setActive();
+            }
+        }
 
-		return $navigation;
-	}
+        return $navigation;
+    }
 
-	public static function setActive($title) {
-		self::$activeNavTitle = $title;
-	}
+    /**
+     * @param string $pageTitle
+     */
+    public function setPageTitle($pageTitle) {
+        $this->pageTitle = $pageTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPageTitle() {
+        return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
+    }
+
+    public static function setActive($title) {
+        self::$activeNavTitle = $title;
+    }
 }
