@@ -9,8 +9,8 @@ class GlobalComposer {
     private $points;
     private $judgeCount;
 
-    public function __construct(EmailOptOutInterface $optOut) {
-        $this->optOut = $optOut;
+    public function __construct() {
+        $this->optOut = App::make("EmailOptOutInterface");
         $fs = new Filesystem();
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
         $this->appsCount = Application::where("judge", false)->count();
