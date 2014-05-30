@@ -4,8 +4,11 @@ use Illuminate\Filesystem\Filesystem;
 use Thujohn\Twitter\Twitter;
 
 class GlobalComposer {
+    private $count;
 
     public function compose($view) {
+        $this->count++;
+        echo "Composed " . $this->count;
         $fs = new Filesystem();
         $appsCount = Application::where("judge", false)->count();
         $latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
