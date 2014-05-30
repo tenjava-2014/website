@@ -22,7 +22,10 @@
             "app/database/seeds",
             "app/tests/TestCase.php",
             "app/composers"
-        ]
+        ],
+        "psr-0": {
+            "Tools": "app/libraries"
+        }
     },
     "scripts": {
         "post-install-cmd": [
