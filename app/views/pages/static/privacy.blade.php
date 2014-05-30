@@ -48,7 +48,7 @@
                 <strong>Current opt-out status:</strong> {{ ($emailOptOut) ? "You are currently opted out." : "You are <em>not</em> opted out." }}
             </p>
 
-            <p><a class="button button-block button-flat-highlight" href="/toggle-optout">{{ ($emailOptOut) ? "Opt in" : "Opt out" }}</a></p>
+            <p><a class="button button-flat-highlight" href="/toggle-optout">{{ ($emailOptOut) ? "Opt in" : "Opt out" }}</a></p>
         </div>
     </div>
 </div>
