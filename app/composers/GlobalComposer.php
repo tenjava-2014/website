@@ -9,13 +9,13 @@ class GlobalComposer {
     private $points;
     private $judgeCount;
 
-    public function __construct() {
+    public function __construct(EmailOptOutInterface $optOut) {
+        $this->optOut = $optOut;
         $fs = new Filesystem();
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
         $this->appsCount = Application::where("judge", false)->count();
         $this->judgeCount = Application::where("judge", true)->count();
         $this->latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
-        echo ("<!-- " . json_encode(Cache::get("tweets")) . " -->");
         $this->tweets = Cache::get("tweets");
     }
 
@@ -23,6 +23,7 @@ class GlobalComposer {
         $view->with('pointsData', $this->points);
         $view->with('appsData', (object) ["count" => $this->appsCount, "judgeCount" => $this->judgeCount, "latestUsername" => $this->latestAppName]);
 	    $view->with('tweets', $this->tweets);
+        $view->with("emailOptOut", !$this->optOut->isOptedIn());
     }
 
 }
