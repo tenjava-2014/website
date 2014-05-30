@@ -12,7 +12,7 @@ return array(
         "ShadowWizardMC" 
     ),
     // organizers
-    'admin' => array(
+    'admins' => array(
         "lol768",
         "jkcclemens",
         "hawkfalcon" 
