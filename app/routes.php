@@ -17,6 +17,7 @@ Route::group(array(), function () {
     Route::get('/points', 'PointsController@showLeaderboard');
     Route::get('/judges', 'TeamController@showTeam');
     Route::get('/about', 'AboutController@showAbout');
+    Route::get('/signup', 'SignupController@showSignup');
     Route::get('/oauth/confirm', 'AuthController@loginWithGitHub');
     Route::get('/no-email', 'AppController@noEmail');
 });
