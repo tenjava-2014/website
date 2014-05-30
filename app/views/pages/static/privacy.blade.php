@@ -50,7 +50,7 @@
             </p>
 
             <p>
-                <a class="button {{ ($emailOptOut) ? "button-flat-action" : "button-flat-primary" }}" href="/toggle-optout">
+                <a class="button button-flat-highlight" href="/toggle-optout">
                     {{ ($emailOptOut) ? "Opt in" : "Opt out" }}
                 </a>
             </p>

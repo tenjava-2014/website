@@ -164,11 +164,11 @@ nav {
   }
 
   #wrapper {
-    margin: 0 auto -120px;
+    margin: 0 auto (-1 * $mobileFooterHeight);
   }
 
   footer, .push {
-    height: 120px;
+    height: $mobileFooterHeight;
   }
 
   ul.social-media {
