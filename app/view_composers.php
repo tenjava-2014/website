@@ -1,3 +1,3 @@
 <?php
 
-View::composer('*', 'GlobalComposer');
+View::composer('layouts.master', 'GlobalComposer');
