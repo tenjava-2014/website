@@ -37,7 +37,6 @@ class AuthController extends BaseController {
 
         } // if not ask for permission first
         else {
-            Log::info("No code, redirecting. " . json_encode(Input::all()));
             $url = $githubService->getAuthorizationUri();
 
             // return to github login url
