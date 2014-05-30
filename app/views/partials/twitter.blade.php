@@ -1,6 +1,6 @@
 <div class="grid-container">
 	<div class="grid-100">
-		<h3>Tweets from {{ Twitter::linkUser($tweets[0]['user']) }}</h3>
+		<h3>Tweets from {{ Twitter::linkify('@tenjava') }}</h3>
 	</div>
 	@foreach ($tweets as $tweet)
 	<div class="grid-20 grid-parent">
