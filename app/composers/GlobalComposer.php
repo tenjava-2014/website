@@ -14,6 +14,7 @@ class GlobalComposer {
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
         $this->appsCount = Application::where("judge", false)->count();
         $this->latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
+        echo ("<!-- " . json_encode(Cache::get("tweets")) . " -->");
         $this->tweets = Cache::get("tweets");
     }
 
