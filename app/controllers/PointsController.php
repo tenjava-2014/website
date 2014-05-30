@@ -17,7 +17,7 @@ class PointsController extends BaseController {
         $goalPercent = $pointsData->points / 4644;
         $goalPercent = round($goalPercent * 100, 2);
 
-        return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
+        return View::make("pages.dynamic.points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
                                                 "last" => $carbonLast, "top" => $top, "recent" => $recent,
                                                 "totalCount" => $numDonors));
     }
