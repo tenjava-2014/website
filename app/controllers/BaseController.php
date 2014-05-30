@@ -1,5 +1,7 @@
 <?php
 
+use Tools\UI\NavigationItem;
+
 class BaseController extends Controller {
 
 	private static $activeNavTitle = null;
