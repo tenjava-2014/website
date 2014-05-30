@@ -38,11 +38,11 @@ class AppController extends BaseController {
     }
 
     public function applyJudge() {
-        return View::make("pages.forms.judge");
+        return View::make("pages.forms.judge", array());
     }
 
     public function applyParticipant() {
-        return View::make("pages.forms.participant");
+        return View::make("pages.forms.participant", array());
     }
 
     public function declineJudgeApp($id) {

@@ -8,7 +8,7 @@ class BaseController extends Controller {
     private $pageTitle = "";
     const BASE_TITLE = "ten.java 2014";
 
-    function __construct() {
+    public function __construct() {
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
     }
