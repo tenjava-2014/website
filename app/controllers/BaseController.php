@@ -35,7 +35,7 @@ class BaseController extends Controller {
         );
 
         foreach ($navigation['primary'] as $navItem) {
-            if (starts_with($navItem->getTitle(), $this->activeNavTitle)) {
+            if (starts_with(strtolower($navItem->getTitle()), strtolower($this->activeNavTitle))) {
                 $navItem->setActive();
             }
         }
