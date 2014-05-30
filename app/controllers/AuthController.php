@@ -22,7 +22,7 @@ class AuthController extends BaseController {
             try {
                 $token = $githubService->requestAccessToken($code);
             } catch (TokenResponseException $e) {
-                return Redirect::to("/");
+                return Redirect::to("/oauth/refusal");
             }
 
             // Send a request with it
@@ -43,6 +43,10 @@ class AuthController extends BaseController {
             // return to github login url
             return Redirect::to((string)$url);
         }
+    }
+
+    public function showRefusal() {
+        return View::make("pages.auth.refusal");
     }
 
 } 
