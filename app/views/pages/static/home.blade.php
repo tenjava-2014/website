@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-@if(count($lastTweet) > 0)
+@if(count($tweets) > 0)
 @include('partials.twitter')
 @endif
 @stop
