@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Mail;
 
 class AppController extends BaseController {
+
+    public function  __construct() {
+        $this->beforeFilter('AuthenticationFilter');
+    }
+
     /**
      * @return array
      */
@@ -59,7 +64,7 @@ class AppController extends BaseController {
             $app = Application::findOrFail($id);
             $username = $app->gh_username;
             $gmail = $app->gmail;
-            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function($message) use ($gmail) {
+            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
                 $message->from('no-reply@tenjava.com', 'ten.java Team');
                 $message->to($gmail)->subject('Your recent judge application');
             });
@@ -102,11 +107,13 @@ class AppController extends BaseController {
             if (Input::has("judges")) {
                 $viewData['apps'] = Application::where('judge', true)->paginate(5);
                 $viewData['append'] = array("judges" => "1");
-            } else if (Input::has("normal")) {
-                $viewData['apps'] = Application::where('judge', false)->paginate(5);
-                $viewData['append'] = array("normal" => "1");
             } else {
-                $viewData['apps'] = Application::paginate(5);
+                if (Input::has("normal")) {
+                    $viewData['apps'] = Application::where('judge', false)->paginate(5);
+                    $viewData['append'] = array("normal" => "1");
+                } else {
+                    $viewData['apps'] = Application::paginate(5);
+                }
             }
 
             return View::make("pages.staff.app-list")->with($viewData);
@@ -163,7 +170,7 @@ class AppController extends BaseController {
                      'dbo' => Input::get("dbo"),
                      'mc' => Input::get("mcign"),
                      'gmail' => Input::get("gdocs"),
-                     'irc'   => Input::get("irc"),
+                     'irc' => Input::get("irc"),
                      'githubAcceptable' => ($githubTest) ? "OK" : ""
                 ),
                 array(

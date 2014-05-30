@@ -17,11 +17,14 @@
         "classmap": [
             "app/commands",
             "app/controllers",
+            "app/filters",
             "app/models",
             "app/database/migrations",
             "app/database/seeds",
             "app/tests/TestCase.php",
-            "app/composers"
+            "app/composers",
+            "app/authentication",
+            "app/exceptions"
         ],
         "psr-0": {
             "Tools": "app/libraries"
