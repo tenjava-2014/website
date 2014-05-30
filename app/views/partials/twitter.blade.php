@@ -1,5 +1,9 @@
 <div class="grid-container">
 	<div class="grid-100">
-		{{{ Twitter::linkify($tweets[0]['text']) }}}
+        <ul>
+            @foreach ($tweets as $tweet)
+                <li>{{{ Twitter::linkify($tweet['text']) }}}</li>
+            @endforeach
+            </ul>
 	</div>
 </div>
