@@ -31,11 +31,6 @@ class AuthController extends BaseController {
             if (!Session::has("no-email")) {
                 $emails = json_decode($githubService->request("user/emails"), true);
             }
-            //Var_dump
-            //display whole array().
-            if (!Session::has("intent")) {
-                die("No intent :(");
-            }
             $githubUsername = $result['login'];
             Session::put("application_data", array("username" => $githubUsername, "emails" => $emails));
 
