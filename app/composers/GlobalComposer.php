@@ -20,7 +20,7 @@ class GlobalComposer {
     public function compose($view) {
         $view->with('pointsData', $this->points);
         $view->with('appsData', (object) ["count" => $this->appsCount, "latestUsername" => $this->latestAppName]);
-	    $view->with('lastTweet', $this->twitter);
+	    $view->with('lastTweet', $this->tweets);
     }
 
 }
