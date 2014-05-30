@@ -8,7 +8,7 @@ class AdminFilter {
 
     public function filter() {
         if (!$this->auth->isStaff()) {
-            return Redirect::to("/oauth/confirm");
+            return Redirect::to("/oauth/confirm")->with("previous", Request::url());
         } else if (!$this->auth->isAdmin()) {
             throw new UnauthorizedException();
         }
