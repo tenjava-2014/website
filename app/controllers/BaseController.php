@@ -4,12 +4,13 @@ use Tools\UI\NavigationItem;
 
 class BaseController extends Controller {
 
-    private static $activeNavTitle = null;
+    private $activeNavTitle = null;
     private $pageTitle = "";
     const BASE_TITLE = "ten.java 2014";
 
     function __construct() {
         View::share('titleAdd', $this->getPageTitle());
+        View::share('nav', $this->getNavigation());
     }
 
     /**
@@ -23,7 +24,7 @@ class BaseController extends Controller {
         }
     }
 
-    public static function getNavigation() {
+    public function getNavigation() {
 
         $navigation['primary'] = array(
             new NavigationItem("Home", "/"),
@@ -34,7 +35,7 @@ class BaseController extends Controller {
         );
 
         foreach ($navigation['primary'] as $navItem) {
-            if (starts_with($navItem->getTitle(), self::$activeNavTitle)) {
+            if (starts_with($navItem->getTitle(), $this->activeNavTitle)) {
                 $navItem->setActive();
             }
         }
@@ -57,7 +58,8 @@ class BaseController extends Controller {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
     }
 
-    public static function setActive($title) {
-        self::$activeNavTitle = $title;
+    public function setActive($title) {
+        $this->activeNavTitle = $title;
+        View::share('nav', $this->getNavigation());
     }
 }
