@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
+use Thujohn\Twitter\Twitter;
 
 class GlobalComposer {
 
@@ -11,6 +12,7 @@ class GlobalComposer {
 
         $view->with('pointsData', json_decode($fs->get(public_path("assets/data.json"))));
         $view->with('appsData', (object) ["count" => $appsCount, "latestUsername" => $latestAppName]);
+	    $view->with('lastTweet', Twitter::getUserTimeline(array('screen_name' => 'tenjava', 'count' => 1, 'format' => 'array')));
     }
 
 }
