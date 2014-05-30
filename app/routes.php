@@ -38,11 +38,17 @@ Route::group(array('before' => 'AuthenticationFilter'), function () {
 /* JUDGES ONLY */
 Route::group(array('before' => 'StaffFilter'), function () {
     Route::get('/list', 'AppController@listApps');
+    Route::get('/test/staff', function() {
+        return "Staff only test endpoint.";
+    });
 });
 
 /* ORGANIZERS ONLY */
 Route::group(array('before' => 'AdminFilter'), function () {
     Route::get('/decline/{id}', 'AppController@declineJudgeApp');
+    Route::get('/test/admin', function() {
+        return "Admin only test endpoint.";
+    });
 });
 
 
