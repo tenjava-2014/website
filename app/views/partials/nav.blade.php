@@ -5,11 +5,9 @@
 		</div>
 		<div class="grid-70 tablet-grid-100">
 			<ul class="nav-links">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Signup</a></li>
-				<li><a href="#">Points</a></li>
-				<li><a href="#">Judges</a></li>
-				<li><a href="#">About</a></li>
+				@foreach($nav['primary'] as $navItem)
+				<li @if($navItem->isActive()) class="active" @endif><a href="{{ $navItem->getUrl() }}">{{ $navItem->getTitle() }}</a></li>
+				@endforeach
 			</ul>
 		</div>
 	</div>

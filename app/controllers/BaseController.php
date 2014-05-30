@@ -2,6 +2,8 @@
 
 class BaseController extends Controller {
 
+	private static $activeNavTitle = null;
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -15,4 +17,26 @@ class BaseController extends Controller {
 		}
 	}
 
+	public static function getNavigation(){
+
+		$navigation['primary'] = array(
+			new NavigationItem("Home", "/"),
+			new NavigationItem("Signup", "/signup"),
+			new NavigationItem("Points", "/points"),
+			new NavigationItem("Judges", "/judges"),
+			new NavigationItem("About", "/about"),
+		);
+
+		foreach($navigation['primary'] as $navItem){
+			if(starts_with($navItem->getTitle(), self::$activeNavTitle)){
+				$navItem->setActive();
+			}
+		}
+
+		return $navigation;
+	}
+
+	public static function setActive($title) {
+		self::$activeNavTitle = $title;
+	}
 }
