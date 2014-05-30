@@ -3,7 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
-            <p>Insert judge form!</p>
+            <p>Insert participant form!</p>
         </div>
     </div>
 </div>
