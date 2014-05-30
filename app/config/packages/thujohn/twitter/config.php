@@ -7,8 +7,8 @@ return array(
 	'API_VERSION'         => '1.1',
 	'USE_SSL'             => true,
 
-	'CONSUMER_KEY'        => Config::get("twitter.key"),
-	'CONSUMER_SECRET'     => Config::get("twitter.secret"),
-	'ACCESS_TOKEN'        => Config::get("twitter.access-token"),
-	'ACCESS_TOKEN_SECRET' => Config::get("twitter.access-secret"),
+	'CONSUMER_KEY'        => Config::get("twitter-data.key"),
+	'CONSUMER_SECRET'     => Config::get("twitter-data.secret"),
+	'ACCESS_TOKEN'        => Config::get("twitter-data.access-token"),
+	'ACCESS_TOKEN_SECRET' => Config::get("twitter-data.access-secret"),
 );
