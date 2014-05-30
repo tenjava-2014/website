@@ -33,7 +33,6 @@ class AuthController extends BaseController {
             }
             $githubUsername = $result['login'];
             Session::put("application_data", array("username" => $githubUsername, "emails" => $emails));
-            die(Session::get("previous"));
             return Redirect::to(Session::get("previous"));
 
         } // if not ask for permission first
