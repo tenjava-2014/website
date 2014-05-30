@@ -5,6 +5,8 @@ use Illuminate\Filesystem\Filesystem;
 
 class PointsController extends BaseController {
     public function showLeaderboard() {
+        $this->setActive("points");
+        $this->setPageTitle("Points");
         $filesystem = new Filesystem();
         $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
