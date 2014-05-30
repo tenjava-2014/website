@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', "HomeController@showWelcome");
+Route::get('/', "HomeController@index");
 Route::get('/register', "AppController@applyParticipant");
 Route::get('/judge', "AppController@applyJudge");
 Route::get('/oauth/confirm', 'AuthController@loginWithGitHub');
