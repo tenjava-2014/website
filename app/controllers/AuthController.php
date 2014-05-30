@@ -42,9 +42,9 @@ class AuthController extends BaseController {
             Session::put("application_data", array("username" => $githubUsername, "emails" => $emails, "judge" => ($intent === "judge")));
 
             if ($intent === "judge") {
-                return View::make("judge", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
+                return View::make("pages.forms.judge", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
             } elseif ($intent === "participant") {
-                return View::make("participant", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
+                return View::make("pages.forms.participant", array("user" => $githubUsername, "noEmail" => Session::has("no-email")));
             } elseif ($intent === "admin") {
                 return Redirect::to("/list");
             } else {

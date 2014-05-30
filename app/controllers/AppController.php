@@ -109,7 +109,7 @@ class AppController extends BaseController {
                 $viewData['apps'] = Application::paginate(5);
             }
 
-            return View::make("app_list")->with($viewData);
+            return View::make("pages.staff.app-list")->with($viewData);
         }
     }
 
@@ -191,7 +191,7 @@ class AppController extends BaseController {
             $app->mc_username = Input::get("mcign");
             $app->gmail = Input::get("gdocs");
             $app->save();
-            return View::make("thanks");
+            return View::make("pages.result.thanks");
         }
     }
 

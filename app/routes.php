@@ -12,8 +12,8 @@
 */
 
 Route::get('/', "HomeController@index");
-Route::get('/register', "AppController@applyParticipant");
-Route::get('/judge', "AppController@applyJudge");
+Route::get('/register/participant', "AppController@applyParticipant");
+Route::get('/register/judge', "AppController@applyJudge");
 Route::get('/oauth/confirm', 'AuthController@loginWithGitHub');
 Route::post('/apply', 'AppController@processApplication');
 Route::get('/list', 'AppController@listApps');
