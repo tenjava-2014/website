@@ -13,3 +13,4 @@
 
 Artisan::add(new MailTestCommand());
 Artisan::add(new RepoCleanupCommand());
+Artisan::add(new TwitterUpdateCommand());
