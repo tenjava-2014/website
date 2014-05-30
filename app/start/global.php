@@ -94,3 +94,5 @@ require app_path() . '/filters.php';
 */
 
 require app_path() . '/view_composers.php';
+
+App::bind("AuthProviderInterface", "GitHubAuthProvider");
