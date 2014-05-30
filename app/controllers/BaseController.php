@@ -28,7 +28,7 @@ class BaseController extends Controller {
 
         $navigation['primary'] = array(
             new NavigationItem("Home", "/"),
-            new NavigationItem("Signup", "/signup"),
+            new NavigationItem("Sign up", "/signup"),
             new NavigationItem("Points", "/points"),
             new NavigationItem("Judges", "/judges"),
             new NavigationItem("About", "/about"),

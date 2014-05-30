@@ -39,12 +39,12 @@ class AppController extends BaseController {
     }
 
     public function applyJudge() {
-        $this->setActive("signup");
+        $this->setActive("sign up");
         return View::make("pages.forms.judge");
     }
 
     public function applyParticipant() {
-        $this->setActive("signup");
+        $this->setActive("sign up");
         return View::make("pages.forms.participant");
     }
 

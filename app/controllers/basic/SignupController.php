@@ -3,9 +3,9 @@
 
 class SignupController extends BaseController {
 
-    public function showSignup() {
-        $this->setPageTitle("Signup");
-        $this->setActive("signup");
+    public function showSignUp() {
+        $this->setPageTitle("Sign Up");
+        $this->setActive("sign up");
         return Response::view('pages.static.signup', array());
     }
 
