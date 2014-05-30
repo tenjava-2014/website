@@ -27,17 +27,17 @@
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
             <p>
-                <a href="#" class="button button-large button-block button-flat-action">Register as Participant</a>
+                <a href="/register" class="button button-large button-block button-flat-action">Register as Participant</a>
                 <span class="text-light">There are currently 123 participants</span>
             </p>
 
             <p>
-                <a href="#" class="button button-block button-flat-primary">Apply to Become a Judge</a>
+                <a href="/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
                 <span class="text-light">There are currently 10 judges</span>
             </p>
 
             <p>
-                <a href="#" class="button button-block button-flat-highlight">Make a Donation</a>
+                <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
         </div>
