@@ -8,7 +8,7 @@ class StaffFilter {
 
     public function filter() {
         if (!$this->auth->isLoggedIn()) {
-            return Redirect::to("/oauth/confirm");
+            return Redirect::to("/oauth/confirm")->with("previous", Request::url());
         } else if (!$this->auth->isStaff()) {
             throw new UnauthorizedException();
         }

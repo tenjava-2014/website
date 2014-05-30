@@ -9,7 +9,7 @@ class AuthenticationFilter {
 
     public function filter() {
         if (!$this->auth->isLoggedIn()) {
-            return Redirect::to("/oauth/confirm");
+            return Redirect::to("/oauth/confirm")->with("previous", Request::url());
         }
     }
 } 

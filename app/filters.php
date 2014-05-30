@@ -20,8 +20,11 @@ App::after(function ($request, $response) {
     //
 });
 
+/* @see AuthenticationFilter */
 Route::filter('AuthenticationFilter', 'AuthenticationFilter');
+/* @see StaffFilter */
 Route::filter('StaffFilter', 'StaffFilter');
+/* @see AdminFilter */
 Route::filter('AdminFilter', 'AdminFilter');
 
 /*
