@@ -7,7 +7,7 @@
 	<link href="/assets/css/grid.css" rel="stylesheet" />
 	<link href="/assets/css/styles.css" rel="stylesheet" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <meta name="description" content="Ten hour Bukkit plugin development contest." />
+	<meta name="description" content="Ten hour Bukkit plugin development contest." />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 </head>
 <body>
@@ -36,8 +36,8 @@
 				<li><a href="mailto:contact@tenjava.com"><i class="fa fa-2x fa-envelope-square"></i></a></li>
 				<li><a title="" target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
 				<li><a target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-twitter-square"></i></a></li>
-                <li><a target="_blank" href="http://forums.bukkit.org/threads/269253/"><i class="fa fa-2x fa-comments"></i></a></li>
-            </ul>
+				<li><a target="_blank" href="http://forums.bukkit.org/threads/269253/"><span class="fa-stack fa-lg"><i class="fa fa-comments fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a></li>
+			</ul>
 		</div>
 	</div>
 </footer>
