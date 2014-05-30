@@ -16,8 +16,8 @@ class HomeController extends BaseController {
     */
 
     public function showWelcome() {
-	    parent::setActive("Home");
-        return View::make('hello')->with(array("noEmail" => Session::has("no-email"), "signups" => $apps));
+        parent::setActive("Home");
+        return View::make('hello')->with(array("noEmail" => Session::has("no-email")));
     }
 
 }
