@@ -19,7 +19,7 @@
 			<div class="grid-20 tablet-grid-20">Top Donation: <span>{{ $pointsData->better_top{0}->username }} ({{ number_format($pointsData->better_top{0}->amount) }})</span></div>
 			<div class="grid-20 tablet-grid-20">Total Points: <span>{{ number_format($pointsData->points) }} (${{ number_format($pointsData->points * 0.05, 2) }})</span></div>
 			<div class="grid-20 tablet-grid-20">Last Signup: <span>{{ $appsData->latestUsername }}</span></div>
-			<div class="grid-20 tablet-grid-20">Total Signups: <span>{{ $appsData->count }} developers</span></div>
+			<div class="grid-20 tablet-grid-20">Total Signups: <span>{{ $appsData->count }} participants</span></div>
 		</div>
 	</div>
 	@yield('content')
