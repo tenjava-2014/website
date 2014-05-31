@@ -167,12 +167,7 @@
                         @include border-radius($border-radius 0 0 $border-radius);
                     }
                 }
-                
-                .#{$button-class-name} {
-                    margin: 0;
-                    @include border-radius(0 $border-radius $border-radius 0);
-                    border-left: none;
-                }
+
             }
 
             &.prepend-button {
@@ -189,12 +184,7 @@
                         @include border-radius(0 $border-radius $border-radius 0);
                     }
                 }
-                
-                .#{$button-class-name} {
-                    margin: 0;
-                    @include border-radius($border-radius 0 0 $border-radius);
-                    border-right: none;
-                }
+
             }
 
             &.append-symbol {
