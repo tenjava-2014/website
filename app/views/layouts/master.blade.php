@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>{{{ $titleAdd }}}</title>
+	<title>{{{ $titleAdd or "ten.java" }}}</title>
 	<link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
 	<link href="/assets/css/grid.css" rel="stylesheet" />
 	<link href="/assets/css/styles.css" rel="stylesheet" />
