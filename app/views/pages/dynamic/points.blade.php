@@ -27,5 +27,8 @@
 
 		</ul>
 	</div>
+	<div class="grid-100">
+		<small>This page is updated automatically. The last update was {{{ $last->diffForHumans() }}} and the next update is in {{{ $next->diffForHumans() }}}. Curse and Bukkit are in no way affiliated with this event.</small>
+	</div>
 </div>
 @stop
