@@ -5,7 +5,6 @@
         <div class="grid-100">
             <h2>Apply to be a judge</h2>
             <div class="alert basic success">
-                <button class="dismiss">×</button>
                 <p><b>Done:</b> Process completed successfully</p>
             </div>
             <p>Please fill out the following fields to register for the 2014 ten.java contest.</p>
