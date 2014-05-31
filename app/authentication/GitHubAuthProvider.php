@@ -27,7 +27,7 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return boolean If the user is staff.
      */
     public function isStaff() {
-        return ($this->getUsername() !== null) ? in_array($this->getUsername(), Config::get("user-access.staff")) : false;
+        return ($this->getUsername() !== null) ? ( $this->isAdmin() ? true : in_array($this->getUsername(), Config::get("user-access.staff"))) : false;
     }
 
     /**
