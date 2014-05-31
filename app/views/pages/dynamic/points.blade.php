@@ -17,9 +17,9 @@
 		</div>
 	</div>
 </div>
-<div class="grid-container">
+<div class="grid-container text-center">
 	<div class="grid-50">
-		<h2>Top Donors</h2>
+		<h1>Top Donors</h1>
 		<ul class="list-large">
 			@foreach ($top as $key => $value)
 			<li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
@@ -27,7 +27,7 @@
 		</ul>
 	</div>
 	<div class="grid-50">
-		<h2>Recent Donors</h2>
+		<h1>Recent Donors</h1>
 		<ul class="list-large">
 			@foreach ($recent as $element)
 			<li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
