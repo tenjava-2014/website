@@ -44,6 +44,6 @@
     </div>
 </div>
 @if(count($tweets) > 0)
-@include('partials.twitter')
+@include('dynamic.twitter')
 @endif
 @stop
