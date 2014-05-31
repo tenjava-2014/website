@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label for="twitch">twitch.tv username <span class="optional">optional</span></label>
+                    <label for="twitch">twitch.tv username <span class="optional">(optional)</span></label>
                     <div class="control">
                         <input id="twitch" type="text" value="{{{ $username }}}" name="twitch">
                     </div>
