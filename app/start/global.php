@@ -65,6 +65,9 @@ App::down(function () {
     return Response::make("Be right back!", 503);
 });
 
+// 404
+require app_path() . '/errors/MissingPage.php';
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File
