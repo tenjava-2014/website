@@ -25,7 +25,7 @@
     p {
         &.tip {
             font-size: .875em;
-            color: tint($text-color,35%);
+            color: tint($textColor,35%);
             position: relative;
             margin: .2em 0 0 .1em;
         }
@@ -33,7 +33,7 @@
         &.label {
             padding: 0;
             margin: 0;
-            color: $text-color;
+            color: $textColor;
             white-space: normal;
         }
     }
@@ -310,7 +310,7 @@
 
             & label,
             & p.label {
-                color: $text-color;
+                color: $textColor;
 
                 &:after {
                     content: "\f069";
