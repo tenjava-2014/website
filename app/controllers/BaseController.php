@@ -7,8 +7,13 @@ class BaseController extends Controller {
     private $activeNavTitle = null;
     private $pageTitle = "";
     const BASE_TITLE = "ten.java 2014";
+    /**
+     * @var AuthProviderInterface
+     */
+    private $auth;
 
     public function __construct() {
+        $this->auth = App::make("AuthProviderInterface");
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
     }
@@ -31,8 +36,12 @@ class BaseController extends Controller {
             new NavigationItem("Sign up", "/signup"),
             new NavigationItem("Points", "/points"),
             new NavigationItem("Judges", "/judges"),
-            new NavigationItem("About", "/about"),
         );
+
+        if ($this->auth->isStaff()) {
+            $navigation['primary'][] = new NavigationItem("Admin", "/admin");
+        }
+        $navigation['primary'][] = new NavigationItem("About", "/about");
 
         foreach ($navigation['primary'] as $navItem) {
             if (starts_with(strtolower($navItem->getTitle()), strtolower($this->activeNavTitle))) {

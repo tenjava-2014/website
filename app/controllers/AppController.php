@@ -1,12 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Mail;
-
 class AppController extends BaseController {
 
-    public function  __construct(AuthProviderInterface $auth) {
+    public function  __construct() {
         parent::__construct();
-        $this->auth = $auth;
         $this->beforeFilter('AuthenticationFilter');
     }
 

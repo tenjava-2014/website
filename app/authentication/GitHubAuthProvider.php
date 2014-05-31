@@ -13,7 +13,7 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return string Username.
      */
     public function getUsername() {
-        return $this->sessionData['username'];
+        return (array_key_exists("username", $this->sessionData)) ? $this->sessionData['username'] : null;
     }
 
     /**
@@ -27,14 +27,14 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return boolean If the user is staff.
      */
     public function isStaff() {
-        return in_array($this->getUsername(), Config::get("user-access.staff"));
+        return ($this->getUsername() !== null) ? in_array($this->getUsername(), Config::get("user-access.staff")) : false;
     }
 
     /**
      * @return boolean If the user is an admin.
      */
     public function isAdmin() {
-        return in_array($this->getUsername(), Config::get("user-access.admins"));
+        return ($this->getUsername() !== null) ? in_array($this->getUsername(), Config::get("user-access.admins")) : false;
     }
 
     /**
