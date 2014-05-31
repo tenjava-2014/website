@@ -64,13 +64,4 @@
     &.info { @include alert(block, $blue); }
   }
 
-  .ink-dismiss {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    @include text-shadow($white 0 1px 0);
-    @include opacity(0.25);
-    // @include transition(compact(opacity 140ms ease-in-out));
-
-    &:hover { @include opacity(.6); }
-  }
 }
