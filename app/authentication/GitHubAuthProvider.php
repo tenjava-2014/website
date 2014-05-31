@@ -13,7 +13,7 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return string Username.
      */
     public function getUsername() {
-        return (array_key_exists("username", $this->sessionData)) ? $this->sessionData['username'] : null;
+        return ($this->sessionData !== null) ? $this->sessionData['username'] : null;
     }
 
     /**
