@@ -10,7 +10,7 @@ class BaseController extends Controller {
     /**
      * @var AuthProviderInterface
      */
-    private $auth;
+    protected $auth;
 
     public function __construct() {
         $this->auth = App::make("AuthProviderInterface");
