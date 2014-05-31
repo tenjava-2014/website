@@ -1,7 +1,7 @@
 // FORMS
 
 // Font
-$form-field-font            : $sans-serif-font-stack    !default;
+$form-field-font            : "Open Sans"               !default;
 $form-field-fontSize        : 14px                      !default;
 $form-field-fontWeight      : 300                       !default;
 
@@ -13,7 +13,7 @@ $form-append-width          : 2.5em                     !default;
 // Color
 $form-field-borderColor     : #ddd                      !default;
 $form-field-bg              : #FFF                      !default;
-$form-field-disabled-bg     : $grey-5                   !default;
+$form-field-disabled-bg     : #F2F2F2                   !default;
 $focusColor                 : rgba(153, 153, 153, 0.6)  !default; // This value must be rbga
 $focusBlurSize              : 10px                      !default;
 $disabledColor              : #eee                      !default;
