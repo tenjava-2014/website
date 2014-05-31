@@ -19,7 +19,7 @@
 		<h2>Top Donors</h2>
 		<ul>
 			@foreach ($top as $key => $value)
-			<li>{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
+			<li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
 			@endforeach
 		</ul>
 	</div>
@@ -27,7 +27,7 @@
 		<h2>Recent Donors</h2>
 		<ul>
 			@foreach ($recent as $element)
-			<li>{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span>
+			<li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
 			</li>
 			@endforeach
 		</ul>
