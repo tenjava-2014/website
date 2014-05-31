@@ -18,17 +18,22 @@
 	<div class="grid-50">
 		<h2>Top Donors</h2>
 		<ul>
-
+			@foreach ($top as $key => $value)
+			<li>{{{ $key }}} <span class="primary label">{{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}</span></li>
+			@endforeach
 		</ul>
 	</div>
 	<div class="grid-50">
 		<h2>Recent Donors</h2>
 		<ul>
-
+			@foreach ($recent as $element)
+			<li>{{{ $element->username }}} <span class="primary label">{{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}</span>
+			</li>
+			@endforeach
 		</ul>
 	</div>
 	<div class="grid-100">
-		<small>This page is updated automatically. The last update was {{{ $last->diffForHumans() }}} and the next update is in {{{ $next->diffForHumans() }}}. Curse and Bukkit are in no way affiliated with this event.</small>
+		<small>This page is updated automatically. The last update was {{{ $last->diffForHumans() }}} and the next update is in {{{ $next->diffForHumans() }}}.</small>
 	</div>
 </div>
 @stop
