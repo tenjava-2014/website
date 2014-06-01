@@ -130,5 +130,60 @@
             </div>
         </div>
     </div>
+    <div class="grid-container">
+        <div class="grid-20">
+            <div class="team-entry text-center">
+                <img
+                    src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+
+                <h3>lol768</h3>
+
+                <p>bio here</p>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="team-entry text-center">
+                <img
+                    src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+
+                <h3>lol768</h3>
+
+                <p>bio here</p>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="team-entry text-center">
+                <img
+                    src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+
+                <h3>lol768</h3>
+
+                <p>bio here</p>
+            </div>
+        </div>
+        <div class="grid-20">
+            <div class="team-entry text-center">
+                <img
+                    src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+
+                <h3>lol768</h3>
+
+                <p>bio here</p>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="team-entry text-center">
+                <img
+                    src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+
+                <h3>lol768</h3>
+
+                <p>bio here</p>
+            </div>
+        </div>
+    </div>
 </div>
 @stop
