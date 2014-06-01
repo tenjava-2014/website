@@ -150,18 +150,17 @@
                 <img
                     src="//www.gravatar.com/avatar/32d843e1a162c5e437f7cefb71fc2597.jpg?s=200">
 
-                <h3>lol768</h3>
+                <h3>CaptainBern</h3>
 
                 <p>bio here</p>
             </div>
         </div>
-
         <div class="grid-20">
             <div class="team-entry text-center">
                 <img
-                    src="//www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+                    src="//s.gravatar.com/avatar/f8d7d2e65c69ce498cfe5db8b5f6604a?s=200">
 
-                <h3>CaptainBern</h3>
+                <h3>ShadowWizardMC</h3>
 
                 <p>bio here</p>
             </div>
@@ -189,16 +188,7 @@
         </div>
     </div>
     <div class="grid-container top-margin-10">
-        <div class="grid-20">
-            <div class="team-entry text-center">
-                <img
-                    src="//s.gravatar.com/avatar/f8d7d2e65c69ce498cfe5db8b5f6604a?s=200">
 
-                <h3>ShadowWizardMC</h3>
-
-                <p>bio here</p>
-            </div>
-        </div>
         <div class="grid-20">
             <div class="team-entry text-center">
                 <img
