@@ -130,7 +130,7 @@ class AppController extends BaseController {
         if ($type !== "participant" && $type !== "judge") {
             return App::make("ErrorController")->badRequest("Invalid application type was supplied.");
         }
-        if ($type === "judge") {
+        if ($type === "participant") {
             $validator = Validator::make(
                 array(
                      'dbo' => Input::get("dbo"),
@@ -155,7 +155,7 @@ class AppController extends BaseController {
                 $app->twitch_username = Input::get("twitch");
             }
             $app->save();
-            return View::make("thanks")->with(array("username" => $this->auth->getUsername()));
+            return View::make("pages.result.thanks.participant")->with(array("username" => $this->auth->getUsername()));
         } else {
             $client = $this->getUserApiClient();
             $numRepos = count($client->repositories($this->auth->getUsername()));
@@ -193,7 +193,7 @@ class AppController extends BaseController {
             $app->mc_username = Input::get("mcign");
             $app->gmail = Input::get("gdocs");
             $app->save();
-            return View::make("pages.result.thanks");
+            return View::make("pages.result.thanks.judge")->with(array("username" => $this->auth->getUsername()));
         }
     }
 
