@@ -18,4 +18,9 @@ class ErrorController extends BaseController {
         return Response::view('errors.oauth', array(), 400);
     }
 
+    public function badRequest($reason) {
+        $this->setPageTitle("Bad request");
+        return Response::view('errors.request', array("reason" => $reason), 400);
+    }
+
 } 

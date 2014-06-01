@@ -10,35 +10,49 @@
                     evidence (GitHub repos, BukkitDev plugins) to show you will be able to assess code quality
                     effectively. Your application will not be considered without this.</p>
             </div>
-            <p>Please fill out the following fields to apply as a judge</p>
+            <p>Please fill out the following fields to apply as a judge. We'll contact you soon after your application
+                to let you know if we have decided to accept you or not. If your application is declined, you're free to
+                register as a participant. Please note that successful judges cannot participate in the contest.</p>
 
-            <form class="form" action="/apply/participant">
+            @if (isset($errors))
+                <div class="alert block error">
+                    <h4>Application errors</h4>
+                    <ul>
+                        @foreach($errors->all('<li>:message</li>') as $message)
+                            {{ $message }}
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form class="form" action="/apply/judge">
                 <div class="control-group">
                     <label for="bukkitdev">BukkitDev username</label>
 
                     <div class="control">
-                        <input id="bukkitdev" type="text" value="{{{ $username }}}" name="dbo">
+                        <input id="bukkitdev" type="text" value="{{{ Input::old('dbo') or $username }}}" name="dbo">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="minecraft">Minecraft username</label>
 
                     <div class="control">
-                        <input id="minecraft" type="text" value="{{{ $username }}}" name="minecraft">
+                        <input id="minecraft" type="text" value="{{{ Input::old('minecraft') or $username }}}" name="mcign">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="irc" title="IRC is our primary communication medium.">IRC (EsperNet) nick</label>
 
                     <div class="control">
-                        <input id="irc" type="text" name="irc" value="{{{ $username }}}">
+                        <input id="irc" type="text" name="irc" value="{{{ Input::old('irc') or $username }}}">
                     </div>
                 </div>
                 <div class="control-group">
-                    <label for="gmail" title="We'll use this for adding you to google drive files.">GMail/Google Apps address</label>
+                    <label for="gmail" title="We'll use this for adding you to google drive files.">GMail/Google Apps
+                        address</label>
 
                     <div class="control">
-                        <input id="gmail" type="text" name="gmail">
+                        <input id="gmail" type="text" name="gdocs" value="{{{ Input::old('gdocs') or '' }}}">
                     </div>
                 </div>
                 <input type="submit" value="Apply" class="button button-block button-flat-primary">
