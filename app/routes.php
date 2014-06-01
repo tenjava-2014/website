@@ -35,6 +35,11 @@ Route::group(array(), function () {
 Route::group(array('before' => 'AuthenticationFilter'), function () {
     Route::get('/register/participant', "AppController@showApplyParticipant");
     Route::get('/register/judge', "AppController@showApplyJudge");
+
+});
+
+/* CSRF PROTECTED AUTH PAGES */
+Route::group(array('before' => 'AuthenticationFilter|csrf'), function () {
     Route::post('/apply/{type}', 'AppController@processApplication');
 });
 

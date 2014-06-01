@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <form class="form" action="/apply/participant">
+            {{ Form::open(array('url' => '/register/judge', 'class' => 'form')) }}
                 <div class="control-group">
                     <label for="bukkitdev">BukkitDev username</label>
                     <div class="control">
@@ -30,8 +30,8 @@
                         <input id="twitch" type="text" value="{{{ Input::old('twitch', $username) }}}" name="twitch">
                     </div>
                 </div>
-            <input type="submit" value="Sign up" class="button button-block button-flat-primary">
-            </form>
+                <input type="submit" value="Sign up" class="button button-block button-flat-primary">
+            {{ Form::close() }}
 
         </div>
     </div>
