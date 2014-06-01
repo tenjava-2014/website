@@ -35,7 +35,7 @@ class BaseController extends Controller {
             new NavigationItem("Home", "/"),
             new NavigationItem("Sign up", "/signup"),
             new NavigationItem("Points", "/points"),
-            new NavigationItem("Judges", "/judges"),
+            new NavigationItem("Team", "/judges"),
         );
 
         if ($this->auth->isStaff()) {
