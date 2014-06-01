@@ -8,7 +8,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -18,7 +18,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -28,7 +28,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -38,7 +38,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -48,7 +48,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -61,7 +61,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -71,7 +71,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -81,7 +81,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -94,7 +94,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -104,7 +104,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -114,7 +114,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -123,7 +123,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
@@ -133,7 +133,7 @@
             <div class="team-entry text-center">
                 <img style="width: 200px;"
                      src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
-                <h4>lol768</h4>
+                <h3>lol768</h3>
 
                 <p>bio here</p>
             </div>
