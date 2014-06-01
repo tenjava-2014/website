@@ -124,8 +124,9 @@ class AppController extends BaseController {
     }
 
     public function processApplication($type) {
+        $dupeApp = false;
         if (Application::where("gh_username", $this->auth->getUsername())->first() != null) {
-            return View::make("dupe_app");
+            $dupeApp = true;
         }
         if ($type !== "participant" && $type !== "judge") {
             return App::make("ErrorController")->badRequest("Invalid application type was supplied.");
@@ -134,11 +135,16 @@ class AppController extends BaseController {
             $validator = Validator::make(
                 array(
                      'dbo' => Input::get("dbo"),
-                     'twitch' => Input::get("twitch")
+                     'twitch' => Input::get("twitch"),
+                     "dupeApp" => !$dupeApp
                 ),
                 array(
                      'dbo' => 'required|max:255',
                      'twitch' => 'max:255',
+                     "dupeApp" => "accepted"
+                ),
+                array(
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
                 )
             );
             if ($validator->fails()) {
@@ -166,19 +172,22 @@ class AppController extends BaseController {
                      'mc' => Input::get("mcign"),
                      'gmail' => Input::get("gdocs"),
                      'irc' => Input::get("irc"),
-                     'githubAcceptable' => ($githubTest) ? "OK" : ""
+                     'githubAcceptable' => ($githubTest) ? "OK" : "",
+                     "dupeApp" => !$dupeApp
                 ),
                 array(
                      'dbo' => 'required|max:255',
                      'mc' => 'required|max:16',
                      'irc' => 'required|max:255',
                      'gmail' => 'required|email|max:255',
-                     'githubAcceptable' => 'required'
+                     'githubAcceptable' => 'required',
+                     "dupeApp" => "accepted"
                 ),
                 array(
                      'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
                      'mc.max' => 'Invalid Minecraft username specified.',
                      'mc.required' => 'No Minecraft username specified.',
+                     'dupeApp.accepted' => "An application/registration entry already exists for this user."
                 )
             );
             if ($validator->fails()) {
