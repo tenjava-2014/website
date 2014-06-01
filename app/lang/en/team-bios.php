@@ -7,7 +7,7 @@ return array(
   "aerouk" => "Server owner, web developer",
   "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the Piano",
   "CaptainBern" => "DBO staff, part-time human, hates web-dev. Stop bullying lol768. :o",
-  "ttaylor" => "Java Developer at Overcast Network, Ruby Developer everywhere else.  I love clean code and best practices.",
+  "ttaylorr" => "Java Developer at Overcast Network, Ruby Developer everywhere else.  I love clean code and best practices.",
   "njb-said" => "PHP and Java developer - Past server owner (large-ish servers)",
   "ShadowWizardMC" => "Server Owner, Web developer, Graphics designer, Youtuber & anything else that seems cool",
   "pogostick29dev" => "YouTuber"
