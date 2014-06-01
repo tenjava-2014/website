@@ -1,4 +1,4 @@
-<div class="grid-20 mobile-grid-50">
+<div class="grid-20 mobile-grid-50 team-entry-parent">
     <div class="team-entry text-center">
         <img
             src="/assets/img/avatars/{{{ strtolower($username) }}}.png">
