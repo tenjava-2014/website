@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            {{ Form::open(array('url' => '/register/judge', 'class' => 'form')) }}
+            {{ Form::open(array('url' => '/apply/judge', 'class' => 'form')) }}
                 <div class="control-group">
                     <label for="bukkitdev">BukkitDev username</label>
                     <div class="control">
