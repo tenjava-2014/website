@@ -27,5 +27,6 @@
 	<div class="push"></div>
 </div>
 @include('partials.footer')
+<script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>
