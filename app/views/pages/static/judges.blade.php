@@ -11,7 +11,7 @@
 
                 <h3>jkcclemens</h3>
 
-                <p>bio here</p>
+                <p>(Web) Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.</p>
             </div>
         </div>
 
@@ -22,7 +22,7 @@
 
                 <h3>lol768</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.lol768") }}</p>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
 
                 <h3>hawkfalcon</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.hawkfalcon") }}</p>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 
                 <h3>jkcclemens</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.jkcclemens") }}</p>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
 
                 <h3>lol768</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.lol768") }}</p>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
 
                 <h3>lDucks</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.lDucks") }}</p>
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
 
                 <h3>jkcclemens</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.jkcclemens") }}</p>
             </div>
         </div>
 
@@ -96,7 +96,7 @@
 
                 <h3>lol768</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.lol768") }}</p>
             </div>
         </div>
 
@@ -107,7 +107,7 @@
 
                 <h3>hawkfalcon</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.hawkfalcon") }}</p>
             </div>
         </div>
 
@@ -118,7 +118,7 @@
 
                 <h3>lDucks</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.lDucks") }}</p>
             </div>
         </div>
 
@@ -129,7 +129,7 @@
 
                 <h3>Aero</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.Aero") }}</p>
             </div>
         </div>
     </div>
@@ -141,7 +141,7 @@
 
                 <h3>MasterEjay</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.MasterEjay") }}</p>
             </div>
         </div>
 
@@ -152,7 +152,7 @@
 
                 <h3>CaptainBern</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.CaptainBern") }}</p>
             </div>
         </div>
         <div class="grid-20">
@@ -162,7 +162,7 @@
 
                 <h3>ShadowWizardMC</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.ShadowWizardMC") }}</p>
             </div>
         </div>
         <div class="grid-20">
@@ -172,7 +172,7 @@
 
                 <h3>ttaylor</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.ttaylor") }}</p>
             </div>
         </div>
 
@@ -183,7 +183,7 @@
 
                 <h3>njb-said</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.njb-said") }}</p>
             </div>
         </div>
     </div>
@@ -196,7 +196,7 @@
 
                 <h3>PogoStick29Dev</h3>
 
-                <p>bio here</p>
+                <p>{{ Lang::get("team-bios.pogostick29dev") }}</p>
             </div>
         </div>
     </div>
