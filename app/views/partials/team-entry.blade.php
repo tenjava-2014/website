@@ -8,4 +8,3 @@
         <p>{{ Lang::get("team-bios." . $username) }}</p>
     </div>
 </div>
-<div class="clearfix"></div>
