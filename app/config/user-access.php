@@ -38,7 +38,7 @@ return array(
             "MasterEjay",
             "aerouk",
             "lDucks",
-            "ttaylorr",
+            "ttaylor",
             "njb-said",
             "pogostick29dev",
             "ShadowWizardMC"
