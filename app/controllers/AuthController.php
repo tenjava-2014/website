@@ -57,7 +57,7 @@ class AuthController extends BaseController {
 
     public function toggleOptOut() {
         $this->optOut->setIsOptedIn(!$this->optOut->isOptedIn());
-        return Redirect::to("/privacy");
+        return Redirect::to("/privacy#email-access");
     }
 
     /**

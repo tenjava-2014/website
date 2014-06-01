@@ -3,6 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
+            <a id="privacy-info"></a>
             <h2>Privacy info</h2>
 
             <p>When you sign up as a participant or apply as a judge, we use GitHub to collect some information from
@@ -37,6 +38,7 @@
                 Minecraft, IRC and, twitch.tv (if supplied) usernames. Judges cannot see GMail addresses and cannot see
                 GitHub emails. Organizers (as listed on the judges page) can see this information.</p>
 
+            <a id="email-access"></a>
             <h2>Email access</h2>
 
             <p>To ensure applicants and participants have a choice about what information they choose to provide, we
