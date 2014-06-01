@@ -2,17 +2,43 @@
 @section('content')
 <div class="content-back">
 
-    <div class="grid-container judge-block">
-        <div style="float: left;" class="pull-left"><img style="width: 100px;" src="http://i.imgur.com/3t1tT.gif"></div>
-        <div class="grid-70">
-            <h2 style="padding: 0; margin: 0;">insert judge here</h2>omg lol768 is cool
+    <div class="grid-20">
+        <div class="info-box about-object text-center">
+            <img style="width: 200px;" src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+            <h4>lol768</h4>
+            <p>bio here</p>
         </div>
     </div>
 
-    <div class="grid-container judge-block">
-        <div style="float: left;" class="pull-left"><img style="width: 100px;" src="http://i.imgur.com/3t1tT.gif"></div>
-        <div class="grid-70">
-            <h2 style="padding: 0; margin: 0;">insert judge here</h2>omg lol768 is cool
+    <div class="grid-20">
+        <div class="info-box about-object text-center">
+            <img style="width: 200px;" src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+            <h4>lol768</h4>
+            <p>bio here</p>
+        </div>
+    </div>
+
+    <div class="grid-20">
+        <div class="info-box about-object text-center">
+            <img style="width: 200px;" src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+            <h4>lol768</h4>
+            <p>bio here</p>
+        </div>
+    </div>
+
+    <div class="grid-20">
+        <div class="info-box about-object text-center">
+            <img style="width: 200px;" src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+            <h4>lol768</h4>
+            <p>bio here</p>
+        </div>
+    </div>
+
+    <div class="grid-20">
+        <div class="info-box about-object text-center">
+            <img style="width: 200px;" src="http://www.gravatar.com/avatar/17d0b428a15d8d4f5699dc4d36648f17.jpg?s=200">
+            <h4>lol768</h4>
+            <p>bio here</p>
         </div>
     </div>
 
