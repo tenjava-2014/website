@@ -27,6 +27,20 @@
                         <input id="minecraft" type="text" value="{{{ $username }}}" name="minecraft">
                     </div>
                 </div>
+                <div class="control-group">
+                    <label for="irc" title="IRC is our primary communication medium.">IRC (EsperNet) nick</label>
+
+                    <div class="control">
+                        <input id="irc" type="text" name="irc" value="{{{ $username }}}">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="gmail" title="We'll use this for adding you to google drive files.">GMail/Google Apps address</label>
+
+                    <div class="control">
+                        <input id="gmail" type="text" name="gmail">
+                    </div>
+                </div>
                 <input type="submit" value="Apply" class="button button-block button-flat-primary">
             </form>
         </div>
