@@ -1,4 +1,4 @@
-<div class="grid-20 mobile-grid-50 grid-parent">
+<div class="grid-20 mobile-grid-50">
     <div class="team-entry text-center">
         <img
             src="/assets/img/avatars/{{{ strtolower($username) }}}.png">
@@ -8,3 +8,4 @@
         <p>{{ Lang::get("team-bios." . $username) }}</p>
     </div>
 </div>
+<div class="clearfix"></div>
