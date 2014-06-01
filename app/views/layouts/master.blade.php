@@ -28,5 +28,12 @@
 </div>
 @include('partials.footer')
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="application/javascript">
+$( document ).ready(function() {
+    $("#nav-toggle").click(function() {
+        $("#nav-container").toggleClass("hide-on-mobile");
+    });
+});
+</script>
 </body>
 </html>
