@@ -14,7 +14,7 @@
                 to let you know if we have decided to accept you or not. If your application is declined, you're free to
                 register as a participant. Please note that successful judges cannot participate in the contest.</p>
 
-            @if (isset($errors))
+            @if ($errors->any())
                 <div class="alert block error">
                     <h4>Application errors</h4>
                     <ul>
@@ -30,21 +30,21 @@
                     <label for="bukkitdev">BukkitDev username</label>
 
                     <div class="control">
-                        <input id="bukkitdev" type="text" value="{{{ Input::old('dbo') or $username }}}" name="dbo">
+                        <input id="bukkitdev" type="text" value="{{{ Input::old('dbo', $username) }}}" name="dbo">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="minecraft">Minecraft username</label>
 
                     <div class="control">
-                        <input id="minecraft" type="text" value="{{{ Input::old('minecraft') or $username }}}" name="mcign">
+                        <input id="minecraft" type="text" value="{{{ Input::old('minecraft', $username) }}}" name="mcign">
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="irc" title="IRC is our primary communication medium.">IRC (EsperNet) nick</label>
 
                     <div class="control">
-                        <input id="irc" type="text" name="irc" value="{{{ Input::old('irc') or $username }}}">
+                        <input id="irc" type="text" name="irc" value="{{{ Input::old('irc', $username) }}}">
                     </div>
                 </div>
                 <div class="control-group">
@@ -52,7 +52,7 @@
                         address</label>
 
                     <div class="control">
-                        <input id="gmail" type="text" name="gdocs" value="{{{ Input::old('gdocs') or '' }}}">
+                        <input id="gmail" type="text" name="gdocs" value="{{{ Input::old('gdocs') }}}">
                     </div>
                 </div>
                 <input type="submit" value="Apply" class="button button-block button-flat-primary">
