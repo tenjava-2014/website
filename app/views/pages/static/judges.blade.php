@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-    <div class="grid-container">
+    <div class="grid-container top-margin-10">
         <div class="grid-20">
             <div class="team-entry text-center">
                 <img
