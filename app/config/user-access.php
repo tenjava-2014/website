@@ -9,12 +9,40 @@ return array(
         "ttaylorr",
         "njb-said",
         "pogostick29dev",
-        "ShadowWizardMC" 
+        "ShadowWizardMC"
     ),
     // organizers
     'admins' => array(
         "lol768",
         "jkcclemens",
-        "hawkfalcon" 
+        "hawkfalcon"
+    ),
+
+    'present' => array(
+        'Organizers' => array(
+            'lol768',
+            'jkcclemens',
+            'hawkfalcon'
+        ),
+        "Web team" => array(
+            'lol768',
+            'jkcclemens',
+            'lDucks'
+        ),
+        "Judges" => array(
+            'lol768',
+            'jkcclemens',
+            'hawkfalcon',
+            'lDucks',
+            "CaptainBern",
+            "MasterEjay",
+            "aerouk",
+            "lDucks",
+            "ttaylorr",
+            "njb-said",
+            "pogostick29dev",
+            "ShadowWizardMC"
+        )
     )
+
 );
