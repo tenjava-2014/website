@@ -32,4 +32,9 @@ interface AuthProviderInterface {
      */
     public function isAdmin();
 
+    /**
+     * @return int The user id.
+     */
+    public function getUserId();
+
 } 

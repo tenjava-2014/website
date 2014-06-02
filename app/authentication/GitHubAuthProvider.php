@@ -43,4 +43,11 @@ class GitHubAuthProvider implements AuthProviderInterface {
     public function isLoggedIn() {
         return ($this->sessionData != null);
     }
+
+    /**
+     * @return int The user id.
+     */
+    public function getUserId() {
+        return ($this->sessionData !== null) ? $this->sessionData['id'] : null;
+    }
 }

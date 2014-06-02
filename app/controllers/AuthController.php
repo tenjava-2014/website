@@ -35,7 +35,7 @@ class AuthController extends BaseController {
                 $emails = json_decode($githubService->request("user/emails"), true);
             }
             $githubUsername = $result['login'];
-            Session::put("application_data", array("username" => $githubUsername, "emails" => $emails));
+            Session::put("application_data", array("id" => $result['id'], "username" => $githubUsername, "emails" => $emails));
             return Redirect::to(Session::get("previous"));
 
         } // if not ask for permission first
