@@ -2,20 +2,20 @@
 return array(
     // judges
     'staff' => array(
-        "CaptainBern",
-        "MasterEjay",
-        "aerouk",
-        "lDucks",
-        "ttaylorr",
-        "njb-said",
-        "pogostick29dev",
-        "ShadowWizardMC"
+        2715715, //captain
+        4945312, //ejay
+        2356709, //aero
+        3073160, //quack
+        443245, //ttaylorr
+        2371386, //njb
+        5508375, //pogo
+        5005227 //shadow
     ),
     // organizers
     'admins' => array(
-        "lol768",
-        "jkcclemens",
-        "hawkfalcon"
+        2552726, //lol768
+        955250, //jkc
+        1509618 //hawk
     ),
 
     'present' => array(
