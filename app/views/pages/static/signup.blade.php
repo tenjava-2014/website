@@ -58,4 +58,21 @@
         </div>
     </div>
 </div>
+<div class="grid-container">
+    <div class="grid-80">
+        <h3>Sign up now!</h3>
+
+        <p>Signing up takes 30 seconds. We'll take some details and contact you when it's time to choose a
+            timeslot. Signing up is done via your GitHub account - you don't need to register or make an
+            account. Simply click the button below, fill in the two fields and then register.</p>
+
+        <p><a href="/register/participant" class="button button-large button-flat-action">Register as
+                Participant</a></p>
+        <small>Please review the privacy info available <a href="/privacy">here</a> before signing up.
+        </small>
+    </div>
+    <div class="grid-20">
+        <img src="/assets/img/thirdparty/rocket.svg" style="width: 100%">
+    </div>
+</div>
 @stop

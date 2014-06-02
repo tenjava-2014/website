@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- License Agreement at http://iconmonstr.com/license/ -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="rocket.svg"><metadata
+   id="metadata9"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs7" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview5"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="256"
+   inkscape:cy="256"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg2" />
+<path
+   id="rocket-2-icon"
+   d="M280.5,444h-49l-16.75-29.209h82.5L280.5,444z M255.899,91.069  c73.06,75.166,79.128,177.306,39.055,273.876h-78.091C176.886,271.15,183.953,166.229,255.899,91.069z M255.752,50  c-123.498,105.698-103.142,255.319-58.03,344.945h116.667C359.598,300.82,380.11,155,255.752,50z M374.995,295.54  c-1.838,12.714-4.185,24.325-7.062,35.899c9.586,14.374,17.213,38.243,18.668,51.861c-7.506-5.679-18.489-10.857-30.363-13.427  c-3.376,9.342-7.118,18.589-11.213,27.714c37.946,8.796,56.389,38.438,64.874,64.412  C429.184,402.046,411.166,327.816,374.995,295.54z M102.101,462c8.485-25.974,26.928-55.616,64.874-64.412  c-4.095-9.125-7.837-18.372-11.213-27.714c-11.874,2.569-22.857,7.748-30.363,13.427c1.455-13.618,9.082-37.487,18.668-51.861  c-2.877-11.574-5.224-23.186-7.062-35.899C100.834,327.816,82.816,402.046,102.101,462z M275.98,272.084  c0-11.034-8.946-19.979-19.98-19.979c-11.035,0-19.979,8.945-19.979,19.979c0,11.035,8.944,19.98,19.979,19.98  C267.034,292.064,275.98,283.119,275.98,272.084z M288.966,194.084c0-18.208-14.76-32.967-32.966-32.967  c-18.207,0-32.969,14.759-32.969,32.967c0,18.207,14.762,32.967,32.969,32.967C274.206,227.051,288.966,212.291,288.966,194.084z"
+   style="fill:#aaaaaa;fill-opacity:1" />
+</svg>
