@@ -125,7 +125,7 @@ class AppController extends BaseController {
 
     public function processApplication($type) {
         $dupeApp = false;
-        if (Application::where("gh_username", $this->auth->getUsername())->first() != null) {
+        if (Application::where("gh_id", $this->auth->getUserId())->first() != null) {
             $dupeApp = true;
         }
         if ($type !== "participant" && $type !== "judge") {
@@ -154,6 +154,7 @@ class AppController extends BaseController {
             $app->gh_username = $this->auth->getUsername();
             $app->github_email = json_encode($this->auth->getEmails());
             $app->judge = false;
+            $app->gh_id = $this->auth->getUserId();
             $app->dbo_username = Input::get("dbo");
             if (!Input::has("twitch")) {
                 $app->twitch_username = "USER_REJECTED"; //field not nullable so this will have to do.
@@ -197,6 +198,7 @@ class AppController extends BaseController {
             $app->gh_username = $this->auth->getUsername();
             $app->github_email = json_encode($this->auth->getEmails());
             $app->judge = true;
+            $app->gh_id = $this->auth->getUserId();
             $app->dbo_username = Input::get("dbo");
             $app->irc_username = Input::get("irc");
             $app->mc_username = Input::get("mcign");
