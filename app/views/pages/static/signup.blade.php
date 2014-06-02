@@ -19,7 +19,7 @@
             <div class="grid-20">
                 <img src="/assets/img/thirdparty/share.svg" style="width: 100%">
             </div>
-            <div class="grid-80 mobile-grid">
+            <div class="grid-80 mobile-grid-100 mobile-push-100">
                 <h3>Points</h3>
 
                 <p>We've already raised {{ number_format($pointsData->points) }} CurseForge points, which is equivalent
@@ -28,7 +28,7 @@
                     and third, respectively. Points can be cashed out via PayPal or redeemed as Amazon gift cards, so
                     it's definitely worth getting involved!</p>
             </div>
-            <div class="grid-20">
+            <div class="grid-20 mobile-grid-100 mobile-pull-100">
                 <img src="/assets/img/thirdparty/trophy.svg" style="width: 100%">
             </div>
             <div class="grid-80">
