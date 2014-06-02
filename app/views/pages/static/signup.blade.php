@@ -3,7 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
-            <h2>Why signup?</h2>
+            <h2>Why sign-up?</h2>
 
             <div class="grid-80">
                 <h3>Share your creation</h3>
