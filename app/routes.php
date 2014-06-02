@@ -15,7 +15,7 @@
 Route::group(array(), function () {
     Route::get('/', "HomeController@index");
     Route::get('/points', 'PointsController@showLeaderboard');
-    Route::get('/judges', 'TeamController@showTeam');
+    Route::get('/team', 'TeamController@showTeam');
     Route::get('/about', 'AboutController@showAbout');
     Route::get('/signup', 'SignupController@showSignUp');
     Route::get('/privacy', 'PrivacyController@showPrivacyInfo');
