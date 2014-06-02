@@ -13,6 +13,20 @@
             </div>
 
             <div class="grid-80 push-20">
+                <h3>Share your creation</h3>
+            </div>
+            <div class="grid-20 pull-80">
+                <img src="/assets/img/thirdparty/share.svg" style="width: 100%">
+            </div>
+
+            <div class="grid-80">
+                <h3>Learn something new</h3>
+            </div>
+            <div class="grid-20">
+                <img src="/assets/img/thirdparty/book.svg" style="width: 100%">
+            </div>
+
+            <div class="grid-80 push-20">
                 <h3>It's fun!</h3>
             </div>
             <div class="grid-20 pull-80">
