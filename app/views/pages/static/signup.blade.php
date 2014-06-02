@@ -16,10 +16,10 @@
                     plugins available to them. Last year, we had some very creative concepts, and we feel it's important
                     that these plugins are shared with the community.</p>
             </div>
-            <div class="grid-20">
+            <div class="grid-20 hide-on-mobile">
                 <img src="/assets/img/thirdparty/share.svg" style="width: 100%">
             </div>
-            <div class="grid-80 mobile-grid-100 mobile-push-100">
+            <div class="grid-80">
                 <h3>Points</h3>
 
                 <p>We've already raised {{ number_format($pointsData->points) }} CurseForge points, which is equivalent
@@ -28,7 +28,7 @@
                     and third, respectively. Points can be cashed out via PayPal or redeemed as Amazon gift cards, so
                     it's definitely worth getting involved!</p>
             </div>
-            <div class="grid-20 mobile-grid-100 mobile-pull-100">
+            <div class="grid-20 hide-on-mobile">
                 <img src="/assets/img/thirdparty/trophy.svg" style="width: 100%">
             </div>
             <div class="grid-80">
@@ -40,7 +40,7 @@
                     an automated build tool (e.g. Maven) by preparing a common template that will be pushed to all
                     repositories.</p>
             </div>
-            <div class="grid-20">
+            <div class="grid-20 hide-on-mobile">
                 <img src="/assets/img/thirdparty/book.svg" style="width: 100%">
             </div>
 
@@ -52,7 +52,7 @@
                     forward to doing the same on a larger scale this year. For participants, ten.java should be a chance
                     to experiment and hopefully learn something in the process.</p>
             </div>
-            <div class="grid-20">
+            <div class="grid-20 hide-on-mobile">
                 <img src="/assets/img/thirdparty/happy.svg" style="width: 100%">
             </div>
         </div>
@@ -71,7 +71,7 @@
         <small>Please review the privacy info available <a href="/privacy">here</a> before signing up.
         </small>
     </div>
-    <div class="grid-20">
+    <div class="grid-20 hide-on-mobile">
         <img src="/assets/img/thirdparty/rocket.svg" style="width: 100%">
     </div>
 </div>
