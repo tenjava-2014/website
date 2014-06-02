@@ -8,7 +8,7 @@
             <div class="grid-80">
                 <h3>Points</h3>
             </div>
-            <div class="grid-10">
+            <div class="grid-20">
                 <img src="/assets/img/thirdparty/trophy.svg" style="width: 100%">
             </div>
         </div>
