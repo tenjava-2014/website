@@ -22,11 +22,11 @@
             <div class="grid-80 mobile-grid">
                 <h3>Points</h3>
 
-                <p>We've already raised {{ number_format($pointsData->points) }} CurseForge points which is equivalent
+                <p>We've already raised {{ number_format($pointsData->points) }} CurseForge points, which is equivalent
                     to ${{ number_format($pointsData->points * 0.05, 2) }}. By participating, you have the chance to win
-                    a share of the prize fund. We're giving 50% to the winning entry and 30% and 20% to 2nd and 3rd
-                    place respectively. Points can be cashed out via PayPal or redeemed as Amazon gift cards so it's
-                    definitely worth getting involved!</p>
+                    a share of the prize pot. We're splitting the pot in portions of 50%, 30%, and 20% to first, second,
+                    and third, respectively. Points can be cashed out via PayPal or redeemed as Amazon gift cards, so
+                    it's definitely worth getting involved!</p>
             </div>
             <div class="grid-20">
                 <img src="/assets/img/thirdparty/trophy.svg" style="width: 100%">
@@ -36,8 +36,8 @@
 
                 <p>It's our hope that all participants will learn something new in the process of developing their
                     submission. Judges (and hopefully other spectators) will be watching streams and offering
-                    advice on code, ideas and more. We're also trying to ensure all participants get some exposure to an
-                    automated build tool (.e.g maven) by preparing a common template that will be pushed to all
+                    advice on code, ideas, and more. We're also trying to ensure all participants get some exposure to
+                    an automated build tool (e.g. Maven) by preparing a common template that will be pushed to all
                     repositories.</p>
             </div>
             <div class="grid-20">
@@ -48,7 +48,7 @@
                 <h3>Have fun</h3>
 
                 <p>Above all, we're hoping ten.java will be a fun experience for everyone involved. We enjoyed judging
-                    the entries last year and seeing everything that the participants came up with and are looking
+                    the entries last year and seeing everything that the participants came up with, and we are looking
                     forward to doing the same on a larger scale this year. For participants, ten.java should be a chance
                     to experiment and hopefully learn something in the process.</p>
             </div>
