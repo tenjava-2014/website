@@ -13,7 +13,7 @@
                     making their entry into a full project and uploading it to somewhere like <a
                         href="http://dev.bukkit.org">BukkitDev</a>. In this way, the contest benefits the development
                     community by contributing more open-source code. Additionally, server admins will have additional
-                    plugins available to them. Last year we had some very creative concepts and we feel it's important
+                    plugins available to them. Last year, we had some very creative concepts and we feel it's important
                     that these plugins are shared with the community.</p>
             </div>
             <div class="grid-20">
