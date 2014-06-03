@@ -1,4 +1,4 @@
-@import '../partials/_options';
+@import 'options';
 
 // Only include all this junk if $unicorn-btn-build-types list had 'glow'
 // We looked in to conditional imports but no go in Sass today
