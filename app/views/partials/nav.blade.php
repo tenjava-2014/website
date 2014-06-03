@@ -4,7 +4,7 @@
 			<a href="/"><img src="https://cdn.mediacru.sh/PghQ0cj1j2YI.svg" height="50px" border="0" /></a>
             <div class="hide-on-desktop">
                 <a href="#" id="nav-toggle">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars fa-3x"></i>
                 </a>
             </div>
 		</div>

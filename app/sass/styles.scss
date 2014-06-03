@@ -138,7 +138,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 840px) {
   .brand {
     text-align: center;
   }
@@ -251,6 +251,7 @@ i.fa.black {
   background: white;
   padding: 20px;
   margin-bottom: 15px;
+  word-wrap: break-word;
 
   .team-entry {
     background-color: #EEEEEE;
@@ -304,6 +305,7 @@ ul.list-large {
 .team-entry-parent {
   height: 410px;
   margin-bottom: 50px;
+  overflow: hidden;
 }
 
 .top-margin-10 {

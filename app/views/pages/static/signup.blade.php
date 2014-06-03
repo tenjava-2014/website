@@ -64,7 +64,7 @@
 
 		<p>Signing up takes 30 seconds. We'll take some details and contact you when it's time to choose a
 			timeslot. Signing up is done via your GitHub account - you don't need to register or make an
-			account. Simply click a button below, fill in the two fields and then register.</p>
+			account. Simply click a button below, fill in the fields and then register.</p>
 
 		<p><a href="/register/participant" class="button button-large button-flat-action">Register as
 				Participant</a> <a href="/register/judge" class="button button-large button-flat-primary">Apply to Become a Judge</a></p>
