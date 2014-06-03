@@ -3,7 +3,9 @@
 <div class="content-back">
 	<div class="grid-container">
 		@foreach (Config::get("user-access.present") as $key => $values)
-		<h2>{{{ $key }}}</h2>
+		<div class="grid-100">
+			<h2>{{{ $key }}}</h2>
+		</div>
 		<?php $i = 0; ?>
 		@foreach ($values as $value)
 		@include("partials.team-entry", array("username" => $value))
