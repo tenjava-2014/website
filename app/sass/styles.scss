@@ -286,6 +286,16 @@ ul.list-large {
   padding-bottom: 10px;
   padding-top: 10px;
   height: 100%;
+
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  p {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .team-entry-parent {
@@ -293,20 +303,10 @@ ul.list-large {
   margin-bottom: 50px;
 }
 
-.team-entry img {
-  width: 100%;
-  max-width: 200px;
-}
-
 .top-margin-10 {
   margin-top: 10px;
 }
 
-
-.team-entry p {
-  padding-left: 10px;
-  padding-right: 10px;
-}
 
 .signup-image > img {
   width: 100%;
