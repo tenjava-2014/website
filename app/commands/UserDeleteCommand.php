@@ -35,7 +35,7 @@ class UserDeleteCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $app = Application::where("gh_username", $this->argument("name"))->get();
+        $app = Application::where("gh_username", $this->argument("name"))->first();
         if ($app == null) {
             $this->error("No such application.");
         } else {
