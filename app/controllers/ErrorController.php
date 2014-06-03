@@ -18,6 +18,11 @@ class ErrorController extends BaseController {
         return Response::view('errors.oauth', array(), 400);
     }
 
+    public function priorapp() {
+        $this->setPageTitle("Prior registration required");
+        return Response::view('errors.priorapp', array(), 401);
+    }
+
     public function badRequest($reason) {
         $this->setPageTitle("Bad request");
         return Response::view('errors.request', array("reason" => $reason), 400);
