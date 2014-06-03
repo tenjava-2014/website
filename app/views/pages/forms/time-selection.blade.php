@@ -23,7 +23,7 @@
 
             @if ($errors->any())
                 <div class="alert block error">
-                    <h4>Application errors</h4>
+                    <h4>Form errors</h4>
                     <ul>
                         @foreach($errors->all('<li>:message</li>') as $message)
                             {{ $message }}
@@ -32,7 +32,7 @@
                 </div>
             @endif
 
-            {{ Form::open(array('url' => '/time/confirm', 'class' => 'form')) }}
+            {{ Form::open(array('url' => '/times/confirm', 'class' => 'form')) }}
                 <div class="control-group">
                     <p class="label">Please select one of these options</p>
                     <ul class="control unstyled">
