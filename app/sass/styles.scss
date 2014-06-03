@@ -20,7 +20,7 @@ body, html {
   font-family: "Open Sans";
   font-size: 15px;
   // background: url("http://subtlepatterns.com/patterns/debut_light.png");
-  background: #eee;
+  background: white;
   color: $textColor;
   line-height: 1.4em;
 }
@@ -251,12 +251,12 @@ i.fa.black {
 
 .content-back {
   background: #EEEEEE;
-    padding: 20px;
-    margin-bottom: 15px;
-    word-wrap: break-word;
+  padding: 20px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
 
-    .team-entry {
-      background-color: white;
+  .team-entry {
+    background-color: white;
   }
 }
 
@@ -333,6 +333,6 @@ ul.list-large {
 }
 
 ul.unstyled {
-    list-style: none outside none;
-    padding-left: 0;
+  list-style: none outside none;
+  padding-left: 0;
 }
