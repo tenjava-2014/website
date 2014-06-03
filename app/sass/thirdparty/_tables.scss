@@ -1,139 +1,75 @@
-// From Bootstrap unlike other files
-// Bootstrap License applies
-$table-cell-padding: 5px;
-$line-height-base: 1.4em;
-$table-border-color: #333;
-$table-bg-accent: #eef;
-$table-bg-hover: #eef;
-$body-bg: #eee;
-table {
-  max-width: 100%;
-  background-color: $body-bg;
+// From YUI Pure unlike other files
+// Pure License applies
+.pure-table {
+  /* Remove spacing between table cells (from Normalize.css) */
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
 }
-th {
+
+.pure-table caption {
+  color: #000;
+  font: italic 85%/1 arial, sans-serif;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+  border-left: 1px solid #cbcbcb;/* inner column border */
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible; /*to make ths where the title is really long work*/
+  padding: 0.5em 1em; /* cell padding */
+}
+.pure-table td:first-child,
+.pure-table th:first-child {
+  border-left-width: 0;
+}
+
+.pure-table > tbody > tr > td:first-child {
+  background: #e0e0e0;
+  color: #000;
   text-align: left;
+  vertical-align: bottom;
+}
+
+/*
+striping:
+even - #fff (white)
+odd - #f2f2f2 (light gray)
+*/
+.pure-table td {
+  background-color: transparent;
+}
+.pure-table-odd td {
+  background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.pure-table-striped tr:nth-child(2n-1) td {
+  background-color: #f2f2f2;
+}
+
+/* BORDERED TABLES */
+.pure-table-bordered td {
+  border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-bordered tbody > tr:last-child td,
+.pure-table-horizontal tbody > tr:last-child td {
+  border-bottom-width: 0;
 }
 
 
-// Baseline styles
+/* HORIZONTAL BORDERED TABLES */
 
-.table {
-  width: 100%;
-  margin-bottom: 10px;
-  // Cells
-  > thead,
-  > tbody,
-  > tfoot {
-    > tr {
-      > th,
-      > td {
-        padding: $table-cell-padding;
-        line-height: $line-height-base;
-        vertical-align: top;
-        border-top: 1px solid $table-border-color;
-      }
-    }
-  }
-  // Bottom align for column headings
-  > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 2px solid $table-border-color;
-  }
-  // Remove top border from thead by default
-  > caption + thead,
-  > colgroup + thead,
-  > thead:first-child {
-    > tr:first-child {
-      > th,
-      > td {
-        border-top: 0;
-      }
-    }
-  }
-  // Account for multiple tbody instances
-  > tbody + tbody {
-    border-top: 2px solid $table-border-color;
-  }
-
-  // Nesting
-  .table {
-    background-color: $body-bg;
-  }
+.pure-table-horizontal td,
+.pure-table-horizontal th {
+  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #cbcbcb;
 }
-
-
-
-// Bordered version
-//
-// Add borders all around the table and between all the columns.
-
-.table-bordered {
-  border: 1px solid $table-border-color;
-  > thead,
-  > tbody,
-  > tfoot {
-    > tr {
-      > th,
-      > td {
-        border: 1px solid $table-border-color;
-      }
-    }
-  }
-  > thead > tr {
-    > th,
-    > td {
-      border-bottom-width: 2px;
-    }
-  }
+.pure-table-horizontal tbody > tr:last-child td {
+  border-bottom-width: 0;
 }
-
-
-// Zebra-striping
-//
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-
-.table-striped {
-  > tbody > tr:nth-child(odd) {
-    > td,
-    > th {
-      background-color: $table-bg-accent;
-    }
-  }
-}
-
-
-// Hover effect
-//
-// Placed here since it has to come after the potential zebra striping
-
-.table-hover {
-  > tbody > tr:hover {
-    > td,
-    > th {
-      background-color: $table-bg-hover;
-    }
-  }
-}
-
-
-// Table cell sizing
-//
-// Reset default table behavior
-
-table col[class*="col-"] {
-  position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
-  float: none;
-  display: table-column;
-}
-table {
-  td,
-  th {
-    &[class*="col-"] {
-      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
-      float: none;
-      display: table-cell;
-    }
-  }
-}
-
-
