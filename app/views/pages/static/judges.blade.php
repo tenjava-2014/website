@@ -17,10 +17,10 @@
 <div class="grid-container">
 	<div class="grid-100">
 		<h2>Join the Team</h2>
-		<p>ten.java would not be able to function without our dedicated panel of judges, developers, and organisers. We are always looking for rmore talented individuals to aid in development and growth of ten.java. If you would like to join the team, <a href="/register/judge">apply to be a judge using Github</a>.
+		<p>ten.java would not be able to function without our dedicated panel of judges, developers, and organisers. We are always looking for rmore talented individuals to aid in development and growth of ten.java. If you would like to join the team, simply click the button below, fill in the two fields and then register..
 		</p>
-		<p><a href="/register/judge" class="button button-large button-flat-primary">Register as
-				Judge</a></p>
+		<p><a href="/register/judge" class="button button-large button-flat-primary">Apply to Become a Judge</a> <a href="/register/participant" class="button button-large button-flat-action">Register as
+				Participant</a></p>
 		<small>Please review the privacy info available <a href="/privacy">here</a> before signing up.
 			</small>
 	</div>
