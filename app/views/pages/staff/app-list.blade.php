@@ -22,7 +22,7 @@
     <h3 style="color: #{{ ($app->judge) ? "0a0" : "00a" }}">{{{ $app->gh_username }}} <a
         href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="fa fa-github"></i></a> <a
         href="http://github.com/{{{ $app->gh_username }}}"><i class="fa fa-user"></i></a></h3>
-    <table class="table">
+    <table class="table table-bordered table-striped">
         <tbody>
         <tr>
             <td>Created at</td>
