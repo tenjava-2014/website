@@ -251,6 +251,10 @@ i.fa.black {
   background: white;
   padding: 20px;
   margin-bottom: 15px;
+
+  .team-entry {
+    background-color: #EEEEEE;
+  }
 }
 
 .content {
@@ -280,9 +284,8 @@ ul.list-large {
   padding: 0;
 }
 
-
 .team-entry {
-  background-color: #EEEEEE;
+  background-color: white;
   padding-bottom: 10px;
   padding-top: 10px;
   height: 100%;
