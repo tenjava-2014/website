@@ -320,4 +320,8 @@ ul.list-large {
   img {
     width: 100%;
   }
+
+  &.signup-margin {
+    margin: 0 inherit inherit !important;
+  }
 }

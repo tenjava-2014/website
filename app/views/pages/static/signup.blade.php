@@ -71,7 +71,7 @@
 		<small>Please review the privacy info available <a href="/privacy">here</a> before signing up.
 		</small>
 	</div>
-	<div class="grid-20 hide-on-mobile signup-image">
+	<div class="grid-20 hide-on-mobile signup-image signup-margin">
 		<img src="/assets/img/thirdparty/rocket.svg">
 	</div>
 </div>
