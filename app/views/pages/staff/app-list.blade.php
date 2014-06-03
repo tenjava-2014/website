@@ -3,7 +3,7 @@
 <div class="grid-container">
     <div class="grid-100">
 <h2>App list ({{{ $apps->getTotal() }}} applications)</h2>
-<div class="warning alert">This page is restricted.
+<div class="alert basic error">This page is restricted.
     @if ($fullAccess)
         <p>You currently have full access to all user data. You <strong>must not</strong> share this data with anyone (unless
         they too have this access).</p>
@@ -20,9 +20,9 @@
 
 @foreach ($apps as $app)
     <h3 style="color: #{{ ($app->judge) ? "0a0" : "00a" }}">{{{ $app->gh_username }}} <a
-        href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="icon-github"></i></a> <a
-        href="http://github.com/{{{ $app->gh_username }}}"><i class="icon-user"></i></a></h3>
-    <table class="striped rounded">
+        href="http://github.com/tenjava/{{{ $app->gh_username }}}"><i class="fa fa-github"></i></a> <a
+        href="http://github.com/{{{ $app->gh_username }}}"><i class="fa fa--user"></i></a></h3>
+    <table class="table">
         <tbody>
         <tr>
             <td>Created at</td>
