@@ -52,7 +52,13 @@ class UserDeleteCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array();
+        return array(
+            array(
+                "name",
+                InputArgument::REQUIRED,
+                "The user's GitHub username.",
+                null
+            ));
     }
 
     /**
@@ -61,13 +67,7 @@ class UserDeleteCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array(
-            array(
-                "name",
-                InputArgument::REQUIRED,
-                "The user's GitHub username.",
-                null
-            ));
+        return array();
     }
 
 }
