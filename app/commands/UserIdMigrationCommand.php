@@ -40,6 +40,7 @@ class UserIdMigrateCommand extends Command {
         foreach ($list as $entry) {
             if ($entry->gh_id === 0) {
                 $entry = $apiClient->find($entry->gh_username);
+                $this->info($entry);
                 if ($entry !== null) {
                     $this->info("Got id of " . $entry['id'] . " for " . $entry['username']);
                 } else {
