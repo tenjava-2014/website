@@ -1,20 +1,18 @@
 @extends('layouts.master')
 @section('content')
-@foreach (Config::get("user-access.present") as $key => $values)
-
-<h2>{{{ $key }}}</h2>
-<?php $i = 0; ?>
-@foreach ($values as $value)
-@if($i % 2 > 0)
 <div class="content-back">
-	@endif
 	<div class="grid-container">
+		@foreach (Config::get("user-access.present") as $key => $values)
+		<h2>{{{ $key }}}</h2>
+		<?php $i = 0; ?>
+		@foreach ($values as $value)
 		@include("partials.team-entry", array("username" => $value))
+		<?php $i++; ?>
+		@endforeach
+		@endforeach
 	</div>
-	@if($i % 2 > 0)
 </div>
-@endif
-<?php $i++; ?>
-@endforeach
-@endforeach
+<div class="grid-container">
+	<h3>Join the Team!</h3>
+</div>
 @stop
