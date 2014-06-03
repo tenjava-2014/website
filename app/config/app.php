@@ -77,6 +77,8 @@ return array(
     |
     */
 
+    'cipher' => MCRYPT_RIJNDAEL_256,
+
     // Override in local conf
     'key' => 'Iegd2l0X08QomUa5K5uGjjL4FVwqVR1N',
 
