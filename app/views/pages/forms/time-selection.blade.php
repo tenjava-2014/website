@@ -11,13 +11,15 @@
             </div>
             <p>As per last year, we have multiple timeslots which will each be assigned a separate theme. Unlike last
                 year, we have made a few changes to how things work. This year, ten.java will happen at 3 different
-                times. These are:</p>
-            <p class="time-indicator display-none">Please note that all times are displayed in your computer's timezone. If you'd like to see UTC times, please hover over the times.</p>
+                times.</p>
+
             <!-- will be released soon! -->
             <p>Please choose the competition time(s) for the <strong>{{{ $username }}}</strong> user. It is recommended
                 that all
                 participants stick to 1 time only. That said, it is feasible to participate in both time 1 and an
                 additional time for those interested.</p>
+
+            <p class="time-indicator display-none">Please note that all times are displayed in your computer's timezone. If you'd like to see UTC times, please hover over the times.</p>
 
             @if ($errors->any())
                 <div class="alert block error">
