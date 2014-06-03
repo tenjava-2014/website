@@ -24,7 +24,8 @@
             "app/tests/TestCase.php",
             "app/composers",
             "app/authentication",
-            "app/errors"
+            "app/errors",
+            "app/queue"
         ],
         "psr-0": {
             "Tools": "app/libraries"

@@ -50,6 +50,7 @@ class TimeController extends BaseController {
         $pt->t2 = (str_contains($rbOpt, "t2"));
         $pt->t3 = (str_contains($rbOpt, "t3"));
         $pt->save();
+        Queue::push('TimeSelectionJob', array('username' => $this->auth->getUsername(), 't1' => $pt->t1, "t2" => $pt->t2, "t3" => $pt->t3));
         return Redirect::to("/times/thanks");
     }
 
