@@ -68,4 +68,5 @@
 @endforeach
 
 <div class="pagination">{{ $apps->appends($append)->links() }}</div>
+        </div></div>
 @stop
