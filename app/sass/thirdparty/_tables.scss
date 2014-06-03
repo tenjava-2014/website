@@ -23,6 +23,7 @@
   margin: 0;
   overflow: visible; /*to make ths where the title is really long work*/
   padding: 0.5em 1em; /* cell padding */
+  background-color: white;
 }
 .pure-table td:first-child,
 .pure-table th:first-child {
@@ -30,13 +31,13 @@
 }
 
 .pure-table > tbody > tr > td:first-child {
-  background: white;
+  background: #EEEEEE;
   color: #000;
   text-align: left;
   vertical-align: bottom;
 }
 
-.content-back .pure-table > tbody > tr > td:first-child {
+.content-back .pure-table > tbody > tr > td {
   background-color: #EEEEEE;
 }
 
