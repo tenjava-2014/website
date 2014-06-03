@@ -7,6 +7,8 @@ return array(
   "lol768" => "DBO staff, likes web dev and <s>being abused by lDucks</s> writing clean code.",
   "jkcclemens" => "Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.",
   "hawkfalcon" => "DBO staff, bird-ish. Meep. Skwaaawk.",
+  "jkcclemens" => "(Web) Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.",
+  "hawkfalcon" => "Avian Hybrid, ShockNetwork Owner, awesome person, blah blah",
   "aerouk" => "Server owner, web developer",
   "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the Piano",
   "CaptainBern" => "DBO staff, part-time human, hates web-dev. Stop bullying lol768. :o",
