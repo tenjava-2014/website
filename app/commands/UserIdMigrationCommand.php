@@ -41,9 +41,9 @@ class UserIdMigrateCommand extends Command {
             if ($entry->gh_id === 0) {
                 $user = $apiClient->show($entry->gh_username);
                 if ($entry !== null) {
-                    $this->info("Got id of " . $user['id'] . " for " . $user['username']);
+                    $this->info("Got id of " . $user['id'] . " for " . $user['login']);
                 } else {
-                    $this->info("Missing GitHub API user info for " . $user['username']);
+                    $this->info("Missing GitHub API user info for " . $entry->gh_username);
                 }
             } else {
                 $this->info("User already had an id, skipping " . $entry->gh_username);
