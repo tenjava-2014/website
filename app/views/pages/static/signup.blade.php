@@ -67,7 +67,7 @@
 			account. Simply click the button below, fill in the two fields and then register.</p>
 
 		<p><a href="/register/participant" class="button button-large button-flat-action">Register as
-				Participant</a> <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a></p>
+				Participant</a> <a href="/register/judge" class="button button-flat-primary">Apply to Become a Judge</a></p>
 		<small>Please review the privacy info available <a href="/privacy">here</a> before signing up.
 		</small>
 	</div>
