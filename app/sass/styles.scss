@@ -313,6 +313,11 @@ ul.list-large {
 }
 
 
-.signup-image > img {
-  width: 100%;
+.signup-image {
+  margin: -40px inherit inherit;
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
 }
