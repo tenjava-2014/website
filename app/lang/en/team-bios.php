@@ -1,4 +1,7 @@
 <?php
+
+// Make sure bios are <= 160 characters or they will be cut off
+
 return array(
   "lDucks" => "DBO staff, likes web dev and abusing lol768, full-time duck. Used to run a large Minecraft server, no longer maintains plugins.",
   "lol768" => "DBO staff, likes web dev and <s>being abused by lDucks</s> writing clean code.",
