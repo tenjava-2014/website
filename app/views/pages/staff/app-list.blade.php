@@ -9,7 +9,7 @@
         they too have this access).</p>
     @else
     <p>You currently have limited access to the information on this page. You <strong>must not</strong> share this data
-        with anyone (unless they too have this access).</p>p>
+        with anyone (unless they too have this access).</p>
     @endif
 </div>
 
