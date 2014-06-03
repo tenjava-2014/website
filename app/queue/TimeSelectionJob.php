@@ -14,6 +14,7 @@ class TimeSelectionJob {
         if ($data['t3']) {
             $this->addUserRepo($data['username'] . "-t3", $client);
         }
+        $job->delete();
     }
 
     public function addUserRepo($username, $client) {
