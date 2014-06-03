@@ -30,10 +30,14 @@
 }
 
 .pure-table > tbody > tr > td:first-child {
-  background: #e0e0e0;
+  background: white;
   color: #000;
   text-align: left;
   vertical-align: bottom;
+}
+
+.content-back .pure-table > tbody > tr > td:first-child {
+  background-color: #EEEEEE;
 }
 
 /*

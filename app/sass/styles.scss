@@ -1,11 +1,11 @@
 @import url(//fonts.googleapis.com/css?family=Roboto:400,300,700,500,700italic,900,900italic,500italic,400italic,300italic);
 @import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
-@import 'partials/buttons';
 @import "compass/css3";
 @import 'vars';
 @import "thirdparty/forms";
 @import "thirdparty/alerts";
 @import "thirdparty/tables";
+@import 'thirdparty/_buttons';
 
 html {
   overflow-y: scroll; // Always-active vert. scrollbar

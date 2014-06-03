@@ -1,7 +1,7 @@
 @import 'compass';
-@import 'options'; // EDIT STYLES AND OPTIONS IN _options.scss
-@import 'danger';
-@import 'glow';
+@import '../partials/_options'; // EDIT STYLES AND OPTIONS IN _options.scss
+@import '../partials/_danger';
+@import '../partials/_glow';
 
 
 //////////////////////////////////////////////////////////
