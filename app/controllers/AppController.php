@@ -7,46 +7,6 @@ class AppController extends BaseController {
         $this->beforeFilter('AuthenticationFilter');
     }
 
-    /**
-     * @return array
-     */
-    public static function getLimitedUsers() {
-        $limitedUsers = array(
-            "CaptainBern",
-            // judge
-            "MasterEjay",
-            // judge
-            "aerouk",
-            // judge
-            "lDucks",
-            // judge
-            "ttaylorr",
-            // judge
-            "njb-said",
-            // judge
-            "pogostick29dev",
-            // judge
-            "ShadowWizardMC"
-            // judge
-        );
-        return $limitedUsers;
-    }
-
-    /**
-     * @return array
-     */
-    public static function getAuthorisedUsers() {
-        $authorisedUsers = array(
-            "lol768",
-            // organiser
-            "jkcclemens",
-            // organiser
-            "hawkfalcon"
-            // organiser
-        );
-        return $authorisedUsers;
-    }
-
     public function showApplyJudge() {
         $this->setActive("sign up");
         $this->setPageTitle("Judge application");
