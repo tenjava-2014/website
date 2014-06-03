@@ -34,6 +34,7 @@ Route::group(array(), function () {
 /* LOGGED IN USERS ONLY */
 Route::group(array('before' => 'AuthenticationFilter'), function () {
     Route::get('/register/participant', "AppController@showApplyParticipant");
+    Route::get('/times/select', "TimeController@showUserTimes");
     Route::get('/register/judge', "AppController@showApplyJudge");
 
 });

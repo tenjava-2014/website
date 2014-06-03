@@ -2,10 +2,10 @@
 
 class TimeController extends BaseController {
 
-    public function selectUserTimes() {
+    public function showUserTimes() {
         $appData = Session::get("application_data");
-        $githubUsername = $appData['username'];
-        // TODO!
+        $githubUsername = $this->auth->getUsername();
+        return View::make("time-selection")->with(array("username" => $githubUsername));
     }
 
 } 
