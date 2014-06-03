@@ -39,7 +39,7 @@ class BaseController extends Controller {
         );
 
         if ($this->auth->isStaff()) {
-            $navigation['primary'][] = new NavigationItem("Admin", "/admin");
+            $navigation['primary'][] = new NavigationItem("App list", "/list");
         }
         $navigation['primary'][] = new NavigationItem("About", "/about");
 

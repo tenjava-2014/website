@@ -12,14 +12,22 @@ class AppController extends BaseController {
      */
     public static function getLimitedUsers() {
         $limitedUsers = array(
-            "CaptainBern", // judge
-            "MasterEjay", // judge
-            "aerouk", // judge
-            "lDucks", // judge
-            "ttaylorr", // judge
-            "njb-said", // judge
-            "pogostick29dev", // judge
-            "ShadowWizardMC" // judge
+            "CaptainBern",
+            // judge
+            "MasterEjay",
+            // judge
+            "aerouk",
+            // judge
+            "lDucks",
+            // judge
+            "ttaylorr",
+            // judge
+            "njb-said",
+            // judge
+            "pogostick29dev",
+            // judge
+            "ShadowWizardMC"
+            // judge
         );
         return $limitedUsers;
     }
@@ -29,9 +37,12 @@ class AppController extends BaseController {
      */
     public static function getAuthorisedUsers() {
         $authorisedUsers = array(
-            "lol768", // organiser
-            "jkcclemens", // organiser
-            "hawkfalcon" // organiser
+            "lol768",
+            // organiser
+            "jkcclemens",
+            // organiser
+            "hawkfalcon"
+            // organiser
         );
         return $authorisedUsers;
     }
@@ -77,50 +88,33 @@ class AppController extends BaseController {
     }
 
     public function listApps() {
-        $appData = Session::get("application_data");
-        $githubUsername = $appData['username'];
+        $this->setPageTitle("Application list");
+        $this->setActive("App list");
 
-        /**
-         * These users can see contact information if the applicant chose to disclose it to us.
-         */
-        $authorisedUsers = self::getAuthorisedUsers();
+        $viewData = array(
+            "append" => array(),
+            "apps" => null,
+            "fullAccess" => false
+        );
 
-        /**
-         * These users (typically judges) can see IRC/twitch/DBO usernames but cannot see emails.
-         */
-        $limitedUsers = self::getLimitedUsers();
-
-        if (!in_array($githubUsername, $limitedUsers) && !in_array($githubUsername, $authorisedUsers)) {
-            if (!$githubUsername) {
-                return Redirect::to("/oauth/confirm")->with('intent', 'admin');
-            } else {
-                return Response::json("No auth.");
-            }
-        } else {
-            $viewData = array(
-                "append" => array(),
-                "apps" => null,
-                "fullAccess" => false
-            );
-
-            if (in_array($githubUsername, $authorisedUsers)) {
-                $viewData["fullAccess"] = true;
-            }
-
-            if (Input::has("judges")) {
-                $viewData['apps'] = Application::where('judge', true)->paginate(5);
-                $viewData['append'] = array("judges" => "1");
-            } else {
-                if (Input::has("normal")) {
-                    $viewData['apps'] = Application::where('judge', false)->paginate(5);
-                    $viewData['append'] = array("normal" => "1");
-                } else {
-                    $viewData['apps'] = Application::paginate(5);
-                }
-            }
-
-            return View::make("pages.staff.app-list")->with($viewData);
+        if ($this->auth->isAdmin()) {
+            $viewData["fullAccess"] = true;
         }
+
+        if (Input::has("judges")) {
+            $viewData['apps'] = Application::where('judge', true)->paginate(5);
+            $viewData['append'] = array("judges" => "1");
+        } else {
+            if (Input::has("normal")) {
+                $viewData['apps'] = Application::where('judge', false)->paginate(5);
+                $viewData['append'] = array("normal" => "1");
+            } else {
+                $viewData['apps'] = Application::paginate(5);
+            }
+        }
+
+        return View::make("pages.staff.app-list")->with($viewData);
+
     }
 
     public function processApplication($type) {
@@ -134,14 +128,14 @@ class AppController extends BaseController {
         if ($type === "participant") {
             $validator = Validator::make(
                 array(
-                     'dbo' => Input::get("dbo"),
-                     'twitch' => Input::get("twitch"),
-                     "dupeApp" => !$dupeApp
+                    'dbo' => Input::get("dbo"),
+                    'twitch' => Input::get("twitch"),
+                    "dupeApp" => !$dupeApp
                 ),
                 array(
-                     'dbo' => 'required|max:255',
-                     'twitch' => 'max:255',
-                     "dupeApp" => "accepted"
+                    'dbo' => 'required|max:255',
+                    'twitch' => 'max:255',
+                    "dupeApp" => "accepted"
                 ),
                 array(
                     'dupeApp.accepted' => "An application/registration entry already exists for this user."
@@ -169,26 +163,26 @@ class AppController extends BaseController {
             $githubTest = ($numRepos != 0);
             $validator = Validator::make(
                 array(
-                     'dbo' => Input::get("dbo"),
-                     'mc' => Input::get("mcign"),
-                     'gmail' => Input::get("gdocs"),
-                     'irc' => Input::get("irc"),
-                     'githubAcceptable' => ($githubTest) ? "OK" : "",
-                     "dupeApp" => !$dupeApp
+                    'dbo' => Input::get("dbo"),
+                    'mc' => Input::get("mcign"),
+                    'gmail' => Input::get("gdocs"),
+                    'irc' => Input::get("irc"),
+                    'githubAcceptable' => ($githubTest) ? "OK" : "",
+                    "dupeApp" => !$dupeApp
                 ),
                 array(
-                     'dbo' => 'required|max:255',
-                     'mc' => 'required|max:16',
-                     'irc' => 'required|max:255',
-                     'gmail' => 'required|email|max:255',
-                     'githubAcceptable' => 'required',
-                     "dupeApp" => "accepted"
+                    'dbo' => 'required|max:255',
+                    'mc' => 'required|max:16',
+                    'irc' => 'required|max:255',
+                    'gmail' => 'required|email|max:255',
+                    'githubAcceptable' => 'required',
+                    "dupeApp" => "accepted"
                 ),
                 array(
-                     'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
-                     'mc.max' => 'Invalid Minecraft username specified.',
-                     'mc.required' => 'No Minecraft username specified.',
-                     'dupeApp.accepted' => "An application/registration entry already exists for this user."
+                    'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
+                    'mc.max' => 'Invalid Minecraft username specified.',
+                    'mc.required' => 'No Minecraft username specified.',
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
                 )
             );
             if ($validator->fails()) {
