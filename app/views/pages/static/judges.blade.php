@@ -1,13 +1,11 @@
 @extends('layouts.master')
 @section('content')
 <div class="content-back">
-	@foreach (Config::get("user-access.present") as $key => $values)
 	<div class="grid-container">
+		@foreach (Config::get("user-access.present") as $key => $values)
 		<div class="grid-100">
 			<h2>{{{ $key }}}</h2>
 		</div>
-	</div>
-	<div class="grid-container">
 		<?php $i = 0; ?>
 		@foreach ($values as $value)
 		@include("partials.team-entry", array("username" => $value))
