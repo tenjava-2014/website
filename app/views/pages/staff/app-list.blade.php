@@ -25,8 +25,8 @@
     <table class="pure-table pure-table-bordered">
         <tbody>
         <tr>
-            <td>Created at</td>
-            <td><span title="{{{ $app->created_at }}}">{{{ $app->created_at->diffForHumans() }}}</span></td>
+            <td width="10%">Created at</td>
+            <td width="90%"><span title="{{{ $app->created_at }}}">{{{ $app->created_at->diffForHumans() }}}</span></td>
         </tr>
         <tr>
             <td>DBO</td>
