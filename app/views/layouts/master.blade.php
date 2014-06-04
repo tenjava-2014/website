@@ -33,6 +33,10 @@ $( document ).ready(function() {
     $("#nav-toggle").click(function() {
         $("#nav-container").toggleClass("hide-on-mobile");
     });
+    $(".date-replacer").each(function() {
+        var date = new Date($(this).data("time"));
+        $(this).text(date.toString());
+    });
 });
 </script>
 </body>
