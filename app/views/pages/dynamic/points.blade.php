@@ -63,9 +63,6 @@
 
         <p>You can help us increase our prize fund by sending CurseForge points to the 'tenjava' user. To do so, simply
             click the button below and select the 'Transfer Points' option in the top navigation bar.</p>
-
-        <img src="/assets/img/points.png"/>
-
         <p><a href="https://store.curseforge.com" class="button button-large button-flat-action">Visit store</a></p>
     </div>
     <div class="grid-20 hide-on-mobile signup-image signup-margin">
