@@ -343,3 +343,15 @@ ul.unstyled {
 div.alert.condensed {
   padding: 0em 1em 0em 1em;
 }
+
+.pagination {
+  list-style: none;
+
+  li {
+    display: inline;
+
+    &+li {
+      margin-left: 10px;
+    }
+  }
+}
