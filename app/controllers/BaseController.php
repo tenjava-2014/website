@@ -55,6 +55,8 @@ class BaseController extends Controller {
 
 	    if($this->hasSelectedTimes() == 'notime'){
 		    $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
+	    }else if($this->hasSelectedTimes() == 'timesdone'){
+		    unset($navigation['primary'][1]);
 	    }
 
         if ($this->auth->isStaff()) {
