@@ -5,8 +5,7 @@
         <div class="grid-100">
             <h2>You're all set!</h2>
 
-            <p>Thanks for applying for ten.java 2014. You've now completed your registration. Very soon, we'll ask you
-                to choose your preferred time for the contest and setup your repository on GitHub.</p>
+            <p>Thanks for applying for ten.java 2014. You've now completed your registration. You may now <a href="/times/select">choose</a> your contest time.</p>
 
             <h3>Share to twitter</h3>
             <p>If you'd like to get more people involved you can share your sign-up to twitter using the button below:</p>
