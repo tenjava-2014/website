@@ -9,9 +9,9 @@ class PointsController extends BaseController {
         $this->setPageTitle("Points");
         $filesystem = new Filesystem();
         $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
-        $recent = $this->getFirst($pointsData->recent_transactions, 10);
+        $recent = $this->getFirst($pointsData->recent_transactions, 5);
         $numDonors = count(get_object_vars($pointsData->top_donors));
-        $top = $this->getFirstAssociative($pointsData->top_donors, 10);
+        $top = $this->getFirstAssociative($pointsData->top_donors, 5);
 
         $carbonLast = Carbon::createFromTimestamp($pointsData->last_update);
         $carbonNext = Carbon::createFromTimestamp($pointsData->next_update);
