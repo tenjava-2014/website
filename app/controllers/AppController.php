@@ -69,7 +69,7 @@ class AppController extends BaseController {
                 $viewData['apps'] = Application::where('judge', false)->paginate(5);
                 $viewData['append'] = array("normal" => "1");
             } else {
-                $viewData['apps'] = Application::paginate(5);
+                $viewData['apps'] = Application::paginate(1);
             }
         }
 
