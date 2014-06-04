@@ -14,6 +14,7 @@
 		@endforeach
 	</div>
 </div>
+@if($hst == 'noapp')
 <div class="grid-container">
 	<div class="grid-100">
 		<h2>Join the Team</h2>
@@ -24,4 +25,5 @@
 		</small>
 	</div>
 </div>
+@endif
 @stop
