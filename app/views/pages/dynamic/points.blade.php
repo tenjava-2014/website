@@ -17,7 +17,7 @@
             <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people the prize pool would not be nearly as amazing.</p>
             <ul class="list-large">
                 @foreach ($top as $key => $value)
-                <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> <strong>({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}, ${{ round($value / 20, 2) }})</strong></li>
+                <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}, ${{ round($value / 20, 2) }})</li>
                 @endforeach
             </ul>
 
@@ -33,7 +33,7 @@
             <p>The following people have recently contributed points to the prize pool. Thank you for your help and contributions!</p>
             <ul class="list-large">
                 @foreach ($recent as $element)
-                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> <strong>({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($element->amount / 20, 2) }})</strong>
+                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($element->amount / 20, 2) }})
                 </li>
                 @endforeach
             </ul>
