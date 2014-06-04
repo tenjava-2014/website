@@ -8,8 +8,8 @@
                 developers who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with
                 more popular projects will receive more points. We rely on point donations to form the contest prize.
                 The more points given, the more we can give out to the winning developers.</p>
-            <h4>So far, we've raised {{ number_format($data->points) }}
-                (${{ number_format(round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people.</h4>
+            <h3>So far, we've raised {{ number_format($data->points) }}
+                (${{ number_format(round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people.</h3>
         </div>
         <div class="grid-80">
             <a id="top"></a>
