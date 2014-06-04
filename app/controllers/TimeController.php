@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class TimeController extends BaseController {
 
     public function showUserTimes() {
+        $this->setActive("Choose Time");
+        $this->setPageTitle("Choose contest time");
         $githubUsername = $this->auth->getUsername();
         $ghId = $this->auth->getUserId();
         $appCount = Application::where("gh_id", $ghId)->where("judge", false)->count();
