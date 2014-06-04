@@ -3,7 +3,8 @@
 <div id="header">
     <div class="grid-container">
         <div class="grid-100 text-center">
-            The unofficial 10 hour Bukkit plugin contest.
+            The unofficial 10 hour Bukkit plugin contest.<br />
+	        <small>July 12, 2014</small>
         </div>
     </div>
 </div>
