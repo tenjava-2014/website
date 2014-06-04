@@ -11,54 +11,21 @@
 |
 */
 
-App::before(function($request)
-{
-	//
+App::before(function ($request) {
+    //
 });
 
 
-App::after(function($request, $response)
-{
-	//
+App::after(function ($request, $response) {
+    //
 });
 
-/*
-|--------------------------------------------------------------------------
-| Authentication Filters
-|--------------------------------------------------------------------------
-|
-| The following filters are used to verify that the user of the current
-| session is logged into this application. The "basic" filter easily
-| integrates HTTP Basic authentication for quick, simple checking.
-|
-*/
-
-Route::filter('auth', function()
-{
-	if (Auth::guest()) return Redirect::guest('login');
-});
-
-
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
-});
-
-/*
-|--------------------------------------------------------------------------
-| Guest Filter
-|--------------------------------------------------------------------------
-|
-| The "guest" filter is the counterpart of the authentication filters as
-| it simply checks that the current user is not logged in. A redirect
-| response will be issued if they are, which you may freely change.
-|
-*/
-
-Route::filter('guest', function()
-{
-	if (Auth::check()) return Redirect::to('/');
-});
+/* @see AuthenticationFilter */
+Route::filter('AuthenticationFilter', 'AuthenticationFilter');
+/* @see StaffFilter */
+Route::filter('StaffFilter', 'StaffFilter');
+/* @see AdminFilter */
+Route::filter('AdminFilter', 'AdminFilter');
 
 /*
 |--------------------------------------------------------------------------
@@ -71,10 +38,8 @@ Route::filter('guest', function()
 |
 */
 
-Route::filter('csrf', function()
-{
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+Route::filter('csrf', function () {
+    if (Session::token() != Input::get('_token')) {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });

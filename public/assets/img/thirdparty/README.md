@@ -1,0 +1,1 @@
+These files are all from http://iconmonstr.com and are subject to the [license agreement](http://iconmonstr.com/license/).

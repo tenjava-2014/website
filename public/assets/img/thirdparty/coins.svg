@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="iconmonstr-coin-9-icon.svg"><metadata
+     id="metadata9"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs7" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview5"
+     showgrid="false"
+     inkscape:zoom="0.65186406"
+     inkscape:cx="600.67788"
+     inkscape:cy="241.46101"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" /><path
+     id="coin-9-icon"
+     d="m 147.722,208.427 c -53.97,0 -97.722,21.25 -97.722,47.461 0,26.211 43.752,47.457 97.722,47.457 53.971,0 97.723,-21.246 97.723,-47.457 0,-26.211 -43.753,-47.461 -97.723,-47.461 z m 75.317,93.82 c 9.046,-4.395 16.559,-9.531 22.405,-15.305 l 0,18.889 c 0,26.209 -43.752,47.459 -97.723,47.459 C 93.752,353.29 50,332.04 50,305.831 l 0,-18.889 c 5.847,5.773 13.357,10.91 22.405,15.305 20.356,9.887 47.104,15.33 75.316,15.33 28.215,0 54.962,-5.443 75.318,-15.33 z m 0,99.885 c 9.046,-4.393 16.559,-9.531 22.405,-15.303 l 0,19.227 c 0,26.211 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.248 -97.722,-47.459 l 0,-19.227 c 5.847,5.771 13.357,10.91 22.405,15.303 20.356,9.887 47.104,15.332 75.316,15.332 28.216,0 54.963,-5.445 75.319,-15.332 z m 0,-49.942 c 9.046,-4.395 16.559,-9.533 22.405,-15.305 l 0,18.887 c 0,26.211 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.248 -97.722,-47.459 l 0,-18.887 c 5.847,5.771 13.357,10.91 22.405,15.305 20.356,9.885 47.104,15.33 75.316,15.33 28.216,0.001 54.963,-5.445 75.319,-15.33 z m 216.556,49.942 c 9.046,-4.393 16.559,-9.531 22.405,-15.303 l 0,19.227 c 0,26.211 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.248 -97.722,-47.459 l 0,-19.227 c 5.847,5.771 13.357,10.91 22.405,15.303 20.356,9.887 47.104,15.332 75.316,15.332 28.215,0 54.962,-5.445 75.319,-15.332 z m 0,-99.885 c 9.046,-4.395 16.559,-9.531 22.405,-15.305 l 0,18.889 c 0,26.209 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.25 -97.722,-47.459 l 0,-18.889 c 5.847,5.773 13.357,10.91 22.405,15.305 20.356,9.887 47.104,15.33 75.316,15.33 28.215,0 54.962,-5.443 75.319,-15.33 z m 0,49.943 c 9.046,-4.395 16.559,-9.533 22.405,-15.305 l 0,18.887 c 0,26.211 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.248 -97.722,-47.459 l 0,-18.887 c 5.847,5.771 13.357,10.91 22.405,15.305 20.356,9.885 47.104,15.33 75.316,15.33 28.215,0.001 54.962,-5.445 75.319,-15.33 z m 0,-99.943 c 9.046,-4.395 16.559,-9.531 22.405,-15.305 l 0,18.889 c 0,26.209 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.25 -97.722,-47.459 l 0,-18.889 c 5.847,5.773 13.357,10.91 22.405,15.305 20.356,9.887 47.104,15.33 75.316,15.33 28.215,0 54.962,-5.443 75.319,-15.33 z M 364.277,58.485 c -53.97,0 -97.722,21.248 -97.722,47.461 0,26.209 43.752,47.457 97.722,47.457 53.971,0 97.723,-21.248 97.723,-47.457 0,-26.213 -43.752,-47.461 -97.723,-47.461 z m 75.318,93.819 c 9.046,-4.395 16.559,-9.529 22.405,-15.303 l 0,18.887 c 0,26.211 -43.752,47.459 -97.723,47.459 -53.97,0 -97.722,-21.248 -97.722,-47.459 l 0,-18.887 c 5.847,5.773 13.357,10.908 22.405,15.303 20.356,9.887 47.104,15.332 75.316,15.332 28.215,0 54.962,-5.446 75.319,-15.332 z m 0,49.943 c 9.046,-4.393 16.559,-9.531 22.405,-15.305 l 0,18.887 c 0,26.211 -43.752,47.461 -97.723,47.461 -53.97,0 -97.722,-21.25 -97.722,-47.461 l 0,-18.887 c 5.847,5.773 13.357,10.912 22.405,15.305 20.356,9.887 47.104,15.33 75.316,15.33 28.215,0 54.962,-5.443 75.319,-15.33 z"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="sssssccsssccscccsssccscccsssccccccsssccscccsssccscccsssccccccsssccscsssssccsssccscccsssccsc"
+     style="fill:#aaaaaa;fill-opacity:1" /></svg>

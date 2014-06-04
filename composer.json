@@ -4,23 +4,32 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "laravel/framework": "4.1.*",
+        "laravel/framework": "4.2.*",
         "artdarek/oauth-4-laravel": "dev-master",
         "guzzlehttp/guzzle": "~4.0",
         "knplabs/github-api": "*",
         "barryvdh/laravel-ide-helper": "1.*",
         "doctrine/dbal": "v2.4.2",
-        "pda/pheanstalk": "2.0.*"
+        "pda/pheanstalk": "2.0.*",
+        "thujohn/twitter": "dev-master"
     },
     "autoload": {
         "classmap": [
             "app/commands",
             "app/controllers",
+            "app/filters",
             "app/models",
             "app/database/migrations",
             "app/database/seeds",
-            "app/tests/TestCase.php"
-        ]
+            "app/tests/TestCase.php",
+            "app/composers",
+            "app/authentication",
+            "app/errors",
+            "app/queue"
+        ],
+        "psr-0": {
+            "Tools": "app/libraries"
+        }
     },
     "scripts": {
         "post-install-cmd": [

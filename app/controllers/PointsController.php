@@ -5,8 +5,9 @@ use Illuminate\Filesystem\Filesystem;
 
 class PointsController extends BaseController {
     public function showLeaderboard() {
-        $filesystem = new Filesystem();
-        $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
+        $this->setActive("points");
+        $this->setPageTitle("Points");
+        $pointsData = App::make("GlobalComposer")->getPoints();
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
         $numDonors = count(get_object_vars($pointsData->top_donors));
         $top = $this->getFirstAssociative($pointsData->top_donors, 5);
@@ -17,7 +18,7 @@ class PointsController extends BaseController {
         $goalPercent = $pointsData->points / 4644;
         $goalPercent = round($goalPercent * 100, 2);
 
-        return View::make("points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
+        return View::make("pages.dynamic.points")->with(array("data" => $pointsData, "goal" => $goalPercent, "next" => $carbonNext,
                                                 "last" => $carbonLast, "top" => $top, "recent" => $recent,
                                                 "totalCount" => $numDonors));
     }

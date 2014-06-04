@@ -1,43 +1,22 @@
 <?php
 
-use Illuminate\Support\Facades\Mail;
-
 class AppController extends BaseController {
-    /**
-     * @return array
-     */
-    public static function getLimitedUsers() {
-        $limitedUsers = array(
-            "CaptainBern", // judge
-            "MasterEjay", // judge
-            "aerouk", // judge
-            "lDucks", // judge
-            "ttaylorr", // judge
-            "njb-said", // judge
-            "pogostick29dev", // judge
-            "ShadowWizardMC" // judge
-        );
-        return $limitedUsers;
+
+    public function  __construct() {
+        parent::__construct();
+        $this->beforeFilter('AuthenticationFilter');
     }
 
-    /**
-     * @return array
-     */
-    public static function getAuthorisedUsers() {
-        $authorisedUsers = array(
-            "lol768", // organiser
-            "jkcclemens", // organiser
-            "hawkfalcon" // organiser
-        );
-        return $authorisedUsers;
+    public function showApplyJudge() {
+        $this->setActive("sign up");
+        $this->setPageTitle("Judge application");
+        return View::make("pages.forms.judge", array("username" => $this->auth->getUsername()));
     }
 
-    public function applyJudge() {
-        return Redirect::to("/oauth/confirm")->with('intent', 'judge');
-    }
-
-    public function applyParticipant() {
-        return Redirect::to("/oauth/confirm")->with('intent', 'participant');
+    public function showApplyParticipant() {
+        $this->setActive("sign up");
+        $this->setPageTitle("Registration");
+        return View::make("pages.forms.participant", array("username" => $this->auth->getUsername()));
     }
 
     public function declineJudgeApp($id) {
@@ -59,8 +38,8 @@ class AppController extends BaseController {
             $app = Application::findOrFail($id);
             $username = $app->gh_username;
             $gmail = $app->gmail;
-            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function($message) use ($gmail) {
-                $message->from('no-reply@tenjava.com', 'ten.java Team');
+            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
+                $message->from('tenjava@tenjava.com', 'ten.java Team');
                 $message->to($gmail)->subject('Your recent judge application');
             });
             $app->delete();
@@ -69,82 +48,67 @@ class AppController extends BaseController {
     }
 
     public function listApps() {
-        $appData = Session::get("application_data");
-        $githubUsername = $appData['username'];
+        $this->setPageTitle("Application list");
+        $this->setActive("App list");
 
-        /**
-         * These users can see contact information if the applicant chose to disclose it to us.
-         */
-        $authorisedUsers = self::getAuthorisedUsers();
+        $viewData = array(
+            "append" => array(),
+            "apps" => null,
+            "fullAccess" => false
+        );
 
-        /**
-         * These users (typically judges) can see IRC/twitch/DBO usernames but cannot see emails.
-         */
-        $limitedUsers = self::getLimitedUsers();
+        if ($this->auth->isAdmin()) {
+            $viewData["fullAccess"] = true;
+        }
 
-        if (!in_array($githubUsername, $limitedUsers) && !in_array($githubUsername, $authorisedUsers)) {
-            if (!$githubUsername) {
-                return Redirect::to("/oauth/confirm")->with('intent', 'admin');
-            } else {
-                return Response::json("No auth.");
-            }
+        if (Input::has("judges")) {
+            $viewData['apps'] = Application::where('judge', true)->paginate(5);
+            $viewData['append'] = array("judges" => "1");
         } else {
-            $viewData = array(
-                "append" => array(),
-                "apps" => null,
-                "fullAccess" => false
-            );
-
-            if (in_array($githubUsername, $authorisedUsers)) {
-                $viewData["fullAccess"] = true;
-            }
-
-            if (Input::has("judges")) {
-                $viewData['apps'] = Application::where('judge', true)->paginate(5);
-                $viewData['append'] = array("judges" => "1");
-            } else if (Input::has("normal")) {
+            if (Input::has("normal")) {
                 $viewData['apps'] = Application::where('judge', false)->paginate(5);
                 $viewData['append'] = array("normal" => "1");
             } else {
                 $viewData['apps'] = Application::paginate(5);
             }
-
-            return View::make("app_list")->with($viewData);
         }
+
+        return View::make("pages.staff.app-list")->with($viewData);
+
     }
 
-    public function noEmail() {
-        if (Input::has("undo")) {
-            Session::forget("no-email");
-        } else {
-            Session::put("no-email", true);
+    public function processApplication($type) {
+        $dupeApp = false;
+        if (Application::where("gh_id", $this->auth->getUserId())->first() != null) {
+            $dupeApp = true;
         }
-        return Redirect::to("/");
-    }
-
-    public function processApplication() {
-        $appData = Session::get("application_data");
-        if (Application::where("gh_username", $appData['username'])->first() != null) {
-            return View::make("dupe_app");
+        if ($type !== "participant" && $type !== "judge") {
+            return App::make("ErrorController")->badRequest("Invalid application type was supplied.");
         }
-        if (!$appData['judge']) {
+        if ($type === "participant") {
             $validator = Validator::make(
                 array(
-                     'dbo' => Input::get("dbo"),
-                     'twitch' => Input::get("twitch")
+                    'dbo' => Input::get("dbo"),
+                    'twitch' => Input::get("twitch"),
+                    "dupeApp" => !$dupeApp
                 ),
                 array(
-                     'dbo' => 'required|max:255',
-                     'twitch' => 'max:255',
+                    'dbo' => 'required|max:255',
+                    'twitch' => 'max:255',
+                    "dupeApp" => "accepted"
+                ),
+                array(
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
                 )
             );
             if ($validator->fails()) {
-                return View::make("bad_app")->with(array("messages" => $validator->messages()));
+                return Redirect::to("/register/participant")->withErrors($validator)->withInput();
             }
             $app = new Application();
-            $app->gh_username = $appData['username'];
-            $app->github_email = json_encode($appData['emails']);
+            $app->gh_username = $this->auth->getUsername();
+            $app->github_email = json_encode($this->auth->getEmails());
             $app->judge = false;
+            $app->gh_id = $this->auth->getUserId();
             $app->dbo_username = Input::get("dbo");
             if (!Input::has("twitch")) {
                 $app->twitch_username = "USER_REJECTED"; //field not nullable so this will have to do.
@@ -152,46 +116,49 @@ class AppController extends BaseController {
                 $app->twitch_username = Input::get("twitch");
             }
             $app->save();
-            $this->addUserRepo($appData['username']);
-            return View::make("thanks")->with(array("repo" => $appData['username']));
+            return View::make("pages.result.thanks.participant")->with(array("username" => $this->auth->getUsername()));
         } else {
             $client = $this->getUserApiClient();
-            $numRepos = count($client->repositories($appData['username']));
+            $numRepos = count($client->repositories($this->auth->getUsername()));
             $githubTest = ($numRepos != 0);
             $validator = Validator::make(
                 array(
-                     'dbo' => Input::get("dbo"),
-                     'mc' => Input::get("mcign"),
-                     'gmail' => Input::get("gdocs"),
-                     'irc'   => Input::get("irc"),
-                     'githubAcceptable' => ($githubTest) ? "OK" : ""
+                    'dbo' => Input::get("dbo"),
+                    'mc' => Input::get("mcign"),
+                    'gmail' => Input::get("gdocs"),
+                    'irc' => Input::get("irc"),
+                    'githubAcceptable' => ($githubTest) ? "OK" : "",
+                    "dupeApp" => !$dupeApp
                 ),
                 array(
-                     'dbo' => 'required|max:255',
-                     'mc' => 'required|max:16',
-                     'irc' => 'required|max:255',
-                     'gmail' => 'required|email|max:255',
-                     'githubAcceptable' => 'required'
+                    'dbo' => 'required|max:255',
+                    'mc' => 'required|max:16',
+                    'irc' => 'required|max:255',
+                    'gmail' => 'required|email|max:255',
+                    'githubAcceptable' => 'required',
+                    "dupeApp" => "accepted"
                 ),
                 array(
-                     'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
-                     'mc.max' => 'Invalid Minecraft username specified.',
-                     'mc.required' => 'No Minecraft username specified.',
+                    'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
+                    'mc.max' => 'Invalid Minecraft username specified.',
+                    'mc.required' => 'No Minecraft username specified.',
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
                 )
             );
             if ($validator->fails()) {
-                return View::make("bad_app")->with(array("messages" => $validator->messages()));
+                return Redirect::to("/register/judge")->withErrors($validator)->withInput();
             }
             $app = new Application();
-            $app->gh_username = $appData['username'];
-            $app->github_email = json_encode($appData['emails']);
+            $app->gh_username = $this->auth->getUsername();
+            $app->github_email = json_encode($this->auth->getEmails());
             $app->judge = true;
+            $app->gh_id = $this->auth->getUserId();
             $app->dbo_username = Input::get("dbo");
             $app->irc_username = Input::get("irc");
             $app->mc_username = Input::get("mcign");
             $app->gmail = Input::get("gdocs");
             $app->save();
-            return View::make("thanks");
+            return View::make("pages.result.thanks.judge")->with(array("username" => $this->auth->getUsername()));
         }
     }
 
