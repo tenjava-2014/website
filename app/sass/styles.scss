@@ -20,7 +20,7 @@ body, html {
   font-family: "Open Sans";
   font-size: 15px;
   // background: url("http://subtlepatterns.com/patterns/debut_light.png");
-  background: white;
+  background: #eee;
   color: $textColor;
   line-height: 1.4em;
 }
@@ -257,6 +257,10 @@ i.fa.black {
 
   .team-entry {
     background-color: white;
+  }
+
+  &+footer {
+    margin-top: 0;
   }
 }
 
