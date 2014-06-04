@@ -20,31 +20,16 @@ class AppController extends BaseController {
     }
 
     public function declineJudgeApp($id) {
-        $appData = Session::get("application_data");
-        $githubUsername = $appData['username'];
+        $app = Application::findOrFail($id);
+        $username = $app->gh_username;
+        $gmail = $app->gmail;
+        Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
+            $message->from('tenjava@tenjava.com', 'ten.java Team');
+            $message->to($gmail)->subject('Your recent judge application');
+        });
+        $app->delete();
+        return Redirect::back();
 
-        /**
-         * These users can see contact information if the applicant chose to disclose it to us.
-         */
-        $authorisedUsers = self::getAuthorisedUsers();
-
-        if (!in_array($githubUsername, $authorisedUsers)) {
-            if (!$githubUsername) {
-                return Redirect::to("/oauth/confirm")->with('intent', 'admin');
-            } else {
-                return Response::json("No auth.");
-            }
-        } else {
-            $app = Application::findOrFail($id);
-            $username = $app->gh_username;
-            $gmail = $app->gmail;
-            Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
-                $message->from('tenjava@tenjava.com', 'ten.java Team');
-                $message->to($gmail)->subject('Your recent judge application');
-            });
-            $app->delete();
-            return Redirect::back();
-        }
     }
 
     public function listApps() {
