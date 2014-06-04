@@ -12,7 +12,9 @@ class TimeController extends BaseController {
             $errorController = App::make("ErrorController");
             return $errorController->priorapp();
         }
-        return View::make("pages.forms.time-selection")->with(array("username" => $githubUsername));
+        $app = Application::where("gh_id", $ghId)->first();
+        $existing = ParticipantTimes::where("user_id", $app->id)->first();
+        return View::make("pages.forms.time-selection")->with(array("username" => $githubUsername, "existing" => $existing));
     }
 
     public function confirmUserTimes() {
