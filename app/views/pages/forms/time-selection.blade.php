@@ -73,11 +73,19 @@
 
             <p>You have already selected the following times:</p>
             <ul>
-                @if ($existing->t1) <li>Time 1</li> @endif
-                @if ($existing->t2) <li>Time 2</li> @endif
-                @if ($existing->t3) <li>Time 3</li> @endif
+                @if ($existing->t1) <li>Time 1. Starts at <span class="date-replacer" data-time="1405123200"
+                                                                title="2014-07-12 00:00:00 UTC">2014-07-12 00:00:00 UTC</span>
+                    and ends at <span class="date-replacer" title="2014-07-12 10:00:00 UTC" data-time="1405159200">2014-07-12 10:00:00 UTC</span></li> @endif
+                @if ($existing->t2) <li>Time 2. Starts at <span class="date-replacer" data-time="1405155600"
+                                                                title="2014-07-12 09:00:00 UTC">2014-07-12 09:00:00 UTC</span>
+                    and ends
+                    at <span class="date-replacer" data-time="1405191600" title="2014-07-12 19:00:00 UTC">2014-07-12 19:00:00 UTC</span></li> @endif
+                @if ($existing->t3) <li>Time 3. <span class="date-replacer" data-time="1405173600"
+                                                      title="2014-07-12 14:00:00 UTC">2014-07-12 14:00:00 UTC</span>
+                    and ends
+                    at <span class="date-replacer" data-time="1405209600" title="2014-07-13 00:00:00 UTC">2014-07-13 00:00:00 UTC</span></li> @endif
             </ul>
-            <p>Contact an organizer to get your selection changed<p>
+            <p>Contact an <a href="/team">organizer</a> to get your selection changed.<p>
 
             @endif
 
