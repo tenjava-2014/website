@@ -53,6 +53,10 @@ class BaseController extends Controller {
             new NavigationItem("Team", "/team"),
         );
 
+	    if($this->hasSelectedTimes() == 'notime'){
+		    $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
+	    }
+
         if ($this->auth->isStaff()) {
             $navigation['primary'][] = new NavigationItem("App list", "/list");
         }
