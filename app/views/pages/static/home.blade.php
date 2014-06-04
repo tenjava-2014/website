@@ -27,6 +27,7 @@
                 to learn how.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
+	        @if($hst == 'noapp')
             <p>
                 <a href="/register/participant" class="button button-large button-block button-flat-action">Register as Participant</a>
                 <span class="text-light">There are currently {{ $appsData->count }} participants</span>
@@ -36,7 +37,12 @@
                 <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
                 <span class="text-light">There are currently {{ $appsData->judgeCount }} judges</span>
             </p>
-
+			@elseif($hst == 'notime')
+	        <p>
+		        <a href="/times/select" class="button button-large button-block button-flat-action">Choose a Time</a>
+		        <span class="text-light">Pick a time for the competition</span>
+	        </p>
+	        @endif
             <p>
                 <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
