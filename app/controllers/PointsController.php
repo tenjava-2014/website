@@ -7,8 +7,7 @@ class PointsController extends BaseController {
     public function showLeaderboard() {
         $this->setActive("points");
         $this->setPageTitle("Points");
-        $filesystem = new Filesystem();
-        $pointsData = json_decode($filesystem->get(public_path("assets/data.json")));
+        $pointsData = App::make("GlobalComposer")->getPoints();
         $recent = $this->getFirst($pointsData->recent_transactions, 5);
         $numDonors = count(get_object_vars($pointsData->top_donors));
         $top = $this->getFirstAssociative($pointsData->top_donors, 5);

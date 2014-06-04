@@ -7,6 +7,14 @@ class GlobalComposer {
     private $latestAppName;
     private $tweets;
     private $points;
+
+    /**
+     * @return mixed
+     */
+    public function getPoints() {
+        return $this->points;
+    }
+
     private $judgeCount;
 
     public function __construct() {
