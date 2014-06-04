@@ -51,6 +51,7 @@
             </div>
             @endif
 
+            @if (!$existing)
             {{ Form::open(array('url' => '/times/confirm', 'class' => 'form')) }}
             <div class="control-group">
                 <p class="label">Please select one of these options</p>
@@ -67,6 +68,19 @@
 
             <input type="submit" value="Confirm selection" class="button button-block button-flat-primary">
             {{ Form::close() }}
+
+            @else
+
+            <p>You have already selected the following times:</p>
+            <ul>
+                @if ($existing->t1) <li>Time 1</li> @endif
+                @if ($existing->t2) <li>Time 2</li> @endif
+                @if ($existing->t3) <li>Time 3</li> @endif
+            </ul>
+            <p>Contact an organizer to get your selection changed<p>
+
+            @endif
+
         </div>
     </div>
 </div>
