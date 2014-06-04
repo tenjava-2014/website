@@ -11,6 +11,39 @@
             <h4>So far, we've raised {{ number_format($data->points) }}
                 (${{ number_format(round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people.</h4>
         </div>
+        <div class="grid-80">
+            <a id="top"></a>
+            <h3>Top donors</h3>
+
+            <p>Thanks to our top donors for their contributions!</p>
+            <ul class="list-large">
+                @foreach ($top as $key => $value)
+                <li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
+                @endforeach
+            </ul>
+
+        </div>
+        <div class="grid-20 hide-on-mobile signup-image signup-margin">
+            <img src="/assets/img/thirdparty/list.svg">
+        </div>
+
+        <div class="grid-80">
+            <a id="recent"></a>
+            <h3>Recent donors</h3>
+
+            <p>Thanks to our recent donors for their contributions!</p>
+            <ul class="list-large">
+                @foreach ($recent as $element)
+                <li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
+                </li>
+                @endforeach
+            </ul>
+
+        </div>
+        <div class="grid-20 hide-on-mobile signup-image signup-margin">
+            <img src="/assets/img/thirdparty/clock.svg">
+        </div>
+
     </div>
 </div>
 <div class="grid-container">
@@ -22,38 +55,6 @@
             @endforeach
         </ul>
     </div>-->
-    <div class="grid-80">
-        <a id="top"></a>
-        <h3>Top donors</h3>
-
-        <p>Thanks to our top donors for their contributions!</p>
-        <ul class="list-large">
-            @foreach ($top as $key => $value)
-            <li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
-            @endforeach
-        </ul>
-
-    </div>
-    <div class="grid-20 hide-on-mobile signup-image signup-margin">
-        <img src="/assets/img/thirdparty/list.svg">
-    </div>
-
-    <div class="grid-80">
-        <a id="recent"></a>
-        <h3>Recent donors</h3>
-
-        <p>Thanks to our recent donors for their contributions!</p>
-        <ul class="list-large">
-            @foreach ($recent as $element)
-            <li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
-            </li>
-            @endforeach
-        </ul>
-
-    </div>
-    <div class="grid-20 hide-on-mobile signup-image signup-margin">
-        <img src="/assets/img/thirdparty/clock.svg">
-    </div>
 
 
     <div class="grid-80">
