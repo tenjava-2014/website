@@ -1,4 +1,4 @@
 website
 =======
 
-TenJava 2014 official site!
+ten.java 2014 official site!
