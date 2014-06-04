@@ -16,6 +16,7 @@ class BaseController extends Controller {
         $this->auth = App::make("AuthProviderInterface");
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
+        View::share("hst", $this->hasSelectedTimes());
     }
 
     protected function hasSelectedTimes() {
