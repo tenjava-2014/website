@@ -33,7 +33,7 @@
             <p>The following people have recently contributed points to the prize pool. Thank you for your help and contributions!</p>
             <ul class="list-large">
                 @foreach ($recent as $element)
-                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> <strong>({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($value / 20, 2) }})</strong>
+                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> <strong>({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($element->amount / 20, 2) }})</strong>
                 </li>
                 @endforeach
             </ul>
