@@ -258,10 +258,10 @@ i.fa.black {
   .team-entry {
     background-color: white;
   }
+}
 
-  &+footer {
-    margin-top: 0;
-  }
+.content-back+footer {
+  margin-top: 0;
 }
 
 .content {
