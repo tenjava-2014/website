@@ -3,6 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
+            <h2>Points</h2>
             <p>Prizes for the winners of the contest are in the form of CurseForge points which are given out to all
                 developers who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with
                 more popular projects will receive more points. We rely on point donations to form the contest prize.
@@ -20,19 +21,40 @@
             <li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
             @endforeach
         </ul>
+    </div>-->
+    <div class="grid-80">
+        <a id="top"></a>
+        <h3>Top donors</h3>
+
+        <p>Thanks to our top donors for their contributions!</p>
+        <ul class="list-large">
+            @foreach ($top as $key => $value)
+            <li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
+            @endforeach
+        </ul>
+
     </div>
-    <div class="grid-50">
-        <h1>Recent Donors</h1>
+    <div class="grid-20 hide-on-mobile signup-image signup-margin">
+        <img src="/assets/img/thirdparty/list.svg">
+    </div>
+
+    <div class="grid-80">
+        <a id="recent"></a>
+        <h3>Recent donors</h3>
+
+        <p>Thanks to our recent donors for their contributions!</p>
         <ul class="list-large">
             @foreach ($recent as $element)
             <li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
             </li>
             @endforeach
         </ul>
+
     </div>
-    <div class="grid-100">
-        <small>This page is updated automatically. The last update was {{{ $last->diffForHumans() }}} and the next update is in {{{ $next->diffForHumans() }}}.</small>
-    </div>-->
+    <div class="grid-20 hide-on-mobile signup-image signup-margin">
+        <img src="/assets/img/thirdparty/clock.svg">
+    </div>
+
 
     <div class="grid-80">
         <a id="donate"></a>
