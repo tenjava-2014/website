@@ -49,7 +49,7 @@
             click the button below and select the 'Transfer Points' option in the top navigation bar.</p>
         <p><a href="https://store.curseforge.com" class="button button-large button-flat-action">Visit store</a></p>
     </div>
-    <div class="grid-20 hide-on-mobile signup-image signup-margin">
+    <div class="grid-20 hide-on-mobile hide-on-tablet signup-image signup-margin">
         <img src="/assets/img/thirdparty/send.svg">
     </div>
 
