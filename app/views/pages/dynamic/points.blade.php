@@ -9,7 +9,7 @@
                 more popular projects will receive more points. We rely on point donations to form the contest prize.
                 The more points given, the more we can give out to the winning developers.</p>
             <h3>So far, we've raised {{ number_format($data->points) }}
-                (${{ number_format(round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people.</h3>
+                ({{ money_format('$%i', round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people.</h3>
         </div>
         <div class="grid-80">
             <a id="top"></a>
@@ -17,7 +17,7 @@
             <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people the prize pool would not be nearly as amazing.</p>
             <ol class="list-large">
                 @foreach ($top as $key => $value)
-                <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}, ${{ round($value / 20, 2) }})</li>
+                <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
                 @endforeach
             </ol>
 
@@ -33,7 +33,7 @@
             <p>The following people have recently contributed points to the prize pool. Thank you for your help and contributions!</p>
             <ol class="list-large">
                 @foreach ($recent as $element)
-                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($element->amount / 20, 2) }})
+                <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
                 </li>
                 @endforeach
             </ol>
