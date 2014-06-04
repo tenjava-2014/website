@@ -15,11 +15,11 @@
             <a id="top"></a>
             <h3>Top donors</h3>
             <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people the prize pool would not be nearly as amazing.</p>
-            <ul class="list-large">
+            <ol class="list-large">
                 @foreach ($top as $key => $value)
                 <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }}, ${{ round($value / 20, 2) }})</li>
                 @endforeach
-            </ul>
+            </ol>
 
         </div>
         <div class="grid-20 hide-on-mobile signup-image signup-margin">
@@ -31,12 +31,12 @@
             <h3>Recent donors</h3>
 
             <p>The following people have recently contributed points to the prize pool. Thank you for your help and contributions!</p>
-            <ul class="list-large">
+            <ol class="list-large">
                 @foreach ($recent as $element)
                 <li><a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }}, ${{ round($element->amount / 20, 2) }})
                 </li>
                 @endforeach
-            </ul>
+            </ol>
 
         </div>
         <div class="grid-20 hide-on-mobile signup-image signup-margin">
