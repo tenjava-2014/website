@@ -80,7 +80,7 @@
                                                                 title="2014-07-12 09:00:00 UTC">2014-07-12 09:00:00 UTC</span>
                     and ends
                     at <span class="date-replacer" data-time="1405191600" title="2014-07-12 19:00:00 UTC">2014-07-12 19:00:00 UTC</span></li> @endif
-                @if ($existing->t3) <li>Time 3. <span class="date-replacer" data-time="1405173600"
+                @if ($existing->t3) <li>Time 3. Starts at <span class="date-replacer" data-time="1405173600"
                                                       title="2014-07-12 14:00:00 UTC">2014-07-12 14:00:00 UTC</span>
                     and ends
                     at <span class="date-replacer" data-time="1405209600" title="2014-07-13 00:00:00 UTC">2014-07-13 00:00:00 UTC</span></li> @endif
