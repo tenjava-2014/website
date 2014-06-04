@@ -83,8 +83,7 @@
 
 		<p>It seems as though you have not yet chosen a time to compete! Please click the button below to choose your timeslot and complete the signup process.</p>
 
-		<p><a href="/times/select" class="button button-large button-flat-action">Register as
-				Participant</a>
+		<p><a href="/times/select" class="button button-large button-flat-action">Choose a Time</a>
 	</div>
 	<div class="grid-20 hide-on-mobile signup-image signup-margin">
 		<img src="/assets/img/thirdparty/clock.svg">
