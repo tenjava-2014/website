@@ -37,7 +37,6 @@ return array(
             "CaptainBern",
             "MasterEjay",
             "aerouk",
-            "lDucks",
             "ttaylorr",
             "njb-said",
             "pogostick29dev",

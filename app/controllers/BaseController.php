@@ -16,6 +16,21 @@ class BaseController extends Controller {
         $this->auth = App::make("AuthProviderInterface");
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
+        View::share("hst", $this->hasSelectedTimes());
+    }
+
+    protected function hasSelectedTimes() {
+        $appCount = Application::where("gh_id", $this->auth->getUserId())->where("judge", false)->first();
+        if ($appCount == null) {
+            return "noapp";
+        } else {
+            $timeSetting = ParticipantTimes::where("user_id", $appCount->id)->count();
+            if ($timeSetting == 0) {
+                return "notime";
+            } else {
+                return "timesdone";
+            }
+        }
     }
 
     /**
@@ -37,6 +52,12 @@ class BaseController extends Controller {
             new NavigationItem("Points", "/points"),
             new NavigationItem("Team", "/team"),
         );
+
+	    if($this->hasSelectedTimes() == 'notime'){
+		    $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
+	    }else if($this->hasSelectedTimes() == 'timesdone'){
+		    unset($navigation['primary'][1]);
+	    }
 
         if ($this->auth->isStaff()) {
             $navigation['primary'][] = new NavigationItem("App list", "/list");

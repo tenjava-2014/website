@@ -78,6 +78,11 @@
                 href="https://github.com/ftlabs/fastclick">fastclick</a>. We also use <a href="http://jquery.com/">jQuery</a>.
             Our views are built with Laravel's <a href="http://laravel.com/docs/templates">Blade</a> templating system.
             We include a few styles via SASS from the <a href="http://ink.sapo.pt/">InK</a> interface kit.</a></p>
+
+        <h3>Acknowledgements</h3>
+
+        <p>Many thanks to <a href="https://github.com/dequis">dx</a> for contirubting to the site. Additional thanks to
+            the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
     </div>
 </div>
 @stop

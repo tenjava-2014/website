@@ -13,5 +13,5 @@ return array(
   "ttaylorr" => "Java Developer at Overcast Network, Ruby Developer everywhere else.  I love clean code and best practices.",
   "njb-said" => "PHP and Java developer - Past server owner (large-ish servers)",
   "ShadowWizardMC" => "Server Owner, Web developer, Graphics designer, Youtuber & anything else that seems cool",
-  "pogostick29dev" => "YouTuber"
+  "pogostick29dev" => "Bukkit YouTuber, Java Programmer, Drummer."
 );
