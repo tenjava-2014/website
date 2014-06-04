@@ -18,6 +18,20 @@ class BaseController extends Controller {
         View::share('nav', $this->getNavigation());
     }
 
+    protected function hasSelectedTimes() {
+        $appCount = Application::where("gh_id", $this->auth->getUserId())->where("judge", false)->first();
+        if ($appCount == null) {
+            return "noapp";
+        } else {
+            $timeSetting = ParticipantTimes::where("user_id", $appCount->id)->count();
+            if ($timeSetting == 0) {
+                return "notime";
+            } else {
+                return "timesdone";
+            }
+        }
+    }
+
     /**
      * Setup the layout used by the controller.
      *
