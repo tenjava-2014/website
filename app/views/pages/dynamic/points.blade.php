@@ -14,8 +14,7 @@
         <div class="grid-80">
             <a id="top"></a>
             <h3>Top donors</h3>
-
-            <p>Thanks to our top donors for their contributions!</p>
+            <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people the prize pool would not be nearly as amazing.</p>
             <ul class="list-large">
                 @foreach ($top as $key => $value)
                 <li>{{{ $key }}} ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
@@ -31,7 +30,7 @@
             <a id="recent"></a>
             <h3>Recent donors</h3>
 
-            <p>Thanks to our recent donors for their contributions!</p>
+            <p>The following people have recently contributed points to the prize pool. Thank you for your help and contributions!</p>
             <ul class="list-large">
                 @foreach ($recent as $element)
                 <li>{{{ $element->username }}} ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
