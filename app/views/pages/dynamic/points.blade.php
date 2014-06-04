@@ -14,7 +14,7 @@
         <div class="grid-50">
             <a id="top"></a>
             <h3>Top donors</h3>
-            <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people the prize pool would not be nearly as amazing.</p>
+            <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people, the prize pool would not be nearly as amazing.</p>
             <ol class="list-large" id="top-donors-list">
                 @foreach ($top as $key => $value)
                 <li><a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})</li>
@@ -45,7 +45,7 @@
         <a id="donate"></a>
         <h3>Donate points</h3>
 
-        <p>You can help us increase our prize fund by sending CurseForge points to the 'tenjava' user. To do so, simply
+        <p>You can help us increase our prize fund by sending CurseForge points to the "tenjava" user. To do so, simply
             click the button below and select the 'Transfer Points' option in the top navigation bar.</p>
         <p><a href="https://store.curseforge.com" class="button button-large button-flat-action">Visit store</a></p>
     </div>
