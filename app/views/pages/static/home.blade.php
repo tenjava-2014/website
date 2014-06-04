@@ -42,6 +42,8 @@
 		        <a href="/times/select" class="button button-large button-block button-flat-action">Choose a Time</a>
 		        <span class="text-light">Pick a time for the competition</span>
 	        </p>
+	        @else
+	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
 	        @endif
             <p>
                 <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
