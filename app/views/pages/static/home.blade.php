@@ -35,7 +35,7 @@
 
             <p>
                 <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
-                <span class="text-light">There are currently {{ $appsData->judgeCount }} judges</span>
+                <span class="text-light">There are currently {{ $noJudges }} judges</span>
             </p>
 			@elseif($hst == 'notime')
 	        <p>
