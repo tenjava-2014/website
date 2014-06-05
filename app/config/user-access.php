@@ -41,7 +41,8 @@ return array(
             "ttaylorr",
             "njb-said",
             "pogostick29dev",
-            "ShadowWizardMC"
+            "ShadowWizardMC",
+            "squidicuzz"
         )
     )
 
