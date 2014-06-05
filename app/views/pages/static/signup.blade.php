@@ -15,12 +15,12 @@
 					that these plugins are shared with the community.</p>
 			</div>
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="/assets/img/thirdparty/share.svg">
+				<img src="/assets/img/thirdparty/share.svg" alt="Share icon">
 			</div>
 		</div>
 		<div class="grid-100 grid-parent">
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="/assets/img/thirdparty/trophy.svg">
+				<img src="/assets/img/thirdparty/trophy.svg" alt="Trophy icon">
 			</div>
 			<div class="grid-80">
 				<h3>Points</h3>
@@ -41,12 +41,12 @@
 					repositories.</p>
 			</div>
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="/assets/img/thirdparty/book.svg">
+				<img src="/assets/img/thirdparty/book.svg" alt="Book icon">
 			</div>
 		</div>
 		<div class="grid-100 grid-parent">
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="/assets/img/thirdparty/happy.svg">
+				<img src="/assets/img/thirdparty/happy.svg" alt="Happy face icon">
 			</div>
 			<div class="grid-80">
 				<h3>Have fun</h3>
@@ -73,7 +73,7 @@
 		</small>
 	</div>
 	<div class="grid-20 hide-on-mobile signup-image signup-margin">
-		<img src="/assets/img/thirdparty/rocket.svg">
+		<img src="/assets/img/thirdparty/rocket.svg" alt="Rocket icon">
 	</div>
 </div>
 @elseif($hst == 'notime')
@@ -81,12 +81,12 @@
 	<div class="grid-80">
 		<h3>Pick a Time!</h3>
 
-		<p>It seems as though you have not yet chosen a time to compete! Please click the button below to choose your timeslot and complete the signup process.</p>
+		<p>It seems as though you have not yet chosen a time to compete! Please click the button below to choose your timeslot and complete the sign-up process.</p>
 
 		<p><a href="/times/select" class="button button-large button-flat-action">Choose a Time</a>
 	</div>
 	<div class="grid-20 hide-on-mobile signup-image signup-margin">
-		<img src="/assets/img/thirdparty/clock.svg">
+		<img src="/assets/img/thirdparty/clock.svg" alt="Clock icon">
 	</div>
 </div>
 @endif
