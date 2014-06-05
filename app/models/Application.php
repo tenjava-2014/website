@@ -4,6 +4,6 @@
 class Application extends \Illuminate\Database\Eloquent\Model {
 
     public function timeEntry() {
-        return $this->hasOne('ParticipantTime', 'user_id', 'id');
+        return $this->hasOne('ParticipantTimes', 'user_id', 'id');
     }
 }
