@@ -38,7 +38,7 @@ class MailReminderCommand extends Command {
         $apps = Application::where("judge", false)->get();
         foreach ($apps as $app) {
             $this->info("Checking " . $app->gh_username);
-            $timeEntry = $app->timeEntry();
+            $timeEntry = $app->timeEntry()->first();
             if ($timeEntry === null) {
                 $this->info("No time entry!");
             } else {
