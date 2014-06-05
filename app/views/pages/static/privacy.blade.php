@@ -15,7 +15,7 @@
 		</ul>
 		<p>We'll also need to use this information if we need to get in contact with a participant due to confusion
 			over code origin or if other issues become apparent. This data can only be seen by users in the 'admin'
-			group – this is currently the organizers of the contest. See <a href="/judges">this</a> page for more
+			group – this is currently the organizers of the contest. See <a href="/team">this</a> page for more
 			info. Email data will
 			not be shared with any third parties.</p>
 
