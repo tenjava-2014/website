@@ -81,7 +81,7 @@
 
         <h3>Acknowledgements</h3>
 
-        <p>Many thanks to <a href="https://github.com/dequis">dx</a> for contirubting to the site. Additional thanks to
+        <p>Many thanks to <a href="https://github.com/dequis">dx</a> and <a href="https://github.com/njb-said">njb-said</a> for contributing to the site. Additional thanks to
             the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
     </div>
 </div>
