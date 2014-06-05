@@ -44,6 +44,7 @@ class MailReminderCommand extends Command {
                 $emails = json_decode($app->github_email, true);
                 if (array_key_exists("fail", $emails)) {
                     $this->error($app->gh_username . " has no email entry (user declined). Contact DBO: " . $app->dbo_username);
+                    continue;
                 } else if (array_key_exists("others", $emails)) {
                     $emails = $emails['others'];
                 }
