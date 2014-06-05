@@ -1,7 +1,7 @@
 <nav>
 	<div class="grid-container">
 		<div class="grid-15 tablet-grid-15 mobile-grid-100 brand">
-			<a href="/"><img src="https://cdn.mediacru.sh/PghQ0cj1j2YI.svg" height="50px" border="0" /></a>
+			<a href="/"><img src="https://cdn.mediacru.sh/PghQ0cj1j2YI.svg" id="main-logo" alt="ten.java logo" /></a>
             <div class="hide-on-desktop hide-on-tablet">
                 <a href="#" id="nav-toggle">
                     <i class="fa fa-bars fa-3x"></i>
