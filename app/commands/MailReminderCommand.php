@@ -41,7 +41,7 @@ class MailReminderCommand extends Command {
             $timeEntry = $app->timeEntry()->first();
             if ($timeEntry === null) {
                 $this->comment("No time entry!");
-                $emails = json_decode($app->emails, true);
+                $emails = json_decode($app->github_email, true);
                 if (array_key_exists("fail", $emails)) {
                     $this->error($app->gh_username . " has no email entry (user declined). Contact DBO: " . $app->dbo_username);
                 } else if (array_key_exists("others", $emails)) {
