@@ -9,7 +9,8 @@ return array(
         443245, //ttaylorr
         2371386, //njb
         5508375, //pogo
-        5005227 //shadow
+        5005227, //shadow
+        1578496 //squid
     ),
     // organizers
     'admins' => array(
