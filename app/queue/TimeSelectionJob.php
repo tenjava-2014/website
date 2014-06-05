@@ -1,6 +1,8 @@
 <?php
 
 
+use Github\Exception\ValidationFailedException;
+
 class TimeSelectionJob {
 
     public function fire($job, $data) {
@@ -18,7 +20,12 @@ class TimeSelectionJob {
     }
 
     public function addUserRepo($username, $client) {
-        $repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
+        try {
+            $repo = $client->api('repo')->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
+
+        } catch (ValidationFailedException $e) {
+            // oh no!
+        }
     }
 
     /**
