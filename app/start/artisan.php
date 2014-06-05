@@ -16,3 +16,4 @@ Artisan::add(new RepoCleanupCommand());
 Artisan::add(new TwitterUpdateCommand());
 Artisan::add(new UserIdMigrateCommand());
 Artisan::add(new UserDeleteCommand());
+Artisan::add(new MailReminderCommand());
