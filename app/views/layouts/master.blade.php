@@ -28,16 +28,6 @@
 </div>
 @include('partials.footer')
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="application/javascript">
-$( document ).ready(function() {
-    $("#nav-toggle").click(function() {
-        $("#nav-container").toggleClass("hide-on-mobile");
-    });
-    $(".date-replacer").each(function() {
-        var date = new Date($(this).data("time") * 1000);
-        $(this).text(date.toString());
-    });
-});
-</script>
+<script type="application/javascript" src="/assets/js/app.js"></script>
 </body>
 </html>

@@ -94,3 +94,4 @@ require app_path() . '/filters.php';
 
 require app_path() . '/view_composers.php';
 require app_path() . '/ioc_bindings.php';
+require app_path() . '/headers.php';
