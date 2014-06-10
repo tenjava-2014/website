@@ -49,6 +49,14 @@
             year. We've been overwhelmed by the community's response to our plans and are looking forward to the
             event itself.</p>
 
+        <h2>Intreppid</h2>
+
+        <p><a href="https://www.intreppid.com">Intreppid</a> was kind enough to reach out to us and offer a dedicated
+            server that we will be using to build the submissions produced within the contest time. We'll be running a
+            Jenkins instance and will report build information directly to our developers. Additionally, the server will
+            allow us to test and judge the submissions more efficiently and host additional services, such as a voice
+            server, for everyone to use.</p>
+
         <h2>Technical information</h2>
 
         <p>This site is built with <a href="http://laravel.com/">Laravel</a>, and we're utilizing <a
@@ -81,7 +89,8 @@
 
         <h3>Acknowledgements</h3>
 
-        <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a> and <a href="https://github.com/rigor789">rigor789</a> for contributing to the site. Additional thanks to
+        <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a>
+            and <a href="https://github.com/rigor789">rigor789</a> for contributing to the site. Additional thanks to
             the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
     </div>
 </div>

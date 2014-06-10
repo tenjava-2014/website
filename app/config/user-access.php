@@ -51,6 +51,9 @@ return array(
             "inventorman101",
             "Twister915",
             "rigor789"
+        ),
+        "Sponsors" => array(
+            'Intreppid'
         )
     )
 );

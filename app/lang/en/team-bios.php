@@ -18,5 +18,6 @@ return array(
   "robbo5899" => "Java and Web Developer. Make plugins in my free time. I have an obsession with expensive things I don’t need.",
   "inventorman101" => "Programmer, Web developer, GitHub Adventurer, and BukkitDev Staff.",
   "Twister915" => "Experienced Java developer, and owner of TBNR.net and Bashur's World.com, Twister915 AKA Joey S is both a Minecraft and Bukkit enthusiast.",
-  "rigor789" => "Java/Web developer, graphics/UX designer, and an experienced system operator. Developer at TBNR.net! I love clean code, and I hate writing tests."
+  "rigor789" => "Java/Web developer, graphics/UX designer, and an experienced system operator. Developer at TBNR.net! I love clean code, and I hate writing tests.",
+  "Intreppid" => "Intreppid have kindly provided us with a dedicated server that we'll be using to build and test all submissions. See the About page for more."
 );
