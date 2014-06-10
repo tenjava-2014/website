@@ -31,11 +31,13 @@
             <td>DBO</td>
             <td><a href="http://dev.bukkit.org/profiles/{{{ $app->dbo_username }}}">{{{ $app->dbo_username }}}</a></td>
         </tr>
+        @if ($app->judge)
         <tr>
             <td>MC *</td>
             <td><a href="https://minecraft.net/haspaid.jsp?user={{{ $app->mc_username }}}">{{{ $app->mc_username }}}</a>
             </td>
         </tr>
+        @endif
         @if (!$app->judge)
         <tr>
             <td>Times</td>
@@ -52,10 +54,12 @@
             <td>{{{ $app->formatEmails() }}}</td>
         </tr>
         @endif
+        @if ($app->judge)
         <tr>
             <td>IRC *</td>
             <td>{{{ $app->irc_username }}}</td>
         </tr>
+        @endif
         @if ($fullAccess)
         <tr>
             <td>GMail *</td>
