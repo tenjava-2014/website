@@ -60,10 +60,12 @@
             <td>{{{ $app->gmail }}}</td>
         </tr>
         @endif
+        @if (!$app->judge)
         <tr>
             <td>Twitch #</td>
             <td><a href="http://twitch.tv/{{{ $app->twitch_username }}}">{{{ $app->twitch_username }}}</a></td>
         </tr>
+        @else
         @if ($fullAccess && $app->judge)
         <tr>
             <td>Actions</td>
