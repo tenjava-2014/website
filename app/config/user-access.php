@@ -43,7 +43,10 @@ return array(
             "njb-said",
             "pogostick29dev",
             "ShadowWizardMC",
-            "squidicuzz"
+            "squidicuzz",
+            "robbo5899",
+            "inventorman101",
+            "Twister915"
         )
     )
 

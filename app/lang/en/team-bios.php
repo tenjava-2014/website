@@ -7,12 +7,15 @@ return array(
   "lol768" => "DBO staff, likes web dev and <s>being abused by lDucks</s> writing clean code.",
   "jkcclemens" => "Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.",
   "hawkfalcon" => "Avian Hybrid, ShockNetwork Owner, awesome person.",
-  "aerouk" => "Server owner, web developer, fan of nice-looking code and cool web applications",
-  "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the Piano",
+  "aerouk" => "Server owner, web developer, fan of nice-looking code and cool web applications.",
+  "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the Piano.",
   "CaptainBern" => "DBO staff, part-time human, hates web-dev. Stop bullying lol768. :o",
   "ttaylorr" => "Java Developer at Overcast Network, Ruby Developer everywhere else.  I love clean code and best practices.",
-  "njb-said" => "PHP and Java developer - Past server owner (large-ish servers)",
-  "ShadowWizardMC" => "Server Owner, Web developer, Graphics designer, Youtuber & anything else that seems cool",
+  "njb-said" => "PHP and Java developer - Past server owner (large-ish servers).",
+  "ShadowWizardMC" => "Server Owner, Web developer, Graphics designer, Youtuber & anything else that seems cool.",
   "pogostick29dev" => "Bukkit YouTuber, Java Programmer, Drummer.",
-  "squidicuzz" => "Plugin developer, server operator, mythical sea creature"
+  "squidicuzz" => "Plugin developer, server operator, mythical sea creature.",
+  "robbo5899" => "Java and Web Developer. Make plugins in my free time. I have an obsession with expensive things I don’t need.",
+  "inventorman101" => "Programmer, Web developer, GitHub Adventurer, and BukkitDev Staff.",
+  "Twister915" => "Experienced Java developer, and owner of TBNR.net and Bashur's World.com, Twister915 AKA Joey S is both a Minecraft and Bukkit enthusiast."
 );
