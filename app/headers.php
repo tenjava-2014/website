@@ -11,7 +11,7 @@ App::after(function ($request, $response) {
         // Let's be extra strict for the sake of security
         $response->header('Content-Security-Policy',
             "default-src 'self'; " .
-            "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; " .
+            "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; " .
             "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com; " .
             "img-src 'self'; " . // this will likely need changing for twitch
             "media-src 'self'; " . // this will likely need changing for twitch
@@ -23,7 +23,7 @@ App::after(function ($request, $response) {
         // We're in beta served over HTTP so we're not restricting stuff to SSL here
         $response->header('Content-Security-Policy',
             "default-src 'self'; " .
-            "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com; " .
+            "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline'; " .
             "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com; " .
             "img-src 'self'; " . // this will likely need changing for twitch
             "media-src 'self'; " . // this will likely need changing for twitch
