@@ -60,9 +60,9 @@
         @if ($fullAccess && $app->judge)
         <tr>
             <td>Actions</td>
-            {{ Form::open(array('url' => '/decline')) }}
+            {{ Form::open(array('url' => '/list/decline')) }}
                 {{ Form::hidden('app_id', $app->id) }}
-                 <td>Form::submit('Decline app', ['class' => 'button button-block button-flat-primary']);</td>
+                 <td>{{ Form::submit('Decline app', ['class' => 'button button-block button-flat-primary']); }}</td>
             {{ Form::close() }}
 
         </tr>

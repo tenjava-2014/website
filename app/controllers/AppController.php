@@ -19,8 +19,8 @@ class AppController extends BaseController {
         return View::make("pages.forms.participant", array("username" => $this->auth->getUsername()));
     }
 
-    public function declineJudgeApp($id) {
-        $app = Application::findOrFail($id);
+    public function declineJudgeApp() {
+        $app = Application::findOrFail(Input::get("id"));
         $username = $app->gh_username;
         $gmail = $app->gmail;
         Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
