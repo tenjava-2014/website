@@ -49,5 +49,4 @@ return array(
             "Twister915"
         )
     )
-
 );
