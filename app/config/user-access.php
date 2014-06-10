@@ -47,7 +47,8 @@ return array(
             "squidicuzz",
             "robbo5899",
             "inventorman101",
-            "Twister915"
+            "Twister915",
+            "rigor789"
         )
     )
 );

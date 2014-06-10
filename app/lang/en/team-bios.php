@@ -17,5 +17,6 @@ return array(
   "squidicuzz" => "Plugin developer, server operator, mythical sea creature.",
   "robbo5899" => "Java and Web Developer. Make plugins in my free time. I have an obsession with expensive things I don’t need.",
   "inventorman101" => "Programmer, Web developer, GitHub Adventurer, and BukkitDev Staff.",
-  "Twister915" => "Experienced Java developer, and owner of TBNR.net and Bashur's World.com, Twister915 AKA Joey S is both a Minecraft and Bukkit enthusiast."
+  "Twister915" => "Experienced Java developer, and owner of TBNR.net and Bashur's World.com, Twister915 AKA Joey S is both a Minecraft and Bukkit enthusiast.",
+  "rigor789" => "Plugin developer."
 );
