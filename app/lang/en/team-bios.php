@@ -14,5 +14,5 @@ return array(
   "njb-said" => "PHP and Java developer - Past server owner (large-ish servers)",
   "ShadowWizardMC" => "Server Owner, Web developer, Graphics designer, Youtuber & anything else that seems cool",
   "pogostick29dev" => "Bukkit YouTuber, Java Programmer, Drummer.",
-  "squidicuzz" => "Plugin developer"
+  "squidicuzz" => "Plugin developer, server operator, mythical sea creature"
 );
