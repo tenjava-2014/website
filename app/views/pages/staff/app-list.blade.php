@@ -65,7 +65,7 @@
             <td>Twitch #</td>
             <td><a href="http://twitch.tv/{{{ $app->twitch_username }}}">{{{ $app->twitch_username }}}</a></td>
         </tr>
-        @else
+        @endif
         @if ($fullAccess && $app->judge)
         <tr>
             <td>Actions</td>
