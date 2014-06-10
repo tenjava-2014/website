@@ -13,6 +13,8 @@ return array(
         1578496, //squid
         2097155, //twister
         879060, //rigor
+        3134154, //robbo
+        2664312, //inventorman
     ),
     // organizers
     'admins' => array(
