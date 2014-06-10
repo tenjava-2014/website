@@ -60,7 +60,7 @@
             <td>{{{ $app->irc_username }}}</td>
         </tr>
         @endif
-        @if ($fullAccess)
+        @if ($fullAccess && $app->judge)
         <tr>
             <td>GMail *</td>
             <td>{{{ $app->gmail }}}</td>
