@@ -12,7 +12,7 @@ class Application extends \Illuminate\Database\Eloquent\Model {
         if (array_key_exists("public", $emails)) {
             return $emails;
         } else {
-            return implode(",", $emails);
+            return implode(", ", $emails);
         }
     }
 }
