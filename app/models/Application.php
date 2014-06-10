@@ -10,7 +10,7 @@ class Application extends \Illuminate\Database\Eloquent\Model {
     public function formatEmails() {
         $emails = json_decode($this->github_email, true);
         if (array_key_exists("public", $emails)) {
-            return $emails;
+            return $this->github_email;
         } else {
             return implode(", ", $emails);
         }
