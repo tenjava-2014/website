@@ -61,12 +61,12 @@
         <tr>
             <td>Actions</td>
             <td>
-            {{ Form::open(array('url' => '/list/accept')) }}
+            {{ Form::open(array('url' => '/list/accept', 'class' => 'action-form')) }}
                 {{ Form::hidden('app_id', $app->id) }}
                 {{ Form::submit('Accept app', ['class' => 'button button-small button-flat-action']); }}
             {{ Form::close() }}
 
-            {{ Form::open(array('url' => '/list/decline')) }}
+            {{ Form::open(array('url' => '/list/decline', 'class' => 'action-form')) }}
                 {{ Form::hidden('app_id', $app->id) }}
                 {{ Form::submit('Decline app', ['class' => 'button button-small button-flat-primary']); }}
             {{ Form::close() }}

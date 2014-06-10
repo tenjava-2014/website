@@ -40,6 +40,7 @@ class AppController extends BaseController {
             $message->from('tenjava@tenjava.com', 'ten.java Team');
             $message->to($gmail)->subject('Your recent judge application');
         });
+        $app->delete();
         return Redirect::back();
     }
 
