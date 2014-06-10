@@ -58,7 +58,7 @@ Route::group(array('before' => 'StaffFilter'), function () {
 Route::group(array('before' => 'AdminFilter'), function () {
     Route::get('/decline/{id}', 'AppController@declineJudgeApp');
     Route::get('/test/admin', function() {
-        return Response::json(Session::all());
+        return Response::json(["env" => App::environment()]);
     });
 });
 
