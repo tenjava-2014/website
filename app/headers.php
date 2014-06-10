@@ -18,6 +18,7 @@ App::after(function ($request, $response) {
             "object-src 'self'; " . // this will likely need changing for twitch
             "script-src 'self' https://cdnjs.cloudflare.com https://platform.twitter.com"
         );
+        $response->header("X-Frame-Options", "SAMEORIGIN");
     } else {
         // We're in beta served over HTTP so we're not restricting stuff to SSL here
         $response->header('Content-Security-Policy',
@@ -29,5 +30,6 @@ App::after(function ($request, $response) {
             "object-src 'self'; " . // this will likely need changing for twitch
             "script-src 'self' cdnjs.cloudflare.com platform.twitter.com"
         );
+        $response->header("X-Frame-Options", "SAMEORIGIN");
     }
 });

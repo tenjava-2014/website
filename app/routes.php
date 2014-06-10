@@ -56,7 +56,8 @@ Route::group(array('before' => 'StaffFilter'), function () {
 
 /* ORGANIZERS ONLY */
 Route::group(array('before' => 'AdminFilter'), function () {
-    Route::get('/decline/{id}', 'AppController@declineJudgeApp');
+    Route::post('/list/decline', 'AppController@declineJudgeApp');
+    Route::post('/list/accept', 'AppController@acceptJudgeApp');
     Route::get('/test/admin', function() {
         return Response::json(["env" => App::environment()]);
     });

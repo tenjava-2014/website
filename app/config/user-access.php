@@ -12,6 +12,7 @@ return array(
         5005227, //shadow
         1578496, //squid
         2097155, //twister
+        879060, //rigor
         3134154, //robbo
         2664312, //inventorman
     ),
@@ -45,8 +46,11 @@ return array(
             "njb-said",
             "pogostick29dev",
             "ShadowWizardMC",
-            "squidicuzz"
+            "squidicuzz",
+            "robbo5899",
+            "inventorman101",
+            "Twister915",
+            "rigor789"
         )
     )
-
 );
