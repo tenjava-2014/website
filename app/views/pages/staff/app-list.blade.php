@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td>Times</td>
-            @if ($app->timeEntry() != null)
+            @if ($app->timeEntry == null)
                 <td>User has not yet selected a time!</td>
             @else
                 <td>1: {{ $app->timeEntry()->t1 }} 2: {{ $app->timeEntry()->t2 }} 3: {{ $app->timeEntry()->t3 }}</td>
