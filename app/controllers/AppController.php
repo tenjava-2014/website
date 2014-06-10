@@ -59,14 +59,20 @@ class AppController extends BaseController {
         }
 
         if (Input::has("judges")) {
-            $viewData['apps'] = Application::where('judge', true)->paginate(5);
+            $viewData['apps'] = Application::with('timeEntry')->where('judge', true)->paginate(5);
             $viewData['append'] = array("judges" => "1");
         } else {
             if (Input::has("normal")) {
-                $viewData['apps'] = Application::where('judge', false)->paginate(5);
+                $viewData['apps'] = Application::with('timeEntry')->where('judge', false)->paginate(5);
                 $viewData['append'] = array("normal" => "1");
             } else {
-                $viewData['apps'] = Application::paginate(5);
+                if (Input::has("unc")) {
+                    $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->paginate(5);
+                    $viewData['append'] = array("unc" => "1");
+                } else {
+                    $viewData['apps'] = Application::with('timeEntry')->paginate(5);
+                }
+
             }
         }
 
