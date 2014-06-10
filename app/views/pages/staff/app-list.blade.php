@@ -41,7 +41,7 @@
             @if ($app->timeEntry == null)
                 <td>User has not yet selected a time!</td>
             @else
-                <td>1: {{ $app->timeEntry->t1 }} 2: {{ $app->timeEntry->t2 }} 3: {{ $app->timeEntry->t3 }}</td>
+                <td>{{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t1", Time 1" : "") }} {{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t2", Time 2" : "") }} {{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t3", Time 3" : "") }}</td>
             @endif
         </tr>
         @if ($fullAccess)
