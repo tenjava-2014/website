@@ -20,7 +20,7 @@ class AppController extends BaseController {
     }
 
     public function declineJudgeApp() {
-        $app = Application::findOrFail(Input::get("id"));
+        $app = Application::findOrFail(Input::get("app_id"));
         $username = $app->gh_username;
         $gmail = $app->gmail;
         Mail::queue(array('text' => 'emails.judge.decline'), array("user" => $username), function ($message) use ($gmail) {
@@ -30,6 +30,17 @@ class AppController extends BaseController {
         $app->delete();
         return Redirect::back();
 
+    }
+
+    public function acceptJudgeApp() {
+        $app = Application::findOrFail(Input::get("app_id"));
+        $username = $app->gh_username;
+        $gmail = $app->gmail;
+        Mail::queue(array('text' => 'emails.judge.accept'), array("user" => $username), function ($message) use ($gmail) {
+            $message->from('tenjava@tenjava.com', 'ten.java Team');
+            $message->to($gmail)->subject('Your recent judge application');
+        });
+        return Redirect::back();
     }
 
     public function listApps() {
