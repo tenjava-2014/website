@@ -13,7 +13,7 @@
     @endif
 </div>
 
-<p>Filter: <a href="?judges=1">judge apps</a>, <a href="?normal=1">participant apps</a>, <a href="?unc=1">unconfirmed participant apps</a>, <a href="/list">all apps</a>
+<p>Filter: <a href="?judges=1">judge apps</a>, <a href="?normal=1">participant apps</a>, <a href="?unc=1">unconfirmed participant apps</a>, <a href="?conf=1">confirmed participant apps</a>, <a href="/list">all apps</a>
 </p>
 
 <div class="text-center">{{ $apps->appends($append)->links() }}</div>

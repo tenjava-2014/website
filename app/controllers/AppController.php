@@ -58,6 +58,7 @@ class AppController extends BaseController {
             $viewData["fullAccess"] = true;
         }
 
+        // mess cleanup later
         if (Input::has("judges")) {
             $viewData['apps'] = Application::with('timeEntry')->where('judge', true)->paginate(5);
             $viewData['append'] = array("judges" => "1");
@@ -69,13 +70,14 @@ class AppController extends BaseController {
                 if (Input::has("unc")) {
                     $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->paginate(5);
                     $viewData['append'] = array("unc" => "1");
+                } else if (Input::has("conf")) {
+                    $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->paginate(5);
+                    $viewData['append'] = array("conf" => "1");
                 } else {
                     $viewData['apps'] = Application::with('timeEntry')->paginate(5);
                 }
-
             }
         }
-
         return View::make("pages.staff.app-list")->with($viewData);
 
     }
