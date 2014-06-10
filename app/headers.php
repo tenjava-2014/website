@@ -12,7 +12,7 @@ App::after(function ($request, $response) {
         $response->header('Content-Security-Policy',
             "default-src 'self'; " .
             "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; " .
-            "font-src 'self' https://cdnjs.cloudflare.com; " .
+            "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com; " .
             "img-src 'self'; " . // this will likely need changing for twitch
             "media-src 'self'; " . // this will likely need changing for twitch
             "object-src 'self'; " . // this will likely need changing for twitch
@@ -23,7 +23,7 @@ App::after(function ($request, $response) {
         $response->header('Content-Security-Policy',
             "default-src 'self'; " .
             "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com; " .
-            "font-src 'self' cdnjs.cloudflare.com; " .
+            "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com; " .
             "img-src 'self'; " . // this will likely need changing for twitch
             "media-src 'self'; " . // this will likely need changing for twitch
             "object-src 'self'; " . // this will likely need changing for twitch
