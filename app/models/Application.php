@@ -15,4 +15,20 @@ class Application extends \Illuminate\Database\Eloquent\Model {
             return implode(", ", $emails);
         }
     }
+
+    public static function search($keywords) {
+
+        $return = self::where('id', '>', 0);
+        foreach($keywords as $keyword) {
+            $return->where(function($query) use($keyword) {
+                $like = "%" . $keyword . "%";
+                $query->orWhere('gh_username', 'LIKE', $like);
+                $query->orWhere('dbo_username', 'LIKE', $like);
+                $query->orWhere('github_email', 'LIKE', $like);
+                $query->orWhere('irc_username', 'LIKE', $like);
+                $query->orWhere('mc_username', 'LIKE', $like);
+            });
+        }
+        return $return;
+    }
 }

@@ -13,15 +13,16 @@
     @endif
 </div>
 
-        <div style="float: left;">
+        <div class="filter">
             <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>, <a href="{{ URL::to('list/normal') }}">participant apps</a>, <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>, <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a>, <a href="{{ URL::to('list') }}">all apps</a></p>
         </div>
-        <div class="search" style="float: right;">
+        <div class="search">
             <p>
-                Search: <input type="text" name="search"/>
+                <form action="{{ URL::to('list/search') }}" method="get">
+                    Search: <input type="text" name="search"{{ isset($keywords)? 'value="' . $keywords . '"' : '' }}>
+                </form>
             </p>
         </div>
-
         <div class="clearfix"></div>
 <div class="text-center">{{ $apps->appends($append)->links() }}</div>
 
