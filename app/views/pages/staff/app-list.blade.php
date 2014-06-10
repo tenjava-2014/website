@@ -36,6 +36,7 @@
             <td><a href="https://minecraft.net/haspaid.jsp?user={{{ $app->mc_username }}}">{{{ $app->mc_username }}}</a>
             </td>
         </tr>
+        @if (!$app->judge)
         <tr>
             <td>Times</td>
             @if ($app->timeEntry == null)
@@ -44,6 +45,7 @@
                 <td>{{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t1", "Time 1") : "" }} {{ $app->timeEntry->t2 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t2", "Time 2") : "" }} {{ $app->timeEntry->t3 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t3", "Time 3") : "" }}</td>
             @endif
         </tr>
+        @endif
         @if ($fullAccess)
         <tr>
             <td>Emails</td>
