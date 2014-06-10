@@ -10,7 +10,8 @@ return array(
         2371386, //njb
         5508375, //pogo
         5005227, //shadow
-        1578496 //squid
+        1578496, //squid
+        2097155, //twister
     ),
     // organizers
     'admins' => array(
