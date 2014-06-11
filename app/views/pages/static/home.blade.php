@@ -4,7 +4,7 @@
     <div class="grid-container">
         <div class="grid-100 text-center">
             The unofficial 10 hour Bukkit plugin contest.<br />
-	        <small>July 12, 2014</small>
+	        <small>July 12, 2014 &mdash; {{ $carbonDiff }}</small>
         </div>
     </div>
 </div>
