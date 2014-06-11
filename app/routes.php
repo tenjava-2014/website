@@ -34,7 +34,7 @@ Route::group(array(), function () {
 
 /* GITHUB WEBHOOKS */
 Route::group(array(), function () {
-    Route::get('/webhook/fire', 'WebhookController@processGitHubWebhook');
+    Route::post('/webhook/fire', 'WebhookController@processGitHubWebhook');
 });
 
 /* LOGGED IN USERS ONLY */
