@@ -77,7 +77,7 @@ class AppController extends BaseController {
                 break;
             case "search":
                 $searchQuery = Input::get("search");
-                $viewData['apps'] = Application::search(explode(" ", $searchQuery))->with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->paginate(5);
+                $viewData['apps'] = Application::search(explode(" ", $searchQuery))->paginate(5);
                 $viewData['append'] = array("search" => Input::get("search"));
                 $viewData['keywords'] = $searchQuery;
                 break;

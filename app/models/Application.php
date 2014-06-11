@@ -18,7 +18,7 @@ class Application extends \Illuminate\Database\Eloquent\Model {
 
     public static function search($keywords) {
 
-        $return = self::where('id', '>', 0);
+        $return = Application::query();
         foreach($keywords as $keyword) {
             $return->where(function($query) use($keyword) {
                 $like = "%" . $keyword . "%";
