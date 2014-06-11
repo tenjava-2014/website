@@ -29,11 +29,13 @@ class HmacVerification implements HmacVerificationInterface {
      */
     public function compareHashes($received, $expected) {
         if (!is_string($received) || !is_string($expected)) {
+            usleep(rand(0, 50 * 1000));
             return false;
         }
 
         $len = strlen($received);
         if ($len !== strlen($expected)) {
+            usleep(rand(0, 50 * 1000));
             return false;
         }
 
@@ -41,6 +43,8 @@ class HmacVerification implements HmacVerificationInterface {
         for ($i = 0; $i < $len; $i++) {
             $status |= ord($received[$i]) ^ ord($expected[$i]);
         }
+        usleep(rand(0, 50 * 1000));
         return $status === 0;
     }
+
 }
