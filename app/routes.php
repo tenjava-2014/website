@@ -32,6 +32,11 @@ Route::group(array(), function () {
     Route::get('/api/session', 'ApiController@getSessionData');
 });
 
+/* GITHUB WEBHOOKS */
+Route::group(array(), function () {
+    Route::post('/webhook/fire', 'WebhookController@processGitHubWebhook');
+});
+
 /* LOGGED IN USERS ONLY */
 Route::group(array('before' => 'AuthenticationFilter'), function () {
     Route::get('/register/participant', "AppController@showApplyParticipant");

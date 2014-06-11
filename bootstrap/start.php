@@ -25,13 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(function () {
-    if (str_contains($_SERVER['HTTP_HOST'], "beta")) {
-        return "beta";
-    } else if (str_contains($_SERVER['HTTP_HOST'], "dev")) {
-        return "dev";
-    } else {
-        return "prod";
-    }
+    return require(__DIR__ . "/environment.php");
 });
 
 /*

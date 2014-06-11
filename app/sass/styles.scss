@@ -147,10 +147,18 @@ nav {
     }
   }
 }
-
+// Mobile styles :D
 @media screen and (max-width: 768px) {
   .brand {
-    text-align: center;
+    text-align: left;
+  }
+
+  .brand > a, .brand > div {
+    display: inline;
+  }
+
+  .brand > div {
+    float: right;
   }
 
   #header {
