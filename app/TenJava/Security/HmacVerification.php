@@ -11,6 +11,9 @@ class HmacVerification implements HmacVerificationInterface {
      * @return bool Whether or not the signature we received is valid.
      */
     public function verifySignature($data, $signature, $secret) {
+        if ($signature === null) {
+            return false;
+        }
         $calculatedSignature = hash_hmac("sha1", $data, $secret);
         return ($this->compareHashes($signature, $calculatedSignature));
     }

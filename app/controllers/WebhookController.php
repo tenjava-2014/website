@@ -12,7 +12,7 @@ class WebhookController extends BaseController {
     public function processGitHubWebhook() {
         $header = Request::header("X-Hub-Signature");
         parse_str($header, $output);
-        $header = $output['sha1'];
+        $header = (array_key_exists("sha1", $output)) ? $output['sha1'] : null;
 
         if (!$this->hmac->verifySignature(Input::instance()->getContent(), $header, Config::get("webhooks.secret"))) {
             return Response::json("Invalid HMAC signature.");
