@@ -18,9 +18,10 @@
         </div>
         <div class="search">
             <p>
-                <form action="{{ URL::to('list/search') }}" method="get">
-                    Search: <input type="text" name="search"{{ isset($keywords)? 'value="' . $keywords . '"' : '' }}>
-                </form>
+                {{ Form::open(array('url' => URL::to('list/search'), 'class' => 'form', 'method' => 'GET')) }}
+                    <input type="text" placeholder="Search..." name="search"{{ isset($keywords)? 'value="' . $keywords . '"' : '' }}><button type="submit" class="button button-search"><i class="fa fa-search">
+                    </i></button>
+                {{ Form::close() }}
             </p>
         </div>
         <div class="clearfix"></div>
