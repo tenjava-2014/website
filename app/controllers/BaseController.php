@@ -1,6 +1,6 @@
 <?php
 
-use Tools\UI\NavigationItem;
+use TenJava\Tools\UI\NavigationItem;
 
 class BaseController extends Controller {
 

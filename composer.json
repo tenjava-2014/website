@@ -28,7 +28,7 @@
             "app/queue"
         ],
         "psr-0": {
-            "Tools": "app/libraries"
+            "TenJava": "app/TenJava"
         }
     },
     "scripts": {

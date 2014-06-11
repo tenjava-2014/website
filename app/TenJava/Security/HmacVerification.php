@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Adam
- * Date: 11/06/14
- * Time: 17:56
- */
-
-namespace Security;
+namespace TenJava\Security;
 
 
 class HmacVerification implements HmacVerificationInterface {

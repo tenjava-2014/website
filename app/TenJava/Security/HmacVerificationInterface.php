@@ -1,5 +1,5 @@
 <?php
-namespace Security;
+namespace TenJava\Security;
 
 interface HmacVerificationInterface {
 

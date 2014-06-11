@@ -1,6 +1,6 @@
 <?php
 
-namespace Tools\UI;
+namespace TenJava\Tools\UI;
 
 class NavigationItem {
 	private $title;
