@@ -10,7 +10,7 @@
 
 App::bind("AuthProviderInterface", "GitHubAuthProvider");
 App::bind("EmailOptOutInterface", "GitHubEmailOptOut");
-App::bind("Security\\HmacVerificationInterface", "Security\\HmacVerification");
+App::bind("\\Security\\HmacVerificationInterface", "\\Security\\HmacVerification");
 
 App::singleton('GlobalComposer', function() {
     return new GlobalComposer();
