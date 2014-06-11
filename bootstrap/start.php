@@ -25,7 +25,14 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(function () {
-    return (isset($_ENV['ENVIRONMENT_NAME']) ? $_ENV['ENVIRONMENT_NAME'] : "local");
+    $appPath = app_path();
+    if (str_contains($appPath, "beta.tenjava.com")) {
+        return "beta";
+    } else if (str_contains($appPath, "tenjava.com")) {
+        return "prod";
+    } else {
+        return "dev";
+    }
 });
 
 /*
