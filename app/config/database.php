@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'tenjava',
+			'database'  => $_ENV['DATABASE_SCHEMA'],
 			'username'  => $_ENV['DATABASE_USERNAME'],
 			'password'  => $_ENV['DATABASE_PASSWORD'],
 			'charset'   => 'utf8',
