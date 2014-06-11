@@ -1,7 +1,7 @@
 <?php
 
 
-use Security\HmacVerificationInterface;
+use TenJava\Security\HmacVerificationInterface;
 
 class WebhookController extends BaseController {
 
