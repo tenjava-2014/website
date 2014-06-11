@@ -13,9 +13,17 @@
     @endif
 </div>
 
-<p>Filter: <a href="?judges=1">judge apps</a>, <a href="?normal=1">participant apps</a>, <a href="?unc=1">unconfirmed participant apps</a>, <a href="?conf=1">confirmed participant apps</a>, <a href="/list">all apps</a>
-</p>
-
+        <div class="filter">
+            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>, <a href="{{ URL::to('list/normal') }}">participant apps</a>, <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>, <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a>, <a href="{{ URL::to('list') }}">all apps</a></p>
+        </div>
+        <div class="search">
+            <p>
+                <form action="{{ URL::to('list/search') }}" method="get">
+                    Search: <input type="text" name="search"{{ isset($keywords)? 'value="' . $keywords . '"' : '' }}>
+                </form>
+            </p>
+        </div>
+        <div class="clearfix"></div>
 <div class="text-center">{{ $apps->appends($append)->links() }}</div>
 
 @foreach ($apps as $app)

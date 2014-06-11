@@ -48,7 +48,7 @@ Route::group(array('before' => 'AuthenticationFilter|csrf'), function () {
 
 /* JUDGES ONLY */
 Route::group(array('before' => 'StaffFilter'), function () {
-    Route::get('/list', 'AppController@listApps');
+    Route::get('/list/{filter?}', 'AppController@listApps');
     Route::get('/test/staff', function() {
         return "Staff only test endpoint.";
     });
