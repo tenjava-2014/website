@@ -27,8 +27,8 @@
             "app/errors",
             "app/queue"
         ],
-        "psr-0": {
-            "TenJava": "app/TenJava"
+        "psr-4": {
+            "TenJava\\": "app/TenJava"
         }
     },
     "scripts": {
