@@ -22,6 +22,7 @@ return array(
     "DATABASE_USERNAME" => "",
     "DATABASE_PASSWORD" => "",
     "DATABASE_SCHEMA" => "",
-    "APP_ENCRYPTION_KEY" => ""
+    "APP_ENCRYPTION_KEY" => "",
+    "ENVIRONMENT_NAME" => "local"
 );
 ````
