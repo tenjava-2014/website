@@ -1,4 +1,4 @@
 <?php
 return array(
-    "pass" => ""
+    "pass" => $_ENV['GITHUB_PASSWORD']
 );

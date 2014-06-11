@@ -21,8 +21,8 @@ return array(
          * GitHub
          */
         'GitHub' => array(
-            'client_id'     => '',
-            'client_secret' => '',
+            'client_id'     => $_ENV['OAUTH_CLIENT_ID'],
+            'client_secret' => $_ENV['OAUTH_CLIENT_SECRET'],
             'scope'         => array('user:email'),
         ),
 
