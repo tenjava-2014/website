@@ -25,14 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(function () {
-    $appPath = app_path();
-    if (str_contains($appPath, "beta.tenjava.com")) {
-        return "beta";
-    } else if (str_contains($appPath, "tenjava.com")) {
-        return "prod";
-    } else {
-        return "dev";
-    }
+    return require(__DIR__ . "/environment.php");
 });
 
 /*
