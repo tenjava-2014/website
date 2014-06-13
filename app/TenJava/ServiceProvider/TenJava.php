@@ -14,7 +14,7 @@ class TenJava extends ServiceProvider {
 
     public function __construct($app) {
         parent::__construct($app);
-        $this->view = $app->make("Illuminate\\View\\Factory");
+        $this->view = $app->make("\\Illuminate\\View\\Factory");
     }
 
     /**
