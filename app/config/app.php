@@ -124,6 +124,7 @@ return array(
         'Artdarek\OAuth\OAuthServiceProvider',
         'Thujohn\Twitter\TwitterServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'TenJava\ServiceProvider\TenJava'
     ),
 
     /*

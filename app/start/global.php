@@ -50,23 +50,6 @@ App::error(function (Exception $exception, $code) {
     Log::error($exception);
 });
 
-/*
-|--------------------------------------------------------------------------
-| Maintenance Mode Handler
-|--------------------------------------------------------------------------
-|
-| The "down" Artisan command gives you the ability to put an application
-| into maintenance mode. Here, you will define what is displayed back
-| to the user if maintenance mode is in effect for the application.
-|
-*/
-
-App::down(function () {
-    return Response::make("Be right back!", 503);
-});
-
-// 404
-require app_path() . '/errors/MissingPage.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -81,17 +64,3 @@ require app_path() . '/errors/MissingPage.php';
 
 require app_path() . '/filters.php';
 
-/*
-|--------------------------------------------------------------------------
-| Require The View Composers File
-|--------------------------------------------------------------------------
-|
-| Next we will load the view composers file for the application. This
-| gives us a central location in which we specify which views receive
-| which additional information.
-|
-*/
-
-require app_path() . '/view_composers.php';
-require app_path() . '/ioc_bindings.php';
-require app_path() . '/headers.php';

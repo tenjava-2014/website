@@ -12,6 +12,7 @@ Environment
 -----------
 
 You must define an environment config if you wish to run this application locally!
+Store this as `.env.dev.php` in the root.
 
 ````php
 <?php

@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => isset($_ENV['DATABASE_HOST']) ? $_ENV['DATABASE_HOST'] : "localhost",
 			'database'  => $_ENV['DATABASE_SCHEMA'],
 			'username'  => $_ENV['DATABASE_USERNAME'],
 			'password'  => $_ENV['DATABASE_PASSWORD'],

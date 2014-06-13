@@ -11,6 +11,13 @@
 |
 */
 
+use TenJava\Commands\MailReminderCommand;
+use TenJava\Commands\MailTestCommand;
+use TenJava\Commands\RepoCleanupCommand;
+use TenJava\Commands\TwitterUpdateCommand;
+use TenJava\Commands\UserDeleteCommand;
+use TenJava\Commands\UserIdMigrateCommand;
+
 Artisan::add(new MailTestCommand());
 Artisan::add(new RepoCleanupCommand());
 Artisan::add(new TwitterUpdateCommand());
