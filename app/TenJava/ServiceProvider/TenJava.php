@@ -9,10 +9,12 @@ use TenJava\Exceptions\UnauthorizedException;
 
 class TenJava extends ServiceProvider {
 
+    /** @var ViewFactory */
     protected $view;
 
-    public function __construct(ViewFactory $view) {
-        $this->view = $view;
+    public function __construct($app) {
+        parent::__construct($app);
+        $this->view = $app->make("Illuminate\\View\\Factory");
     }
 
     /**
