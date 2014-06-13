@@ -9,14 +9,6 @@ use TenJava\Exceptions\UnauthorizedException;
 
 class TenJava extends ServiceProvider {
 
-    /** @var ViewFactory */
-    protected $view;
-
-    public function __construct($app) {
-        parent::__construct($app);
-        $this->view = $app->make("\\Illuminate\\View\\Factory");
-    }
-
     /**
      * Register the TenJava IoC bindings.
      *
@@ -46,6 +38,6 @@ class TenJava extends ServiceProvider {
             return Response::make("Be right back!", 503);
         });
 
-        $this->view->composer('*', 'GlobalComposer');
+        View::composer('*', 'GlobalComposer');
     }
 }
