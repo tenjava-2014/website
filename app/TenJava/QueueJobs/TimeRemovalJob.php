@@ -35,7 +35,7 @@ class TimeRemovalJob {
      */
     public function getRepoApiClient() {
         $client = new \GitHub\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
         return $client->api("repo");
     }
 
