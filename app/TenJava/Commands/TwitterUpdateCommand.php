@@ -1,9 +1,8 @@
 <?php
 namespace TenJava\Commands;
 
+use Cache;
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Thujohn\Twitter\Twitter;
 
 class TwitterUpdateCommand extends Command {
@@ -25,7 +24,7 @@ class TwitterUpdateCommand extends Command {
     /**
      * Create a new command instance.
      *
-     * @return \TwitterUpdateCommand
+     * @return \TenJava\Commands\TwitterUpdateCommand
      */
     public function __construct() {
         parent::__construct();

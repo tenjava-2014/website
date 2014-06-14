@@ -2,8 +2,8 @@
 namespace TenJava\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
+use Mail;
+
 
 class MailTestCommand extends Command {
 
@@ -24,7 +24,7 @@ class MailTestCommand extends Command {
     /**
      * Create a new command instance.
      *
-     * @return \MailTestCommand
+     * @return \TenJava\Commands\MailTestCommand
      */
 	public function __construct()
 	{

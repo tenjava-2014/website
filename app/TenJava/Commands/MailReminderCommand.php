@@ -2,8 +2,10 @@
 namespace TenJava\Commands;
 
 use Illuminate\Console\Command;
+use Mail;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use TenJava\Models\Application;
 
 class MailReminderCommand extends Command {
 

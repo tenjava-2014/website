@@ -1,9 +1,9 @@
 <?php
 namespace TenJava\Commands;
 
+use Config;
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
+use TenJava\Models\Application;
 
 class RepoCleanupCommand extends Command {
 
@@ -24,7 +24,7 @@ class RepoCleanupCommand extends Command {
     /**
      * Create a new command instance.
      *
-     * @return \RepoCleanupCommand
+     * @return \TenJava\Commands\RepoCleanupCommand
      */
     public function __construct() {
         parent::__construct();

@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Commands;
 
+use Config;
 use Github\Client;
 use Illuminate\Console\Command;
 use TenJava\Models\Application;
