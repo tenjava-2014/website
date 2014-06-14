@@ -2,6 +2,7 @@
 namespace TenJava\Controllers\Abstracts;
 
 use Illuminate\Routing\Controller;
+use View;
 use TenJava\Authentication\AuthProviderInterface;
 
 abstract class BaseController extends Controller {
@@ -16,7 +17,7 @@ abstract class BaseController extends Controller {
 
     public function __construct(AuthProviderInterface $auth) {
         $this->auth = $auth;
-        \View::share('titleAdd', $this->getPageTitle());
+        View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
         View::share("hst", $this->hasSelectedTimes());
     }
