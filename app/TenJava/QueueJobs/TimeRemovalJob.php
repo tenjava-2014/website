@@ -4,7 +4,7 @@ namespace TenJava\QueueJobs;
 use Config;
 use \Github\Exception\ValidationFailedException;
 use \Illuminate\Queue\Jobs\Job;
-use \GitHub\Client as GitHubClient;
+use \Github\Client;
 use Log;
 
 class TimeRemovalJob {
@@ -38,7 +38,7 @@ class TimeRemovalJob {
      * @return \Github\Api\Repo
      */
     public function getRepoApiClient() {
-        $client = new GitHubClient;
+        $client = new Client;
         $client->authenticate("tenjava", Config::get("gh-data.pass"), GitHubClient::AUTH_HTTP_PASSWORD);
         return $client->api("repo");
     }
