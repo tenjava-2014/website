@@ -1,7 +1,17 @@
 <?php
 namespace TenJava\Controllers\Application;
 
+use App;
+use Config;
+use GitHub\Client;
+use Input;
+use Mail;
+use Redirect;
 use TenJava\Controllers\Abstracts\BaseController;
+use TenJava\Models\Application;
+use Validator;
+use View;
+
 class AppController extends BaseController {
 
     public function  __construct() {
@@ -187,8 +197,8 @@ class AppController extends BaseController {
      * @return \Github\Api\User
      */
     public function getUserApiClient() {
-        $client = new \Github\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
+        $client = new Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
         return $client->api("user");
     }
 

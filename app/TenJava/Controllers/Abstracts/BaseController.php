@@ -1,7 +1,9 @@
 <?php
 namespace TenJava\Controllers\Abstracts;
 
+use App;
 use Illuminate\Routing\Controller;
+use TenJava\Models\ParticipantTimes;
 use \View;
 use TenJava\Tools\UI\NavigationItem;
 use TenJava\Models\Application;
@@ -17,8 +19,8 @@ abstract class BaseController extends Controller {
      */
     protected $auth;
 
-    public function __construct(AuthProviderInterface $auth) {
-        $this->auth = $auth;
+    public function __construct() {
+        $this->auth = App::make("\\TenJava\\Authentication\\AuthProviderInterface");
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
         View::share("hst", $this->hasSelectedTimes());
@@ -70,6 +72,7 @@ abstract class BaseController extends Controller {
         $navigation['primary'][] = new NavigationItem("About", "/about");
 
         foreach ($navigation['primary'] as $navItem) {
+            /** @var $navItem \TenJava\Tools\UI\NavigationItem */
             if (starts_with(strtolower($navItem->getTitle()), strtolower($this->activeNavTitle))) {
                 $navItem->setActive();
             }
@@ -87,12 +90,15 @@ abstract class BaseController extends Controller {
     }
 
     /**
-     * @return string
+     * @return string The current page title.
      */
     public function getPageTitle() {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
     }
 
+    /**
+     * @param string $title Active nav.
+     */
     public function setActive($title) {
         $this->activeNavTitle = $title;
         View::share('nav', $this->getNavigation());

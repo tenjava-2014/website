@@ -1,8 +1,15 @@
 <?php
 namespace TenJava\Controllers\Authentication;
 
+use Artdarek\OAuth\Facade\OAuth;
+use Input;
+use Redirect;
+use Session;
+use TenJava\Authentication\EmailOptOutInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use OAuth\Common\Http\Exception\TokenResponseException;
+use TenJava\Exceptions\FailedOauthException;
+use View;
 
 class AuthController extends BaseController {
 
@@ -64,7 +71,7 @@ class AuthController extends BaseController {
 
     /**
      * @param boolean $optOut If the user opts-out of email sharing.
-     * @return OAuth\OAuth2\Service\GitHub
+     * @return \OAuth\OAuth2\Service\GitHub
      */
     private function getOauthConsumer($optOut) {
         if ($optOut) {
