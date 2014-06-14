@@ -6,6 +6,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application as App;
 use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\View\View;
+use TenJava\Authentication\EmailOptOutInterface;
 use TenJava\Models\Application;
 
 class GlobalComposer {
@@ -15,8 +16,8 @@ class GlobalComposer {
     private $points;
     private $judgeCount;
 
-    public function __construct(App $app, CacheRepository $cache) {
-        $this->optOut = $app->make("EmailOptOutInterface");
+    public function __construct(App $app, CacheRepository $cache, EmailOptOutInterface $optOut) {
+        $this->optOut = $optOut;
         $fs = new Filesystem();
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
         $this->appsCount = Application::where("judge", false)->count();
