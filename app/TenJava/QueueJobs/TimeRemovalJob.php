@@ -2,7 +2,6 @@
 namespace TenJava\QueueJobs;
 
 use Config;
-use \GitHub\Client;
 use \Github\Exception\ValidationFailedException;
 use \Illuminate\Queue\Jobs\Job;
 
