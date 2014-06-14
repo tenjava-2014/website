@@ -205,10 +205,6 @@ class AppController extends BaseController {
     }
 
     public function deleteUserEntry() {
-        if ($this->auth->isAdmin()) {
-            throw new UnauthorizedException();
-        }
-
         $id = Input::get("app_id");
         $app = Application::findOrFail($id);
         /** @var $app Application */
