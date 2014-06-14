@@ -8,6 +8,7 @@ use \Illuminate\Queue\Jobs\Job;
 
 class TimeRemovalJob {
 
+    /** TEST */
     public function fire(Job $job, $data) {
         $client = $this->getRepoApiClient();
         if ($data['t1']) {
