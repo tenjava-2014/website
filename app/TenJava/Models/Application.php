@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model {
 
     public function timeEntry() {
-        return $this->hasOne('ParticipantTimes', 'user_id', 'id');
+        return $this->hasOne('\\TenJava\\Models\\ParticipantTimes', 'user_id', 'id');
     }
 
     public function formatEmails() {
