@@ -3,7 +3,8 @@ namespace TenJava\Controllers\Pages;
 
 use TenJava\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
-use Illuminate\Filesystem\Filesystem;
+use View;
+use App;
 
 class PointsController extends BaseController {
     public function showLeaderboard() {

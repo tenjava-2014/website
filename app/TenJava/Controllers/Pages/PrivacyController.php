@@ -2,6 +2,7 @@
 namespace TenJava\Controllers\Pages;
 
 use TenJava\Controllers\Abstracts\BaseController;
+use Response;
 
 class PrivacyController extends BaseController {
 

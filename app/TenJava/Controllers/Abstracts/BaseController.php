@@ -4,7 +4,7 @@ namespace TenJava\Controllers\Abstracts;
 use App;
 use Illuminate\Routing\Controller;
 use TenJava\Models\ParticipantTimes;
-use \View;
+use View;
 use TenJava\Tools\UI\NavigationItem;
 use TenJava\Models\Application;
 use TenJava\Authentication\AuthProviderInterface;
