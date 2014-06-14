@@ -16,6 +16,7 @@
     "autoload": {
         "classmap": [
             "app/filters",
+            "app/TenJava/QueueJobs/",
             "app/database/migrations",
             "app/database/seeds",
             "app/tests/TestCase.php"
