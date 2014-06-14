@@ -10,8 +10,9 @@ class TimeRemovalJob {
 
     /** TEST */
     public function fire(Job $job, $data) {
-        $client = $this->getRepoApiClient();
         Log::info("inb4 log doesn't even work");
+        $client = $this->getRepoApiClient();
+
         if ($data['t1']) {
             $this->deleteUserRepo($data['username'] . "-t1", $client);
         }
