@@ -211,7 +211,7 @@ class AppController extends BaseController {
         $te = $app->timeEntry;
         /** @see \TenJava\QueueJobs\TimeRemovalJob */
         if ($te !== null) {
-            Queue::push('\\TenJava\\QueueJobs\\TimeRemovalJob', array('username' => $app->gh_username, 't1' => $te->t1, "t2" => $te->t2, "t3" => $te->t3));
+            Queue::push('TenJava\\QueueJobs\\TimeRemovalJob', array('username' => $app->gh_username, 't1' => $te->t1, "t2" => $te->t2, "t3" => $te->t3));
             $te->delete();
         }
         $app->delete();
