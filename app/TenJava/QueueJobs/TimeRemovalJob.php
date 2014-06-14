@@ -4,12 +4,14 @@ namespace TenJava\QueueJobs;
 use Config;
 use \Github\Exception\ValidationFailedException;
 use \Illuminate\Queue\Jobs\Job;
+use Log;
 
 class TimeRemovalJob {
 
     /** TEST */
     public function fire(Job $job, $data) {
         $client = $this->getRepoApiClient();
+        Log::info("inb4 log doesn't even work");
         if ($data['t1']) {
             $this->deleteUserRepo($data['username'] . "-t1", $client);
         }
