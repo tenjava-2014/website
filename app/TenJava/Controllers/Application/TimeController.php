@@ -1,9 +1,15 @@
 <?php
 namespace TenJava\Controllers\Application;
 
+use App;
+use Input;
+use Queue;
+use Redirect;
 use TenJava\Controllers\Abstracts\BaseController;
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantTimes;
+use Validator;
+use View;
 
 class TimeController extends BaseController {
 
