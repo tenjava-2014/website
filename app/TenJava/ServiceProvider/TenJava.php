@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
+use TenJava\Routing\Registration;
 use View;
 
 class TenJava extends ServiceProvider {
@@ -44,7 +45,8 @@ class TenJava extends ServiceProvider {
 
         $this->registerHeaders();
         $this->registerFilters();
-        $app->make("TenJava\\Routing\\Registration")->registerRoutes();
+        $reg = new Registration($this->app['router']);
+        $reg->registerRoutes();
     }
 
     private function registerFilters() {
