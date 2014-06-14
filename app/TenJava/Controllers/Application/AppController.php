@@ -6,8 +6,10 @@ use Config;
 use GitHub\Client;
 use Input;
 use Mail;
+use Queue;
 use Redirect;
 use TenJava\Controllers\Abstracts\BaseController;
+use TenJava\Exceptions\UnauthorizedException;
 use TenJava\Models\Application;
 use Validator;
 use View;
@@ -200,6 +202,21 @@ class AppController extends BaseController {
         $client = new Client();
         $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
         return $client->api("user");
+    }
+
+    public function deleteUserEntry() {
+        if ($this->auth->isAdmin()) {
+            throw new UnauthorizedException();
+        }
+
+        $id = Input::get("app_id");
+        $app = Application::findOrFail($id);
+        /** @var $app Application */
+        $te = $app->timeEntry;
+        Queue::push('\\TenJava\\QueueJobs\\TimeRemovalJob', array('username' => $app->gh_username, 't1' => $te->t1, "t2" => $te->t2, "t3" => $te->t3));
+        if ($te !== null) {
+            $te->delete();
+        }
     }
 
 } 

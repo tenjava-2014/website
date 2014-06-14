@@ -30,7 +30,7 @@
 @foreach ($apps as $app)
     <h3 class="{{{ ($app->judge) ? 'judge-app' : 'participant-app' }}}">{{{ $app->gh_username }}} <a
         href="http://github.com/{{{ $app->gh_username }}}"><i class="fa fa-user"></i></a></h3>
-    <table class="pure-table pure-table-bordered">
+    <table class="pure-table pure-table-bordered app-table">
         <tbody>
         <tr>
             <td width="10%">Created at</td>
@@ -94,6 +94,16 @@
                 {{ Form::hidden('app_id', $app->id) }}
                 {{ Form::submit('Decline app', ['class' => 'button button-small button-flat-primary']); }}
             {{ Form::close() }}
+            </td>
+        </tr>
+        @else
+        <tr>
+            <td>Actions</td>
+            <td>
+                {{ Form::open(array('url' => '/list/remove-participant', 'class' => 'action-form')) }}
+                    {{ Form::hidden('app_id', $app->id) }}
+                    {{ Form::submit('Destroy app and repos', ['class' => 'button button-small button-flat-primary']); }}
+                {{ Form::close() }}
             </td>
         </tr>
         @endif

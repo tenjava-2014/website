@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Controllers;
 
+use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 
 class ErrorController extends BaseController {
