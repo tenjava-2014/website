@@ -39,5 +39,7 @@ class TenJava extends ServiceProvider {
         });
 
         \View::composer('*', 'GlobalComposer');
+        
+        $app->make("TenJava\Routing\Registration")->registerRoutes();
     }
 }
