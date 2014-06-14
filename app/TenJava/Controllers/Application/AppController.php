@@ -3,7 +3,7 @@ namespace TenJava\Controllers\Application;
 
 use App;
 use Config;
-use GitHub\Client;
+use Github\Client;
 use Input;
 use Mail;
 use Queue;

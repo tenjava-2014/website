@@ -50,7 +50,7 @@ class RepoCleanupCommand extends Command {
      */
     private function getApiClient() {
         $client = new \Github\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), \GitHub\Client::AUTH_HTTP_PASSWORD);
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), \Github\Client::AUTH_HTTP_PASSWORD);
         return $client->api('repo');
     }
 

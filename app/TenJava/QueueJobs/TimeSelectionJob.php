@@ -3,7 +3,7 @@ namespace TenJava\QueueJobs;
 
 use \Config;
 use \Github\Api\Repo;
-use \GitHub\Client;
+use \Github\Client;
 use \Github\Exception\ValidationFailedException;
 use \Illuminate\Queue\Jobs\Job;
 
