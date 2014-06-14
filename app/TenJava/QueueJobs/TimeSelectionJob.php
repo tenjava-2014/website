@@ -1,11 +1,11 @@
 <?php
 namespace TenJava\QueueJobs;
 
-use Config;
-use Github\Api\Repo;
-use GitHub\Client;
-use Github\Exception\ValidationFailedException;
-use Illuminate\Queue\Jobs\Job;
+use \Config;
+use \Github\Api\Repo;
+use \GitHub\Client;
+use \Github\Exception\ValidationFailedException;
+use \Illuminate\Queue\Jobs\Job;
 
 class TimeSelectionJob {
 
