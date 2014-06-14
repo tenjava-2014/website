@@ -45,7 +45,7 @@ class Registration {
         });
 
         /* LOGGED IN USERS ONLY */
-        $this->router->group(array('before' => 'TenJava\\Filters\\AuthenticationFilter'), function () {
+        $this->router->group(array('before' => 'AuthenticationFilter'), function () {
             $this->router->get('/register/participant', "TenJava\\Controllers\\Application\\AppController@showApplyParticipant");
             $this->router->post('/times/confirm', "TenJava\\Controllers\\Application\\TimeController@confirmUserTimes");
             $this->router->get('/times/select', "TenJava\\Controllers\\Application\\TimeController@showUserTimes");
@@ -55,12 +55,12 @@ class Registration {
         });
 
         /* CSRF PROTECTED AUTH PAGES */
-        $this->router->group(array('before' => 'TenJava\\Filters\\AuthenticationFilter|csrf'), function () {
+        $this->router->group(array('before' => 'AuthenticationFilter|csrf'), function () {
             $this->router->post('/apply/{type}', 'TenJava\\Controllers\\Application\\AppController@processApplication');
         });
 
         /* JUDGES ONLY */
-        $this->router->group(array('before' => 'TenJava\\Filters\\StaffFilter'), function () {
+        $this->router->group(array('before' => 'StaffFilter'), function () {
             $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
             $this->router->get('/test/staff', function() {
                 return "Staff only test endpoint.";
@@ -68,7 +68,7 @@ class Registration {
         });
 
         /* ORGANIZERS ONLY */
-        $this->router->group(array('before' => 'TenJava\\Filters\\AdminFilter'), function () {
+        $this->router->group(array('before' => 'AdminFilter'), function () {
             $this->router->post('/list/decline', 'TenJava\\Controllers\\Application\\AppController@declineJudgeApp');
             $this->router->post('/list/accept', 'TenJava\\Controllers\\Application\\AppController@acceptJudgeApp');
             $this->router->post('/list/remove-participant', 'TenJava\\Controllers\\Application\\AppController@deleteUserEntry');
