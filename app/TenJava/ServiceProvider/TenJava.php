@@ -16,22 +16,22 @@ class TenJava extends ServiceProvider {
      */
     public function register() {
         $app = $this->app;
-        $app->bind("TenJava\Authentication\AuthProviderInterface", "TenJava\Authentication\GitHubAuthProvider");
-        $app->bind("TenJava\Authentication\EmailOptOutInterface", "TenJava\Authentication\GitHubEmailOptOut");
+        $app->bind("TenJava\\Authentication\\AuthProviderInterface", "TenJava\\Authentication\\GitHubAuthProvider");
+        $app->bind("TenJava\\Authentication\\EmailOptOutInterface", "TenJava\\Authentication\\GitHubEmailOptOut");
         $app->bind("TenJava\\Security\\HmacVerificationInterface", "TenJava\\Security\\HmacVerification");
 
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
 
         $app->missing(function ($exception) use ($app) {
-            return $app->make("ErrorController")->missing();
+            return $app->make("TenJava\\Controllers\\ErrorController")->missing();
         });
 
         $app->error(function (UnauthorizedException $exception) use ($app) {
-            return $app->make('ErrorController')->unauthorized();
+            return $app->make('TenJava\\Controllers\\ErrorController')->unauthorized();
         });
 
         $app->error(function (FailedOauthException $exception) use ($app) {
-            return $app->make('ErrorController')->oauth();
+            return $app->make('TenJava\\Controllers\\ErrorController')->oauth();
         });
 
         $app->down(function () {
@@ -40,6 +40,6 @@ class TenJava extends ServiceProvider {
 
         \View::composer('*', 'GlobalComposer');
         
-        $app->make("TenJava\Routing\Registration")->registerRoutes();
+        $app->make("TenJava\\Routing\\Registration")->registerRoutes();
     }
 }

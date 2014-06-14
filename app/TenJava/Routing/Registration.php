@@ -18,48 +18,48 @@ class Registration {
         // TODO: Split into funcs
         /* NO AUTH REQUIRED */
         $this->router->group(array(), function () {
-            $this->router->get('/', "TenJava\Controllers\Pages\HomeController@index");
-            $this->router->get('/points', 'PointsController@showLeaderboard');
-            $this->router->get('/team', 'TeamController@showTeam');
-            $this->router->get('/about', 'AboutController@showAbout');
-            $this->router->get('/signup', 'SignupController@showSignUp');
-            $this->router->get('/privacy', 'PrivacyController@showPrivacyInfo');
-            $this->router->get('/oauth/refusal', 'AuthController@showRefusal');
-            $this->router->get('/oauth/confirm', 'AuthController@loginWithGitHub');
-            $this->router->get('/toggle-optout', 'AuthController@toggleOptout');
+            $this->router->get('/', "TenJava\\Controllers\\Pages\\HomeController@index");
+            $this->router->get('/points', 'TenJava\\Controllers\\Pages\\PointsController@showLeaderboard');
+            $this->router->get('/team', 'TenJava\\Controllers\\Pages\\TeamController@showTeam');
+            $this->router->get('/about', 'TenJava\\Controllers\\Pages\\AboutController@showAbout');
+            $this->router->get('/signup', 'TenJava\\Controllers\\Pages\\SignupController@showSignUp');
+            $this->router->get('/privacy', 'TenJava\\Controllers\\Pages\\PrivacyController@showPrivacyInfo');
+            $this->router->get('/oauth/refusal', 'TenJava\\Controllers\\Authentication\\AuthController@showRefusal');
+            $this->router->get('/oauth/confirm', 'TenJava\\Controllers\\Authentication\\AuthController@loginWithGitHub');
+            $this->router->get('/toggle-optout', 'TenJava\\Controllers\\Authentication\\AuthController@toggleOptout');
         });
 
         /* API - NO AUTH REQUIRED */
         $this->router->group(array(), function () {
-            $this->router->get('/api/participants', 'ApiController@getParticipants');
-            $this->router->get('/api/participants/confirmed/{confirmed}', 'ApiController@getConfirmedParticipants');
-            $this->router->get('/api/points', 'ApiController@getPoints');
-            $this->router->get('/api/session', 'ApiController@getSessionData');
+            $this->router->get('/api/participants', 'TenJava\\Controllers\\Api\\ApiController@getParticipants');
+            $this->router->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Controllers\\Api\\ApiController@getConfirmedParticipants');
+            $this->router->get('/api/points', 'TenJava\\Controllers\\Api\\ApiController@getPoints');
+            $this->router->get('/api/session', 'TenJava\\Controllers\\Api\\ApiController@getSessionData');
         });
 
         /* GITHUB WEBHOOKS */
         $this->router->group(array(), function () {
-            $this->router->post('/webhook/fire', 'WebhookController@processGitHubWebhook');
+            $this->router->post('/webhook/fire', 'TenJava\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
         });
 
         /* LOGGED IN USERS ONLY */
         $this->router->group(array('before' => 'AuthenticationFilter'), function () {
-            $this->router->get('/register/participant', "AppController@showApplyParticipant");
-            $this->router->post('/times/confirm', "TimeController@confirmUserTimes");
-            $this->router->get('/times/select', "TimeController@showUserTimes");
-            $this->router->get('/times/thanks', "TimeController@showThanks");
-            $this->router->get('/register/judge', "AppController@showApplyJudge");
+            $this->router->get('/register/participant', "TenJava\\Controllers\\Application\\AppController@showApplyParticipant");
+            $this->router->post('/times/confirm', "TenJava\\Controllers\\Application\\TimeController@confirmUserTimes");
+            $this->router->get('/times/select', "TenJava\\Controllers\\Application\\TimeController@showUserTimes");
+            $this->router->get('/times/thanks', "TenJava\\Controllers\\Application\\TimeController@showThanks");
+            $this->router->get('/register/judge', "TenJava\\Controllers\\Application\\AppController@showApplyJudge");
 
         });
 
         /* CSRF PROTECTED AUTH PAGES */
         $this->router->group(array('before' => 'AuthenticationFilter|csrf'), function () {
-            $this->router->post('/apply/{type}', 'AppController@processApplication');
+            $this->router->post('/apply/{type}', 'TenJava\\Controllers\\Application\\AppController@processApplication');
         });
 
         /* JUDGES ONLY */
         $this->router->group(array('before' => 'StaffFilter'), function () {
-            $this->router->get('/list/{filter?}', 'AppController@listApps');
+            $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
             $this->router->get('/test/staff', function() {
                 return "Staff only test endpoint.";
             });
@@ -67,8 +67,8 @@ class Registration {
 
         /* ORGANIZERS ONLY */
         $this->router->group(array('before' => 'AdminFilter'), function () {
-            $this->router->post('/list/decline', 'AppController@declineJudgeApp');
-            $this->router->post('/list/accept', 'AppController@acceptJudgeApp');
+            $this->router->post('/list/decline', 'TenJava\\Controllers\\Application\\AppController@declineJudgeApp');
+            $this->router->post('/list/accept', 'TenJava\\Controllers\\Application\\AppController@acceptJudgeApp');
             $this->router->get('/test/admin', function() {
                 return Response::json(["env" => App::environment()]);
             });
