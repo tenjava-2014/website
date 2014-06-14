@@ -3,6 +3,7 @@ namespace TenJava\Controllers\Abstracts;
 
 use Illuminate\Routing\Controller;
 use \View;
+use TenJava\Tools\UI\NavigationItem;
 use TenJava\Authentication\AuthProviderInterface;
 
 abstract class BaseController extends Controller {
