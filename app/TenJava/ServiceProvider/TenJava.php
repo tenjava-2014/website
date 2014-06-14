@@ -17,7 +17,7 @@ class TenJava extends ServiceProvider {
      */
     public function register() {
         $app = $this->app;
-        $app->bind("TenJava\\Authentication\\AuthProviderInterface", "TenJava\\Authentication\\GitHubAuthProvider");
+        $app->bind("\\TenJava\\Authentication\\AuthProviderInterface", "\\TenJava\\Authentication\\GitHubAuthProvider");
         $app->bind("TenJava\\Authentication\\EmailOptOutInterface", "TenJava\\Authentication\\GitHubEmailOptOut");
         $app->bind("TenJava\\Security\\HmacVerificationInterface", "TenJava\\Security\\HmacVerification");
 
