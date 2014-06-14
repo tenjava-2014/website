@@ -48,7 +48,7 @@ class TenJava extends ServiceProvider {
 
     private function registerFilters() {
         /** @var $router \Illuminate\Routing\Router */
-        $router = $this->app->make("\\Illuminate\\Routing\\Router");
+        $router = $this->app['router'];
         /* @see AuthenticationFilter */
         $router->filter('AuthenticationFilter', '\\TenJava\\Filters\\AuthenticationFilter');
         /* @see StaffFilter */
