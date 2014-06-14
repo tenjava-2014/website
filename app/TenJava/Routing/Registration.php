@@ -18,7 +18,7 @@ class Registration {
         // TODO: Split into funcs
         /* NO AUTH REQUIRED */
         $this->router->group(array(), function () {
-            $this->router->get('/', "HomeController@index");
+            $this->router->get('/', "TenJava\Controllers\Pages\HomeController@index");
             $this->router->get('/points', 'PointsController@showLeaderboard');
             $this->router->get('/team', 'TeamController@showTeam');
             $this->router->get('/about', 'AboutController@showAbout');
