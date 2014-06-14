@@ -54,7 +54,7 @@ class TenJava extends ServiceProvider {
         $router->filter('StaffFilter', '\\TenJava\\Filters\\StaffFilter');
         /* @see AdminFilter */
         $router->filter('AdminFilter', '\\TenJava\\Filters\\AdminFilter');
-
+        die("filter!");
         /*
         |--------------------------------------------------------------------------
         | CSRF Protection Filter
