@@ -3,8 +3,8 @@ namespace TenJava\Controllers\Pages;
 
 use TenJava\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
-use \Config;
-use \View;
+use Config;
+use View;
 
 class HomeController extends BaseController {
 

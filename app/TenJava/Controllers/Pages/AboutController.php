@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Controllers\Pages;
 
+use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 
 class AboutController extends BaseController {

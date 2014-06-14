@@ -1,6 +1,10 @@
 <?php
 namespace TenJava\Controllers\Commit;
 
+use Request;
+use Config;
+use Input;
+use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 
 use TenJava\Security\HmacVerificationInterface;
