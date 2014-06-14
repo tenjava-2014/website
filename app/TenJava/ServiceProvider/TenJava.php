@@ -38,6 +38,6 @@ class TenJava extends ServiceProvider {
             return Response::make("Be right back!", 503);
         });
 
-        View::composer('*', 'GlobalComposer');
+        \View::composer('*', 'GlobalComposer');
     }
 }
