@@ -30,6 +30,9 @@ class Registration {
             $this->router->get('/oauth/refusal', 'TenJava\\Controllers\\Authentication\\AuthController@showRefusal');
             $this->router->get('/oauth/confirm', 'TenJava\\Controllers\\Authentication\\AuthController@loginWithGitHub');
             $this->router->get('/toggle-optout', 'TenJava\\Controllers\\Authentication\\AuthController@toggleOptout');
+            $this->router->get('/wiki', function() {
+                return Redirect::to("https://github.com/tenjava/resources/wiki");
+            });
         });
 
         /* API - NO AUTH REQUIRED */
