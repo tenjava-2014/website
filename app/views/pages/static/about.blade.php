@@ -10,14 +10,14 @@
         </p>
 
         <p>Some time after posting the <a
-                href="https://forums.bukkit.org/threads/ten-java-plugin-contest-irc-esper-net-ten-java-points-4-644-http-tenjava-com-tenjava.190553/">original
+                href="https://forums.bukkit.org/threads/ten-java-plugin-contest-irc-esper-net-ten-java-points-4-644-http-tenjava-com-tenjava.190553/" target="_blank">original
                 thread</a>, we decided to accept donations in the form of CurseForge points. CurseForge points are
             given to developers who submit plugins to BukkitDev, as well as addon developers who upload content to
             other CurseForge sites (covering games such as WoW, KSP, and more). These points can be redeemed for
             Amazon gift cards and PayPal payments, with each point equating to $0.05 USD.</p>
 
         <p>Last year, we managed to raise <a
-                href="https://forums.bukkit.org/threads/ten-java-plugin-contest-irc-esper-net-ten-java-points-4-644-http-tenjava-com-tenjava.190553/page-17#post-2103998">5,488</a>
+                href="https://forums.bukkit.org/threads/ten-java-plugin-contest-irc-esper-net-ten-java-points-4-644-http-tenjava-com-tenjava.190553/page-17#post-2103998" target="_blank">5,488</a>
             points, which equates to just over $270 USD. On the day, participants
             streamed for up to ten hours as they developed their plugins and regularly committed their code to
             GitHub for the community to see. Participants had previously selected a time in which to participate,
@@ -30,9 +30,9 @@
             we averaged the points from the judges that were able to help and announced the three winners. They
             were:</p>
         <ul>
-            <li><a href="https://github.com/tenjavacontest/Vilsol">Vilsol</a></li>
-            <li><a href="https://github.com/tenjavacontest/slipcor">slipcor</a></li>
-            <li><a href="https://github.com/tenjavacontest/mncat77">mncat77</a></li>
+            <li><a target="_blank" href="https://github.com/tenjavacontest/Vilsol">Vilsol</a></li>
+            <li><a target="_blank" href="https://github.com/tenjavacontest/slipcor">slipcor</a></li>
+            <li><a target="_blank" href="https://github.com/tenjavacontest/mncat77">mncat77</a></li>
         </ul>
 
         <h2>Plans this year</h2>
@@ -51,7 +51,7 @@
 
         <h2>Intreppid</h2>
 
-        <p><a href="https://www.intreppid.com">Intreppid</a> was kind enough to reach out to us and offer a dedicated
+        <p><a target="_blank" href="https://www.intreppid.com">Intreppid</a> was kind enough to reach out to us and offer a dedicated
             server that we will be using to build the submissions produced within the contest time. We'll be running a
             Jenkins instance and will report build information directly to our developers. Additionally, the server will
             allow us to test and judge the submissions more efficiently and host additional services, such as a voice
@@ -59,38 +59,38 @@
 
         <h2>Technical information</h2>
 
-        <p>This site is built with <a href="http://laravel.com/">Laravel</a>, and we're utilizing <a
-                href="http://nginx.org/">nginx</a> as our
-            webserver. We use <a href="http://mandrill.com/">Mandrill</a> to send emails and <a
-                href="http://kr.github.io/beanstalkd/">beanstalk</a> to queue long tasks and improve page
-            responsiveness. Our database is powered by <a href="http://www.mysql.com/">MySQL</a>. We use the Python
-            <a href="http://docs.python-requests.org/en/latest/">Requests</a> and <a
-                href="http://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> libraries to get points
+        <p>This site is built with <a target="_blank" href="http://laravel.com/">Laravel</a>, and we're utilizing <a
+                href="http://nginx.org/" target="_blank">nginx</a> as our
+            webserver. We use <a href="http://mandrill.com/" target="_blank">Mandrill</a> to send emails and <a
+                href="http://kr.github.io/beanstalkd/" target="_blank">beanstalk</a> to queue long tasks and improve page
+            responsiveness. Our database is powered by <a href="http://www.mysql.com/" target="_blank">MySQL</a>. We use the Python
+            <a href="http://docs.python-requests.org/en/latest/" target="_blank">Requests</a> and <a
+                href="http://www.crummy.com/software/BeautifulSoup/" target="_blank">Beautiful Soup</a> libraries to get points
             information from the CurseForge store. On the site, we use the <a
-                href="https://packagist.org/packages/knplabs/github-api">knplabs/github-api</a> and <a
-                href="https://github.com/thujohn/twitter-l4">thujohn/twitter-l4</a> packages. For OAuth, we use the
-            <a href="https://github.com/artdarek/oauth-4-laravel">artdarek/oauth-4-laravel</a> package. To help us
+                href="https://packagist.org/packages/knplabs/github-api" target="_blank">knplabs/github-api</a> and <a
+                href="https://github.com/thujohn/twitter-l4" target="_blank">thujohn/twitter-l4</a> packages. For OAuth, we use the
+            <a href="https://github.com/artdarek/oauth-4-laravel" target="_blank">artdarek/oauth-4-laravel</a> package. To help us
             develop the site and to add auto-completion, we use the <a
-                href="https://www.github.com/barryvdh/laravel-ide-helper">barryvdh/laravel-ide-helper</a> package.
-            Our site code is available on <a href="https://github.com/tenjava/website">GitHub</a> for those
+                href="https://www.github.com/barryvdh/laravel-ide-helper" target="_blank">barryvdh/laravel-ide-helper</a> package.
+            Our site code is available on <a href="https://github.com/tenjava/website" target="_blank">GitHub</a> for those
             interested.</p>
 
-        <p>On the frontend, we use <a href="http://sass-lang.com/">SASS</a> (with <a
-                href="http://compass-style.org/">Compass</a>) for our stylesheets and <a
-                href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> for a lot of our icons. Icons on
-            the signup page are from the awesome <a href="http://iconmonstr.com">iconmonstr</a> site. We use an
-            expansive <a href="http://alexwolfe.github.io/Buttons/#">button library</a> for all the buttons on the
+        <p>On the frontend, we use <a href="http://sass-lang.com/" target="_blank">SASS</a> (with <a
+                href="http://compass-style.org/" target="_blank">Compass</a>) for our stylesheets and <a
+                href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> for a lot of our icons. Icons on
+            the signup page are from the awesome <a href="http://iconmonstr.com" target="_blank">iconmonstr</a> site. We use an
+            expansive <a href="http://alexwolfe.github.io/Buttons/#" target="_blank">button library</a> for all the buttons on the
             website. We rely on <a
-                href="http://cdnjs.com/">cdnjs</a> to serve a lot of our CSS/JS. <a href="http://unsemantic.com/">Unsemantic</a>
+                href="http://cdnjs.com/" target="_blank">cdnjs</a> to serve a lot of our CSS/JS. <a href="http://unsemantic.com/" target="_blank">Unsemantic</a>
             is what we use for fluid, responsive grids. To improve mobile responsiveness, we use <a
-                href="https://github.com/ftlabs/fastclick">fastclick</a>. We also use <a href="http://jquery.com/">jQuery</a>.
-            Our views are built with Laravel's <a href="http://laravel.com/docs/templates">Blade</a> templating system.
-            We include a few styles via SASS from the <a href="http://ink.sapo.pt/">InK</a> interface kit.</p>
+                href="https://github.com/ftlabs/fastclick">fastclick</a>. We also use <a href="http://jquery.com/" target="_blank">jQuery</a>.
+            Our views are built with Laravel's <a href="http://laravel.com/docs/templates" target="_blank">Blade</a> templating system.
+            We include a few styles via SASS from the <a href="http://ink.sapo.pt/" target="_blank">InK</a> interface kit.</p>
 
         <h3>Acknowledgements</h3>
 
-        <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a>
-            and <a href="https://github.com/rigor789">rigor789</a> for contributing to the site. Additional thanks to
+        <p>Many thanks to <a href="https://github.com/dequis" target="_blank">dx</a>, <a href="https://github.com/njb-said" target="_blank">njb-said</a>
+            and <a href="https://github.com/rigor789" target="_blank">rigor789</a> for contributing to the site. Additional thanks to
             the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
     </div>
 </div>
