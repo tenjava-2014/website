@@ -75,7 +75,7 @@ class WebhookController extends BaseController {
                 insertBold()->insertNavyBlue()->insertText($notificationHeading)->insertBold()->
                 insertReset()->insertText(" ")->insertMungedText($author)->insertText(": ")->
                 insertSecureText($this->trunc->truncateString($commitMessage, 50))->insertText(" - " . $shortUrl);
-            $this->irc->sendMessage("#ten.test", $message);
+            $this->irc->sendMessage("#ten.java", $message);
             return Response::json("OK");
         }
     }
