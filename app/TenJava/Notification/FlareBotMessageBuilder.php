@@ -197,4 +197,12 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
         $text = str_replace($toRemove, "", $text);
         return $text;
     }
+
+    /**
+     * @return IrcMessageBuilderInterface
+     */
+    public function insertReset() {
+        $this->text .= $this->colorChar;
+        return $this;
+    }
 }

@@ -89,6 +89,11 @@ interface IrcMessageBuilderInterface {
     public function insertBold();
 
     /**
+     * @return IrcMessageBuilderInterface
+     */
+    public function insertReset();
+
+    /**
      * @param $text
      * @return IrcMessageBuilderInterface
      */

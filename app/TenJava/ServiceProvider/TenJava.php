@@ -25,6 +25,7 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Authentication\\EmailOptOutInterface", "\\TenJava\\Authentication\\GitHubEmailOptOut");
         $app->bind("\\TenJava\\Security\\HmacVerificationInterface", "\\TenJava\\Security\\HmacVerification");
         $app->bind("\\TenJava\\Security\\HmacVerificationInterface", "\\TenJava\\Security\\HmacVerification");
+        $app->bind("\\TenJava\\UrlShortener\\UrlShortenerInterface", "\\TenJava\\UrlShortener\\GitIoUrlShortener");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
