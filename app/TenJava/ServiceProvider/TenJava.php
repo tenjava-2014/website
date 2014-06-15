@@ -18,15 +18,18 @@ class TenJava extends ServiceProvider {
      */
     public function register() {
         $app = $this->app;
+        // Interface bindings
         $app->bind("TenJava\\Authentication\\AuthProviderInterface", "TenJava\\Authentication\\GitHubAuthProvider");
         $app->bind("TenJava\\Notification\\IrcNotifierInterface", "TenJava\\Notification\\FlareBotIrcNotifier");
         $app->bind("TenJava\\Notification\\IrcMessageBuilderInterface", "TenJava\\Notification\\FlareBotMessageBuilder");
         $app->bind("TenJava\\Authentication\\EmailOptOutInterface", "TenJava\\Authentication\\GitHubEmailOptOut");
         $app->bind("TenJava\\Security\\HmacVerificationInterface", "TenJava\\Security\\HmacVerification");
+        $app->bind("TenJava\\Security\\HmacVerificationInterface", "TenJava\\Security\\HmacVerification");
 
-
+        // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
 
+        // Error handlers
         $app->missing(function ($exception) use ($app) {
             return $app->make("TenJava\\Controllers\\ErrorController")->missing();
         });
@@ -40,9 +43,10 @@ class TenJava extends ServiceProvider {
         });
 
         $app->down(function () {
-            return Response::make("Be right back!", 503);
+            return View::make("errors.maintenance");
         });
 
+        // View composers
         View::composer('*', 'GlobalComposer');
 
 
