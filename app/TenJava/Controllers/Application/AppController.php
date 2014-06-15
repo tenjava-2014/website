@@ -215,7 +215,7 @@ class AppController extends BaseController {
             $te->delete();
         }
         $app->delete();
-
+        return Redirect::back();
     }
 
 } 
