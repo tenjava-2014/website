@@ -54,9 +54,10 @@ class WebhookController extends BaseController {
         } else {
             $author = Input::get("head_commit.author.username");
             $commitMessage = Input::get("head_commit.message");
-            $repoName = substr(Input::get("repository.name"), -2);
+            $repoName = Input::get("repository.name");
+            $repoNameTime = substr($repoName, -2);
             $notificationHeading = "[Commit";
-            switch($repoName) {
+            switch($repoNameTime) {
                 case "t1":
                     $notificationHeading .= "/1]";
                     break;
@@ -67,7 +68,7 @@ class WebhookController extends BaseController {
                     $notificationHeading .= "/3]";
                     break;
                 default:
-                    $notificationHeading .= "/X]";
+                    $notificationHeading .= "/" . $repoName . "]";
                     break;
             }
             $shortUrl = $this->short->shortenUrl(Input::get("head_commit.url"), "tenjava-" . substr(Input::get("head_commit.id"), 0, 10));
