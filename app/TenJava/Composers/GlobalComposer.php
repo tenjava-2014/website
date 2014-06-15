@@ -6,6 +6,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application as App;
 use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\View\View;
+use TenJava\Authentication\AuthProviderInterface;
 use TenJava\Authentication\EmailOptOutInterface;
 use TenJava\Models\Application;
 
@@ -15,8 +16,9 @@ class GlobalComposer {
     private $tweets;
     private $points;
     private $judgeCount;
+    private $auth;
 
-    public function __construct(App $app, CacheRepository $cache, EmailOptOutInterface $optOut) {
+    public function __construct(App $app, CacheRepository $cache, EmailOptOutInterface $optOut, AuthProviderInterface $auth) {
         $this->optOut = $optOut;
         $fs = new Filesystem();
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
@@ -24,6 +26,7 @@ class GlobalComposer {
         $this->judgeCount = Application::where("judge", true)->count();
         $this->latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
         $this->tweets = $cache->get("tweets");
+        $this->auth = $auth;
     }
 
     public function compose(View $view) {
@@ -33,7 +36,9 @@ class GlobalComposer {
             "judgeCount" => $this->judgeCount,
             "latestUsername" => $this->latestAppName]);
         $view->with('tweets', $this->tweets);
+        $view->with('auth', $this->auth);
         $view->with("emailOptOut", !$this->optOut->isOptedIn());
+
     }
 
     /**
