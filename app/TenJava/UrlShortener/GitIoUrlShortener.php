@@ -13,6 +13,6 @@ class GitIoUrlShortener implements UrlShortenerInterface {
     public function shortenUrl($url, $custom=null) {
         $client = new GuzzleClient();
         $response = $client->post("http://git.io", ['body' => ['url' => $url, 'code' => $custom]]);
-        return $response->getBody();
+        return $response->getHeader("Location");
     }
 }
