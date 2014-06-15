@@ -1,7 +1,7 @@
 <footer>
 	<div class="grid-container">
 		<div class="grid-80 tablet-grid-50 mobile-grid-100">
-			<p>Site licensed under <a href="https://github.com/tenjava/website/blob/master/LICENSE">GPLv3</a>a>.<br />
+			<p>Site licensed under <a href="https://github.com/tenjava/website/blob/master/LICENSE">GPLv3</a>.<br />
 				ten.java is not affiliated with Bukkit, Curse, or Mojang in any way. <br />
                 <a href="/privacy">Privacy info</a>@if (!$auth->isLoggedIn()) :: <a href="/login">Login</a>@endif
             </p>
