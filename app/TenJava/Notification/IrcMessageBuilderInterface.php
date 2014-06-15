@@ -6,6 +6,11 @@ interface IrcMessageBuilderInterface {
     /**
      * @return IrcMessageBuilderInterface
      */
+    public function insertWhite();
+
+    /**
+     * @return IrcMessageBuilderInterface
+     */
     public function insertBlack();
 
     /**
@@ -77,11 +82,6 @@ interface IrcMessageBuilderInterface {
      * @return IrcMessageBuilderInterface
      */
     public function insertLightGray();
-
-    /**
-     * @return IrcMessageBuilderInterface
-     */
-    public function insertWhite();
 
     /**
      * @return IrcMessageBuilderInterface

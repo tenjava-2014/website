@@ -23,7 +23,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertBlack() {
+    public function insertWhite() {
         $this->text .= $this->colorChar . "0";
         return $this;
     }
@@ -31,7 +31,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertNavyBlue() {
+    public function insertBlack() {
         $this->text .= $this->colorChar . "1";
         return $this;
     }
@@ -39,7 +39,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertGreen() {
+    public function insertNavyBlue() {
         $this->text .= $this->colorChar . "2";
         return $this;
     }
@@ -47,7 +47,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertRed() {
+    public function insertGreen() {
         $this->text .= $this->colorChar . "3";
         return $this;
     }
@@ -55,7 +55,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertBrown() {
+    public function insertRed() {
         $this->text .= $this->colorChar . "4";
         return $this;
     }
@@ -63,7 +63,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertPurple() {
+    public function insertBrown() {
         $this->text .= $this->colorChar . "5";
         return $this;
     }
@@ -71,7 +71,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertOlive() {
+    public function insertPurple() {
         $this->text .= $this->colorChar . "6";
         return $this;
     }
@@ -79,7 +79,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertYellow() {
+    public function insertOlive() {
         $this->text .= $this->colorChar . "7";
         return $this;
     }
@@ -87,7 +87,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertLimeGreen() {
+    public function insertYellow() {
         $this->text .= $this->colorChar . "8";
         return $this;
     }
@@ -95,7 +95,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertTeal() {
+    public function insertLimeGreen() {
         $this->text .= $this->colorChar . "9";
         return $this;
     }
@@ -103,7 +103,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertAquaLight() {
+    public function insertTeal() {
         $this->text .= $this->colorChar . "10";
         return $this;
     }
@@ -111,7 +111,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertRoyalBlue() {
+    public function insertAquaLight() {
         $this->text .= $this->colorChar . "11";
         return $this;
     }
@@ -119,7 +119,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertHotPink() {
+    public function insertRoyalBlue() {
         $this->text .= $this->colorChar . "12";
         return $this;
     }
@@ -127,7 +127,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertDarkGray() {
+    public function insertHotPink() {
         $this->text .= $this->colorChar . "13";
         return $this;
     }
@@ -135,7 +135,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertLightGray() {
+    public function insertDarkGray() {
         $this->text .= $this->colorChar . "14";
         return $this;
     }
@@ -143,7 +143,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     /**
      * @return $this
      */
-    public function insertWhite() {
+    public function insertLightGray() {
         $this->text .= $this->colorChar . "15";
         return $this;
     }
