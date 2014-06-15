@@ -180,7 +180,6 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
      * @return $this
      */
     public function getText() {
-        $this->text .= $this->colorChar . "18";
-        return $this;
+        return $this->text;
     }
 }
