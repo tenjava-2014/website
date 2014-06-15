@@ -13,7 +13,7 @@ class StringTruncator implements StringTruncatorInterface {
      * @return string The truncated string (if it's too long) with "..." appended or the original.
      */
     public function truncateString($string, $maxLength) {
-        if ($string <= $maxLength) {
+        if (strlen($string) <= $maxLength) {
             return $string;
         } else {
             $maxLength = $maxLength - 3;
