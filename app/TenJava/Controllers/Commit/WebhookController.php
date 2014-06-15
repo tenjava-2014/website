@@ -40,7 +40,8 @@ class WebhookController extends BaseController {
         if (!$this->hmac->verifySignature(Input::instance()->getContent(), $header, Config::get("webhooks.secret"))) {
             return Response::json("Invalid HMAC signature.");
         } else {
-            $this->irc->sendMessage("#ten.test", $this->messageBuilder->insertBold()->insertGreen()->insertText("This is some text!"));
+            $author = Input::get("head_commit.committer.username");
+            $this->irc->sendMessage("#ten.test", $this->messageBuilder->insertBold()->insertGreen()->insertText("We got a commit from ")->insertMungedText($author));
             return Response::json("OK");
         }
     }

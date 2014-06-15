@@ -189,7 +189,6 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
      */
     public function insertMungedText($text) {
         $text = substr($text, 0, 1) . '[ZWS]' . substr($text, 1);
-        $this->text .= $text;
-        return $this;
+        return $this->insertSecureText($text);
     }
 }
