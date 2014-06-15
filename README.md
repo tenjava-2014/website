@@ -38,6 +38,8 @@ return array(
     "DATABASE_HOST" => "localhost",
     "DATABASE_SCHEMA" => "",
     "APP_ENCRYPTION_KEY" => "",
-    "ENVIRONMENT_NAME" => "local"
+    "ENVIRONMENT_NAME" => "local",
+    "FLAREBOT_URL" => "",
+    "FLAREBOT_SECRET" => ""
 );
 ````

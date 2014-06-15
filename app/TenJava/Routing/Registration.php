@@ -4,6 +4,7 @@ namespace TenJava\Routing;
 
 use App;
 use Illuminate\Routing\Router;
+use Redirect;
 use Response;
 
 class Registration {
@@ -51,7 +52,9 @@ class Registration {
             $this->router->get('/times/select', "TenJava\\Controllers\\Application\\TimeController@showUserTimes");
             $this->router->get('/times/thanks', "TenJava\\Controllers\\Application\\TimeController@showThanks");
             $this->router->get('/register/judge', "TenJava\\Controllers\\Application\\AppController@showApplyJudge");
-
+            $this->router->get('/login', function() {
+               return Redirect::to("/");
+            });
         });
 
         /* CSRF PROTECTED AUTH PAGES */
