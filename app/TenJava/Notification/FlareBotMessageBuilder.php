@@ -20,6 +20,8 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
      */
     private $boldChar = "\x02";
 
+    private $zws = "\xE2\x80\x8B";
+
     /**
      * @return $this
      */
@@ -170,9 +172,7 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
      * @return $this
      */
     public function insertSecureText($text) {
-        $toRemove = ["\r", "\n", "\x02", "\x03"]; // No newlines, CRs or formatting characters
-        $text = str_replace($toRemove, "", $text);
-        $this->text .= $text;
+        $this->text .= $this->stripCharacters($text);
         return $this;
     }
 
@@ -188,7 +188,13 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
      * @return IrcMessageBuilderInterface
      */
     public function insertMungedText($text) {
-        $text = substr($text, 0, 1) . '[ZWS]' . substr($text, 1);
+        $text = $this->stripCharacters(substr($text, 0, 1)) . $this->zws . $this->stripCharacters(substr($text, 1));
         return $this->insertSecureText($text);
+    }
+
+    private function stripCharacters($text) {
+        $toRemove = ["\r", "\n", "\x02", "\x03"]; // No newlines, CRs or formatting characters
+        $text = str_replace($toRemove, "", $text);
+        return $text;
     }
 }
