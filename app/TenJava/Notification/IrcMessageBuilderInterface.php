@@ -95,10 +95,16 @@ interface IrcMessageBuilderInterface {
     public function insertText($text);
 
     /**
-     * @param $text
+     * @param string $text The text to strip and insert.
      * @return IrcMessageBuilderInterface
      */
     public function insertSecureText($text);
+
+    /**
+     * @param string $text The text to munge
+     * @return IrcMessageBuilderInterface
+     */
+    public function insertMungedText($text);
 
     /**
      * @return IrcMessageBuilderInterface

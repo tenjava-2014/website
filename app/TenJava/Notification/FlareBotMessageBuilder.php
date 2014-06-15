@@ -182,4 +182,14 @@ class FlareBotMessageBuilder implements IrcMessageBuilderInterface {
     public function getText() {
         return $this->text;
     }
+
+    /**
+     * @param string $text The text to munge
+     * @return IrcMessageBuilderInterface
+     */
+    public function insertMungedText($text) {
+        $text = substr($text, 0, 1) . '[ZWS]' . substr($text, 1);
+        $this->text .= $text;
+        return $this;
+    }
 }
