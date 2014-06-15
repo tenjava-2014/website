@@ -53,7 +53,7 @@ class WebhookController extends BaseController {
             return Response::json("Invalid HMAC signature.");
         } else {
             $author = Input::get("head_commit.author.username");
-            $commitMessage = Input::get("head_commit.author.message");
+            $commitMessage = Input::get("head_commit.message");
             $repoName = substr(Input::get("repository.name"), -2);
             $notificationHeading = "[Commit";
             switch($repoName) {
