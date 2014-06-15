@@ -7,6 +7,7 @@ use Input;
 use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 
+use TenJava\Notification\IrcMessageBuilderInterface;
 use TenJava\Notification\IrcNotifierInterface;
 use TenJava\Security\HmacVerificationInterface;
 
@@ -20,10 +21,15 @@ class WebhookController extends BaseController {
      * @var \TenJava\Security\HmacVerificationInterface
      */
     private $hmac;
+    /**
+     * @var \TenJava\Notification\IrcMessageBuilderInterface
+     */
+    private $messageBuilder;
 
-    public function __construct(HmacVerificationInterface $hmac, IrcNotifierInterface $irc) {
+    public function __construct(HmacVerificationInterface $hmac, IrcNotifierInterface $irc, IrcMessageBuilderInterface $messageBuilder) {
         $this->irc = $irc;
         $this->hmac = $hmac;
+        $this->messageBuilder = $messageBuilder;
     }
 
     public function processGitHubWebhook() {
@@ -34,7 +40,7 @@ class WebhookController extends BaseController {
         if (!$this->hmac->verifySignature(Input::instance()->getContent(), $header, Config::get("webhooks.secret"))) {
             return Response::json("Invalid HMAC signature.");
         } else {
-            $this->irc->sendMessage("#ten.test", "Received a payload\r\nQUIT testing[ZWS]\x02Bold?");
+            $this->irc->sendMessage("#ten.test", $this->messageBuilder->insertBold()->insertGreen()->insertText("This is some text!"));
             return Response::json("OK");
         }
     }
