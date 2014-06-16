@@ -1,8 +1,11 @@
 <?php
 namespace TenJava\Controllers\Api;
 
+use Input;
+use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 use Illuminate\Filesystem\Filesystem;
+use TenJava\Models\Application;
 
 class ApiController extends BaseController {
 
