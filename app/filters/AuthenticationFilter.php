@@ -1,6 +1,8 @@
 <?php
 
 
+use TenJava\Authentication\AuthProviderInterface;
+
 class AuthenticationFilter {
 
     public function __construct(AuthProviderInterface $auth) {

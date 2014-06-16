@@ -7,7 +7,7 @@
             <p>Prizes for the winners of the contest are in the form of CurseForge points which are given out to all
                 developers who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with
                 more popular projects will receive more points. We rely on point donations to form the contest prize.
-                The more points given, the more we can give out to the winning developers.</p>
+                The more points given, the more we can give out to the winning developers. For more stats on point donations, see <a href="http://kyleclemens.com/tenjava">this page</a>.</p>
             <div class="alert basic info condensed text-center" id="points-total"><h3>We've raised {{ number_format($data->points) }}
                 ({{ money_format('$%i', round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people!</h3></div>
         </div>

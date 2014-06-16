@@ -1,5 +1,8 @@
 <?php
 
+use TenJava\Authentication\AuthProviderInterface;
+use TenJava\Exceptions\UnauthorizedException;
+
 class AdminFilter {
 
     public function __construct(AuthProviderInterface $auth) {
