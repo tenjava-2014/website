@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Controllers\Api;
 
+use Config;
 use Input;
 use Response;
 use TenJava\Controllers\Abstracts\BaseController;
@@ -28,6 +29,10 @@ class ApiController extends BaseController {
     public function getPoints() {
         $jsonResponse = Response::make((new FileSystem())->get(public_path("/assets/data.json")), 200, array('Content-Type' => 'application/json'));
         return $jsonResponse;
+    }
+
+    public function getActiveJudges() {
+        return Response::json(Config::get("user-access.present.Judges"));
     }
 
     public function getSessionData() {
