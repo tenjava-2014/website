@@ -20,7 +20,24 @@ class ApiController extends BaseController {
         // This is a public endpoint that gives a list of applicants with no info
         // other than GitHub usernames.
         if ($confirmed) {
-            return Response::json(Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->lists("gh_username"));
+            if (Input::has("times")) {
+                $apps = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->lists("gh_username");
+                $finalList = [];
+                foreach ($apps as $app) {
+                    if ($app->timeEntry->t1) {
+                        $finalList[] = $app->gh_username . "-t1";
+                    }
+                    if ($app->timeEntry->t2) {
+                        $finalList[] = $app->gh_username . "-t2";
+                    }
+                    if ($app->timeEntry->t3) {
+                        $finalList[] = $app->gh_username . "-t3";
+                    }
+                }
+                return Response::json($finalList);
+            } else {
+                return Response::json(Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->lists("gh_username"));
+            }
         } else {
             return Response::json(Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->lists("gh_username"));
         }
