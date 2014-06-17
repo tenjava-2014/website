@@ -13,7 +13,7 @@
         <div class="grid-60">
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
-                a ten hour competition to create an original plugin based on a theme. Plugins are judged by a group of
+                a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
                 volunteers, and we use CurseForge points to award prizes to the winning developers. Last year we had
                 just under 90 registered participants.</p>
 
