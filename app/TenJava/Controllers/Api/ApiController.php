@@ -21,9 +21,10 @@ class ApiController extends BaseController {
         // other than GitHub usernames.
         if ($confirmed) {
             if (Input::has("times")) {
-                $apps = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->lists("gh_username");
+                $apps = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
                 $finalList = [];
                 foreach ($apps as $app) {
+                    /** @var $app \TenJava\Models\Application */
                     if ($app->timeEntry->t1) {
                         $finalList[] = $app->gh_username . "-t1";
                     }
