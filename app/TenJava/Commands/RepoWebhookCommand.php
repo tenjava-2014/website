@@ -68,7 +68,7 @@ class RepoWebhookCommand extends Command {
                           'pull_request'],
                       'active' => true];
         $dataArray['config'] = [
-            'url' => 'https://tenjava.com/webhook/fire',
+            'url' => url('/webhook/fire'),
             'content_type' => 'json',
             'secret' => Config::get("webhooks.secret")
         ];
