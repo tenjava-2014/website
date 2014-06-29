@@ -4,6 +4,7 @@ namespace TenJava\Controllers\Commit;
 use DateTime;
 use DB;
 use Lang;
+use Log;
 use Request;
 use Config;
 use Input;
@@ -125,7 +126,9 @@ class WebhookController extends BaseController {
         /* Wondering why I'm not using the Eloquent model here and I'm inserting it all manually?
            See https://github.com/laravel/framework/issues/1295#issuecomment-21743294 */
         $commitEntries = [];
+        Log::info("Starting adding commit entries..");
         foreach ($commits as $commit) {
+            Log::info("Loop start for commit entry");
             $entry = [
                 "created_at" => new DateTime($commit['timestamp']),
                 "updated_at" => new DateTime($commit['timestamp']),
@@ -133,8 +136,10 @@ class WebhookController extends BaseController {
                 "message" => $this->trunc->truncateString($commit['message'], 50),
                 "repo" => $repoName
             ];
+            Log::info("We got some JSON!", ['context' => $entry]);
             $commitEntries[] = $entry;
         }
+        Log::info("Inserting...", ['context' => $commitEntries]);
         DB::table("participant_commits")->insert($commitEntries);
     }
 
