@@ -14,3 +14,4 @@ public/assets/data.json
 public/assets/css/*
 *.sqlite
 .idea
+public/packages/
