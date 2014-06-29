@@ -3,7 +3,6 @@ namespace TenJava\ServiceProvider;
 
 use App;
 use Illuminate\Session\TokenMismatchException;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
