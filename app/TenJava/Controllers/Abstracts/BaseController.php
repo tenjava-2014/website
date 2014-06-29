@@ -2,6 +2,8 @@
 namespace TenJava\Controllers\Abstracts;
 
 use App;
+use Config;
+use Github\Client;
 use Illuminate\Routing\Controller;
 use TenJava\Models\ParticipantTimes;
 use View;
@@ -102,5 +104,23 @@ abstract class BaseController extends Controller {
     public function setActive($title) {
         $this->activeNavTitle = $title;
         View::share('nav', $this->getNavigation());
+    }
+
+    /**
+     * @return \Github\Api\User
+     */
+    protected function getUserApiClient() {
+        $client = new Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
+        return $client->api("user");
+    }
+
+    /**
+     * @return \Github\Api\Issue
+     */
+    protected function getIssuesApiClient() {
+        $client = new Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
+        return $client->api("issues");
     }
 }
