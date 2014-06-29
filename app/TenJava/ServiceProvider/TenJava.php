@@ -28,6 +28,7 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Security\\HmacVerificationInterface", "\\TenJava\\Security\\HmacVerification");
         $app->bind("\\TenJava\\UrlShortener\\UrlShortenerInterface", "\\TenJava\\UrlShortener\\GitIoUrlShortener");
         $app->bind("\\TenJava\\Tools\\String\\StringTruncatorInterface", "\\TenJava\\Tools\\String\\StringTruncator");
+        $app->bind("\\TenJava\\Repository\\RepositoryActionInterface", "\\TenJava\\Repository\\EloquentRepositoryAction");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
