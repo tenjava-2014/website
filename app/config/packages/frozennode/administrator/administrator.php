@@ -65,7 +65,7 @@ return array(
 	{
         /** @var AuthProviderInterface $auth */
         $auth = App::make("\\TenJava\\Authentication\\AuthProviderInterface");
-		return $auth->isAdmin();
+		return $auth->isStaff();
 	},
 
 	/**
