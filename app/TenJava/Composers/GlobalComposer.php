@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use TenJava\Authentication\AuthProviderInterface;
 use TenJava\Authentication\EmailOptOutInterface;
 use TenJava\Models\Application;
+use TenJava\Models\Judge;
 
 class GlobalComposer {
     private $appsCount;
@@ -23,7 +24,7 @@ class GlobalComposer {
         $fs = new Filesystem();
         $this->points = json_decode($fs->get(public_path("assets/data.json")));
         $this->appsCount = Application::where("judge", false)->count();
-        $this->judgeCount = Application::where("judge", true)->count();
+        $this->judgeCount = Judge::count();
         $this->latestAppName = Application::where("judge", false)->orderBy("id", "desc")->pluck("gh_username");
         $this->tweets = $cache->get("tweets");
         $this->auth = $auth;

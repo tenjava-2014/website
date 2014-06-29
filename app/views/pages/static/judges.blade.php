@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-back">
 	<div class="grid-container">
-		@foreach (Config::get("user-access.present") as $key => $values)
+		@foreach ($teamMembers as $key => $values)
 		<div class="grid-100 tablet-grid-100 mobile-grid-100">
 			<h2>{{{ $key }}}</h2>
 		</div>

@@ -50,14 +50,14 @@ class ApiController extends BaseController {
     }
 
     public function getActiveJudges() {
-        return Response::json(Config::get("user-access.present.Judges"));
+        return Response::json($this->auth->getAllJudges());
     }
 
     public function getSessionData() {
         var_dump(Input::all());
+        echo(json_encode(["is_admin" => $this->auth->isAdmin(), "is_staff" => $this->auth->isStaff()]));
         var_dump($_GET);
         die();
-        //return Response::json(Session::all());
     }
 
 } 

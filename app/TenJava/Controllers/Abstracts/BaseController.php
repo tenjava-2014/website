@@ -2,6 +2,8 @@
 namespace TenJava\Controllers\Abstracts;
 
 use App;
+use Config;
+use Github\Client;
 use Illuminate\Routing\Controller;
 use TenJava\Models\ParticipantTimes;
 use View;
@@ -60,11 +62,11 @@ abstract class BaseController extends Controller {
             new NavigationItem("Team", "/team"),
         );
 
-	    if($this->hasSelectedTimes() == 'notime'){
-		    $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
-	    }else if($this->hasSelectedTimes() == 'timesdone'){
-		    unset($navigation['primary'][1]);
-	    }
+        if ($this->hasSelectedTimes() == 'notime') {
+            $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
+        } else if ($this->hasSelectedTimes() == 'timesdone') {
+            unset($navigation['primary'][1]);
+        }
 
         if ($this->auth->isStaff()) {
             $navigation['primary'][] = new NavigationItem("App list", "/list");
@@ -102,5 +104,35 @@ abstract class BaseController extends Controller {
     public function setActive($title) {
         $this->activeNavTitle = $title;
         View::share('nav', $this->getNavigation());
+    }
+
+    /**
+     * @return \Github\Client
+     */
+    protected function getGenericApiClient() {
+        $client = new Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
+        return $client;
+    }
+
+    /**
+     * @return \Github\Api\User
+     */
+    protected function getUserApiClient() {
+        return $this->getGenericApiClient()->api("user");
+    }
+
+    /**
+     * @return \Github\Api\Issue
+     */
+    protected function getIssuesApiClient() {
+        return $this->getGenericApiClient()->api("issues");
+    }
+
+    /**
+     * @return \Github\Api\PullRequest
+     */
+    protected function getPrApiClient() {
+        return $this->getGenericApiClient()->api("pr");
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\ServiceProvider;
 
+use App;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
@@ -87,8 +88,14 @@ class TenJava extends ServiceProvider {
 
     private function registerHeaders() {
         $this->app->after(function ($request, $response) {
+            /** @var \TenJava\Authentication\AuthProviderInterface $auth */
+            $auth = App::make("\\TenJava\\Authentication\\AuthProviderInterface");
             /** @var \Illuminate\Http\Response $response */
             /** @var \Illuminate\Http\Request $request */
+            $unsafes = '';
+            if ($auth->isStaff()) {
+                $unsafes = " 'unsafe-inline' 'unsafe-eval'";
+            }
             if ($request->secure()) {
                 // Let's be extra strict for the sake of security
                 $response->header('Content-Security-Policy',
@@ -98,7 +105,7 @@ class TenJava extends ServiceProvider {
                     "img-src 'self'; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
-                    "script-src 'self' https://cdnjs.cloudflare.com https://platform.twitter.com"
+                    "script-src 'self' https://cdnjs.cloudflare.com https://platform.twitter.com" . $unsafes
                 );
                 $response->header("X-Frame-Options", "SAMEORIGIN");
             } else {
@@ -110,8 +117,9 @@ class TenJava extends ServiceProvider {
                     "img-src 'self'; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
-                    "script-src 'self' cdnjs.cloudflare.com platform.twitter.com"
+                    "script-src 'self' cdnjs.cloudflare.com platform.twitter.com" . $unsafes
                 );
+
                 $response->header("X-Frame-Options", "SAMEORIGIN");
             }
         });

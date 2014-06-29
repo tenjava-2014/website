@@ -195,15 +195,6 @@ class AppController extends BaseController {
         //$client->api('repo')->collaborators()->add("tenjava", $username, $username);
     }
 
-    /**
-     * @return \Github\Api\User
-     */
-    public function getUserApiClient() {
-        $client = new Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
-        return $client->api("user");
-    }
-
     public function deleteUserEntry() {
         $id = Input::get("app_id");
         $app = Application::findOrFail($id);

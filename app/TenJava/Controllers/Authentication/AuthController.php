@@ -9,6 +9,7 @@ use TenJava\Authentication\EmailOptOutInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use OAuth\Common\Http\Exception\TokenResponseException;
 use TenJava\Exceptions\FailedOauthException;
+use TenJava\Models\Judge;
 use View;
 
 class AuthController extends BaseController {
@@ -45,6 +46,11 @@ class AuthController extends BaseController {
             }
             $githubUsername = $result['login'];
             Session::put("application_data", array("id" => $result['id'], "username" => $githubUsername, "emails" => $emails));
+
+            $judge = Judge::where("github_id", $result['id'])->first();
+            if ($judge !== null) {
+                Session::put("judge", $judge);
+            }
             return Redirect::to(Session::get("previous"));
 
         } // if not ask for permission first

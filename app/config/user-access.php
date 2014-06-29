@@ -1,27 +1,28 @@
 <?php
 return array(
     // judges
+    // LEGACY!
     'staff' => array(
-        2715715, //captain
-        4945312, //ejay
-        2356709, //aero
-        3073160, //quack
-        443245, //ttaylorr
-        2371386, //njb
-        5508375, //pogo
-        5005227, //shadow
-        1578496, //squid
-        2097155, //twister
-        879060, //rigor
-        3134154, //robbo
-        2664312, //inventorman
-        5958957, //bionic
+        2715715 => "CaptainBern", //captain
+        4945312 => "MasterEjay", //ejay
+        2356709 => "aerouk", //aero
+        3073160 => "lDucks", //quack
+        443245 => "ttaylorr", //ttaylorr
+        2371386 => "njb-said", //njb
+        5508375 => "pogostick29dev", //pogo
+        5005227 => "ShadowWizardMC", //shadow
+        1578496 => "squidicuzz", //squid
+        2097155 => "Twister915", //twister
+        879060 => "rigor789", //rigor
+        3134154 => "robbo5899", //robbo
+        2664312 => "inventorman101", //inventorman
+        5958957 => "Bionicrm", //bionic
     ),
     // organizers
     'admins' => array(
-        2552726, //lol768
-        955250, //jkc
-        1509618 //hawk
+        2552726 => "lol768", //lol768
+        955250 => "jkcclemens", //jkc
+        1509618 => "hawkfalcon" //hawk
     ),
 
     'present' => array(

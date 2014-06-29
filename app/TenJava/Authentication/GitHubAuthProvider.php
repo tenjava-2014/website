@@ -3,6 +3,7 @@ namespace TenJava\Authentication;
 
 use Illuminate\Session\Store as SessionStore;
 use Illuminate\Config\Repository as ConfigRepository;
+use TenJava\Models\Judge;
 
 /**
  * Class GitHubAuthProvider
@@ -19,6 +20,10 @@ class GitHubAuthProvider implements AuthProviderInterface {
      */
     private $session;
     /**
+     * @var \Illuminate\Session\Store
+     */
+    private $judgeData;
+    /**
      * @var \Illuminate\Config\Repository
      */
     private $config;
@@ -31,6 +36,7 @@ class GitHubAuthProvider implements AuthProviderInterface {
         $this->session = $session;
         $this->config = $config;
         $this->sessionData = $this->session->get("application_data");
+        $this->judgeData = $this->session->get("judge");
     }
 
     /**
@@ -51,14 +57,14 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return boolean If the user is staff.
      */
     public function isStaff() {
-        return ($this->getUserId() !== null) ? ( $this->isAdmin() ? true : in_array($this->getUserId(), $this->config->get("user-access.staff"))) : false;
+        return ($this->judgeData !== null);
     }
 
     /**
      * @return boolean If the user is an admin.
      */
     public function isAdmin() {
-        return ($this->getUserId() !== null) ? in_array($this->getUserId(), $this->config->get("user-access.admins")) : false;
+        return ($this->getUserId() !== null) ? $this->judgeData['admin'] : false;
     }
 
     /**
@@ -73,5 +79,12 @@ class GitHubAuthProvider implements AuthProviderInterface {
      */
     public function getUserId() {
         return ($this->sessionData !== null) ? $this->sessionData['id'] : null;
+    }
+
+    /**
+     * @return array Array of judges.
+     */
+    public function getAllJudges() {
+        return Judge::all()->toArray();
     }
 }
