@@ -37,7 +37,8 @@ class RepoWebhookCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $list = Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->get();
+        $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+        $this->comment("List has " . $list->count() . " items");
         $hooks = $this->getApiClient()->hooks();
         foreach ($list as $entry) {
             /** @var \TenJava\Models\Application $entry */
