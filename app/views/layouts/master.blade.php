@@ -29,5 +29,6 @@
 @include('partials.footer')
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="application/javascript" src="{{ asset('/assets/js/app.js') }}"></script>
+<script type="application/javascript" src="{{ asset('/assets/js/time-circles.js') }}"></script>
 </body>
 </html>
