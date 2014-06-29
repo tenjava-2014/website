@@ -1,1 +1,1 @@
-Testing 123
+<div id="admin_page"><div id="content">Testing 123</div></div>
