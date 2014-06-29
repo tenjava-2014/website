@@ -140,10 +140,14 @@ class WebhookController extends BaseController {
 
     private function handlePr() {
         /* Display scary warning to repo owner */
+        $client = $this->getIssuesApiClient();
+        $prClient = $this->getPrApiClient();
         if (Input::get("action") === "opened") {
-            $client = $this->getIssuesApiClient();
-            $prClient = $this->getPrApiClient();
             $params = ["body" => Lang::get("judging.pr-warning")];
+            $client->comments()->create("tenjava", Input::get("repository.name"), Input::get("number"), $params);
+            $prClient->update("tenjava", Input::get("repository.name"), Input::get("number"), ["state" => "closed"]);
+        } else if (Input::get("action") === "reopened") {
+            $params = ["body" => Lang::get("judging.pr-warning-2")];
             $client->comments()->create("tenjava", Input::get("repository.name"), Input::get("number"), $params);
             $prClient->update("tenjava", Input::get("repository.name"), Input::get("number"), ["state" => "closed"]);
         }
