@@ -11,6 +11,7 @@
 |
 */
 
+use TenJava\Commands\AuthCleanupCommand;
 use TenJava\Commands\MailReminderCommand;
 use TenJava\Commands\MailTestCommand;
 use TenJava\Commands\RepoCleanupCommand;
@@ -26,3 +27,4 @@ Artisan::add(new UserIdMigrateCommand());
 Artisan::add(new UserDeleteCommand());
 Artisan::add(new MailReminderCommand());
 Artisan::add(new RepoWebhookCommand());
+Artisan::add(new AuthCleanupCommand());
