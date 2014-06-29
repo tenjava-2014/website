@@ -57,7 +57,7 @@ class GitHubAuthProvider implements AuthProviderInterface {
      * @return boolean If the user is staff.
      */
     public function isStaff() {
-        return ($this->judgeData === null);
+        return ($this->judgeData !== null);
     }
 
     /**
