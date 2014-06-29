@@ -119,20 +119,20 @@ abstract class BaseController extends Controller {
      * @return \Github\Api\User
      */
     protected function getUserApiClient() {
-        $this->getGenericApiClient()->api("user");
+        return $this->getGenericApiClient()->api("user");
     }
 
     /**
      * @return \Github\Api\Issue
      */
     protected function getIssuesApiClient() {
-        $this->getGenericApiClient()->api("issues");
+        return $this->getGenericApiClient()->api("issues");
     }
 
     /**
      * @return \Github\Api\PullRequest
      */
     protected function getPrApiClient() {
-        $this->getGenericApiClient()->api("pr");
+        return $this->getGenericApiClient()->api("pr");
     }
 }
