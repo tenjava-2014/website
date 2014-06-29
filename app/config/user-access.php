@@ -1,6 +1,7 @@
 <?php
 return array(
     // judges
+    // LEGACY!
     'staff' => array(
         2715715 => "CaptainBern", //captain
         4945312 => "MasterEjay", //ejay

@@ -37,4 +37,9 @@ interface AuthProviderInterface {
      */
     public function getUserId();
 
+    /**
+     * @return array Array of judges.
+     */
+    public function getAllJudges();
+
 } 
