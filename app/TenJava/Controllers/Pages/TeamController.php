@@ -16,7 +16,7 @@ class TeamController extends BaseController {
         $teamMembers['Web Team'] = Judge::where("web_team", true)->lists("github_name");
         $teamMembers['Judges'] = Judge::lists("github_name");
         $teamMembers['Sponsors'] = Config::get("user-access.present.Sponsors");
-        return Response::view('pages.static.judges', array());
+        return Response::view('pages.static.judges', array("teamMembers" => $teamMembers));
     }
 
 } 

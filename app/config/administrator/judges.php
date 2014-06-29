@@ -25,6 +25,9 @@ return array(
         'admin' => array(
             'type' => 'bool'
         ),
+        'web_team' => array(
+            'type' => 'bool'
+        ),
         'created_at',
         'updated_at',
     ),
@@ -53,8 +56,12 @@ return array(
         'github_id' => array(
             'title' => 'GitHub ID',
         ),
+        'web_team' => array(
+            'title' => 'Is web team?',
+            'type' => 'bool'
+        ),
         'admin' => array(
-            'title' => 'Admin',
+            'title' => 'Is organizer?',
             'type' => 'bool'
         )
     ),
