@@ -134,7 +134,8 @@ class WebhookController extends BaseController {
                 "updated_at" => new DateTime($commit['timestamp']),
                 "hash" => $commit['id'],
                 "message" => $this->trunc->truncateString($commit['message'], 50),
-                "repo" => $repoName
+                "repo" => $repoName,
+                "app_id" => $application->id
             ];
             Log::info("We got some JSON!", ['context' => $entry]);
             $commitEntries[] = $entry;
