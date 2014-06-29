@@ -6,6 +6,7 @@ use App;
 use Illuminate\Routing\Router;
 use Redirect;
 use Response;
+use Session;
 
 class Registration {
     /**
@@ -58,6 +59,10 @@ class Registration {
             $this->router->get('/register/judge', "TenJava\\Controllers\\Application\\AppController@showApplyJudge");
             $this->router->get('/login', function() {
                return Redirect::to("/");
+            });
+            $this->router->get('/logout', function() {
+                Session::clear();
+                return Redirect::to("/");
             });
         });
 
