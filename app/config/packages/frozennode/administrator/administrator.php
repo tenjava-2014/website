@@ -53,7 +53,7 @@ return array(
 	 * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
 	 *	)
 	 */
-	'menu' => array("Users" => ['judges']),
+	'menu' => array("Users" => ['Judges' => 'judges', 'Participants' => 'application'], 'Judging' => ['My claimed items' => 'pages.admin.claims']),
 
 	/**
 	 * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
