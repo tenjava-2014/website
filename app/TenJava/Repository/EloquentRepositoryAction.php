@@ -14,7 +14,7 @@ class EloquentRepositoryAction implements RepositoryActionInterface {
      * @return array Array of repository names which have the completed action.
      */
     public function getReposForAction($action) {
-
+        return (RepoActions::where("action", $action)->lists("repo_name"));
     }
 
     /**
@@ -23,7 +23,7 @@ class EloquentRepositoryAction implements RepositoryActionInterface {
      * @return boolean Whether or not the action has been completed.
      */
     public function isRepoActionComplete($action, $repo) {
-
+        return (RepoActions::where("action", $action)->where("repo_name", $repo)->count() > 0);
     }
 
     /**
