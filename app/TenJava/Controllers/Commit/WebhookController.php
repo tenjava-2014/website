@@ -144,6 +144,7 @@ class WebhookController extends BaseController {
             $client = $this->getIssuesApiClient();
             $params = ["body" => Lang::get("judging.pr-warning")];
             $client->comments()->create("tenjava", Input::get("repository.name"), Input::get("number"), $params);
+            $client->update("tenjava", Input::get("repository.name"), Input::get("number"), ["state" => "closed"]);
         }
     }
 
