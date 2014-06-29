@@ -55,8 +55,8 @@ class RepoWebhookCommand extends Command {
             if ($times->$toCheck) {
                 $this->info("Hit! " . $toCheck);
                 $repoName = $app->gh_username . "-" . $toCheck;
-                $this->info("I'd be creating a webhook here for " . $repoName . " with data " . json_encode($this->getHookData()));
-                //$hooks->create("tenjava", $repoName, $this->getHookData());
+                $this->info("Creating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
+                $hooks->create("tenjava", $repoName, $this->getHookData());
             }
         }
     }
