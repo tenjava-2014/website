@@ -22,7 +22,9 @@ return array(
         'github_id' => array(
             'title' => 'GitHub ID',
         ),
-        'admin',
+        'admin' => array(
+            'type' => 'bool'
+        ),
         'created_at',
         'updated_at',
     ),
