@@ -50,7 +50,11 @@ class ApiController extends BaseController {
     }
 
     public function getActiveJudges() {
-        return Response::json(Config::get("user-access.present.Judges"));
+        if (Input::get("type") === "ids") {
+            return Response::json(Config::get("user-access.staff") + Config::get("user-access.admins"));
+        } else {
+            return Response::json(Config::get("user-access.present.Judges"));
+        }
     }
 
     public function getSessionData() {
