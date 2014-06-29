@@ -61,7 +61,6 @@ class ApiController extends BaseController {
         var_dump(Input::all());
         var_dump($_GET);
         die();
-        //return Response::json(Session::all());
     }
 
 } 
