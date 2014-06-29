@@ -63,7 +63,7 @@ class WebhookController extends BaseController {
 
         $hookType = Request::header("X-GitHub-Event");
         if ($hookType === "pull_request") {
-            $this->handlePr();
+            return $this->handlePr();
         } else if ($hookType !== "push") {
             return Response::json("Invalid event type.");
         }
@@ -147,6 +147,7 @@ class WebhookController extends BaseController {
             $client->comments()->create("tenjava", Input::get("repository.name"), Input::get("number"), $params);
             $prClient->update("tenjava", Input::get("repository.name"), Input::get("number"), ["state" => "closed"]);
         }
+        return Response::json("Handled it, thanks!");
     }
 
 }
