@@ -1,4 +1,8 @@
 <?php
+use TenJava\Authentication\AuthProviderInterface;
+
+/** @var AuthProviderInterface $auth */
+$auth = App::make("\\TenJava\\Authentication\\AuthProviderInterface");
 return array(
 
     'title' => 'Judges',
@@ -51,6 +55,18 @@ return array(
             'title' => 'Admin',
             'type' => 'bool'
         )
-    )
+    ),
+
+    'action_permissions' => array(
+        'delete' => function ($model) use ($auth) {
+                return $auth->isAdmin();
+            },
+        'create' => function ($model) use ($auth) {
+                return $auth->isAdmin();
+            },
+        'update' => function ($model) use ($auth) {
+                return $auth->isAdmin();
+            }
+    ),
 );
 
