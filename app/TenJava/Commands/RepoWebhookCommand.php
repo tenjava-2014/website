@@ -1,10 +1,12 @@
 <?php
 namespace TenJava\Commands;
 
+use App;
 use Config;
 use Github\Api\Repository\Hooks;
 use Illuminate\Console\Command;
 use TenJava\Models\Application;
+use TenJava\Repository\RepositoryActionInterface;
 
 class RepoWebhookCommand extends Command {
 
@@ -37,29 +39,40 @@ class RepoWebhookCommand extends Command {
      * @return mixed
      */
     public function fire() {
+        /** @var \TenJava\Repository\EloquentRepositoryAction $repoAction */
+        $repoAction = App::make("\\TenJava\\Repository\\RepositoryActionInterface");
+        $done = $repoAction->getReposForAction("webhook");
         $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
 
         $this->comment("List has " . $list->count() . " items");
         $hooks = $this->getApiClient()->hooks();
         foreach ($list as $entry) {
             /** @var \TenJava\Models\Application $entry */
-            $this->handleEntry($entry, $hooks);
-
+            $this->handleEntry($entry, $hooks, $repoAction, $done);
         }
     }
 
-    private function handleEntry(Application $app, Hooks $hooks) {
+    private function handleEntry(Application $app, Hooks $hooks, RepositoryActionInterface $actionInterface, $completed) {
         $times = $app->timeEntry;
         $possibleValues = ['t1','t2','t3'];
+        $toFinalize = [];
         foreach ($possibleValues as $toCheck) {
             $this->comment("Checking " . $toCheck . " for " . $app->gh_username);
             if ($times->$toCheck) {
                 $this->info("Hit! " . $toCheck);
+
                 $repoName = $app->gh_username . "-" . $toCheck;
+                if (in_array($repoName, $completed)) {
+                    $this->info("Skipping " . $repoName . " it's done!");
+                    continue;
+                }
                 $this->info("Creating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
                 $hooks->create("tenjava", $repoName, $this->getHookData());
+                $this->info("Adding action to list...");
+                $toFinalize[] = $repoName;
             }
         }
+        $actionInterface->setMultipleReposActionComplete($toFinalize, "webhook");
     }
 
     private function getHookData() {
