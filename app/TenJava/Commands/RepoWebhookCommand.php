@@ -38,6 +38,7 @@ class RepoWebhookCommand extends Command {
      */
     public function fire() {
         $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+
         $this->comment("List has " . $list->count() . " items");
         $hooks = $this->getApiClient()->hooks();
         foreach ($list as $entry) {
