@@ -15,6 +15,7 @@ return array(
         879060, //rigor
         3134154, //robbo
         2664312, //inventorman
+        5958957, //bionic
     ),
     // organizers
     'admins' => array(
@@ -50,7 +51,8 @@ return array(
             "robbo5899",
             "inventorman101",
             "Twister915",
-            "rigor789"
+            "rigor789",
+            "Bionicrm"
         ),
         "Sponsors" => array(
             'Intreppid'
