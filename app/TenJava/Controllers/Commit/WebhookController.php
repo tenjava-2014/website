@@ -12,7 +12,6 @@ use TenJava\Controllers\Abstracts\BaseController;
 
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantAvatar;
-use TenJava\Models\ParticipantCommit;
 use TenJava\Notification\IrcMessageBuilderInterface;
 use TenJava\Notification\IrcNotifierInterface;
 use TenJava\Security\HmacVerificationInterface;
@@ -104,7 +103,6 @@ class WebhookController extends BaseController {
             $this->addCommitEntry($authorApp, Input::get("commits"), Input::get("repository.name"));
         }
         return Response::json("OK");
-
     }
 
     private function addAvatar(Application $application) {
@@ -138,7 +136,6 @@ class WebhookController extends BaseController {
             $commitEntries[] = $entry;
         }
         DB::table("participant_commits")->insert($commitEntries);
-
     }
 
     private function handlePr() {
