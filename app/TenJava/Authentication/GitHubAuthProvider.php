@@ -3,6 +3,7 @@ namespace TenJava\Authentication;
 
 use Illuminate\Session\Store as SessionStore;
 use Illuminate\Config\Repository as ConfigRepository;
+use TenJava\Models\Judge;
 
 /**
  * Class GitHubAuthProvider
@@ -78,5 +79,12 @@ class GitHubAuthProvider implements AuthProviderInterface {
      */
     public function getUserId() {
         return ($this->sessionData !== null) ? $this->sessionData['id'] : null;
+    }
+
+    /**
+     * @return array Array of judges.
+     */
+    public function getAllJudges() {
+        return Judge::all()->toArray();
     }
 }
