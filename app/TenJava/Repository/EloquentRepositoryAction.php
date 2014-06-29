@@ -5,6 +5,7 @@ namespace TenJava\Repository;
 
 
 use DateTime;
+use DB;
 use TenJava\Models\RepoActions;
 
 class EloquentRepositoryAction implements RepositoryActionInterface {
