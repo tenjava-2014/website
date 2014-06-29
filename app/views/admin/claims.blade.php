@@ -6,7 +6,7 @@
         <div class="page_container">
             <div class="table_container" style="margin-right: 290px;">
                 <div class="results_header"><h2>My claimed items</h2></div>
-                <div class="page_container">woo</div>
+                <div class="main_content" style="padding: 15px;">woo</div>
             </div>
         </div>
     </div>
