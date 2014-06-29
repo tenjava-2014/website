@@ -96,7 +96,7 @@ class WebhookController extends BaseController {
         $this->irc->sendMessage("#ten.java", $message);
 
         $authorApp = Application::where("gh_username", $author)->first();
-        if ($author !== null) {
+        if ($authorApp !== null) {
             // We have the app entry, now let's see if the avatar exists
             $this->addAvatar($authorApp);
             // Now it's time to insert this commit data into our table!
