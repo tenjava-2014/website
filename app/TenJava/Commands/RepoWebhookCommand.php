@@ -110,7 +110,7 @@ class RepoWebhookCommand extends Command {
     }
 
     public function getOptions() {
-        return array(array("update", "upd", InputOption::VALUE_NONE, "update mode", false));
+        return array(array("update", "upd", InputOption::VALUE_NONE, "update mode"));
     }
 
 }
