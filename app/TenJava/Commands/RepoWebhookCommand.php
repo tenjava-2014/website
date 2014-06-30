@@ -66,7 +66,12 @@ class RepoWebhookCommand extends Command {
                 if (in_array($repoName, $completed)) {
                     if ($this->option('update')) {
                         $this->info("Updating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
-                        //$hooks->update("tenjava", $repoName, $this->getHookData());
+                        $theHook = $hooks->all("tenjava", $repoName)[0];
+                        if ($theHook !== null) {
+                            $hookId = $theHook['id'];
+                            $hooks->update("tenjava", $repoName, $hookId, $this->getHookData());
+                            $this->info("Hook updated!");
+                        }
                     } else {
                         $this->info("Skipping " . $repoName . " it's done!");
                     }
