@@ -50,6 +50,11 @@ class Registration {
             $this->router->post('/webhook/fire', 'TenJava\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
         });
 
+        /* JENKINS WEBHOOKS */
+        $this->router->group(array(), function () {
+            $this->router->post('/jenkins/fire', 'TenJava\\Controllers\\Jenkins\\WebhookController@processWebhook');
+        });
+
         /* LOGGED IN USERS ONLY */
         $this->router->group(array('before' => 'AuthenticationFilter'), function () {
             $this->router->get('/register/participant', "TenJava\\Controllers\\Application\\AppController@showApplyParticipant");
