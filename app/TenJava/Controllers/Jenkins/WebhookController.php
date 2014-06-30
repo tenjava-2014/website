@@ -47,9 +47,12 @@ class WebhookController extends BaseController {
 
     public function processWebhook() {
         $ip = Request::getClientIp();
+        Log::info("Got webhook req. from $ip, expecting " . Config::get("webhooks.jenkins"));
         if ($ip !== Config::get("webhooks.jenkins")) {
+            Log::info("Rejecting webhook!");
             return Response::json("Invalid origin IP.");
         }
+
         $job = Input::get("name");
         $status =Input::get("build.status");
         $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertSecureText($job)->insertText(" finished with status ")->insertSecureText($status);
