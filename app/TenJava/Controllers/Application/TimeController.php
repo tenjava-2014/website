@@ -6,12 +6,23 @@ use Input;
 use Queue;
 use Redirect;
 use TenJava\Controllers\Abstracts\BaseController;
+use TenJava\Controllers\ErrorController;
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantTimes;
 use Validator;
 use View;
 
 class TimeController extends BaseController {
+
+    /**
+     * @var \TenJava\Controllers\ErrorController
+     */
+    private $errorController;
+
+    public function __construct(ErrorController $errorController) {
+        parent::__construct();
+        $this->errorController = $errorController;
+    }
 
     public function showUserTimes() {
         $this->setActive("Choose Time");
@@ -20,8 +31,7 @@ class TimeController extends BaseController {
         $ghId = $this->auth->getUserId();
         $appCount = Application::where("gh_id", $ghId)->where("judge", false)->count();
         if ($appCount == 0) {
-            $errorController = App::make("ErrorController");
-            return $errorController->priorapp();
+            return $this->errorController->priorapp();
         }
         $app = Application::where("gh_id", $ghId)->first();
         $existing = ParticipantTimes::where("user_id", $app->id)->first();
@@ -33,8 +43,7 @@ class TimeController extends BaseController {
         $app = Application::where("gh_id", $ghId)->first();
 
         if ($app === null) {
-            $errorController = App::make("ErrorController");
-            return $errorController->priorapp();
+            return $this->errorController->priorapp();
         }
         $existing = ParticipantTimes::where("user_id", $app->id)->first();
         $rbOpt = Input::get("rb");
@@ -71,8 +80,7 @@ class TimeController extends BaseController {
         $ghId = $this->auth->getUserId();
         $app = Application::where("gh_id", $ghId)->first();
         if ($app === null) {
-            $errorController = App::make("ErrorController");
-            return $errorController->priorapp();
+            return $this->errorController->priorapp();
         }
         $existing = ParticipantTimes::where("user_id", $app->id)->first();
         if ($existing === null) {
