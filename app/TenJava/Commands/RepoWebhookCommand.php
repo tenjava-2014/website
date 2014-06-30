@@ -5,6 +5,7 @@ use App;
 use Config;
 use Github\Api\Repository\Hooks;
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Input\InputOption;
 use TenJava\Models\Application;
 use TenJava\Repository\RepositoryActionInterface;
 
@@ -63,7 +64,12 @@ class RepoWebhookCommand extends Command {
 
                 $repoName = $app->gh_username . "-" . $toCheck;
                 if (in_array($repoName, $completed)) {
-                    $this->info("Skipping " . $repoName . " it's done!");
+                    if ($this->option('update')) {
+                        $this->info("Updating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
+                        //$hooks->update("tenjava", $repoName, $this->getHookData());
+                    } else {
+                        $this->info("Skipping " . $repoName . " it's done!");
+                    }
                     continue;
                 }
                 $this->info("Creating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
@@ -96,6 +102,10 @@ class RepoWebhookCommand extends Command {
         $client = new \Github\Client();
         $client->authenticate("tenjava", Config::get("gh-data.pass"), \Github\Client::AUTH_HTTP_PASSWORD);
         return $client->api('repo');
+    }
+
+    public function getOptions() {
+        return array(array("update", "upd", InputOption::VALUE_NONE, "update mode", false));
     }
 
 }

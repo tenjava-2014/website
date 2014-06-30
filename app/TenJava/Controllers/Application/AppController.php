@@ -9,6 +9,7 @@ use Mail;
 use Queue;
 use Redirect;
 use TenJava\Controllers\Abstracts\BaseController;
+use TenJava\Controllers\ErrorController;
 use TenJava\Exceptions\UnauthorizedException;
 use TenJava\Models\Application;
 use Validator;
@@ -16,9 +17,15 @@ use View;
 
 class AppController extends BaseController {
 
-    public function  __construct() {
+    /**
+     * @var \TenJava\Controllers\ErrorController
+     */
+    private $errorController;
+
+    public function  __construct(ErrorController $errorController) {
         parent::__construct();
         $this->beforeFilter('AuthenticationFilter');
+        $this->errorController = $errorController;
     }
 
     public function showApplyJudge() {
@@ -109,7 +116,7 @@ class AppController extends BaseController {
             $dupeApp = true;
         }
         if ($type !== "participant" && $type !== "judge") {
-            return App::make("ErrorController")->badRequest("Invalid application type was supplied.");
+            return $this->errorController->badRequest("Invalid application type was supplied.");
         }
         if ($type === "participant") {
             $validator = Validator::make(
