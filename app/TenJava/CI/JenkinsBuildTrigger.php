@@ -25,6 +25,7 @@ class JenkinsBuildTrigger implements BuildTriggerInterface {
 
         $client->get($url, [
             'query' => $params,
+            'debug' => true,
             "auth" => [
                 'tenjava',
                 Config::get("webhooks.jenkins_token")]]);
