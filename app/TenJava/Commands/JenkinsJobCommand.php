@@ -77,6 +77,7 @@ class JenkinsJobCommand extends Command {
                 $resp = $client->post("http://ci.tenjava.com/createItem", ["auth" => ['tenjava', Config::get("webhooks.jenkins_token")], "query" => ["name" => $repoName], "headers" => ["Content-Type" => "application/xml"], "body" => $jobConfig]);
                 $this->info($resp->getResponseBody());
                 $this->info(implode(", ", $resp->getHeaderLines()));
+                $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
             }
