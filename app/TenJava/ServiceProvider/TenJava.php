@@ -2,6 +2,7 @@
 namespace TenJava\ServiceProvider;
 
 use App;
+use Artisan;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
 use TenJava\Exceptions\FailedOauthException;
@@ -53,11 +54,24 @@ class TenJava extends ServiceProvider {
         // View composers
         View::composer('*', 'GlobalComposer');
 
-
+        $this->registerCommands();
         $this->registerHeaders();
         $this->registerFilters();
         $reg = new Registration($this->app['router']);
         $reg->registerRoutes();
+    }
+
+    private function registerCommands() {
+        $this->commands([
+            "\\TenJava\\Commands\\MailTestCommand",
+            "\\TenJava\\Commands\\RepoCleanupCommand",
+            "\\TenJava\\Commands\\TwitterUpdateCommand",
+            "\\TenJava\\Commands\\UserIdMigrateCommand",
+            "\\TenJava\\Commands\\UserDeleteCommand",
+            "\\TenJava\\Commands\\MailReminderCommand",
+            "\\TenJava\\Commands\\RepoWebhookCommand",
+            "\\TenJava\\Commands\\AuthCleanupCommand",
+            "\\TenJava\\Commands\\JenkinsJobCommand"]);
     }
 
     private function registerFilters() {

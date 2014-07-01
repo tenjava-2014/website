@@ -10,21 +10,4 @@
 | the console gets access to each of the command object instances.
 |
 */
-
-use TenJava\Commands\AuthCleanupCommand;
-use TenJava\Commands\MailReminderCommand;
-use TenJava\Commands\MailTestCommand;
-use TenJava\Commands\RepoCleanupCommand;
-use TenJava\Commands\RepoWebhookCommand;
-use TenJava\Commands\TwitterUpdateCommand;
-use TenJava\Commands\UserDeleteCommand;
-use TenJava\Commands\UserIdMigrateCommand;
-
-Artisan::add(new MailTestCommand());
-Artisan::add(new RepoCleanupCommand());
-Artisan::add(new TwitterUpdateCommand());
-Artisan::add(new UserIdMigrateCommand());
-Artisan::add(new UserDeleteCommand());
-Artisan::add(new MailReminderCommand());
-Artisan::add(new RepoWebhookCommand());
-Artisan::add(new AuthCleanupCommand());
+// See service provider
