@@ -16,4 +16,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ParticipantTimes extends Model {
     protected $table = 'participant_times';
+    protected $visible = ["t1","t2","t3"];
 }
