@@ -43,7 +43,7 @@ class JenkinsJobCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $this->jobConfig = (new Filesystem())->get(base_path() . '../app_config/config.xml');
+        $this->jobConfig = (new Filesystem())->get(base_path() . '/../app_config/config.xml');
         /** @var \TenJava\Repository\EloquentRepositoryAction $repoAction */
         $repoAction = App::make("\\TenJava\\Repository\\RepositoryActionInterface");
         $done = $repoAction->getReposForAction("jenkins");
