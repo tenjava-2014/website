@@ -71,7 +71,8 @@ class TenJava extends ServiceProvider {
             "\\TenJava\\Commands\\MailReminderCommand",
             "\\TenJava\\Commands\\RepoWebhookCommand",
             "\\TenJava\\Commands\\AuthCleanupCommand",
-            "\\TenJava\\Commands\\JenkinsJobCommand"]);
+            "\\TenJava\\Commands\\JenkinsJobCommand",
+            "\\TenJava\\Commands\\JenkinsJobTriggerCommand"]);
     }
 
     private function registerFilters() {
