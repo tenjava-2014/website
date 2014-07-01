@@ -9,6 +9,7 @@ use Request;
 use Config;
 use Input;
 use Response;
+use TenJava\CI\BuildTriggerInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 
 use TenJava\Models\Application;
@@ -41,13 +42,18 @@ class WebhookController extends BaseController {
      * @var \TenJava\UrlShortener\UrlShortenerInterface
      */
     private $short;
+    /**
+     * @var \TenJava\CI\BuildTriggerInterface
+     */
+    private $trigger;
 
-    public function __construct(HmacVerificationInterface $hmac, IrcNotifierInterface $irc, IrcMessageBuilderInterface $messageBuilder, StringTruncatorInterface $trunc, UrlShortenerInterface $short) {
+    public function __construct(HmacVerificationInterface $hmac, IrcNotifierInterface $irc, IrcMessageBuilderInterface $messageBuilder, StringTruncatorInterface $trunc, UrlShortenerInterface $short, BuildTriggerInterface $trigger) {
         $this->irc = $irc;
         $this->hmac = $hmac;
         $this->messageBuilder = $messageBuilder;
         $this->trunc = $trunc;
         $this->short = $short;
+        $this->trigger = $trigger;
     }
 
     private function verifyHmac() {
@@ -102,6 +108,10 @@ class WebhookController extends BaseController {
             $this->addAvatar($authorApp);
             // Now it's time to insert this commit data into our table!
             $this->addCommitEntry($authorApp, Input::get("commits"), Input::get("repository.name"));
+            $jenkinsToken = Config::get("webhooks.jenkins_token");
+            $trigger = $this->trigger;
+            $trigger->setToken($jenkinsToken);
+            $trigger->triggerBuild($repoName, "GitHub commit");
         }
         return Response::json("OK");
     }
