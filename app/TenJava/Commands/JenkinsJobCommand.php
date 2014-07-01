@@ -3,6 +3,7 @@ namespace TenJava\Commands;
 
 use App;
 use Config;
+use Exception;
 use Github\Api\Repository\Hooks;
 use Guzzle\Service\Client;
 use Illuminate\Console\Command;
@@ -58,7 +59,10 @@ class JenkinsJobCommand extends Command {
 
     private function handleEntry(Application $app, RepositoryActionInterface $actionInterface, $completed) {
         $times = $app->timeEntry;
-        $possibleValues = ['t1','t2','t3'];
+        $possibleValues = [
+            't1',
+            't2',
+            't3'];
         $toFinalize = [];
         foreach ($possibleValues as $toCheck) {
             $this->comment("Checking " . $toCheck . " for " . $app->gh_username);
@@ -74,17 +78,27 @@ class JenkinsJobCommand extends Command {
                 $jobConfig = str_replace("%%REPO_NAME%%/", $repoName, $this->jobConfig);
                 $this->info("Creating jenkins job for " . $repoName);
                 $client = new Client();
-                $resp = $client->post("http://ci.tenjava.com/createItem", ["auth" => ['tenjava', Config::get("webhooks.jenkins_token")], "query" => ["name" => $repoName], "headers" => ["Content-Type" => "application/xml"], "body" => $jobConfig]);
-                $this->info($resp->getResponseBody());
-                $this->info(implode(", ", $resp->getHeaderLines()));
-                $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
+                try {
+                    $resp = $client->post("http://ci.tenjava.com/createItem", [
+                        "auth" => [
+                            'tenjava',
+                            Config::get("webhooks.jenkins_token")],
+                        "query" => ["name" => $repoName],
+                        "headers" => ["Content-Type" => "application/xml"],
+                        "body" => $jobConfig]);
+                    $this->info($resp->getResponseBody());
+                    $this->info(implode(", ", $resp->getHeaderLines()));
+                    $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
+                } catch (Exception $e) {
+                    echo "Got an exception! " . $e->getMessage();
+                }
+
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
             }
         }
         $actionInterface->setMultipleReposActionComplete($toFinalize, "jenkins");
     }
-
 
 
 }
