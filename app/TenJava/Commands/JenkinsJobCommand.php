@@ -4,6 +4,7 @@ namespace TenJava\Commands;
 use App;
 use Config;
 use Github\Api\Repository\Hooks;
+use Guzzle\Service\Client;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
@@ -71,7 +72,9 @@ class JenkinsJobCommand extends Command {
                 }
 
                 $jobConfig = str_replace("%%REPO_NAME%%/", $repoName, $this->jobConfig);
-                $this->info("Creating jenkins job for " . $repoName . " with data " . $jobConfig);
+                $this->info("Creating jenkins job for " . $repoName);
+                $client = new Client();
+                $client->post("http://ci.tenjava.com/createItem", ["auth" => ['tenjava', Config::get("webhooks.jenkins_token")], "headers" => ["Content-Type" => "application/xml"], "body" => $jobConfig]);
 
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
