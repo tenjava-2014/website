@@ -22,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Application extends Model {
 
+    protected $visible = ["gh_username","timeEntry"];
+
     public function timeEntry() {
+        /* @see \TenJava\Models\ParticipantTimes */
         return $this->hasOne('\\TenJava\\Models\\ParticipantTimes', 'user_id', 'id');
     }
 
