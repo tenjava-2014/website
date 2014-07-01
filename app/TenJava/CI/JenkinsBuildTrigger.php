@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\CI;
 
+use Config;
 use GuzzleHttp\Client as GuzzleClient;
 
 class JenkinsBuildTrigger implements BuildTriggerInterface {
@@ -11,7 +12,7 @@ class JenkinsBuildTrigger implements BuildTriggerInterface {
         $this->token = $token;
     }
 
-    public function triggerBuild($name, $cause=null) {
+    public function triggerBuild($name, $cause = null) {
         $params = array(
             "token" => $this->token
         );
@@ -22,6 +23,10 @@ class JenkinsBuildTrigger implements BuildTriggerInterface {
         $url = "http://ci.tenjava.com" . "/job/" . $name . "/build";
         $client = new GuzzleClient();
 
-        $client->get($url, ['query' => $params]);
+        $client->get($url, [
+            'query' => $params,
+            "auth" => [
+                'tenjava',
+                Config::get("webhooks.jenkins_token")]]);
     }
 }
