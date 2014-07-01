@@ -78,20 +78,16 @@ class JenkinsJobCommand extends Command {
                 $jobConfig = str_replace("%%REPO_NAME%%/", $repoName, $this->jobConfig);
                 $this->info("Creating jenkins job for " . $repoName);
                 $client = new Client();
-                try {
-                    $resp = $client->post("http://ci.tenjava.com/createItem", [
-                        "auth" => [
-                            'tenjava',
-                            Config::get("webhooks.jenkins_token")],
-                        "query" => ["name" => $repoName],
-                        "headers" => ["Content-Type" => "application/xml"],
-                        "body" => $jobConfig]);
-                    $this->info($resp->getResponseBody());
-                    $this->info(implode(", ", $resp->getHeaderLines()));
-                    $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
-                } catch (Exception $e) {
-                    echo "Got an exception! " . $e->getMessage();
-                }
+                $resp = $client->post("http://ci.tenjava.com/createItem", [
+                    "auth" => [
+                        'tenjava',
+                        Config::get("webhooks.jenkins_token")],
+                    "query" => ["name" => $repoName],
+                    "headers" => ["Content-Type" => "application/xml"],
+                    "body" => $jobConfig, "debug" => true]);
+                $this->info($resp->getResponseBody());
+                $this->info(implode(", ", $resp->getHeaderLines()));
+                $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
 
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
