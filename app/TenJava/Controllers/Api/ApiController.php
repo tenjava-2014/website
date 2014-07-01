@@ -13,6 +13,9 @@ class ApiController extends BaseController {
     public function getParticipants() {
         // This is a public endpoint that gives a list of applicants with no info
         // other than GitHub usernames.
+        if (Input::has("streams")) {
+            return Response::json(Application::where("judge", false)->lists("twitch_username", "gh_username"));
+        }
         return Response::json(Application::where("judge", false)->lists("gh_username"));
     }
 
