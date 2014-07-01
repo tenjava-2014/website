@@ -109,9 +109,9 @@ class WebhookController extends BaseController {
             // Now it's time to insert this commit data into our table!
             $this->addCommitEntry($authorApp, Input::get("commits"), Input::get("repository.name"));
             $jenkinsToken = Config::get("webhooks.jenkins_token");
-            $trigger = $this->trigger;
-            $trigger->setToken($jenkinsToken);
-            $trigger->triggerBuild($repoName, "GitHub commit");
+            $this->trigger->setToken($jenkinsToken);
+            Log::info("Triggering build of " . $repoName);
+            $this->trigger->triggerBuild($repoName, "GitHub commit");
         }
         return Response::json("OK");
     }
