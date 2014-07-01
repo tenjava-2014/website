@@ -5,7 +5,7 @@ use App;
 use Config;
 use Exception;
 use Github\Api\Repository\Hooks;
-use Guzzle\Service\Client;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
@@ -85,9 +85,7 @@ class JenkinsJobCommand extends Command {
                     "query" => ["name" => $repoName],
                     "headers" => ["Content-Type" => "application/xml"],
                     "body" => $jobConfig, "debug" => true]);
-                $this->info($resp->getResponseBody());
-                $this->info(implode(", ", $resp->getHeaderLines()));
-                $this->info(implode(", ", $resp->getResponse()->getHeaderLines()));
+                echo $resp->getStatusCode();
 
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
