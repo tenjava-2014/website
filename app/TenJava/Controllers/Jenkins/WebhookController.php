@@ -54,8 +54,15 @@ class WebhookController extends BaseController {
         }
 
         $job = Input::get("name");
-        $status =Input::get("build.status");
-        $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertSecureText($job)->insertText(" finished with status ")->insertSecureText($status);
+        $status = Input::get("build.status");
+        if ($status === "FAILURE") {
+            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertSecureText($job)->insertText(" finished with status ")->insertRed()->insertSecureText($status);
+        } else if ($status === "SUCCESS") {
+            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertMungedText($job)->insertText(" finished with status ")->insertGreen()->insertSecureText($status);
+        } else {
+            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertMungedText($job)->insertText(" finished with status ")->insertSecureText($status);
+        }
+
         $this->irc->sendMessage("#ten.java", $message);
         return Response::json("OK");
     }
