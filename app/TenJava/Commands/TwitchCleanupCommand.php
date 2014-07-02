@@ -51,17 +51,19 @@ class TwitchCleanupCommand extends Command {
             $this->info("Got username of " . $name);
             if ($name === "USER_REJECTED" || $name === null || in_array($item->gh_id, $done)) {
                 $this->info("Skipping user due to rejection...");
+                continue;
             }
 
             $client = new GuzzleClient();
             try {
                 $client->get("https://api.twitch.tv/kraken/channels/" . $name);
+                $this->info("Twitch channel is there!");
             } catch (ClientException $e) { // we should get a 422
                 $this->comment("Twitch lookup failed so let's make them not have a Twitch username...");
                 $item->twitch_username = "USER_REJECTED";
                 $item->save();
             }
-            $this->info("Twitch channel is there!");
+
             $toFinalize[] = $item->gh_id;
         }
         $repoAction->setMultipleReposActionComplete($toFinalize, "twitch_cleanup");
