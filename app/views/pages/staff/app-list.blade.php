@@ -96,7 +96,7 @@
             {{ Form::close() }}
             </td>
         </tr>
-        @else
+        @elseif ($fullAccess)
         <tr>
             <td>Actions</td>
             <td>
