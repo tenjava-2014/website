@@ -47,7 +47,7 @@ class TwitchCleanupCommand extends Command {
         $toFinalize = [];
         foreach ($list as $item) {
             /** @var Application $item */
-            $name = $list->twitch_username;
+            $name = $item->twitch_username;
             $this->info("Got username of " . $name);
             if ($name === "USER_REJECTED" || $name === null || in_array($item->gh_id, $done)) {
                 $this->info("Skipping user due to rejection...");
