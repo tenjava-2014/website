@@ -75,7 +75,7 @@ class JenkinsJobCommand extends Command {
                     continue;
                 }
 
-                $jobConfig = str_replace("%%REPO_NAME%%/", $repoName, $this->jobConfig);
+                $jobConfig = str_replace("%%REPO_NAME%%", $repoName, $this->jobConfig);
                 $this->info("Creating jenkins job for " . $repoName);
                 $client = new Client();
                 $resp = $client->post("http://ci.tenjava.com/createItem", [
