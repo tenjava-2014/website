@@ -58,5 +58,6 @@
 @include('pages.dynamic.twitter')
 @endif
 @include('pages.dynamic.twitch')
+@include('pages.dynamic.commits')
 @stop
 
