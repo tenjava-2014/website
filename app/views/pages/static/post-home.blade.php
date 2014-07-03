@@ -2,9 +2,8 @@
 @section('content')
 <div id="header" class="post-header">
     <div class="grid-container">
-        <div class="grid-100 text-center">
-            The unofficial 10 hour Bukkit plugin contest.<br />
-	        <small>July 12, 2014 &mdash; {{ $carbonDiff }}</small>
+        <div class="grid-100 text-center header-container">
+            xyz
         </div>
     </div>
 </div>
