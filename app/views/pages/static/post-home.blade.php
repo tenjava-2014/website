@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div id="header" class="post-header">
-    <div class="grid-container">
-        <div class="grid-100 text-center header-container">
+    <div class="grid-container header-container">
+        <div class="grid-100 text-center">
             xyz
         </div>
     </div>
