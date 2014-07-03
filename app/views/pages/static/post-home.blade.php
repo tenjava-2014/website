@@ -57,4 +57,6 @@
 @if(count($tweets) > 0)
 @include('pages.dynamic.twitter')
 @endif
+@include('pages.dynamic.twitch')
 @stop
+
