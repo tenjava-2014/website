@@ -85,7 +85,8 @@
             is what we use for fluid, responsive grids. To improve mobile responsiveness, we use <a
                 href="https://github.com/ftlabs/fastclick">fastclick</a>. We also use <a href="http://jquery.com/">jQuery</a>.
             Our views are built with Laravel's <a href="http://laravel.com/docs/templates">Blade</a> templating system.
-            We include a few styles via SASS from the <a href="http://ink.sapo.pt/">InK</a> interface kit.</p>
+            We include a few styles via SASS from the <a href="http://ink.sapo.pt/">InK</a> interface kit. For our
+            countdown timers, we've used <a href="http://git.wimbarelds.nl/TimeCircles/index.html">TimeCircles</a>.</p>
 
         <h3>Acknowledgements</h3>
 
