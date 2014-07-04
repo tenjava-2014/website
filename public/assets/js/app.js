@@ -6,4 +6,6 @@ $(document).ready(function() {
         var date = new Date($(this).data("time") * 1000);
         $(this).text(date.toString());
     });
+
+    $(".time-circle").TimeCircles();
 });

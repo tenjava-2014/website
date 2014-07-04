@@ -397,6 +397,11 @@ h3.judge-app {
 }
 
 .post-header > .header-container {
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 3px;
+  //background-color: rgba(0,0,0,0.5);
+  //border-radius: 3px;
+}
+
+.post-header {
+  padding: 0px;
+  min-height: 200px;
 }

@@ -2,8 +2,8 @@
 @section('content')
 <div id="header" class="post-header">
     <div class="grid-container header-container">
-        <div class="grid-100 text-center">
-            xyz
+        <div class="grid-100">
+            <div class="time-circle" data-timer="900"></div>
         </div>
     </div>
 </div>
