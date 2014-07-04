@@ -3,6 +3,7 @@
 <div id="header" class="post-header">
     <div class="grid-container header-container">
         <div class="grid-100 text-center">
+            <h4>Time until contest start:</h4>
             <div id="times-info" data-t1="{{{ Config::get('contest-times.t1') - time() }}}" data-t2="{{{ Config::get('contest-times.t2') - time() }}}" data-t3="{{{ Config::get('contest-times.t3') - time() }}}"></div>
             <div class="time-circle" data-timer="900"></div>
         </div>
