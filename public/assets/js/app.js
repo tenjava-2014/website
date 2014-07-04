@@ -22,7 +22,7 @@ $(document).ready(function() {
     var t2 = $times.data("t2");
     var t3 = $times.data("t3");
     var curTime = new Date();
-    curTime = new Date(curTime.getTime() + t1);
+    curTime = new Date(curTime.getTime() + (t1 * 1000));
 
     $(".time-circle").data("date", formatDate(curTime)).TimeCircles();
 });
