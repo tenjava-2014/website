@@ -1,5 +1,5 @@
 function formatDate(date) {
-    return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    return date.getFullYear() + "-" + ('0' + date.getMonth()).slice(-2) + "-" + ('0' + date.getDay()).slice(-2) + " " + ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
 }
 
 
