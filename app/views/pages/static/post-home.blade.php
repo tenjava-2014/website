@@ -54,7 +54,7 @@
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
             <p>
-                <a href="/themes" class="button button-circle button-flat-royal">View contest themes</a>
+                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
                 <span class="text-light">View the available themes for each timeslot.</span>
             </p>
         </div>
