@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<div id="header" class="post-header">
+<div id="post-header">
     <div class="grid-container header-container">
         <div class="grid-100 text-center">
             <h4>Time until contest start:</h4>
