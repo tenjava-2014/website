@@ -1,5 +1,5 @@
 <?php
-namespace TenJava\Controllers\Pages;
+namespace TenJava\Controllers\Contest;
 
 use TenJava\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
