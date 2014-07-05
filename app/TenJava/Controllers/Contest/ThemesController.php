@@ -2,9 +2,7 @@
 namespace TenJava\Controllers\Contest;
 
 use TenJava\Controllers\Abstracts\BaseController;
-use Carbon\Carbon;
 use View;
-use App;
 
 class ThemesController extends BaseController {
     public function showThemes() {
