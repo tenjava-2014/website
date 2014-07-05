@@ -45,6 +45,7 @@ class TwitchPollCommand extends Command {
      * @return mixed
      */
     public function fire() {
+        DB::table("online_streams")->delete();
         $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
         $toFinalize = [];
         $appIds = [];
