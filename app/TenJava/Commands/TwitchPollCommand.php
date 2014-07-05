@@ -60,7 +60,7 @@ class TwitchPollCommand extends Command {
             }
 
             $requests[] = $client->createRequest("GET", "https://api.twitch.tv/kraken/streams/" . $name);
-            $appIds[] = $item->id;
+            $appIds[] = ['id' => $item->id, 'name' => $name];
             $this->info("Staged req for " . $name);
 
 
@@ -76,7 +76,7 @@ class TwitchPollCommand extends Command {
                 // Interact with the response directly
                 $res = $result->json();
                 if ($res['stream'] != null) {
-                    $streamData = ["created_at" => new DateTime, "updated_at" => new DateTime, "app_id" => $appIds[$i], "preview_template" => $res['preview']['template']];
+                    $streamData = ["created_at" => new DateTime, "updated_at" => new DateTime, "app_id" => $appIds[$i]['id'], "preview_template" => "http://static-cdn.jtvnw.net/previews-ttv/live_user_" . $appIds[$i]['name'] . "-{WIDTH}x{HEIGHT}.jpg"];
                     $toFinalize[] = $streamData;
                     $this->info("Twitch channel is there and online! " . json_encode($streamData));
                 } else {
