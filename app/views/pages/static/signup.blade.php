@@ -63,8 +63,8 @@
 	<div class="grid-80">
 		<h3>Sign up now!</h3>
 
-		<p>Signing up takes 30 seconds. We'll take some details and contact you when it's time to choose a
-			timeslot. Signing up is done via your GitHub account &ndash; you don't need to register or make an
+		<p>Signing up takes 30 seconds. We'll take some details and then ask you to choose a timeslot.
+            Signing up is done via your GitHub account &ndash; you don't need to register or make an
 			account. Simply click a button below, fill in the fields, and register.</p>
 
 		<p><a href="/register/participant" class="button button-large button-flat-action">Register as

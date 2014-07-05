@@ -1,16 +1,18 @@
 @extends('layouts.master')
 @section('content')
-<div id="header" class="post-header">
-    <div class="grid-container">
+<div id="post-header">
+    <div class="grid-container header-container">
         <div class="grid-100 text-center">
-            The unofficial 10 hour Bukkit plugin contest.<br />
-	        <small>July 12, 2014 &mdash; {{ $carbonDiff }}</small>
+            <h4>Time until contest start:</h4>
+            <div id="times-info" data-t1="{{{ Config::get('contest-times.t1') - time() }}}" data-t2="{{{ Config::get('contest-times.t2') - time() }}}" data-t3="{{{ Config::get('contest-times.t3') - time() }}}"></div>
+            <div class="time-circle" data-timer="900"></div>
         </div>
     </div>
 </div>
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
+            <p><em>Participants and judges can signup until July 10th.</em></p>
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
                 a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
@@ -51,10 +53,17 @@
                 <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
+            <p>
+                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
+                <span class="text-light">View the available themes for each timeslot.</span>
+            </p>
         </div>
     </div>
 </div>
 @if(count($tweets) > 0)
 @include('pages.dynamic.twitter')
 @endif
+@include('pages.dynamic.twitch')
+@include('pages.dynamic.commits')
 @stop
+
