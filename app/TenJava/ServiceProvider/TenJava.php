@@ -73,7 +73,8 @@ class TenJava extends ServiceProvider {
             "\\TenJava\\Commands\\AuthCleanupCommand",
             "\\TenJava\\Commands\\JenkinsJobCommand",
             "\\TenJava\\Commands\\JenkinsJobTriggerCommand",
-            "\\TenJava\\Commands\\TwitchCleanupCommand"]);
+            "\\TenJava\\Commands\\TwitchCleanupCommand",
+            "\\TenJava\\Commands\\TwitchPollCommand"]);
     }
 
     private function registerFilters() {
