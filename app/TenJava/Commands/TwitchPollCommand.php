@@ -85,9 +85,9 @@ class TwitchPollCommand extends Command {
             } else {
                 // Get the exception message
                 /** @var $request Request */
-                /** @var $response RequestException */
+                /** @var $result RequestException */
                 $this->error("A request to " . $request->getUrl() . " failed.");
-                $this->error("We got a code of " . $response->getMessage());
+                $this->error("We got a code of " . $result->getMessage());
             }
         }
         // This is more efficient than using Eloquent.
