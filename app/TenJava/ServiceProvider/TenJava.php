@@ -31,6 +31,7 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Repository\\RepositoryActionInterface", "\\TenJava\\Repository\\EloquentRepositoryAction");
         $app->bind("\\TenJava\\CI\\BuildTriggerInterface", "\\TenJava\\CI\\JenkinsBuildTrigger");
         $app->bind("\\TenJava\\Time\\ContestTimesInterface", "\\TenJava\\Time\\ContestTimes");
+        $app->bind("\\TenJava\\Repository\\ParticipantCommitRepositoryInterface", "\\TenJava\\Repository\\EloquentParticipantCommitRepository");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
