@@ -33,7 +33,7 @@ class HomeController extends BaseController {
         if (Input::has("new-home")) {
             $viewName = "pages.static.post-home";
             $viewData['contestTimes'] = $this->contestTimes;
-            $viewData['commits'] = ParticipantCommit::take(5)->get();
+            $viewData['commits'] = ParticipantCommit::orderBy("id", "desc")->take(5)->get();
         }
         return View::make($viewName)->with($viewData);
     }
