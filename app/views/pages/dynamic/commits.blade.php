@@ -1,43 +1,13 @@
 <div class="grid-container">
     <h3>Recent commits</h3>
+    @foreach ($commits as $entry)
     <div class="grid-20 mobile-grid-20 tablet-grid-20">
-        <div class="grid-100 time"><a href="http://www.github.com/lol768">lol768</a> &ndash; <span title="Time">3 seconds ago</span></div>
+        <div class="grid-100 time"><a href="http://www.github.com/tenjava/{{{ $entry->repo }}}">$entry->repo</a> &ndash; <span title="{{{ $entry->created_at }}}">{{{ $entry->created_at->diffForHumans() }}}</span></div>
         <div class="grid-100">
             <div class="content-back">
-                Add support for cats
+                <a href="https://www.github.com/tenjava/{{{ $entry->repo }}}/commit/{{{ $entry->hash }}}">{{{ $entry->message }}}</a>
             </div>
         </div>
     </div>
-    <div class="grid-20 mobile-grid-20 tablet-grid-20">
-        <div class="grid-100 time"><a href="http://www.github.com/lol768">lol768</a> &ndash; <span title="Time">3 seconds ago</span></div>
-        <div class="grid-100">
-            <div class="content-back">
-                Add support for cats
-            </div>
-        </div>
-    </div>
-    <div class="grid-20 mobile-grid-20 tablet-grid-20">
-        <div class="grid-100 time"><a href="http://www.github.com/lol768">lol768</a> &ndash; <span title="Time">3 seconds ago</span></div>
-        <div class="grid-100">
-            <div class="content-back">
-                Add support for cats
-            </div>
-        </div>
-    </div>
-    <div class="grid-20 mobile-grid-20 tablet-grid-20">
-        <div class="grid-100 time"><a href="http://www.github.com/lol768">lol768</a> &ndash; <span title="Time">3 seconds ago</span></div>
-        <div class="grid-100">
-            <div class="content-back">
-                Add support for cats
-            </div>
-        </div>
-    </div>
-    <div class="grid-20 mobile-grid-20 tablet-grid-20">
-        <div class="grid-100 time"><a href="http://www.github.com/lol768">lol768</a> &ndash; <span title="Time">3 seconds ago</span></div>
-        <div class="grid-100">
-            <div class="content-back">
-                Add support for cats
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
