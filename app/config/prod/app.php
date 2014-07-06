@@ -1,2 +1,2 @@
 <?php
-return array("url" => "https://tenjava.com");
+return array("url" => "https://tenjava.com","debug" => false);
