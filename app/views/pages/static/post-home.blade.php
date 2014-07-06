@@ -3,8 +3,13 @@
 <div id="post-header">
     <div class="grid-container header-container">
         <div class="grid-100 text-center">
-            <h4>Time until contest start:</h4>
-            <div id="times-info" data-t1="{{{ Config::get('contest-times.t1') - time() }}}" data-t2="{{{ Config::get('contest-times.t2') - time() }}}" data-t3="{{{ Config::get('contest-times.t3') - time() }}}"></div>
+            <h4 id="contestTime">Time until contest start:</h4>
+            <div id="times-info" data-t1="{{{ $contestTimes->getTimeUntil($contestTimes->getT1StartTime()) }}}"
+                                 data-t2="{{{ $contestTimes->getTimeUntil($contestTimes->getT2StartTime()) }}}"
+                                 data-t3="{{{ $contestTimes->getTimeUntil($contestTimes->getT3StartTime()) }}}"
+                                 data-t1-actice="{{{ $contestTimes->isT1Active() }}}"
+                                 data-t2-active="{{{ $contestTimes->isT2Active() }}}"
+                                 data-t3-active="{{{ $contestTimes->isT3Active() }}}"></div>
             <div class="time-circle" data-timer="900"></div>
         </div>
     </div>
