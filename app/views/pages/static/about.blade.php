@@ -93,6 +93,8 @@
         <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a>
             and <a href="https://github.com/rigor789">rigor789</a> for contributing to the site. Additional thanks to
             the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
+
+        <p>We owe a lot to <a href="https://github.com/instipod">instipod</a> for responsibly disclosing a severe security vulnerability. Many thanks to him.</p>
     </div>
 </div>
 @stop
