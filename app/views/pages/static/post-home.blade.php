@@ -35,7 +35,8 @@
                 the links to the right. If you have spare CurseForge points you'd like to donate, use the donate button
                 to learn how.</p>
 
-            <p>Once you've signed up, you might like to have a look at our <a href="/wiki">wiki</a> which includes information on Git, Maven, getting started with the contest and more.</p>
+            <p>Once you've signed up, you might like to have a look at our <a href="/wiki">wiki</a> which includes
+                information on Git, Maven, getting started with the contest and more.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
 	        @if($hst == 'noapp')
