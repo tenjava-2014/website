@@ -15,10 +15,25 @@ $(document).ready(function () {
         $(this).text(date.toString());
     });
 
+    function refreshCommits() {
+        var url = "/ajax/commits";
+        var $commits = $("#commits");
+        if ($commits.length == 0) {
+            return;
+        }
+        var previousHash = $commits.find("#commitHash").data("hash");
+        $commits.load(url);
+        if ($commits.find("#commitHash").data("hash") != previousHash) {
+            $commits.delay(100).fadeOut("fast").fadeIn('fast');
+        }
+        setTimeout(refreshCommits, 30000);
+    }
+
     // Homepage countdown
     // Grab the t1 time
     var $times = $("#times-info");
     var t1 = $times.data("t1");
+
     var t2 = $times.data("t2");
     var t3 = $times.data("t3");
     var $time = $(".time-circle");
@@ -49,4 +64,5 @@ $(document).ready(function () {
 
 
     $time.data("active-time", "t1");
+    setTimeout(refreshCommits, 30000);
 });

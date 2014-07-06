@@ -71,8 +71,10 @@
     @include('pages.dynamic.twitter')
 @endif
 @include('pages.dynamic.twitch')
-@if(count($commits) > 0)
-    @include('pages.dynamic.commits')
-@endif
+<div id="commits">
+    @if(count($commits) > 0)
+        @include('pages.dynamic.commits')
+    @endif
+</div>
 @stop
 

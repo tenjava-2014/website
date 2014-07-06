@@ -1,6 +1,6 @@
 <div class="grid-container">
     <h3>Recent commits</h3>
-    @foreach ($commits as $entry)
+    @foreach ($commits as $i => $entry)
     <div class="grid-20 mobile-grid-20 tablet-grid-20">
         <?php
         /** @noinspection PhpUndefinedVariableInspection */
@@ -12,6 +12,9 @@
                 <a href="https://www.github.com/tenjava/{{{ $entry->repo }}}/commit/{{{ $entry->hash }}}">{{{ $entry->message }}}</a>
             </div>
         </div>
+        @if ($i == 0)
+            <div id="commitHash" data-hash="{{{ $entry->hash }}}"></div>
+        @endif
     </div>
     @endforeach
 </div>
