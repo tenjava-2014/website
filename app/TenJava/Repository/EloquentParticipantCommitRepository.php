@@ -13,7 +13,7 @@ class EloquentParticipantCommitRepository implements ParticipantCommitRepository
      * @return array Array of recent commits with up to the max no. of commits.
      */
     public function getRecentCommits($max = 5) {
-        return ParticipantCommit::take($max)->get();
+        return ParticipantCommit::orderBy("id", "desc")->take($max)->get();
     }
 
     /**
