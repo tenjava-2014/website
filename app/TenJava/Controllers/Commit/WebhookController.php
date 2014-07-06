@@ -141,9 +141,11 @@ class WebhookController extends BaseController {
         Log::info("Starting adding commit entries..");
         foreach ($commits as $commit) {
             Log::info("Loop start for commit entry");
+            $dateTime = new DateTime($commit['timestamp']);
+            $dateTime->setTimezone(new \DateTimeZone("UTC"));
             $entry = [
-                "created_at" => new DateTime($commit['timestamp']),
-                "updated_at" => new DateTime($commit['timestamp']),
+                "created_at" => $dateTime,
+                "updated_at" => $dateTime,
                 "hash" => $commit['id'],
                 "message" => $this->trunc->truncateString($commit['message'], 50),
                 "repo" => $repoName,
