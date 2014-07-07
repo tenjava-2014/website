@@ -22,5 +22,6 @@ return array(
   "Bionicrm" => "A Java/web developer, DBO staff member, computer enthusiast, and lol768 fan club member.",
   "Intreppid" => "Intreppid has kindly provided us with a dedicated server that we'll be using to build and test all submissions. See the About page for more.",
   "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!",
-  "cindy_k" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= "
+  "cindy_k" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= ",
+  "Kashike" => "Java developer/Bukkit forker. I love kittens :3",
 );
