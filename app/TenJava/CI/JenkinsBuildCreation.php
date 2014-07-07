@@ -28,6 +28,6 @@ class JenkinsBuildCreation implements BuildCreationInterface {
                 Config::get("webhooks.jenkins_token")],
             "query" => ["name" => $repoName],
             "headers" => ["Content-Type" => "application/xml"],
-            "body" => $jobConfig]);
+            "body" => $jobConfig, "debug" => true]);
     }
 }
