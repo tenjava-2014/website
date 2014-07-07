@@ -9,6 +9,7 @@ use \Illuminate\Queue\Jobs\Job;
 use TenJava\CI\BuildCreationInterface;
 use TenJava\Notification\IrcMessageBuilderInterface;
 use TenJava\Notification\IrcNotifierInterface;
+use TenJava\Repository\RepositoryActionInterface;
 use TenJava\Repository\RepoWebhookInterface;
 
 /**
@@ -33,18 +34,24 @@ class TimeSelectionJob {
      * @var \TenJava\Notification\IrcMessageBuilderInterface
      */
     private $ircMessage;
+    /**
+     * @var \TenJava\Repository\RepositoryActionInterface
+     */
+    private $repo;
 
     /**
      * @param BuildCreationInterface $builds
      * @param \TenJava\Repository\RepoWebhookInterface $webhooks
      * @param \TenJava\Notification\IrcNotifierInterface $irc
      * @param \TenJava\Notification\IrcMessageBuilderInterface $ircMessage
+     * @param \TenJava\Repository\RepositoryActionInterface $repo
      */
-    public function __construct(BuildCreationInterface $builds, RepoWebhookInterface $webhooks, IrcNotifierInterface $irc, IrcMessageBuilderInterface $ircMessage) {
+    public function __construct(BuildCreationInterface $builds, RepoWebhookInterface $webhooks, IrcNotifierInterface $irc, IrcMessageBuilderInterface $ircMessage, RepositoryActionInterface $repo) {
         $this->builds = $builds;
         $this->webhooks = $webhooks;
         $this->irc = $irc;
         $this->ircMessage = $ircMessage;
+        $this->repo = $repo;
     }
 
     /**
@@ -75,8 +82,11 @@ class TimeSelectionJob {
         } catch (ValidationFailedException $e) {
             // oh no!
         }
+
         $this->builds->createJob($username);
         $this->webhooks->addWebhook($username);
+        $this->repo->setRepoActionComplete("webhook", $username);
+        $this->repo->setRepoActionComplete("jenkins", $username);
         $this->irc->sendMessage("#ten.judge", $this->ircMessage->insertText("jkcclemens: I have good news! ")->insertSecureText($username)->insertText(" has chosen a time and needs a repo template :D"));
     }
 
