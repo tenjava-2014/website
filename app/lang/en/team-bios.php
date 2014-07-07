@@ -21,4 +21,5 @@ return array(
   "rigor789" => "Java/Web developer, graphics/UX designer, and an experienced system operator. Developer at TBNR.net! I love clean code, and I hate writing tests.",
   "Bionicrm" => "A Java/web developer, DBO staff member, computer enthusiast, and lol768 fan club member.",
   "Intreppid" => "Intreppid has kindly provided us with a dedicated server that we'll be using to build and test all submissions. See the About page for more."
+  "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!"
 );
