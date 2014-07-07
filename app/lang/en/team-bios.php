@@ -8,7 +8,7 @@ return array(
   "jkcclemens" => "Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.",
   "hawkfalcon" => "Avian Hybrid, ShockNetwork Owner, awesome person.",
   "aerouk" => "Server owner, web developer, fan of nice-looking code and cool web applications.",
-  "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the piano.",
+  "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the Piano.",
   "CaptainBern" => "DBO staff, part-time human, hates web-dev. Stop bullying lol768. :o",
   "ttaylorr" => "Java Developer at Overcast Network, Ruby Developer everywhere else.  I love clean code and best practices.",
   "njb-said" => "PHP and Java developer - Past server owner (large-ish servers).",
@@ -21,5 +21,6 @@ return array(
   "rigor789" => "Java/Web developer, graphics/UX designer, and an experienced system operator. Developer at TBNR.net! I love clean code, and I hate writing tests.",
   "Bionicrm" => "A Java/web developer, DBO staff member, computer enthusiast, and lol768 fan club member.",
   "Intreppid" => "Intreppid has kindly provided us with a dedicated server that we'll be using to build and test all submissions. See the About page for more.",
-  "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!"
+  "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!",
+  "cindy_k" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= "
 );
