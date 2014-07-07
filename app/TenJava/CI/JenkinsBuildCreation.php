@@ -7,6 +7,7 @@ namespace TenJava\CI;
 use Config;
 use Guzzle\Http\Client;
 use Illuminate\Filesystem\Filesystem;
+use Log;
 
 class JenkinsBuildCreation implements BuildCreationInterface {
 
@@ -17,7 +18,9 @@ class JenkinsBuildCreation implements BuildCreationInterface {
     }
 
     public function createJob($repoName) {
+
         $jobConfig = str_replace("%%REPO_NAME%%", $repoName, $this->jobConfig);
+        Log::info("Sending req for new jenkins job " . $jobConfig);
         $client = new Client();
         $client->post("http://ci.tenjava.com/createItem", [
             "auth" => [
