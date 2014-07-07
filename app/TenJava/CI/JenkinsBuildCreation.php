@@ -5,7 +5,7 @@ namespace TenJava\CI;
 
 
 use Config;
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 use Illuminate\Filesystem\Filesystem;
 use Log;
 
