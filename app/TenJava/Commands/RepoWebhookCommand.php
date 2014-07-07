@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use TenJava\Models\Application;
 use TenJava\Repository\RepositoryActionInterface;
+use TenJava\Repository\RepoWebhookInterface;
 
 class RepoWebhookCommand extends Command {
 
@@ -24,14 +25,20 @@ class RepoWebhookCommand extends Command {
      * @var string
      */
     protected $description = 'Adds webhooks to repos.';
+    /**
+     * @var \TenJava\Repository\RepoWebhookInterface
+     */
+    private $webhooks;
 
     /**
      * Create a new command instance.
      *
+     * @param \TenJava\Repository\RepoWebhookInterface $webhooks
      * @return \TenJava\Commands\RepoWebhookCommand
      */
-    public function __construct() {
+    public function __construct(RepoWebhookInterface $webhooks) {
         parent::__construct();
+        $this->webhooks = $webhooks;
     }
 
     /**
@@ -46,14 +53,13 @@ class RepoWebhookCommand extends Command {
         $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
 
         $this->comment("List has " . $list->count() . " items");
-        $hooks = $this->getApiClient()->hooks();
         foreach ($list as $entry) {
             /** @var \TenJava\Models\Application $entry */
-            $this->handleEntry($entry, $hooks, $repoAction, $done);
+            $this->handleEntry($entry, $repoAction, $done);
         }
     }
 
-    private function handleEntry(Application $app, Hooks $hooks, RepositoryActionInterface $actionInterface, $completed) {
+    private function handleEntry(Application $app, RepositoryActionInterface $actionInterface, $completed) {
         $times = $app->timeEntry;
         $possibleValues = ['t1','t2','t3'];
         $toFinalize = [];
@@ -65,20 +71,15 @@ class RepoWebhookCommand extends Command {
                 $repoName = $app->gh_username . "-" . $toCheck;
                 if (in_array($repoName, $completed)) {
                     if ($this->option('update')) {
-                        $this->info("Updating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
-                        $theHook = $hooks->all("tenjava", $repoName)[0];
-                        if ($theHook !== null) {
-                            $hookId = $theHook['id'];
-                            $hooks->update("tenjava", $repoName, $hookId, $this->getHookData());
-                            $this->info("Hook updated!");
-                        }
+                        $this->info("Updating webhook for " . $repoName);
+                        $this->webhooks->updateWebhook($repoName);
                     } else {
                         $this->info("Skipping " . $repoName . " it's done!");
                     }
                     continue;
                 }
-                $this->info("Creating webhook for " . $repoName . " with data " . json_encode($this->getHookData()));
-                $hooks->create("tenjava", $repoName, $this->getHookData());
+                $this->info("Creating webhook for " . $repoName);
+                $this->webhooks->addWebhook($repoName);
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
             }
@@ -86,28 +87,6 @@ class RepoWebhookCommand extends Command {
         $actionInterface->setMultipleReposActionComplete($toFinalize, "webhook");
     }
 
-    private function getHookData() {
-        $dataArray = ['name' => 'web',
-                      'events' => [
-                          'push',
-                          'pull_request'],
-                      'active' => true];
-        $dataArray['config'] = [
-            'url' => url('/webhook/fire'),
-            'content_type' => 'json',
-            'secret' => Config::get("webhooks.secret")
-        ];
-        return $dataArray;
-    }
-
-    /**
-     * @return \Github\Api\Repo
-     */
-    private function getApiClient() {
-        $client = new \Github\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), \Github\Client::AUTH_HTTP_PASSWORD);
-        return $client->api('repo');
-    }
 
     public function getOptions() {
         return array(array("update", "upd", InputOption::VALUE_NONE, "update mode"));

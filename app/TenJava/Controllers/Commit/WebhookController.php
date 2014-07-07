@@ -100,7 +100,7 @@ class WebhookController extends BaseController {
             insertBold()->insertNavyBlue()->insertText($notificationHeading)->insertBold()->
             insertReset()->insertText(" ")->insertMungedText($author)->insertText(": ")->
             insertSecureText($commitMsg)->insertText(" - " . $shortUrl);
-        $this->irc->sendMessage("#ten.java", $message);
+        $this->irc->sendMessage("#ten.commits", $message);
 
         $authorApp = Application::where("gh_username", $author)->first();
         if ($authorApp !== null) {

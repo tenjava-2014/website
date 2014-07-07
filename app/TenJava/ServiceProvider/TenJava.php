@@ -19,6 +19,7 @@ class TenJava extends ServiceProvider {
      */
     public function register() {
         $app = $this->app;
+
         // Interface bindings
         $app->bind("\\TenJava\\Authentication\\AuthProviderInterface", "\\TenJava\\Authentication\\GitHubAuthProvider");
         $app->bind("\\TenJava\\Notification\\IrcNotifierInterface", "\\TenJava\\Notification\\FlareBotIrcNotifier");
@@ -32,6 +33,8 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\CI\\BuildTriggerInterface", "\\TenJava\\CI\\JenkinsBuildTrigger");
         $app->bind("\\TenJava\\Time\\ContestTimesInterface", "\\TenJava\\Time\\ContestTimes");
         $app->bind("\\TenJava\\Repository\\ParticipantCommitRepositoryInterface", "\\TenJava\\Repository\\EloquentParticipantCommitRepository");
+        $app->bind("\\TenJava\\CI\\BuildCreationInterface", "\\TenJava\\CI\\JenkinsBuildCreation");
+        $app->bind("\\TenJava\\Repository\\RepoWebhookInterface", "\\TenJava\\Repository\\GitHubRepoWebhook");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
