@@ -26,9 +26,8 @@
             and it was nice to see a large majority of those taking part streaming the development process.</p>
 
         <p>Once the ten hours were up, we began the difficult task of judging the submissions. Not all judges were
-            able to help out, so it took us a week or so to get all the submissions judged. Once we'd finished,
-            we averaged the points from the judges that were able to help and announced the three winners. They
-            were:</p>
+            able to help out, so it took us a week or so to get all the submissions judged. Once we finished, we
+            averaged the points from the judges that were able to help and announced the three winners. They were:</p>
         <ul>
             <li><a href="https://github.com/tenjavacontest/Vilsol">Vilsol</a></li>
             <li><a href="https://github.com/tenjavacontest/slipcor">slipcor</a></li>
@@ -41,13 +40,12 @@
             creation of a <a
                 href="https://forums.bukkit.org/threads/ten-java-plugin-contest-2014-http-tenjava-com-200-signups-currently-13-530-points.269253/">new
                 thread</a>. Soon after, we began to once again accept donations in the form of CurseForge points for
-            the prize pot. In two weeks, we'd managed to raise over $700 to be distributed towards the winning
+            the prize pot. In two weeks, we managed to raise over $700 to be distributed towards the winning
             participants. We spent time creating a new site with a more streamlined, automated signup system, and to
             date, we've seen over {{{ $appsData->count }}} sign-ups. </p>
 
-        <p>We're planning to hold the contest on July 12 with 3 separate times (and thus 3 separate themes) this
-            year. We've been overwhelmed by the community's response to our plans and are looking forward to the
-            event itself.</p>
+        <p>We will be holding the contest on July 12 with 3 separate times (and 6 separate themes) this year. We've been
+        overwhelmed by the community's response to our plans and are looking forward to the event itself.</p>
 
         <h2>Intreppid</h2>
 
@@ -90,7 +88,7 @@
 
         <h3>Acknowledgements</h3>
 
-        <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a>
+        <p>Many thanks to <a href="https://github.com/dequis">dx</a>, <a href="https://github.com/njb-said">njb-said</a>,
             and <a href="https://github.com/rigor789">rigor789</a> for contributing to the site. Additional thanks to
             the people in #laravel on Freenode for helping resolve issues relating to the site's development.</p>
 

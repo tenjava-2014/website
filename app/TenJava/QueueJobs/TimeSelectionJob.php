@@ -6,9 +6,51 @@ use \Github\Api\Repo;
 use \Github\Client;
 use \Github\Exception\ValidationFailedException;
 use \Illuminate\Queue\Jobs\Job;
+use TenJava\CI\BuildCreationInterface;
+use TenJava\Notification\IrcMessageBuilderInterface;
+use TenJava\Notification\IrcNotifierInterface;
+use TenJava\Repository\RepoWebhookInterface;
 
+/**
+ * Class TimeSelectionJob
+ * @package TenJava\QueueJobs
+ */
 class TimeSelectionJob {
 
+    /**
+     * @var \TenJava\CI\BuildCreationInterface
+     */
+    private $builds;
+    /**
+     * @var \TenJava\Repository\RepoWebhookInterface
+     */
+    private $webhooks;
+    /**
+     * @var \TenJava\Notification\IrcNotifierInterface
+     */
+    private $irc;
+    /**
+     * @var \TenJava\Notification\IrcMessageBuilderInterface
+     */
+    private $ircMessage;
+
+    /**
+     * @param BuildCreationInterface $builds
+     * @param \TenJava\Repository\RepoWebhookInterface $webhooks
+     * @param \TenJava\Notification\IrcNotifierInterface $irc
+     * @param \TenJava\Notification\IrcMessageBuilderInterface $ircMessage
+     */
+    public function __construct(BuildCreationInterface $builds, RepoWebhookInterface $webhooks, IrcNotifierInterface $irc, IrcMessageBuilderInterface $ircMessage) {
+        $this->builds = $builds;
+        $this->webhooks = $webhooks;
+        $this->irc = $irc;
+        $this->ircMessage = $ircMessage;
+    }
+
+    /**
+     * @param Job $job
+     * @param $data
+     */
     public function fire(Job $job, $data) {
         $client = $this->getRepoApiClient();
         if ($data['t1']) {
@@ -23,12 +65,19 @@ class TimeSelectionJob {
         $job->delete();
     }
 
+    /**
+     * @param $username
+     * @param Repo $client
+     */
     public function addUserRepo($username, Repo $client) {
         try {
             $client->create($username, 'Repository for a ten.java submission.', 'http://tenjava.com', true, null, false, false, false, null, true);
         } catch (ValidationFailedException $e) {
             // oh no!
         }
+        $this->builds->createJob($username);
+        $this->webhooks->addWebhook($username);
+        $this->irc->sendMessage("#ten.judge", $this->ircMessage->insertText("jkcclemens: I have good news! ")->insertSecureText($username)->insertText(" has chosen a time and needs a repo template :D"));
     }
 
     /**

@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
+use TenJava\CI\BuildCreationInterface;
 use TenJava\Models\Application;
 use TenJava\Repository\RepositoryActionInterface;
 
@@ -29,14 +30,20 @@ class JenkinsJobCommand extends Command {
     protected $description = 'Adds jenkins jobs.';
 
     private $jobConfig;
+    /**
+     * @var \TenJava\CI\BuildCreationInterface
+     */
+    private $builds;
 
     /**
      * Create a new command instance.
      *
+     * @param \TenJava\CI\BuildCreationInterface $builds
      * @return \TenJava\Commands\JenkinsJobCommand
      */
-    public function __construct() {
+    public function __construct(BuildCreationInterface $builds) {
         parent::__construct();
+        $this->builds = $builds;
     }
 
     /**
@@ -45,7 +52,7 @@ class JenkinsJobCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $this->jobConfig = (new Filesystem())->get(base_path() . '/../app_config/config.xml');
+
         /** @var \TenJava\Repository\EloquentRepositoryAction $repoAction */
         $repoAction = App::make("\\TenJava\\Repository\\RepositoryActionInterface");
         $done = $repoAction->getReposForAction("jenkins");
@@ -74,19 +81,7 @@ class JenkinsJobCommand extends Command {
                     $this->info("Skip! " . $toCheck);
                     continue;
                 }
-
-                $jobConfig = str_replace("%%REPO_NAME%%", $repoName, $this->jobConfig);
-                $this->info("Creating jenkins job for " . $repoName);
-                $client = new Client();
-                $resp = $client->post("http://ci.tenjava.com/createItem", [
-                    "auth" => [
-                        'tenjava',
-                        Config::get("webhooks.jenkins_token")],
-                    "query" => ["name" => $repoName],
-                    "headers" => ["Content-Type" => "application/xml"],
-                    "body" => $jobConfig, "debug" => true]);
-                echo $resp->getStatusCode();
-
+                $this->builds->createJob($repoName);
                 $this->info("Adding action to list...");
                 $toFinalize[] = $repoName;
             }

@@ -63,7 +63,7 @@ class WebhookController extends BaseController {
             $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertMungedText($job)->insertText(" finished with status ")->insertSecureText($status);
         }
 
-        $this->irc->sendMessage("#ten.java", $message);
+        $this->irc->sendMessage("#ten.commits", $message);
         return Response::json("OK");
     }
 
