@@ -23,5 +23,5 @@ return array(
   "Intreppid" => "Intreppid has kindly provided us with a dedicated server that we'll be using to build and test all submissions. See the About page for more.",
   "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!",
   "cindyker" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= ",
-  "kashike" => "Java developer/Bukkit forker. I love kittens :3",
+  "Kashike" => "Java developer/Bukkit forker. I love kittens :3",
 );
