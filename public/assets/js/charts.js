@@ -25,7 +25,21 @@ $(function() {
     ];
 
     new Chart(ctx).PolarArea(data, {
+        responsive: true,
         legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
     });
+
+    var timestamps = [];
+    var values = [];
+    $.getJSON("/api/points", function(data) {
+        $.each(data.recent_transactions, function(item) {
+            if (!$.inArray(item.curse-timestamp, timestamps)) {
+                timestamps.push(item.curse-timestamp);
+                values[item.curse-timestamp] += item.amount;
+            }
+        });
+        console.log(timestamps);
+        console.log(values);
+    })
 
 });
