@@ -7,7 +7,8 @@
     <div class="grid-container">
         <div class="grid-100">
             <h2>Chosen times</h2>
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <div id="chosenTimesData" data-t1="{{{ $times->t1 }}}" data-t2="{{{ $times->t2 }}}" data-t3="{{{ $times->t3 }}}"></div>
+            <canvas id="chosenTimes" width="400" height="400"></canvas>
         </div>
     </div>
 </div>

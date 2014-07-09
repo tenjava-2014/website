@@ -1,40 +1,29 @@
 $(function() {
     Chart.defaults.global.showTooltips = true;
     var ctx = $("#myChart").get(0).getContext("2d");
+    var $timesData = $("#chosenTimesData");
     var data = [
         {
-            value: 300,
+            value: $timesData.data("t1"),
             color:"#F7464A",
             highlight: "#FF5A5E",
-            label: "Red"
+            label: "Time 1"
         },
         {
-            value: 50,
+            value: $timesData.data("t2"),
             color: "#46BFBD",
             highlight: "#5AD3D1",
-            label: "Green"
+            label: "Time 2"
         },
         {
-            value: 100,
+            value: $timesData.data("t3"),
             color: "#FDB45C",
             highlight: "#FFC870",
-            label: "Yellow"
-        },
-        {
-            value: 40,
-            color: "#949FB1",
-            highlight: "#A8B3C5",
-            label: "Grey"
-        },
-        {
-            value: 120,
-            color: "#4D5360",
-            highlight: "#616774",
-            label: "Dark Grey"
+            label: "Time 3"
         }
 
     ];
 
-    var myNewChart = new Chart(ctx).PolarArea(data);
+    new Chart(ctx).PolarArea(data);
 
 });
