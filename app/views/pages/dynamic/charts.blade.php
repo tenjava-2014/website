@@ -20,4 +20,4 @@
 @stop
 @section('post-scripts')
 <script type="application/javascript" src="{{ asset('/assets/js/charts.js') }}"></script>
-@stop
+@stop <!---->
