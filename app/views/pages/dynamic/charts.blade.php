@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('additional-scripts')
-<script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
+<script type="application/javascript" src="{{ asset('/assets/js/Chart.minjs') }}"></script>
 @stop
 @section('content')
 <div class="content-back">
