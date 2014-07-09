@@ -67,6 +67,7 @@ class Registration {
             $this->router->get('/login', function() {
                return Redirect::to("/");
             });
+            $this->router->get('/charts', 'TenJava\\Controllers\\Pages\\ChartsController@showCharts');
             $this->router->get('/logout', function() {
                 Session::clear();
                 return Redirect::to("/");
@@ -91,7 +92,6 @@ class Registration {
             $this->router->post('/list/decline', 'TenJava\\Controllers\\Application\\AppController@declineJudgeApp');
             $this->router->post('/list/accept', 'TenJava\\Controllers\\Application\\AppController@acceptJudgeApp');
             $this->router->post('/list/remove-participant', 'TenJava\\Controllers\\Application\\AppController@deleteUserEntry');
-            $this->router->get('/charts', 'TenJava\\Controllers\\Pages\\ChartsController@showCharts');
             $this->router->get('/test/admin', function() {
                 return Response::json(["env" => App::environment()]);
             });
