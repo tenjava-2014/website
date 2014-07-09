@@ -121,9 +121,9 @@ $(function() {
 
             // ** Required if scaleOverride is true **
             // Number - The number of steps in a hard coded scale
-            scaleSteps: 40,
+            scaleSteps: 30,
             // Number - The value jump in the hard coded scale
-            scaleStepWidth: 500,
+            scaleStepWidth: 1000,
             // Number - The scale starting value
             scaleStartValue: 0,
             showTooltips: false
