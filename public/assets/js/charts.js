@@ -33,9 +33,9 @@ $(function() {
     var values = [];
     $.getJSON("/api/points", function(data) {
         $.each(data.recent_transactions, function(item) {
-            if (!$.inArray(item.curse-timestamp, timestamps)) {
-                timestamps.push(item.curse-timestamp);
-                values[item.curse-timestamp] += item.amount;
+            if (!$.inArray(item['curse-timestamp'], timestamps)) {
+                timestamps.push(item['curse-timestamp']);
+                values[item['curse-timestamp']] += item.amount;
             }
         });
         console.log(timestamps);
