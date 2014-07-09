@@ -119,6 +119,9 @@ class TenJava extends ServiceProvider {
             if ($auth->isStaff()) {
                 $unsafes = " 'unsafe-inline' 'unsafe-eval'";
             }
+            if ($request->fullUrl() == "https://tenjava.com/charts") {
+                $unsafes = " 'unsafe-inline' 'unsafe-eval'";
+            }
             if ($request->secure()) {
                 // Let's be extra strict for the sake of security
                 $response->header('Content-Security-Policy',
