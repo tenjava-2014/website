@@ -114,7 +114,9 @@ $(function() {
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: cumulative
                 }
-            ],
+            ]
+        };
+        var opts = {
             scaleOverride: true,
 
             // ** Required if scaleOverride is true **
@@ -123,9 +125,10 @@ $(function() {
             // Number - The value jump in the hard coded scale
             scaleStepWidth: 500,
             // Number - The scale starting value
-            scaleStartValue: 0
+            scaleStartValue: 0,
+            showTooltips: false
         };
-        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData, {showTooltips: false});
+        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData, opts);
 
     });
 
