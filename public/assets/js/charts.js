@@ -53,11 +53,11 @@ $(function() {
         });
         console.log(timestamps);
         console.log(values);
-        var newTimestamps = [];
-        $.each(timestamps, function(index, item) {
-            newTimestamps.push(item);
+        var newValues = [];
+        $.each(values, function(index, item) {
+            newValues.push(item);
         });
-        var data = {
+        var pointsData = {
             labels: timestamps,
             datasets: [
                 {
@@ -68,11 +68,11 @@ $(function() {
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: newTimestamps
+                    data: newValues
                 }
             ]
         };
-        new Chart($("#pointData").get(0).getContext("2d")).Line(data);
+        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData);
 
     })
 
