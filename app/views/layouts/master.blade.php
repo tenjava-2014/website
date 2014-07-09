@@ -7,6 +7,7 @@
 	<link href="{{ asset('/assets/css/grid.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/assets/css/styles.css') }}?v=1.0" rel="stylesheet" />
     <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
+    @yield('additional-scripts')
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
 	<meta name="description" content="Ten hour Bukkit plugin development contest." />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
@@ -28,6 +29,7 @@
 </div>
 @include('partials.footer')
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+@yield('post-scripts')
 <script type="application/javascript" src="{{ asset('/assets/js/time-circles.js') }}"></script>
 <script type="application/javascript" src="{{ asset('/assets/js/app.js') }}"></script>
 </body>
