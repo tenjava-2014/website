@@ -100,7 +100,7 @@ $(function() {
                 }
             ]
         };
-        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData);
+        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData, {showTooltips: false});
 
     });
 
