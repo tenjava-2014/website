@@ -37,7 +37,8 @@ $(function() {
     var timestampLabels = [];
     var values = {};
     $.getJSON("/api/points", function(data) {
-        $.each(data.recent_transactions, function(index, item) {
+        var transactions = data.recent_transactions.reverse();
+        $.each(transactions, function(index, item) {
             var curseTimestamp = item['curse-timestamp'];
             if ($.inArray(curseTimestamp, timestamps) == -1) {
                 console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
