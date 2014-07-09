@@ -37,7 +37,12 @@ $(function() {
             if ($.inArray(curseTimestamp, timestamps) == -1) {
                 console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
                 timestamps.push(curseTimestamp);
-                values[curseTimestamp] += item.amount;
+                var curVal = values[curseTimestamp];
+                if (curVal == undefined) {
+                    values[curseTimestamp] = item.amount;
+                } else {
+                    values[curseTimestamp] += item.amount;
+                }
             }
         });
         console.log(timestamps);
