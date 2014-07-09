@@ -1,3 +1,7 @@
+function getDateLabel(date) {
+    return date.getFullYear() + "-" + ('0' + (date.getMonth() + 1)).slice(-2) + "-" + ('0' + date.getDate()).slice(-2);
+}
+
 $(function() {
     Chart.defaults.global.showTooltips = true;
     var ctx = $("#chosenTimes").get(0).getContext("2d");
@@ -36,7 +40,9 @@ $(function() {
             var curseTimestamp = item['curse-timestamp'];
             if ($.inArray(curseTimestamp, timestamps) == -1) {
                 console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
-                timestamps.push(curseTimestamp);
+                var dateLbl = getDateLabel(new Date(curseTimestamp));
+
+                timestamps.push(dateLbl);
                 var curVal = values[curseTimestamp];
                 if (curVal == undefined) {
                     values[curseTimestamp] = item.amount;
@@ -47,6 +53,27 @@ $(function() {
         });
         console.log(timestamps);
         console.log(values);
+        var newTimestamps = [];
+        $.each(timestamps, function(index, item) {
+            newTimestamps.push(item);
+        });
+        var data = {
+            labels: timestamps,
+            datasets: [
+                {
+                    label: "Points",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: newTimestamps
+                }
+            ]
+        };
+        new Chart($("#pointData").get(0).getContext("2d")).Line(data);
+
     })
 
 });
