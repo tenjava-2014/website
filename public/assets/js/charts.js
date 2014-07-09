@@ -29,9 +29,31 @@ $(function() {
     ];
 
     new Chart(ctx).PolarArea(data, {
-        responsive: true,
-        legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+        responsive: true
     });
+
+
+    var $participationData = $("#confirmedAppsData");
+    data = [
+        {
+            value: $participationData.data("co"),
+            color:"#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Confirmed"
+        },
+        {
+            value: $participationData.data("uc"),
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Unconfirmed"
+        }
+
+    ];
+
+    new Chart($("#confirmedApps").get(0).getContext("2d")).Pie(data, {
+        responsive: true
+    });
+
 
     var timestamps = [];
     var timestampLabels = [];
