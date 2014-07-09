@@ -34,6 +34,7 @@ $(function() {
     });
 
     var timestamps = [];
+    var timestampLabels = [];
     var values = {};
     $.getJSON("/api/points", function(data) {
         $.each(data.recent_transactions, function(index, item) {
@@ -42,7 +43,8 @@ $(function() {
                 console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
                 var dateLbl = getDateLabel(new Date(curseTimestamp * 1000));
                 dateLbl = index;
-                timestamps.push(dateLbl);
+                timestampLabels.push(dateLbl);
+                timestamps.push(curseTimestamp);
                 var curVal = values[curseTimestamp];
                 if (curVal == undefined) {
                     values[curseTimestamp] = item.amount;
@@ -58,7 +60,7 @@ $(function() {
             newValues.push(value);
         });
         var pointsData = {
-            labels: timestamps,
+            labels: timestampLabels,
             responsive: true,
             datasets: [
                 {
