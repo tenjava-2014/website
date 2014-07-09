@@ -54,8 +54,8 @@ $(function() {
         console.log(timestamps);
         console.log(values);
         var newValues = [];
-        for (value in values)
-            newValues.push(item);
+        $.each(values, function(index, value) {
+            newValues.push(value);
         });
         var pointsData = {
             labels: timestamps,
@@ -74,6 +74,6 @@ $(function() {
         };
         new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData);
 
-    })
+    });
 
 });
