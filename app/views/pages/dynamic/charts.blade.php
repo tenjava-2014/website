@@ -12,7 +12,7 @@
         </div>
         <div class="grid-100">
             <h2>Point donations</h2>
-            <canvas id="pointData"></canvas>
+            <canvas id="pointData" width="1200"></canvas>
         </div>
     </div>
 </div>
