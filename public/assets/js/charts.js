@@ -33,9 +33,11 @@ $(function() {
     var values = [];
     $.getJSON("/api/points", function(data) {
         $.each(data.recent_transactions, function(index, item) {
-            if (!$.inArray(item['curse-timestamp'], timestamps)) {
-                timestamps.push(item['curse-timestamp']);
-                values[item['curse-timestamp']] += item.amount;
+            var curseTimestamp = item['curse-timestamp'];
+            if (!$.inArray(curseTimestamp, timestamps)) {
+                console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
+                timestamps.push(curseTimestamp);
+                values[curseTimestamp] += item.amount;
             }
         });
         console.log(timestamps);
