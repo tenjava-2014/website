@@ -51,7 +51,7 @@
             }
 
         ];
-        var myNewChart = new Chart(ctx).PolarArea(data);
+        var myNewChart = new Chart(ctx).PolarArea(data, {});
     });
 
 </script>
