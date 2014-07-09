@@ -17,7 +17,7 @@
         </div>
         <div class="grid-100">
             <h2>Point donations</h2>
-            <canvas id="pointData" width="1200" height="600"></canvas>
+            <canvas id="pointData" width="1180" height="600"></canvas>
         </div>
     </div>
 </div>

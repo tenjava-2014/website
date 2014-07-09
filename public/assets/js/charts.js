@@ -81,8 +81,14 @@ $(function() {
         console.log(timestamps);
         console.log(values);
         var newValues = [];
+        var cumulative = [];
         $.each(values, function(index, value) {
             newValues.push(value);
+        });
+        var runningTotal = 0;
+        $.each(values, function(index, value) {
+            runningTotal += value;
+            cumulative.push(runningTotal);
         });
         var pointsData = {
             labels: timestampLabels,
@@ -97,6 +103,16 @@ $(function() {
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
                     data: newValues
+                },
+                {
+                    label: "Cumulative",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: cumulative
                 }
             ]
         };
