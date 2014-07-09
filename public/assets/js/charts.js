@@ -1,6 +1,6 @@
 $(function() {
     Chart.defaults.global.showTooltips = true;
-    var ctx = $("#myChart").get(0).getContext("2d");
+    var ctx = $("#chosenTimes").get(0).getContext("2d");
     var $timesData = $("#chosenTimesData");
     var data = [
         {
