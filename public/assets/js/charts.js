@@ -81,8 +81,14 @@ $(function() {
         console.log(timestamps);
         console.log(values);
         var newValues = [];
+        var cumulative = [];
         $.each(values, function(index, value) {
             newValues.push(value);
+        });
+        var runningTotal = 0;
+        $.each(values, function(index, value) {
+            runningTotal += value;
+            cumulative.push(runningTotal);
         });
         var pointsData = {
             labels: timestampLabels,
@@ -97,10 +103,32 @@ $(function() {
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
                     data: newValues
+                },
+                {
+                    label: "Cumulative",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: cumulative
                 }
             ]
         };
-        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData, {showTooltips: false});
+        var opts = {
+            scaleOverride: true,
+
+            // ** Required if scaleOverride is true **
+            // Number - The number of steps in a hard coded scale
+            scaleSteps: 30,
+            // Number - The value jump in the hard coded scale
+            scaleStepWidth: 1000,
+            // Number - The scale starting value
+            scaleStartValue: 0,
+            showTooltips: false
+        };
+        new Chart($("#pointData").get(0).getContext("2d")).Line(pointsData, opts);
 
     });
 
