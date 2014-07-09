@@ -32,10 +32,10 @@ $(function() {
     var timestamps = [];
     var values = [];
     $.getJSON("/api/points", function(data) {
-        $.each(data.recent_transactions, function(item) {
-            if (!$.inArray($(this)['curse-timestamp'], timestamps)) {
-                timestamps.push($(this)['curse-timestamp']);
-                values[$(this)['curse-timestamp']] += $(this).amount;
+        $.each(data.recent_transactions, function(index, item) {
+            if (!$.inArray(item['curse-timestamp'], timestamps)) {
+                timestamps.push(item['curse-timestamp']);
+                values[item['curse-timestamp']] += item.amount;
             }
         });
         console.log(timestamps);
