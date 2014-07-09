@@ -5,12 +5,12 @@
 @section('content')
 <div class="content-back">
     <div class="grid-container">
-        <div class="grid-50">
+        <div class="grid-100">
             <h2>Chosen times</h2>
             <div id="chosenTimesData" data-t1="{{{ $times->t1 }}}" data-t2="{{{ $times->t2 }}}" data-t3="{{{ $times->t3 }}}"></div>
             <canvas id="chosenTimes"></canvas>
         </div>
-        <div class="grid-50">
+        <div class="grid-100">
             <h2>Point donations</h2>
             <canvas id="pointData"></canvas>
         </div>
