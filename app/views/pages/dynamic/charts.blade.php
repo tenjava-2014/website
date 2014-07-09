@@ -13,46 +13,5 @@
 </div>
 @stop
 @section('post-scripts')
-<script type="application/javascript">
-    $(document).ready(function() {
-        // Get context with jQuery - using jQuery's .get() method.
-        var ctx = $("#myChart").get(0).getContext("2d");
-        // This will get the first returned node in the jQuery collection.
-        var data = [
-            {
-                value: 300,
-                color:"#F7464A",
-                highlight: "#FF5A5E",
-                label: "Red"
-            },
-            {
-                value: 50,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Green"
-            },
-            {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Yellow"
-            },
-            {
-                value: 40,
-                color: "#949FB1",
-                highlight: "#A8B3C5",
-                label: "Grey"
-            },
-            {
-                value: 120,
-                color: "#4D5360",
-                highlight: "#616774",
-                label: "Dark Grey"
-            }
-
-        ];
-        var myNewChart = new Chart(ctx).PolarArea(data, {});
-    });
-
-</script>
+<script type="application/javascript" src="{{ asset('/assets/js/charts.js') }}"></script>
 @stop
