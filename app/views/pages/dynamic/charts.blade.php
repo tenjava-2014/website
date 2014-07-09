@@ -11,6 +11,8 @@
         </div>
     </div>
 </div>
+@stop
+@section('post-scripts')
 <script type="application/javascript">
     $(document).ready(function() {
         // Get context with jQuery - using jQuery's .get() method.
