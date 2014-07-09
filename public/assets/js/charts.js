@@ -40,19 +40,21 @@ $(function() {
         var transactions = data.recent_transactions.reverse();
         $.each(transactions, function(index, item) {
             var curseTimestamp = item['curse-timestamp'];
+            console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
             if ($.inArray(curseTimestamp, timestamps) == -1) {
-                console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
                 var dateLbl = getDateLabel(new Date(curseTimestamp * 1000));
                 //dateLbl = index;
                 timestampLabels.push(dateLbl);
                 timestamps.push(curseTimestamp);
-                var curVal = values[curseTimestamp];
-                if (curVal == undefined) {
-                    values[curseTimestamp] = item.amount;
-                } else {
-                    values[curseTimestamp] += item.amount;
-                }
             }
+
+            var curVal = values[curseTimestamp];
+            if (curVal == undefined) {
+                values[curseTimestamp] = item.amount;
+            } else {
+                values[curseTimestamp] += item.amount;
+            }
+
         });
         console.log(timestamps);
         console.log(values);
