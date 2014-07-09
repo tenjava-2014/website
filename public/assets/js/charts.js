@@ -42,7 +42,7 @@ $(function() {
             if ($.inArray(curseTimestamp, timestamps) == -1) {
                 console.log("Dealing with " + item['username'] + " with a CT of " + curseTimestamp + " and amount of " + item.amount);
                 var dateLbl = getDateLabel(new Date(curseTimestamp * 1000));
-                dateLbl = index;
+                //dateLbl = index;
                 timestampLabels.push(dateLbl);
                 timestamps.push(curseTimestamp);
                 var curVal = values[curseTimestamp];
