@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('additional-scripts')
-<script type="application/javascript" src="{{ asset('/assets/js/Chart.minjs') }}"></script>
+<script type="application/javascript" src="{{ asset('/assets/js/Chart.min.js') }}"></script>
 @stop
 @section('content')
 <div class="content-back">
