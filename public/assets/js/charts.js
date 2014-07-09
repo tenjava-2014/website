@@ -34,7 +34,7 @@ $(function() {
     });
 
     var timestamps = [];
-    var values = [];
+    var values = {};
     $.getJSON("/api/points", function(data) {
         $.each(data.recent_transactions, function(index, item) {
             var curseTimestamp = item['curse-timestamp'];
@@ -54,7 +54,7 @@ $(function() {
         console.log(timestamps);
         console.log(values);
         var newValues = [];
-        $.each(values, function(index, item) {
+        for (value in values)
             newValues.push(item);
         });
         var pointsData = {
