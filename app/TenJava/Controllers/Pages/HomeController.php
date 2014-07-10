@@ -46,7 +46,7 @@ class HomeController extends BaseController {
             $viewName = "pages.static.post-home";
             $viewData['contestTimes'] = $this->contestTimes;
             $viewData['commits'] = $this->commits->getRecentCommits(5);
-            $viewData['twitch'] = $this->twitch->getOnlineStreamers(5);
+            $viewData['twitch'] = $this->twitch->getOnlineStreamers(5, true);
         }
         return View::make($viewName)->with($viewData);
     }
