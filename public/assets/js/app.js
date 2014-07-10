@@ -33,7 +33,7 @@ function calculateTimes() {
         $(this).attr("datetime", t.toISOString());
     });
     if (lowestVal != 0) {
-        setTimeout(refreshThemes, lowestVal);
+        setTimeout(refreshThemes, lowestVal * 1000);
     }
     $('time').timediff();
 }
