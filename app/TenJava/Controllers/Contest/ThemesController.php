@@ -22,17 +22,18 @@ class ThemesController extends BaseController {
     public function showThemes() {
         $this->setPageTitle("Contest themes");
         $times = $this->times;
-        $t1Status = "not started, starts in " . (new Carbon($times->getT1StartTime()))->diffForHumans();
-        $t2Status = "not started, starts in " . (new Carbon($times->getT2StartTime()))->diffForHumans();
-        $t3Status = "not started, starts in " . (new Carbon($times->getT3StartTime()))->diffForHumans();
+       
+        $t1Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT1StartTime())->diffForHumans();
+        $t2Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT2StartTime())->diffForHumans();
+        $t3Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT3StartTime())->diffForHumans();
         if ($times->isT1Active()) {
-            $t1Status = "started, ends in " . (new Carbon($times->getT1EndTime()))->diffForHumans();
+            $t1Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT1EndTime())->diffForHumans();
         }
         if ($times->isT2Active()) {
-            $t2Status = "started, ends in " . (new Carbon($times->getT2EndTime()))->diffForHumans();
+            $t2Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT2EndTime())->diffForHumans();
         }
         if ($times->isT3Active()) {
-            $t3Status = "started, ends in " . (new Carbon($times->getT3EndTime()))->diffForHumans();
+            $t3Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT3EndTime())->diffForHumans();
         }
 
         if ($times->isT1Finished()) {
