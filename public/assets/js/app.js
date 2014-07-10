@@ -22,6 +22,8 @@ function refreshCommits() {
 }
 
 $(document).ready(function () {
+    $('time').timediff();
+
     // Navigation for mobile devices
     $("#nav-toggle").click(function () {
         $("#nav-container").toggleClass("hide-on-mobile");

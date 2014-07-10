@@ -24,17 +24,17 @@ class ThemesController extends BaseController {
         $this->setPageTitle("Contest themes");
         $times = $this->times;
        
-        $t1Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT1StartTime())->diffForHumans();
-        $t2Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT2StartTime())->diffForHumans();
-        $t3Status = "not started, starts in " .  Carbon::createFromTimestamp($times->getT3StartTime())->diffForHumans();
+        $t1Status = "not started, starts in " .  $this->getTimeHtml($times->getT1StartTime());
+        $t2Status = "not started, starts in " .  $this->getTimeHtml($times->getT2StartTime());
+        $t3Status = "not started, starts in " .  $this->getTimeHtml($times->getT3StartTime());
         if ($times->isT1Active()) {
-            $t1Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT1EndTime())->diffForHumans();
+            $t1Status = "started, ends in " .  $this->getTimeHtml($times->getT1EndTime());
         }
         if ($times->isT2Active()) {
-            $t2Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT2EndTime())->diffForHumans();
+            $t2Status = "started, ends in " .  $this->getTimeHtml($times->getT2EndTime());
         }
         if ($times->isT3Active()) {
-            $t3Status = "started, ends in " .  Carbon::createFromTimestamp($times->getT3EndTime())->diffForHumans();
+            $t3Status = "started, ends in " .  $this->getTimeHtml($times->getT3EndTime());
         }
 
         if ($times->isT1Finished()) {
@@ -48,5 +48,12 @@ class ThemesController extends BaseController {
         }
 
         return View::make("pages.static.themes")->with(["times" => $times, "t1" => $t1Status, "t2" => $t2Status, "t3" => $t3Status]);
+    }
+
+    private function getTimeHtml($ts) {
+        $carbon = $this->getTimeHtml($ts);
+        $carbonStr = $carbon;
+        $str = $carbon->format('c');
+        return '<time datetime="' . $str .  '">' . $carbonStr . '</time>';
     }
 } 
