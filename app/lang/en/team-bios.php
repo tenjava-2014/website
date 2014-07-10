@@ -24,4 +24,5 @@ return array(
   "Dpasi314" => "Java / Bukkit / ShockNetwork Developer. I like cats, programming, Skyrim, Lindsey Stirling and lol768!",
   "cindyker" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= ",
   "kashike" => "Java developer/Bukkit forker. I love kittens :3",
+  "alexmack929" => "Java Developer, known wearer of top hats and network specialist. Definitely has a social life.",
 );
