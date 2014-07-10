@@ -33,18 +33,30 @@ class ContestTimes implements ContestTimesInterface {
     }
 
     function isT1Active() {
-        return ($this->getT1StartTime() < time() && time() < $this->getT1EndTime());
+        return ($this->getT1StartTime() <= time() && time() <= $this->getT1EndTime());
     }
 
     function isT2Active() {
-        return ($this->getT2StartTime() < time() && time() < $this->getT2EndTime());
+        return ($this->getT2StartTime() <= time() && time() <= $this->getT2EndTime());
     }
 
     function isT3Active() {
-        return ($this->getT3StartTime() < time() && time() < $this->getT3EndTime());
+        return ($this->getT3StartTime() <= time() && time() <= $this->getT3EndTime());
     }
 
     function getTimeUntil($event) {
         return ($event - time());
+    }
+
+    function isT1Finished() {
+        return (time() > $this->getT1EndTime());
+    }
+
+    function isT2Finished() {
+        return (time() > $this->getT2EndTime());
+    }
+
+    function isT3Finished() {
+        return (time() > $this->getT3EndTime());
     }
 }

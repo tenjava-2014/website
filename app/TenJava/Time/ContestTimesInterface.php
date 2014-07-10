@@ -12,5 +12,8 @@ interface ContestTimesInterface {
     function isT1Active();
     function isT2Active();
     function isT3Active();
+    function isT1Finished();
+    function isT2Finished();
+    function isT3Finished();
     function getTimeUntil($event);
 }
