@@ -39,15 +39,12 @@ class HomeController extends BaseController {
         $noJudges = count(Config::get("user-access.present.Judges"));
         $carbonDiff = Carbon::createFromTimeStamp(Config::get("contest-times.t1"));
         $carbonDiff = str_replace("from now", "remaining", $carbonDiff->diffForHumans());
-        $viewName = 'pages.static.home';
 
         $viewData = ["noJudges" => $noJudges, "carbonDiff" => $carbonDiff];
-        if (Input::has("new-home")) {
-            $viewName = "pages.static.post-home";
-            $viewData['contestTimes'] = $this->contestTimes;
-            $viewData['commits'] = $this->commits->getRecentCommits(5);
-            $viewData['twitch'] = $this->twitch->getOnlineStreamers(5, true);
-        }
+        $viewName = "pages.static.post-home";
+        $viewData['contestTimes'] = $this->contestTimes;
+        $viewData['commits'] = $this->commits->getRecentCommits(5);
+        $viewData['twitch'] = $this->twitch->getOnlineStreamers(5, true);
         return View::make($viewName)->with($viewData);
     }
 
