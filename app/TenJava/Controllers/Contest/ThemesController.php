@@ -59,6 +59,6 @@ class ThemesController extends BaseController {
     private function getTimeHtml($ts) {
         $carbon = Carbon::createFromTimestampUTC($ts);
         $carbonStr = $carbon->diffForHumans();
-        return '<time data-secs="' . ($ts - time()) .  '">in ' . $carbonStr . '</time>';
+        return '<time data-secs="' . (10) .  '">in ' . $carbonStr . '</time>';
     }
 } 
