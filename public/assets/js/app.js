@@ -14,7 +14,7 @@ function refreshCommits() {
             $commits.html("");
         }
         if ($commits.find("#commitHash").data("hash") != previousHash) {
-            $commits.delay(100).fadeOut("fast").fadeIn('fast');
+            $commits.find("#commitsInner").delay(100).fadeOut("fast").fadeIn('fast');
         }
         setTimeout(refreshCommits, 30000);
     });
