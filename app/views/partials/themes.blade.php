@@ -3,5 +3,20 @@
     need to choose one of the themes from your timeslot and note it in the README file. This should be the first
     thing you do at the start of your timeslot. Unsure which timeslot you selected? See <a href="/times/select">this page</a>.</p>
 <h2>Timeslot 1 ({{ $t1 }})</h2>
+@if ($times->isT1Active())
+    <p>Yay a theme would go here</p>
+@else
+    <p>The themes for this timeslot are not yet available as it has not yet started.</p>
+@endif
 <h2>Timeslot 2 ({{ $t2 }})</h2>
+@if ($times->isT1Active())
+    <p>Yay a theme would go here</p>
+@else
+    <p>The themes for this timeslot are not yet available as it has not yet started.</p>
+@endif
 <h2>Timeslot 3 ({{ $t3 }})</h2>
+@if ($times->isT1Active())
+    <p>Yay a theme would go here</p>
+@else
+    <p>The themes for this timeslot are not yet available as it has not yet started.</p>
+@endif
