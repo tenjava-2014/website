@@ -1,7 +1,9 @@
 <div class="grid-container">
-	<div class="grid-100">
-		<h3>Online streamers</h3>
-	</div>
+    @if (!isset($full))
+        <div class="grid-100">
+            <h3>Online streamers</h3>
+        </div>
+    @endif
     @foreach ($twitch as $entry)
         <div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
             <div class="twitch-snapshot">
