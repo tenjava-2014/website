@@ -2,6 +2,7 @@
 namespace TenJava\Controllers\Pages;
 
 use Input;
+use TenJava\Contest\TwitchRepositoryInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
 use Config;
@@ -20,11 +21,16 @@ class HomeController extends BaseController {
      * @var ParticipantCommitRepositoryInterface
      */
     private $commits;
+    /**
+     * @var TwitchRepositoryInterface
+     */
+    private $twitch;
 
-    public function __construct(ContestTimesInterface $contestTimes, ParticipantCommitRepositoryInterface $commits) {
+    public function __construct(ContestTimesInterface $contestTimes, ParticipantCommitRepositoryInterface $commits, TwitchRepositoryInterface $twitch) {
         parent::__construct();
         $this->contestTimes = $contestTimes;
         $this->commits = $commits;
+        $this->twitch = $twitch;
     }
 
     public function index() {
@@ -40,6 +46,7 @@ class HomeController extends BaseController {
             $viewName = "pages.static.post-home";
             $viewData['contestTimes'] = $this->contestTimes;
             $viewData['commits'] = $this->commits->getRecentCommits(5);
+            $viewData['twitch'] = $this->twitch->getOnlineStreamers(5);
         }
         return View::make($viewName)->with($viewData);
     }

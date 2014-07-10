@@ -2,47 +2,17 @@
 	<div class="grid-100">
 		<h3>Online streamers</h3>
 	</div>
-	<div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
-		<div class="twitch-snapshot">
-			<img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_nightblue3-600x400.jpg" width="100%"/>
-		</div>
-		<div class="twitch-footer">
-			lol768's stream
-		</div>
-	</div>
-	<div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
-		<div class="twitch-snapshot">
-			<img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_tsm_theoddone-600x400.jpg" width="100%"/>
-		</div>
-		<div class="twitch-footer">
-			lol768's stream
-		</div>
-	</div>
-	<div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
-		<div class="twitch-snapshot">
-			<img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_vgbootcamp-600x400.jpg" width="100%"/>
-		</div>
-		<div class="twitch-footer">
-			lol768's stream
-		</div>
-	</div>
-	<div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
-		<div class="twitch-snapshot">
-			<img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_riotgames-600x400.jpg" width="100%"/>
-		</div>
-		<div class="twitch-footer">
-			lol768's stream
-		</div>
-	</div>
-	<div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
-		<div class="twitch-snapshot">
-			<img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_nightblue3-600x400.jpg" width="100%"/>
-		</div>
-		<div class="twitch-footer">
-			lol768's stream
-		</div>
-	</div>
+    @foreach ($twitch as $entry
+        <div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
+            <div class="twitch-snapshot">
+                <img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_nightblue3-600x400.jpg">
+            </div>
+            <div class="twitch-footer">
+                {{{ $entry->gh_username }}}'s stream
+            </div>
+        </div>
+    @endforeach
 	<div class="grid-100 text-right">
-		<small><a href="#">View all streamers</a></small>
+		<small><a href="/streams">View all streamers</a></small>
 	</div>
 </div>
