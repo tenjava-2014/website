@@ -24,17 +24,18 @@ class ThemesController extends BaseController {
         $this->setPageTitle("Contest themes");
         $times = $this->times;
        
-        $t1Status = "not started, starts in " .  $this->getTimeHtml($times->getT1StartTime());
-        $t2Status = "not started, starts in " .  $this->getTimeHtml($times->getT2StartTime());
-        $t3Status = "not started, starts in " .  $this->getTimeHtml($times->getT3StartTime());
+        $t1Status = "not started, starts " .  $this->getTimeHtml($times->getT1StartTime());
+        $t2Status = "not started, starts " .  $this->getTimeHtml($times->getT2StartTime());
+        $t3Status = "not started, starts " .  $this->getTimeHtml($times->getT3StartTime());
+        $refresh = 10;
         if ($times->isT1Active()) {
-            $t1Status = "started, ends in " .  $this->getTimeHtml($times->getT1EndTime());
+            $t1Status = "started, ends " .  $this->getTimeHtml($times->getT1EndTime());
         }
         if ($times->isT2Active()) {
-            $t2Status = "started, ends in " .  $this->getTimeHtml($times->getT2EndTime());
+            $t2Status = "started, ends " .  $this->getTimeHtml($times->getT2EndTime());
         }
         if ($times->isT3Active()) {
-            $t3Status = "started, ends in " .  $this->getTimeHtml($times->getT3EndTime());
+            $t3Status = "started, ends " .  $this->getTimeHtml($times->getT3EndTime());
         }
 
         if ($times->isT1Finished()) {
@@ -53,7 +54,6 @@ class ThemesController extends BaseController {
     private function getTimeHtml($ts) {
         $carbon = Carbon::createFromTimestampUTC($ts);
         $carbonStr = $carbon->diffForHumans();
-        $str = $carbon->format('c');
-        return '<time datetime="' . $str .  '">' . $carbonStr . '</time>';
+        return '<time data-secs="' . (time() - $ts) .  '">in ' . $carbonStr . '</time>';
     }
 } 

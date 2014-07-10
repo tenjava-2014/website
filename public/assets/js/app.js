@@ -9,7 +9,7 @@ function refreshCommits() {
         return;
     }
     var previousHash = $commits.find("#commitHash").data("hash");
-    $commits.load(url, function(response, status, xhr) {
+    $commits.load(url, function (response, status, xhr) {
         if ($commits.find("#commitHash").length == 0) {
             $commits.html("");
         }
@@ -22,7 +22,13 @@ function refreshCommits() {
 }
 
 $(document).ready(function () {
-    $('time').timediff();
+    $("time").each(function () {
+        var t = new Date();
+        t.setSeconds(t.getSeconds() + $(this).data("secs"));
+        console.log(t);
+
+    });
+    //$('time').timediff();
 
     // Navigation for mobile devices
     $("#nav-toggle").click(function () {
@@ -34,7 +40,6 @@ $(document).ready(function () {
         var date = new Date($(this).data("time") * 1000);
         $(this).text(date.toString());
     });
-
 
 
     // Homepage countdown
