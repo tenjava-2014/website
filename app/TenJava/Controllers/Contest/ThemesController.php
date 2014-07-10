@@ -2,6 +2,7 @@
 namespace TenJava\Controllers\Contest;
 
 use Carbon\Carbon;
+use Input;
 use TenJava\Controllers\Abstracts\BaseController;
 use TenJava\Time\ContestTimesInterface;
 use View;
@@ -48,7 +49,11 @@ class ThemesController extends BaseController {
             $t3Status = "ended";
         }
 
-        return View::make("pages.static.themes")->with(["times" => $times, "t1" => $t1Status, "t2" => $t2Status, "t3" => $t3Status]);
+        $viewName = "pages.static.themes";
+        if (Input::has("ajax")) {
+            $viewName = "partials.themes";
+        }
+        return View::make($viewName)->with(["times" => $times, "t1" => $t1Status, "t2" => $t2Status, "t3" => $t3Status]);
     }
 
     private function getTimeHtml($ts) {

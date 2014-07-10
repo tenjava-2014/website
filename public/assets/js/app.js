@@ -21,14 +21,32 @@ function refreshCommits() {
 
 }
 
-$(document).ready(function () {
+function calculateTimes() {
+    var lowestVal = 0;
     $("time").each(function () {
         var t = new Date();
-        t.setSeconds(t.getSeconds() + $(this).data("secs"));
+        var secs = $(this).data("secs");
+        t.setSeconds(t.getSeconds() + secs);
+        if (lowestVal == 0 || secs < lowestVal) {
+            lowestVal = secs;
+        }
         $(this).attr("datetime", t.toISOString());
-
     });
+    if (lowestVal != 0) {
+        setTimeout(refreshThemes, lowestVal);
+    }
     $('time').timediff();
+}
+
+function refreshThemes() {
+    $("#themes").load("/themes?ajax=1", function() {
+        calculateTimes();
+    });
+}
+
+$(document).ready(function () {
+
+    calculateTimes();
 
     // Navigation for mobile devices
     $("#nav-toggle").click(function () {
