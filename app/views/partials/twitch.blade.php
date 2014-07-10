@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="@if (!isset($full))grid-container@endif">
     @if (!isset($full))
         <div class="grid-100">
             <h3>Online streamers</h3>
