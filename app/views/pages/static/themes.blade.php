@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-back">
     <div class="grid-container">
-        Themes here.
+        Themes will be announced when the contest starts via Twitter and IRC
     </div>
 </div>
 @stop
