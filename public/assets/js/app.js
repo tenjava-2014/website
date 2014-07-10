@@ -25,10 +25,10 @@ $(document).ready(function () {
     $("time").each(function () {
         var t = new Date();
         t.setSeconds(t.getSeconds() + $(this).data("secs"));
-        console.log(t);
+        $(this).setAttribute("datetime", t.toISOString());
 
     });
-    //$('time').timediff();
+    $('time').timediff();
 
     // Navigation for mobile devices
     $("#nav-toggle").click(function () {
