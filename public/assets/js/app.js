@@ -9,7 +9,7 @@ function refreshCommits() {
         return;
     }
     var previousHash = $commits.find("#commitHash").data("hash");
-    $commits.load(url, function(response, status, xhr) {
+    $commits.load(url, function (response, status, xhr) {
         if ($commits.find("#commitHash").length == 0) {
             $commits.html("");
         }
@@ -21,7 +21,33 @@ function refreshCommits() {
 
 }
 
+function calculateTimes() {
+    var lowestVal = 0;
+    $("time").each(function () {
+        var t = new Date();
+        var secs = $(this).data("secs");
+        t.setSeconds(t.getSeconds() + secs);
+        if (lowestVal == 0 || secs < lowestVal) {
+            lowestVal = secs + 1;
+        }
+        $(this).attr("datetime", t.toISOString());
+    });
+    if (lowestVal != 0) {
+        setTimeout(refreshThemes, lowestVal * 1000);
+    }
+    $('time').timediff();
+}
+
+function refreshThemes() {
+    $("#themes").load("/themes?ajax=1", function() {
+        calculateTimes();
+    });
+}
+
 $(document).ready(function () {
+
+    calculateTimes();
+
     // Navigation for mobile devices
     $("#nav-toggle").click(function () {
         $("#nav-container").toggleClass("hide-on-mobile");
@@ -32,7 +58,6 @@ $(document).ready(function () {
         var date = new Date($(this).data("time") * 1000);
         $(this).text(date.toString());
     });
-
 
 
     // Homepage countdown
