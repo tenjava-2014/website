@@ -1,0 +1,15 @@
+@extends('layouts.master')
+@section('content')
+<div class="content-back">
+    <div class="grid-container">
+        <div class="grid-100">
+            <h2>All online streamers</h2>
+            @if (count($twitch) == 0)
+                <p>There are no online streams.</p>
+            @else
+                @include("partials.twitch", array("full" => true))
+            @endif
+        </div>
+    </div>
+</div>
+@stop

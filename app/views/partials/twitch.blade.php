@@ -12,7 +12,9 @@
             </div>
         </div>
     @endforeach
-	<div class="grid-100 text-right">
-		<small><a href="/streams">View all streamers</a></small>
-	</div>
+    @if (!isset($full))
+        <div class="grid-100 text-right">
+            <small><a href="/streams">View all streamers</a></small>
+        </div>
+    @endif
 </div>
