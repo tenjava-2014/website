@@ -5,7 +5,7 @@
     @foreach ($twitch as $entry)
         <div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
             <div class="twitch-snapshot">
-                <img src="{{{ str_replace(['{WIDTH}', '{HEIGHT'], ['600', '400'], $entry->onlineStream->preview_template) }}}">
+                <img src="{{{ str_replace(['{WIDTH}', '{HEIGHT}'], ['600', '400'], $entry->onlineStream->preview_template) }}}">
             </div>
             <div class="twitch-footer">
                 {{{ $entry->gh_username }}}'s stream
