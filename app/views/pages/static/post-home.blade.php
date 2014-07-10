@@ -69,16 +69,16 @@
     </div>
 </div>
 @if(count($tweets) > 0)
-    @include('pages.dynamic.twitter')
+    @include('partials.twitter')
 @endif
 @if(count($twitch) > 0)
     <div id="twitch">
-        @include('pages.dynamic.twitch')
+        @include('partials.twitch')
     </div>
 @endif
 <div id="commits">
     @if(count($commits) > 0)
-        @include('pages.dynamic.commits')
+        @include('partials.commits')
     @endif
 </div>
 @stop

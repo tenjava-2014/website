@@ -55,4 +55,9 @@ class HomeController extends BaseController {
         return View::make("pages.dynamic.commits", ["commits" => $this->commits->getRecentCommits(5)]);
     }
 
+    public function showStreams() {
+        $viewData['twitch'] = $this->twitch->getOnlineStreamers();
+        return View::make("pages.dynamic.streams")->with($viewData);
+    }
+
 }
