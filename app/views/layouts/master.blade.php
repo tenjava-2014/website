@@ -32,6 +32,6 @@
 @yield('post-scripts')
 <script type="application/javascript" src="{{ asset('/assets/js/time-circles.js') }}"></script>
 <script type="application/javascript" src="{{ asset('/assets/js/jquery.timediff.min.js') }}"></script>
-<script type="application/javascript" src="{{ asset('/assets/js/app.js') }}"></script>
+<script type="application/javascript" src="{{ asset('/assets/js/app.js?v=1') }}"></script>
 </body>
 </html>
