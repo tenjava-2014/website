@@ -2,7 +2,7 @@
 	<div class="grid-100">
 		<h3>Online streamers</h3>
 	</div>
-    @foreach ($twitch as $entry
+    @foreach ($twitch as $entry)
         <div class="grid-20 mobile-grid-20 tablet-grid-20 twitch">
             <div class="twitch-snapshot">
                 <img src="http://static-cdn.jtvnw.net/previews-ttv/live_user_nightblue3-600x400.jpg">
