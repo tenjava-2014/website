@@ -23,6 +23,9 @@ $(document).ready(function () {
         }
         var previousHash = $commits.find("#commitHash").data("hash");
         $commits.load(url);
+        if ($commits.find("#commitHash").length == 0) {
+            $commits.html("");
+        }
         if ($commits.find("#commitHash").data("hash") != previousHash) {
             $commits.delay(100).fadeOut("fast").fadeIn('fast');
         }
