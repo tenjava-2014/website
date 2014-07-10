@@ -25,7 +25,7 @@ $(document).ready(function () {
     $("time").each(function () {
         var t = new Date();
         t.setSeconds(t.getSeconds() + $(this).data("secs"));
-        $(this).setAttribute("datetime", t.toISOString());
+        $(this).attr("datetime", t.toISOString());
 
     });
     $('time').timediff();
