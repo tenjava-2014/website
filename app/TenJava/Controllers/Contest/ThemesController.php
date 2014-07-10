@@ -16,6 +16,7 @@ class ThemesController extends BaseController {
      * @param ContestTimesInterface $times
      */
     public function __construct(ContestTimesInterface $times) {
+        parent::__construct();
         $this->times = $times;
     }
 
