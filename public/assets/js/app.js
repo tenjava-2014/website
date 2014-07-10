@@ -28,7 +28,7 @@ function calculateTimes() {
         var secs = $(this).data("secs");
         t.setSeconds(t.getSeconds() + secs);
         if (lowestVal == 0 || secs < lowestVal) {
-            lowestVal = secs;
+            lowestVal = secs + 1;
         }
         $(this).attr("datetime", t.toISOString());
     });
