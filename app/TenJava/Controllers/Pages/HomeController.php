@@ -49,7 +49,7 @@ class HomeController extends BaseController {
     }
 
     public function ajaxCommits() {
-        return View::make("pages.dynamic.commits", ["commits" => $this->commits->getRecentCommits(5)]);
+        return View::make("partials.commits", ["commits" => $this->commits->getRecentCommits(5)]);
     }
 
     public function showStreams() {
