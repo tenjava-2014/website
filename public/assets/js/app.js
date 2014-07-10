@@ -2,6 +2,22 @@ function formatDate(date) {
     return date.getFullYear() + "-" + ('0' + (date.getMonth() + 1)).slice(-2) + "-" + ('0' + date.getDate()).slice(-2) + " " + ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
 }
 
+function refreshCommits() {
+    var url = "/ajax/commits";
+    var $commits = $("#commits");
+    if ($commits.length == 0) {
+        return;
+    }
+    var previousHash = $commits.find("#commitHash").data("hash");
+    $commits.load(url);
+    if ($commits.find("#commitHash").length == 0) {
+        $commits.html("");
+    }
+    if ($commits.find("#commitHash").data("hash") != previousHash) {
+        $commits.delay(100).fadeOut("fast").fadeIn('fast');
+    }
+    setTimeout(refreshCommits, 30000);
+}
 
 $(document).ready(function () {
     // Navigation for mobile devices
@@ -15,22 +31,7 @@ $(document).ready(function () {
         $(this).text(date.toString());
     });
 
-    function refreshCommits() {
-        var url = "/ajax/commits";
-        var $commits = $("#commits");
-        if ($commits.length == 0) {
-            return;
-        }
-        var previousHash = $commits.find("#commitHash").data("hash");
-        $commits.load(url);
-        if ($commits.find("#commitHash").length == 0) {
-            $commits.html("");
-        }
-        if ($commits.find("#commitHash").data("hash") != previousHash) {
-            $commits.delay(100).fadeOut("fast").fadeIn('fast');
-        }
-        setTimeout(refreshCommits, 30000);
-    }
+
 
     // Homepage countdown
     // Grab the t1 time
