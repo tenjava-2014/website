@@ -17,7 +17,7 @@ class ContestTimes implements ContestTimesInterface {
     }
 
     function getT3StartTime() {
-        return Config::get("contest-times.t2");
+        return Config::get("contest-times.t3");
     }
 
     function getT1EndTime() {
