@@ -70,7 +70,8 @@ class MailInfoCommand extends Command {
                 if ($timeEntry != null) {
                     $data = $timeEntry->toArray();
                 }
-                Mail::pretend(array('text' => 'emails.final-info'), $data, function ($message) use ($chosenEmail) {
+                Mail::pretend();
+                Mail::send(array('text' => 'emails.final-info'), $data, function ($message) use ($chosenEmail) {
                     $message->from('tenjava@tenjava.com', 'ten.java Team');
                     $message->to($chosenEmail)->subject('ten.java time selection required');
                 });
