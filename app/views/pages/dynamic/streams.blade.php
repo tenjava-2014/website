@@ -2,7 +2,7 @@
 @section('content')
 <div class="content-back">
     <div class="grid-container">
-        <div class="grid-100">
+        <div class="grid-100 streams">
             <h2>All online streamers</h2>
             @if (count($twitch) == 0)
                 <p>There are no online streams.</p>
