@@ -161,7 +161,8 @@ class AppController extends BaseController {
                     'gmail' => Input::get("gdocs"),
                     'irc' => Input::get("irc"),
                     'githubAcceptable' => ($githubTest) ? "OK" : "",
-                    "dupeApp" => !$dupeApp
+                    "dupeApp" => !$dupeApp,
+                    'closed' => null
                 ),
                 array(
                     'dbo' => 'required|max:255',
@@ -169,13 +170,15 @@ class AppController extends BaseController {
                     'irc' => 'required|max:255',
                     'gmail' => 'required|email|max:255',
                     'githubAcceptable' => 'required',
-                    "dupeApp" => "accepted"
+                    "dupeApp" => "accepted",
+                    "closed" => "required"
                 ),
                 array(
                     'githubAcceptable.required' => 'Sorry, you do not meet the minimum requirements for a judge.',
                     'mc.max' => 'Invalid Minecraft username specified.',
                     'mc.required' => 'No Minecraft username specified.',
-                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user.",
+                    'closed.required' => "Sorry, judge applications have closed."
                 )
             );
             if ($validator->fails()) {

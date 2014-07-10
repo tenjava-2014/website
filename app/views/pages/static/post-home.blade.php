@@ -19,7 +19,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
-            <p><em>Participants and judges can signup until July 10th.</em></p>
+            <p><em>Participant entries will close soon. Judge applications are now closed.</em></p>
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
                 a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
@@ -45,10 +45,10 @@
                 <span class="text-light">There are currently {{ $appsData->count }} participants</span>
             </p>
 
-            <p>
+           <!--  <p>
                 <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
                 <span class="text-light">There are currently {{ $noJudges }} judges</span>
-            </p>
+            </p> -->
 			@elseif($hst == 'notime')
 	        <p>
 		        <a href="/times/select" class="button button-large button-block button-flat-action">Choose a Time</a>
@@ -69,12 +69,16 @@
     </div>
 </div>
 @if(count($tweets) > 0)
-    @include('pages.dynamic.twitter')
+    @include('partials.twitter')
 @endif
-@include('pages.dynamic.twitch')
+@if(count($twitch) > 0)
+    <div id="twitch">
+        @include('partials.twitch')
+    </div>
+@endif
 <div id="commits">
     @if(count($commits) > 0)
-        @include('pages.dynamic.commits')
+        @include('partials.commits')
     @endif
 </div>
 @stop

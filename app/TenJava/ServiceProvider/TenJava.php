@@ -35,6 +35,8 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Repository\\ParticipantCommitRepositoryInterface", "\\TenJava\\Repository\\EloquentParticipantCommitRepository");
         $app->bind("\\TenJava\\CI\\BuildCreationInterface", "\\TenJava\\CI\\JenkinsBuildCreation");
         $app->bind("\\TenJava\\Repository\\RepoWebhookInterface", "\\TenJava\\Repository\\GitHubRepoWebhook");
+        $app->bind("\\TenJava\\Contest\\ParticipantRepositoryInterface", "\\TenJava\\Contest\\EloquentParticipantRepository");
+        $app->bind("\\TenJava\\Contest\\TwitchRepositoryInterface", "\\TenJava\\Contest\\EloquentTwitchRepository");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');

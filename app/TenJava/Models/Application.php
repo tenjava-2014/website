@@ -29,6 +29,11 @@ class Application extends Model {
         return $this->hasOne('\\TenJava\\Models\\ParticipantTimes', 'user_id', 'id');
     }
 
+    public function onlineStream() {
+        /* @see \TenJava\Models\OnlineStream */
+        return $this->hasOne('\\TenJava\\Models\\OnlineStream', 'app_id', 'id');
+    }
+
     public function formatEmails() {
         $emails = json_decode($this->github_email, true);
         if (array_key_exists("public", $emails)) {

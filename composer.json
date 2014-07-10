@@ -12,7 +12,8 @@
         "doctrine/dbal": "v2.4.2",
         "pda/pheanstalk": "2.0.*",
         "thujohn/twitter": "dev-master",
-        "frozennode/administrator": "dev-master"
+        "frozennode/administrator": "dev-master",
+        "fzaninotto/faker": "1.5.*@dev"
     },
     "autoload": {
         "classmap": [

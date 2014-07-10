@@ -5,7 +5,7 @@
 	<title>{{{ $titleAdd or "ten.java" }}}</title>
 	<link rel="icon" type="image/png" href="{{ asset('/assets/img/favicon.ico') }}" />
 	<link href="{{ asset('/assets/css/grid.css') }}" rel="stylesheet" />
-	<link href="{{ asset('/assets/css/styles.css') }}?v=1.0" rel="stylesheet" />
+	<link href="{{ asset('/assets/css/styles.css') }}?v=1.11" rel="stylesheet" />
     <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
     @yield('additional-scripts')
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">

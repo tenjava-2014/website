@@ -238,6 +238,11 @@ nav {
   line-height: 1em;
 }
 
+.twitch-snapshot img {
+  width: 100%;
+  max-height: 147px;
+}
+
 a {
   text-decoration: none;
   color: #3590E6;
@@ -419,4 +424,9 @@ h3.judge-app {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.streams .twitch {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

@@ -23,6 +23,7 @@ class Registration {
         /* NO AUTH REQUIRED */
         $this->router->group(array(), function () {
             $this->router->get('/', "TenJava\\Controllers\\Pages\\HomeController@index");
+            $this->router->get('/streams', "TenJava\\Controllers\\Pages\\HomeController@showStreams");
             $this->router->get('/ajax/commits', "TenJava\\Controllers\\Pages\\HomeController@ajaxCommits");
             $this->router->get('/points', 'TenJava\\Controllers\\Pages\\PointsController@showLeaderboard');
             $this->router->get('/team', 'TenJava\\Controllers\\Pages\\TeamController@showTeam');
