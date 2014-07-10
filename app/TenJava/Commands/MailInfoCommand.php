@@ -71,10 +71,9 @@ class MailInfoCommand extends Command {
                     $data = $timeEntry->toArray();
                 }
                 $this->info(json_encode($data));
-                Mail::pretend();
                 Mail::send(array('text' => 'emails.final-info'), $data, function ($message) use ($chosenEmail) {
                     $message->from('tenjava@tenjava.com', 'ten.java Team');
-                    $message->to($chosenEmail)->subject('ten.java time selection required');
+                    $message->to($chosenEmail)->subject('ten.java info');
                 });
                 $this->comment("Email sent!");
             }
