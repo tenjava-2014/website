@@ -52,7 +52,7 @@ class ThemesController extends BaseController {
 
     private function getTimeHtml($ts) {
         $carbon = Carbon::createFromTimestampUTC($ts);
-        $carbonStr = $carbon;
+        $carbonStr = $carbon->diffForHumans();
         $str = $carbon->format('c');
         return '<time datetime="' . $str .  '">' . $carbonStr . '</time>';
     }
