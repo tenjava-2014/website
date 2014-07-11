@@ -4,19 +4,19 @@
     thing you do at the start of your timeslot. Unsure which timeslot you selected? See <a href="/times/select">this page</a>.</p>
 <h2>Timeslot 1 ({{ $t1 }})</h2>
 @if ($times->isT1Active() || $times->isT1Finished())
-    <p>Yay a theme would go here</p>
+    @include("themes.t1")
 @else
     <p>The themes for this timeslot are not yet available as it has not yet started.</p>
 @endif
 <h2>Timeslot 2 ({{ $t2 }})</h2>
 @if ($times->isT2Active() || $times->isT2Finished())
-    <p>Yay a theme would go here</p>
+    @include("themes.t2")
 @else
     <p>The themes for this timeslot are not yet available as it has not yet started.</p>
 @endif
 <h2>Timeslot 3 ({{ $t3 }})</h2>
 @if ($times->isT3Active() || $times->isT3Finished())
-    <p>Yay a theme would go here</p>
+    @include("themes.t3")
 @else
     <p>The themes for this timeslot are not yet available as it has not yet started.</p>
 @endif
