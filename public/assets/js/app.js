@@ -67,25 +67,34 @@ $(document).ready(function () {
 
     var t2 = $times.data("t2");
     var t3 = $times.data("t3");
+    var t3End = $times.data("t3") + (60 * 60 * 10);
     var $time = $(".time-circle");
     var curTime = new Date();
 
     var $contestTime = $("#contestTime");
-    if (t1 < 0 && t2 > 0) {
-        $contestTime.text("Time remaining for timeslot 1:");
-        $time.data("active-time", "t1e");
-        curTime = new Date(curTime.getTime() + (t1 * 1000) + 1000 * 60 * 60 * 10);
+    if (t1 < 0 && t2 > 0 && t3 > 0) {
+        $contestTime.text("Time until timeslot 2 start:");
+        $time.data("active-time", "t2");
+        curTime = new Date(curTime.getTime() + (t2 * 1000));
         $time.data("date", formatDate(curTime)).TimeCircles();
     } else if (t1 > 0) {
         $contestTime.text("Time until timeslot 1 start:");
         $time.data("active-time", "t1");
         curTime = new Date(curTime.getTime() + (t1 * 1000));
         $time.data("date", formatDate(curTime)).TimeCircles();
-    } else if (t1 > 0) {
-        $contestTime.text("Time until timeslot 1 start:");
-        $time.data("active-time", "t1");
-        curTime = new Date(curTime.getTime() + (t1 * 1000));
+    } else if (t1 < 0 && t2 < 0 && t3 > 0) {
+        $contestTime.text("Time until timeslot 3 start:");
+        $time.data("active-time", "t3");
+        curTime = new Date(curTime.getTime() + (t3 * 1000));
         $time.data("date", formatDate(curTime)).TimeCircles();
+    } else if (t3 < 0 && t3End > 0) {
+        $contestTime.text("Time until contest end:");
+        $time.data("active-time", "t3e");
+        curTime = new Date(curTime.getTime() + (t3End * 1000));
+        $time.data("date", formatDate(curTime)).TimeCircles();
+    } else {
+        $contestTime.text("Contest has ended.");
+        $time.hide();
     }
 
 
