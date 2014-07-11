@@ -120,7 +120,7 @@ class TimeAnnounceCommand extends Command {
                         $this->irc->sendMessage(self::CHANNEL, $msg);
                     } elseif ($minsLeft == 0) {
                         $msg = new FlareBotMessageBuilder();
-                        $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText("It's now " . $name);
+                        $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText(" It's now " . $name);
                         $this->irc->sendMessage(self::CHANNEL, $msg);
                     }
                 }
