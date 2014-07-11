@@ -21,7 +21,7 @@ use TenJava\Time\ContestTimesInterface;
 
 
 class TimeAnnounceCommand extends Command {
-    const CHANNEL = "#ten.test";
+    const CHANNEL = "#ten.java";
 
     /**
      * The console command name.
