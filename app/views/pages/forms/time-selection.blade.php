@@ -42,32 +42,17 @@
             <div class="alert block error">
                 <h4>Form errors</h4>
                 <ul>
-                    @foreach($errors->all('
-                    <li>:message</li>
-                    ') as $message)
-                    {{ $message }}
+                    @foreach($errors->all('<li>:message</li>') as $message)
+                        {{ $message }}
                     @endforeach
                 </ul>
             </div>
             @endif
 
             @if (!$existing)
-            {{ Form::open(array('url' => '/times/confirm', 'class' => 'form')) }}
-            <div class="control-group">
-                <p class="label">Please select one of these options</p>
-                <ul class="control unstyled">
-                    <li><input type="radio" id="rb1" name="rb" value="t1"><label for="rb1">Time 1</label></li>
-                    <li><input type="radio" id="rb2" name="rb" value="t2"><label for="rb2">Time 2</label></li>
-                    <li><input type="radio" id="rb3" name="rb" value="t3"><label for="rb3">Time 3</label></li>
-                    <li><input type="radio" id="rb4" name="rb" value="t1t2"><label for="rb4" class="optional">Time 1
-                            and Time 2</label></li>
-                    <li><input type="radio" id="rb5" name="rb" value="t1t3"><label for="rb5" class="optional">Time 1
-                            and Time 3</label></li>
-                </ul>
+            <div class="alert basic error">
+                <p><b>Registrations closed.</b> Sorry, participant registrations are now closed. You are no longer able to choose a time.</p>
             </div>
-
-            <input type="submit" value="Confirm selection" class="button button-block button-flat-primary">
-            {{ Form::close() }}
 
             @else
 
