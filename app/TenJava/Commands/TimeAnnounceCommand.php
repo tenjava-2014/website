@@ -84,6 +84,7 @@ class TimeAnnounceCommand extends Command {
             "the end of timeslot 1" => $this->times->getT1EndTime(),
             "the end of timeslot 2" => $this->times->getT2EndTime(),
             "the end of timeslot 3" => $this->times->getT3EndTime(),
+            "the start of the official stream" => $this->times->getT1StartTime() - (60*60),
             "participant registrations/time choices close" => 1405116000
         );
         while (time() < $this->times->getT3EndTime()) {
@@ -120,7 +121,7 @@ class TimeAnnounceCommand extends Command {
                         $this->irc->sendMessage(self::CHANNEL, $msg);
                     } elseif ($minsLeft == 0) {
                         $msg = new FlareBotMessageBuilder();
-                        $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText("It's now " . $name);
+                        $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText(" It's now " . $name);
                         $this->irc->sendMessage(self::CHANNEL, $msg);
                     }
                 }
