@@ -19,7 +19,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
-            <p><em>Participant entries will close soon. Judge applications are now closed.</em></p>
+            <p><em>Judge applications, participant registrations and time selections are now closed.</em></p>
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
                 a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
