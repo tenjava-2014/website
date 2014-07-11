@@ -51,15 +51,18 @@ class TimeController extends BaseController {
             array(
                 'time' => $rbOpt,
                 'no-existing' => $existing ? 0 : 1,
+                'closed' => null,
             ),
             array(
                 'time' => 'required|in:t1,t2,t3,t1t2,t1t3',
-                "no-existing" => "accepted"
+                "no-existing" => "accepted",
+                "closed" => "required"
             ),
             array(
                 'time.required' => 'No time selected.',
                 'time.in' => 'Unacceptable time provided.',
-                'no-existing.accepted' => "Existing time entry exists. Contact an organizer."
+                'no-existing.accepted' => "Existing time entry exists. Contact an organizer.",
+                'closed.required' => "Sorry, it's too late to choose a time."
             )
         );
 
