@@ -101,6 +101,9 @@ class TimeAnnounceCommand extends Command {
                     $this->info("In minutes, that's " . $minsLeft);
                     $this->info("In hours, that's " . ($minsLeft / 60.0));
                     if ($minsLeft < 11 && $minsLeft >= 1) {
+                        if ($minsLeft > 5 && $minsLeft != 10) {
+                            continue;
+                        }
                         $msg = new FlareBotMessageBuilder();
                         $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText(" $minsLeft " . Lang::choice("themes.announce.min", $minsLeft) . " until " . $name);
                         $this->irc->sendMessage(self::CHANNEL, $msg);
