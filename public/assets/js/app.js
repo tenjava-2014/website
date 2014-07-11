@@ -94,7 +94,7 @@ $(document).ready(function () {
             curTime = new Date(curTime.getTime() + (t3End * 1000));
             $time.data("date", formatDate(curTime)).TimeCircles();
         } else {
-            $contestTime.text("Contest has ended.");
+            $contestTime.text("Contest has ended! Check twitter for updates on judging.");
             $time.hide();
         }
     }
