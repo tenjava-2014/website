@@ -76,7 +76,7 @@ class TwitchPollCommand extends Command {
             if ($result instanceof ResponseInterface) {
                 // Interact with the response directly
                 $res = $result->json();
-                if ($res['stream'] != null) {
+                if (array_key_exists("stream", $res) && $res['stream'] != null) {
                     $streamData = ["created_at" => new DateTime, "updated_at" => new DateTime, "app_id" => $appIds[$i]['id'], "preview_template" => "http://static-cdn.jtvnw.net/previews-ttv/live_user_" . strtolower($appIds[$i]['name']) . "-{WIDTH}x{HEIGHT}.jpg"];
                     $toFinalize[] = $streamData;
                     $this->info("Twitch channel is there and online! " . json_encode($streamData));
