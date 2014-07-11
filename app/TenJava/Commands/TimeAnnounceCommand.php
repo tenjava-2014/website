@@ -84,6 +84,7 @@ class TimeAnnounceCommand extends Command {
             "the end of timeslot 1" => $this->times->getT1EndTime(),
             "the end of timeslot 2" => $this->times->getT2EndTime(),
             "the end of timeslot 3" => $this->times->getT3EndTime(),
+            "participant registrations/time choices close" => 1405116000
         );
         while (time() < $this->times->getT3EndTime()) {
             foreach ($times as $name => $ts) {
@@ -101,6 +102,9 @@ class TimeAnnounceCommand extends Command {
                     $this->info("In minutes, that's " . $minsLeft);
                     $this->info("In hours, that's " . ($minsLeft / 60.0));
                     if ($minsLeft < 11 && $minsLeft >= 1) {
+                        if ($minsLeft > 5 && $minsLeft != 10) {
+                            continue;
+                        }
                         $msg = new FlareBotMessageBuilder();
                         $msg = $msg->insertBold()->insertNavyBlue()->insertText("[Time warning]")->insertBold()->insertReset()->insertText(" $minsLeft " . Lang::choice("themes.announce.min", $minsLeft) . " until " . $name);
                         $this->irc->sendMessage(self::CHANNEL, $msg);

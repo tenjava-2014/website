@@ -39,32 +39,21 @@
                 information on Git, Maven, getting started with the contest and more.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
-	        @if($hst == 'noapp')
-            <p>
-                <a href="/register/participant" class="button button-large button-block button-flat-action">Register as Participant</a>
-                <span class="text-light">There are currently {{ $appsData->count }} participants</span>
-            </p>
 
-           <!--  <p>
-                <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
-                <span class="text-light">There are currently {{ $noJudges }} judges</span>
-            </p> -->
-			@elseif($hst == 'notime')
-	        <p>
-		        <a href="/times/select" class="button button-large button-block button-flat-action">Choose a Time</a>
-		        <span class="text-light">Pick a time for the competition</span>
-	        </p>
-	        @else
+			@if($hst == 'notime')
+            <p>You have not chosen a timeslot in the required time and cannot participate.</p>
+	        @elseif($hst != 'noapp' && $hst != 'notime')
 	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
 	        @endif
+            <p>
+                <a href="/themes" class="button button-block button-large button-flat-royal">View contest themes</a>
+                <span class="text-light">View the available themes for each timeslot.</span>
+            </p>
             <p>
                 <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
-            <p>
-                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
-                <span class="text-light">View the available themes for each timeslot.</span>
-            </p>
+
         </div>
     </div>
 </div>

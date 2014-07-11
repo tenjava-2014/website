@@ -123,15 +123,18 @@ class AppController extends BaseController {
                 array(
                     'dbo' => Input::get("dbo"),
                     'twitch' => Input::get("twitch"),
-                    "dupeApp" => !$dupeApp
+                    "dupeApp" => !$dupeApp,
+                    'closed' => null
                 ),
                 array(
                     'dbo' => 'required|max:255',
                     'twitch' => 'max:255',
-                    "dupeApp" => "accepted"
+                    "dupeApp" => "accepted",
+                    "closed" => "required"
                 ),
                 array(
-                    'dupeApp.accepted' => "An application/registration entry already exists for this user."
+                    'dupeApp.accepted' => "An application/registration entry already exists for this user.",
+                    'closed.required' => "Sorry, participant registrations have closed."
                 )
             );
             if ($validator->fails()) {

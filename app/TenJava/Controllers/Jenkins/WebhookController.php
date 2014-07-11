@@ -56,11 +56,11 @@ class WebhookController extends BaseController {
         $job = Input::get("name");
         $status = Input::get("build.status");
         if ($status === "FAILURE") {
-            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertSecureText($job)->insertText(" finished with status ")->insertRed()->insertSecureText($status);
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertSecureText($job)->insertText(" finished with status ")->insertRed()->insertSecureText($status)->insertReset()->insertText(" - " . Input::get("build.full_url"));
         } else if ($status === "SUCCESS") {
-            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertMungedText($job)->insertText(" finished with status ")->insertGreen()->insertSecureText($status);
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertMungedText($job)->insertText(" finished with status ")->insertGreen()->insertSecureText($status);
         } else {
-            $message = $this->messageBuilder->insertBold()->insertText("CI Build: ")->insertBold()->insertMungedText($job)->insertText(" finished with status ")->insertSecureText($status);
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertMungedText($job)->insertText(" finished with status ")->insertSecureText($status)->insertReset()->insertText(" - " . Input::get("build.full_url"));
         }
 
         $this->irc->sendMessage("#ten.commits", $message);
