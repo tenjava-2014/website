@@ -12,4 +12,8 @@ return array(
         "Please populate me!",
         "Please populate me!",
     ),
+    "announce" => array(
+        "min" => "minute remains|minutes remain",
+        "hour" => "hour remains|hours remain"
+    )
 );
