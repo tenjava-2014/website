@@ -45,6 +45,11 @@ class HomeController extends BaseController {
         $viewData['contestTimes'] = $this->contestTimes;
         $viewData['commits'] = $this->commits->getRecentCommits(5);
         $viewData['twitch'] = $this->twitch->getOnlineStreamers(5, true);
+        $multi = "";
+        foreach ($viewData['twitch'] as $entry) {
+            $multi .= htmlentities($entry->twitch_username . "/");
+        }
+        $viewData['multi'] = $multi;
         return View::make($viewName)->with($viewData);
     }
 
