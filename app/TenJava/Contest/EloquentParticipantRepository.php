@@ -15,6 +15,6 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
     }
 
     public function getParticipantByAuthId($id) {
-        return Application::with('commits')->where('gh_id', $id)->get();
+        return Application::with('commits')->where('gh_id', $id)->first();
     }
 }
