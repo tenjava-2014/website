@@ -1,7 +1,7 @@
 <div class="@if (!isset($full)) grid-container @endif">
     @if (!isset($full))
         <div class="grid-100">
-            <h3>Online streamers (<a href="http://multitwitch.tv/{{ $multi }}">multitwitch</a>)</h3>
+            <h3>Online streamers (<a href="http://multitwitch.tv/{{ $multi }}">multitwitch</a>, <a href="http://twitch.tv/tenjava">official stream</a>)</h3>
         </div>
     @endif
     @foreach ($twitch as $entry)
