@@ -96,6 +96,15 @@ class AppController extends BaseController {
                 $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->paginate(5);
                 //$viewData['append'] = array("conf" => "1");
                 break;
+            case "t1":
+                $viewData['apps'] = Application::whereHas('timeEntry', function($q) {$q->where('t1', true);})->get();
+                break;
+            case "t2":
+                $viewData['apps'] = Application::whereHas('timeEntry', function($q) {$q->where('t2', true);})->get();
+                break;
+            case "t3":
+                $viewData['apps'] = Application::whereHas('timeEntry', function($q) {$q->where('t3', true);})->get();
+                break;
             case "search":
                 $searchQuery = Input::get("search");
                 $viewData['apps'] = Application::search(explode(" ", $searchQuery))->paginate(5);
