@@ -15,5 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $repo
  */
 class ParticipantCommit extends Model {
+    // Quite happy to show this all as JSON
     protected $table = 'participant_commits';
 }
