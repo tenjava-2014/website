@@ -7,7 +7,7 @@
             @if (count($twitch) == 0)
                 <p>There are no online streams.</p>
             @else
-                <p>This page lists all online streams. This data was last updated {{{ $twitch[0]->created_at->diffForHumans() }}}.</p>
+                <p>This page lists all online streams. This data is updated every ten minutes.</p>
             @endif
         </div>
         @if (count($twitch) != 0)
