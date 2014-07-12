@@ -5,4 +5,5 @@ interface ParticipantRepositoryInterface {
 
     public function getConfirmedParticipants();
     public function getUnconfirmedParticipants();
+    public function getParticipantByAuthId($id);
 }

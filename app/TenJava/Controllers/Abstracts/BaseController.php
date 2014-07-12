@@ -28,6 +28,10 @@ abstract class BaseController extends Controller {
         View::share("hst", $this->hasSelectedTimes());
     }
 
+    protected function getAuth() {
+        return $this->auth;
+    }
+
     protected function hasSelectedTimes() {
         $appCount = Application::where("gh_id", $this->auth->getUserId())->where("judge", false)->first();
         if ($appCount == null) {

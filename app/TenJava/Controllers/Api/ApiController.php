@@ -7,6 +7,7 @@ use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 use Illuminate\Filesystem\Filesystem;
 use TenJava\Models\Application;
+use TenJava\Models\ParticipantCommit;
 
 class ApiController extends BaseController {
 
@@ -22,6 +23,10 @@ class ApiController extends BaseController {
             return Response::json(Application::where("judge", false)->lists("twitch_username", "gh_username"));
         }
         return Response::json(Application::where("judge", false)->lists("gh_username"));
+    }
+
+    public function didParticipantParticipate($repo) {
+        return ParticipantCommit::where("repo", $repo)->get();
     }
 
 
