@@ -13,4 +13,8 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
     public function getUnconfirmedParticipants() {
         return Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->get();
     }
+
+    public function getParticipantByAuthId($id) {
+        return Application::with('commits')->where('gh_id', $id)->get();
+    }
 }

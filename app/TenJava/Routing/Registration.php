@@ -42,6 +42,7 @@ class Registration {
         /* API - NO AUTH REQUIRED */
         $this->router->group(array(), function () {
             $this->router->get('/api/participants', 'TenJava\\Controllers\\Api\\ApiController@getParticipants');
+            $this->router->get('/api/checkParticipant', 'TenJava\\Controllers\\Api\\ApiController@didParticipantParticipate');
             $this->router->get('/api/judges', 'TenJava\\Controllers\\Api\\ApiController@getActiveJudges');
             $this->router->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Controllers\\Api\\ApiController@getConfirmedParticipants');
             $this->router->get('/api/points', 'TenJava\\Controllers\\Api\\ApiController@getPoints');
