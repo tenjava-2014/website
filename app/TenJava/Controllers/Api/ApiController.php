@@ -15,7 +15,7 @@ class ApiController extends BaseController {
         // other than GitHub usernames.
 
         if (Input::has("repos")) {
-            return Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+            return Application::with(['timeEntry','commits'])->has("timeEntry", ">", "0")->where('judge', false)->get();
         }
 
         if (Input::has("streams")) {
