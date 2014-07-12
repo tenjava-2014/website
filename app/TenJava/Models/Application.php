@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Application extends Model {
 
-    protected $visible = ["gh_username","timeEntry","commits"];
+    protected $visible = ["gh_username","timeEntry","commits","id"];
 
     public function timeEntry() {
         /* @see \TenJava\Models\ParticipantTimes */
