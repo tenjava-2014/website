@@ -69,6 +69,8 @@ class Registration {
                return Redirect::to("/");
             });
             $this->router->get('/charts', 'TenJava\\Controllers\\Pages\\ChartsController@showCharts');
+            $this->router->get('/feedback', 'TenJava\\Controllers\\Pages\\FeedbackController@showFeedback');
+            $this->router->post('/feedback', 'TenJava\\Controllers\\Pages\\FeedbackController@sendFeedback');
             $this->router->get('/logout', function() {
                 Session::clear();
                 return Redirect::to("/");

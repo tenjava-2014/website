@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Application extends Model {
 
-    protected $visible = ["gh_username","timeEntry"];
+    protected $visible = ["gh_username","timeEntry","commits"];
 
     public function timeEntry() {
         /* @see \TenJava\Models\ParticipantTimes */
@@ -32,6 +32,16 @@ class Application extends Model {
     public function onlineStream() {
         /* @see \TenJava\Models\OnlineStream */
         return $this->hasOne('\\TenJava\\Models\\OnlineStream', 'app_id', 'id');
+    }
+
+    public function feedbacks() {
+        /* @see \TenJava\Models\ParticipantFeedback */
+        return $this->hasMany('\\TenJava\\Models\\ParticipantFeedback', 'app_id', 'id');
+    }
+
+    public function commits() {
+        /* @see \TenJava\Models\ParticipantCommit */
+        return $this->hasMany('\\TenJava\\Models\\ParticipantCommit', 'app_id', 'id');
     }
 
     public function formatEmails() {

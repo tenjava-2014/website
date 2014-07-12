@@ -24,6 +24,7 @@ class ApiController extends BaseController {
         return Response::json(Application::where("judge", false)->lists("gh_username"));
     }
 
+
     public function getConfirmedParticipants($confirmed) {
         // This is a public endpoint that gives a list of applicants with no info
         // other than GitHub usernames.
