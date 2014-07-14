@@ -97,6 +97,12 @@
             <p>If you need an organizer to help set up a plugin for you (e.g. MySQL), please ask in the judge IRC
                 channel.</p>
 
+            <h2>Server issues</h2>
+
+            <p>If your server freezes or breaks, please let an organizer know so we can restart your server.
+                Additionally, if you can narrow down these issues to a specific plugin you may wish to look further
+                into the problem as it may influence final scores.</p>
+
         </article>
     </div>
 </div>
