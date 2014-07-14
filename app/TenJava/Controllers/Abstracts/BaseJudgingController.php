@@ -36,4 +36,11 @@ abstract class BaseJudgingController extends BaseController {
         }
         return $navigation;
     }
+
+    /**
+     * @return string The current page title.
+     */
+    public function getPageTitle() {
+        return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
+    }
 }
