@@ -14,7 +14,7 @@
 </head>
 <body class="judge-interface">
 <div id="wrapper">
-	@include('partials.nav')
+	@include('partials.nav', array("judgeLogo" => true))
 	<div id="point-ticker">
 		<div class="grid-container">
 			<div class="grid-20 tablet-grid-20">Actual participants: <span>0</span></div>
