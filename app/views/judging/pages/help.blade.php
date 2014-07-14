@@ -13,7 +13,7 @@
             <p>You are whitelisted and set as operator on this one-slot server. The server has 1GB of RAM. If it
                 crashes, it will automatically restart. If you stop it, it will also restart.</p>
 
-            <p>Installed on your plugin, by default, are three plugins:</p>
+            <p>Installed on your server, by default, are three plugins:</p>
 
             <ul class="task-list">
                 <li>The Remote Toolkit plugin</li>
@@ -86,7 +86,7 @@
                 <a name="user-content-plugins-that-require-worlds" class="anchor" href="#plugins-that-require-worlds"
                    rel="noreferrer"><span class="octicon octicon-link"></span></a>Plugins that require worlds</h2>
 
-            <p>If your plugin requres a world (such as world generators), Multiverse can be used. To do so, use
+            <p>If your plugin requires a world (such as world generators), Multiverse can be used. To do so, use
                 Multiverse's in-game help through <code>/mv ?</code>.</p>
 
             <h2>
