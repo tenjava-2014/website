@@ -1,6 +1,6 @@
 @extends('layouts.judging')
 @section('content')
-<div class="grid-container">
+<div class="grid-container content-back">
     <div class="grid-100">
         <article class="markdown-body js-file "
                  data-task-list-update-url="https://gist.github.com/jkcclemens/4272dfdd17ac2e7f8ff3/file/judges.md">
