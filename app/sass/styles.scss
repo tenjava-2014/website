@@ -446,3 +446,16 @@ body.judge-interface {
     color: #D17A04;
   }
 }
+
+// github markdown code styles
+.markdown-body code, .markdown-body tt {
+  margin: 0px;
+  border: 1px solid #DDD;
+  background-color: #F8F8F8;
+  border-radius: 3px;
+  padding: 0px;
+}
+tt, code, pre {
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 12px;
+}
