@@ -6,7 +6,7 @@
         <p>Welcome to your private testing server. Here are some tips to get you started.</p>
         <p>You are whitelisted and set as operator on this one-slot server. The server has 1GB of RAM. If it crashes, it
             will automatically restart. If you stop it, it will also restart.</p>
-        <p>Installed on your plugin, by default, are three plugins:</p>
+        <p>Installed on your server, by default, are three plugins:</p>
         <ul>
             <li>The Remote Toolkit plugin</li>
             <li>Multiverse Core</li>
