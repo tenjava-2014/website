@@ -430,3 +430,19 @@ h3.judge-app {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+// judge panel styles
+
+body.judge-interface {
+  nav .nav-links li a:hover, nav .nav-links li.active a {
+    background: none repeat scroll 0% 0% #DE8204;
+  }
+
+  nav {
+    border-bottom: 4px solid #DE8204;
+  }
+
+  a {
+    color: #D17A04;
+  }
+}

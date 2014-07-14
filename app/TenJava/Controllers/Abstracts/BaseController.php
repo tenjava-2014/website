@@ -13,8 +13,8 @@ use TenJava\Authentication\AuthProviderInterface;
 
 abstract class BaseController extends Controller {
 
-    private $activeNavTitle = null;
-    private $pageTitle = "";
+    protected $activeNavTitle = null;
+    protected $pageTitle = "";
     const BASE_TITLE = "ten.java 2014";
     /**
      * @var AuthProviderInterface
