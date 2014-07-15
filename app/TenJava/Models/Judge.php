@@ -25,6 +25,7 @@ use Illuminate\Database\Query\Builder;
  */
 class Judge extends Model {
     protected $guarded = ['id', 'updated_at', 'created_at'];
+    protected $hidden = ['minecraft_username'];
 
     public function claims() {
         return $this->hasMany("TenJava\\Models\\JudgeClaim", "judge_id", "id");
