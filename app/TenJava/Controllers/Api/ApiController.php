@@ -77,10 +77,11 @@ class ApiController extends BaseController {
     }
 
     public function getActiveJudges() {
-        if (Input::has("claims")) {
-            return Response::json($this->claims->getAllJudgesWithClaims());
-        }
         return Response::json($this->auth->getAllJudges());
+    }
+
+    public function getJudgeClaims() {
+        return Response::json($this->claims->getAllJudgesWithClaims());
     }
 
     public function getSessionData() {

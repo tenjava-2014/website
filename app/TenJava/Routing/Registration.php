@@ -49,6 +49,11 @@ class Registration {
             $this->router->get('/api/session', 'TenJava\\Controllers\\Api\\ApiController@getSessionData');
         });
 
+        /* AUTHED API CLIENTS ONLY */
+        $this->router->group(array('before' => 'ProtectedApiFilter'), function () {
+            $this->router->get('/api/judges/claims', 'TenJava\\Controllers\\Api\\ApiController@getJudgeClaims');
+        });
+
         /* GITHUB WEBHOOKS */
         $this->router->group(array(), function () {
             $this->router->post('/webhook/fire', 'TenJava\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
@@ -102,6 +107,5 @@ class Registration {
                 return Response::json(["env" => App::environment()]);
             });
         });
-
     }
 }
