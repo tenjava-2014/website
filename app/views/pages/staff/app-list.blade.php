@@ -58,7 +58,7 @@
             @if ($app->timeEntry == null)
                 <td>User has not yet selected a time!</td>
             @else
-                <td>{{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t1", "Time 1") : "" }} {{ $app->timeEntry->t2 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t2", "Time 2") : "" }} {{ $app->timeEntry->t3 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t3", "Time 3") : "" }}</td>
+                <td>{{ $app->timeEntry-getTimesLinks(1) }} {{ $app->timeEntry-getTimesLinks(2) }} {{ $app->timeEntry-getTimesLinks(3) }}</td>
             @endif
         </tr>
         @endif
@@ -87,7 +87,7 @@
         </tr>
         <tr>
             <td># Commits</td>
-            <td>{{{ $app->commits()->count() }}}</td>
+            <td>{{{ $app->commits()->count() }}} @if($app->commits()->count() > 0) <a href="https://github.com/"</td>
         </tr>
         @endif
         @if ($fullAccess && $app->judge)
