@@ -20,6 +20,7 @@ class ApiController extends BaseController {
      * @param JudgeClaimsInterface $claims
      */
     public function __construct(JudgeClaimsInterface $claims) {
+        parent::__construct();
         $this->claims = $claims;
     }
 
