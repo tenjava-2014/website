@@ -58,7 +58,7 @@
             @if ($app->timeEntry === null)
                 <td>User didn't select a time.</td>
             @else
-                <td>{{ $app->timeEntry-getTimesLinks(1) }} {{ $app->timeEntry-getTimesLinks(2) }} {{ $app->timeEntry-getTimesLinks(3) }}</td>
+                <td>{{ $app->timeEntry->getTimesLinks(1) }} {{ $app->timeEntry->getTimesLinks(2) }} {{ $app->timeEntry->getTimesLinks(3) }}</td>
             @endif
         </tr>
         @endif
