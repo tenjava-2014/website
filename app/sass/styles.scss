@@ -469,18 +469,27 @@ tt, code, pre {
 blockquote.feedback {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  margin-left: 0px;
+  position: relative;
+  quotes: "\201C" "\201D" "\2018" "\2019"
 }
-blockquote.feedback:before {
+
+blockquote.feedback:after {
   color: #ccc;
   content: open-quote;
   font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+  position: absolute;
+  right: 10px;
+  top: 15px;
 }
+
 blockquote.feedback p {
-  display: inline;
+  display: inline
+}
+
+blockquote.feedback span.username {
+  display: block;
+  color: #777;
+  font-size: 0.8em;
 }
