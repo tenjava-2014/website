@@ -8,7 +8,12 @@
         </div>
         <div class="grid-20">
             <h2>Cat picture :3</h2>
-            <img src="http://lorempixel.com/600/400/cats/" style="width: 100%;">
+            <?php
+            $width = rand(600,700);
+            $height = $width / 6;
+            $height *= 4;
+            ?>
+            <img src="http://placekitten.com/{{ $width }}/{{ $height }}" style="width: 100%; max-width: 450px;">
         </div>
     </div>
 </div>
