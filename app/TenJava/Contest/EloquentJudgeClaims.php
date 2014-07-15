@@ -15,6 +15,6 @@ class EloquentJudgeClaims implements JudgeClaimsInterface {
     }
 
     public function getAllJudgesWithClaims() {
-        return ExposedJudge::with("claims")->get();
+        return ExposedJudge::with("claims.result")->get();
     }
 }

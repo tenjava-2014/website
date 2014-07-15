@@ -28,6 +28,7 @@ class Judge extends Model {
     protected $hidden = ['minecraft_username'];
 
     public function claims() {
+        /** @see JudgeClaim*/
         return $this->hasMany("TenJava\\Models\\JudgeClaim", "judge_id", "id");
     }
 }

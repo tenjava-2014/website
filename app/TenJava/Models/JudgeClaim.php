@@ -24,10 +24,12 @@ class JudgeClaim extends Model {
     protected $table = "judge_claims";
 
     public function judge() {
+        /** @see Judge */
         return $this->belongsTo("TenJava\\Models\\Judge", "judge_id", "id");
     }
 
     public function result() {
+        /** @see JudgeResult */
         return $this->hasOne("TenJava\\Models\\JudgeResult", "claim_id", "id");
     }
 }
