@@ -13,7 +13,7 @@
             $height = $width / 6;
             $height *= 4;
             ?>
-            <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%; max-width: 450px; height: 450px;">
+            <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%;">
         </div>
     </div>
 </div>
