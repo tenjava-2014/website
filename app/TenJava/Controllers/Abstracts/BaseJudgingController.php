@@ -56,7 +56,8 @@ abstract class BaseJudgingController extends BaseController {
     }
 
     private function shareClaims() {
-        Log::info("getting claims");
+        Log::info("Getting claims for " . $this->auth->getJudgeId());
         $this->judgeClaims = $this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId());
+        Log::info("Got " . json_encode($this->judgeClaims));
     }
 }
