@@ -85,6 +85,10 @@
             <td>Twitch #</td>
             <td><a href="http://twitch.tv/{{{ $app->twitch_username }}}">{{{ $app->twitch_username }}}</a></td>
         </tr>
+        <tr>
+            <td># Commits</td>
+            <td>{{{ $app->commits()->count() }}}</td>
+        </tr>
         @endif
         @if ($fullAccess && $app->judge)
         <tr>
