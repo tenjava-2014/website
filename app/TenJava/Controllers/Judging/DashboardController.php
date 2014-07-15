@@ -16,7 +16,7 @@ class DashboardController extends BaseJudgingController {
     }
 
     private function getViewData() {
-        return ["judgePort" => $this->getServerPort(), "claims" => $this->judgeClaims];
+        return ["judgePort" => $this->getServerPort()];
     }
 
     private function getServerPort() {

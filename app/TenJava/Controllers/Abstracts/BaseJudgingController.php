@@ -72,5 +72,6 @@ abstract class BaseJudgingController extends BaseController {
 
     private function shareClaims() {
         $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId()));
+        View::share("claims", $this->judgeClaims);
     }
 }
