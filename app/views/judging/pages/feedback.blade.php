@@ -6,7 +6,7 @@
             <h1>Feedback</h1>
             <p>This page shows all feedback submitted by participants.</p>
             @foreach ($feedbacks as $item)
-                <p>{{{ $item->comment }}} from {{{ $item->participant->gh_username }}}</p>
+                <blockquote class="feedback"><p>{{{ $item->comment }}}</p></blockquote>
             @endforeach
         </div>
     </div>
