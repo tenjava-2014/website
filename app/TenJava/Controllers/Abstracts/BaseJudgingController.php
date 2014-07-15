@@ -5,6 +5,7 @@ use App;
 use Config;
 use Github\Client;
 use Illuminate\Routing\Controller;
+use TenJava\Contest\JudgeClaimsInterface;
 use TenJava\Models\ParticipantTimes;
 use View;
 use TenJava\Tools\UI\NavigationItem;
@@ -15,8 +16,17 @@ abstract class BaseJudgingController extends BaseController {
 
     const BASE_TITLE = "ten.java judging";
 
-    public function __construct() {
+    /**
+     * @var JudgeClaimsInterface
+     */
+    private $claimsInterface;
+
+    protected $judgeClaims;
+
+    public function __construct(JudgeClaimsInterface $claimsInterface) {
         parent::__construct();
+        $this->claimsInterface = $claimsInterface;
+        $this->shareClaims();
     }
 
     public function getNavigation() {
@@ -42,5 +52,9 @@ abstract class BaseJudgingController extends BaseController {
      */
     public function getPageTitle() {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
+    }
+
+    private function shareClaims() {
+        $this->judgeClaims = $this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId());
     }
 }

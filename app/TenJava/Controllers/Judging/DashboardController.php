@@ -23,4 +23,4 @@ class DashboardController extends BaseJudgingController {
         return 22565 + $auth->getJudgeId();
     }
 
-} 
+}
