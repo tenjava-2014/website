@@ -43,7 +43,7 @@ class FeedbackController extends BaseController {
     public function sendFeedback() {
         $validator = Validator::make(
             array(
-                'feedback' => Input::get("feedback"),
+                'feedback' => Input::get("comment"),
             ),
             array(
                 'feedback' => 'required|max:65536',

@@ -106,6 +106,7 @@ class Registration {
             $this->router->get('/test/admin', function() {
                 return Response::json(["env" => App::environment()]);
             });
+            $this->router->get('/judging/feedback', 'TenJava\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
         });
     }
 }

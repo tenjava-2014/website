@@ -24,9 +24,9 @@
 
                 {{ Form::open(array('url' => '/feedback', 'class' => 'form')) }}
                 <div class="control-group">
-                    <label for="feedback">Comments</label>
+                    <label for="comment">Comments</label>
                     <div class="control">
-                        <textarea name="feedback" id="feedback">{{{ Input::old('feedback') }}}</textarea>
+                        <textarea name="comment" id="comment">{{{ Input::old('feedback') }}}</textarea>
                     </div>
                 </div>
                 <input type="submit" value="Send feedback" class="button button-block button-flat-primary">
