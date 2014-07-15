@@ -56,9 +56,8 @@ abstract class BaseJudgingController extends BaseController {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
     }
 
-    private function processClaims() {
+    private function processClaims($claims) {
         $claimData = ["total" => 0, "done" => [], "pending" => []];
-        $claims = $this->judgeClaims;
         foreach ($claims as $claim) {
             /** @var $claim JudgeClaim */
             if ($claim->result != null) {

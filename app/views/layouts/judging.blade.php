@@ -19,9 +19,9 @@
 		<div class="grid-container">
 			<div class="grid-20 tablet-grid-20">Actual participants: <span>0</span></div>
 			<div class="grid-20 tablet-grid-20">Turnout: <span>0</span></div>
-			<div class="grid-20 tablet-grid-20">Assigned entries: <span>0</span></div>
-			<div class="grid-20 tablet-grid-20">Completed entries: <span>0</span></div>
-			<div class="grid-20 tablet-grid-20">Entries remaining: <span>0</span></div>
+			<div class="grid-20 tablet-grid-20">Assigned entries: <span>{{{ $claims['total'] }}}</span></div>
+			<div class="grid-20 tablet-grid-20">Completed entries: <span>{{{ count($claims['done']) }}}</span></div>
+			<div class="grid-20 tablet-grid-20">Entries remaining: <span>{{{ count($claims['pending']) }}}</span></div>
 		</div>
 	</div>
 	@yield('content')
