@@ -9,7 +9,9 @@ class EloquentJudgeClaims implements JudgeClaimsInterface {
 
     public function getClaimsForJudge($judgeId) {
         Log::info("Instructed to get claims...");
-        return Judge::with("claims")->where("id", $judgeId)->firstOrFail()->claims();
+        $judge = Judge::with("claims")->where("id", $judgeId)->firstOrFail();
+        Log::info("Got judge " . json_encode($judge->toArray()));
+        return $judge->claims();
     }
 
     public function getAllJudgesWithClaims() {
