@@ -22,6 +22,8 @@ class LogViewController extends BaseJudgingController {
         $this->hmac = $hmac;
     }
 
+    // <@jkcclemens> X-Pointer-Position
+
     public function testHmac() {
         $judgeId = $this->auth->getJudgeId();
         $data = ["judge_id" => $judgeId];
