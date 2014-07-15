@@ -11,5 +11,5 @@ use Illuminate\Database\Query\Builder;
  */
 class ExposedJudge extends Judge {
     protected $table = "judges";
-    protected $visible = ["claims"];
+    protected $hidden = [];
 }
