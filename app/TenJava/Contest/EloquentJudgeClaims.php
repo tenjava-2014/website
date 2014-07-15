@@ -7,7 +7,7 @@ use TenJava\Models\Judge;
 class EloquentJudgeClaims implements JudgeClaimsInterface {
 
     public function getClaimsForJudge($judgeId) {
-        return Judge::with("claims")->whereId($judgeId)->claims();
+        return Judge::with("claims")->whereId($judgeId)->first()->claims();
     }
 
     public function getAllJudgesWithClaims() {
