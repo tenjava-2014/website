@@ -87,4 +87,12 @@ class GitHubAuthProvider implements AuthProviderInterface {
     public function getAllJudges() {
         return Judge::all()->toArray();
     }
+
+
+    /**
+     * @return int|null The user's judge id or null if they're not a judge.
+     */
+    public function getJudgeId() {
+        return ($this->judgeData !== null) ? $this->judgeData['id'] : null;
+    }
 }
