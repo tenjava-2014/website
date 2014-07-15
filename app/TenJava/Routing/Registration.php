@@ -92,6 +92,7 @@ class Registration {
         $this->router->group(array('before' => 'StaffFilter'), function () {
             $this->router->get('/judging', 'TenJava\\Controllers\\Judging\\DashboardController@showDashboard');
             $this->router->get('/judging/help', 'TenJava\\Controllers\\Judging\\HelpController@showHelp');
+            $this->router->get('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@showLatestPlugin');
             $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
             $this->router->get('/test/staff', function() {
                 return "Staff only test endpoint.";
