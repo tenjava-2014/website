@@ -5,6 +5,7 @@ use App;
 use Config;
 use Github\Client;
 use Illuminate\Routing\Controller;
+use Log;
 use TenJava\Contest\JudgeClaimsInterface;
 use TenJava\Models\ParticipantTimes;
 use View;
@@ -55,6 +56,7 @@ abstract class BaseJudgingController extends BaseController {
     }
 
     private function shareClaims() {
+        Log::info("getting claims");
         $this->judgeClaims = $this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId());
     }
 }
