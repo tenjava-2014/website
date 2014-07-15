@@ -7,6 +7,7 @@ use Github\Client;
 use Illuminate\Routing\Controller;
 use Log;
 use TenJava\Contest\JudgeClaimsInterface;
+use TenJava\Models\JudgeClaim;
 use TenJava\Models\ParticipantTimes;
 use View;
 use TenJava\Tools\UI\NavigationItem;
@@ -55,9 +56,22 @@ abstract class BaseJudgingController extends BaseController {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
     }
 
+    private function processClaims() {
+        $claimData = ["total" => 0, "done" => [], "pending" => []];
+        $claims = $this->judgeClaims;
+        foreach ($claims as $claim) {
+            /** @var $claim JudgeClaim */
+            if ($claim->result != null) {
+                $claimData['done'][] = $claim;
+            } else {
+                $claimData['pending'][] = $claim;
+            }
+            $claimData['total'] += 1;
+        }
+        return $claimData;
+    }
+
     private function shareClaims() {
-        Log::info("Getting claims for " . $this->auth->getJudgeId());
-        $this->judgeClaims = $this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId());
-        Log::info("Got " . json_encode($this->judgeClaims));
+        $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId()));
     }
 }
