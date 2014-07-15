@@ -13,6 +13,7 @@ use Illuminate\Database\Query\Builder;
  * @property integer $judge_id
  * @property string $repo_name
  * @property Judge $judge
+ * @property JudgeResult $result
  * @method static Builder|JudgeClaim whereId($value)
  * @method static Builder|JudgeClaim whereCreatedAt($value)
  * @method static Builder|JudgeClaim whereUpdatedAt($value)
@@ -24,5 +25,9 @@ class JudgeClaim extends Model {
 
     public function judge() {
         return $this->belongsTo("TenJava\\Models\\Judge", "judge_id", "id");
+    }
+
+    public function result() {
+        return $this->hasOne("TenJava\\Models\\JudgeResult", "claim_id", "id");
     }
 }

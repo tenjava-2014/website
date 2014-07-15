@@ -16,9 +16,19 @@
                 twice by two separate judges. Please do not disclose which entries you have been assigned to anyone
                 (this includes other judges/organizers).</p>
 
-            <h3>Completed plugins</h3>
+            <h3>Completed plugins ({{{ count($claims['done']) }}}/{{{ $claims['total'] }}})</h3>
+            <ul>
+                @foreach ($claims['done'] as $claim)
+                <li>{{{ $claim->repo_name }}}</li>
+                @endforeach
+            </ul>
 
-            <h3>Remaining plugins</h3>
+            <h3>Remaining plugins ({{{ count($claims['pending']) }}}/{{{ $claims['total'] }}})</h3>
+            <ul>
+                @foreach ($claims['pending'] as $claim)
+                    <li>{{{ $claim->repo_name }}}</li>
+                @endforeach
+            </ul>
         </div>
         <div class="grid-40">
             <h2>Judging Server</h2>
