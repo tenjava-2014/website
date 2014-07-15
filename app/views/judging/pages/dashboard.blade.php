@@ -19,7 +19,20 @@
                 information on the CraftBukkit/Java versions you should be using so that we can try to ensure test
                 environments are consistent.</p>
 
-            <div class="server-details"><strong>Server IP:</strong> thor.tenjava.com:{{{ $judgePort }}}<br /><strong></strong></div>
+            <h2>Plugin assignment overview</h2>
+
+            <p>We've automatically assigned all judges with a set of plugins such that each entry is judged exactly
+                twice by two separate judges. Please do not disclose which entries you have been assigned to anyone
+                (this includes other judges/organizers).</p>
+
+            <h3>Completed plugins</h3>
+
+            <h3>Remaining plugins</h3>
+
+            <div class="server-details"><strong>Server IP:</strong> thor.tenjava.com:{{{ $judgePort }}}</div>
+
+            <p>For information on how to use the tools available to you on the judging servers, see the <a
+                    href="/judging/help">help</a> page.</p>
         </div>
     </div>
 </div>

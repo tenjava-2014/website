@@ -81,19 +81,19 @@ class AppController extends BaseController {
 
         switch($filter) {
             case "judges":
-                $viewData['apps'] = Application::with('timeEntry')->where('judge', true)->paginate(5);
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->where('judge', true)->paginate(5);
                 //$viewData['append'] = array("judges" => "1");
                 break;
             case "normal":
-                $viewData['apps'] = Application::with('timeEntry')->where('judge', false)->paginate(5);
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->where('judge', false)->paginate(5);
                 //$viewData['append'] = array("normal" => "1");
                 break;
             case "unc":
-                $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->paginate(5);
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->has("timeEntry", "=", "0")->where('judge', false)->paginate(5);
                 //$viewData['append'] = array("unc" => "1");
                 break;
             case "conf":
-                $viewData['apps'] = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->paginate(5);
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->has("timeEntry", ">", "0")->where('judge', false)->paginate(5);
                 //$viewData['append'] = array("conf" => "1");
                 break;
             case "t1":
@@ -105,6 +105,9 @@ class AppController extends BaseController {
             case "t3":
                 $viewData['apps'] = Application::whereHas('timeEntry', function($q) {$q->where('t3', true);})->paginate(5);
                 break;
+            case 'turnedup':
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->has("commits", ">", "0")->where('judge', false)->paginate(5);
+                break;
             case "search":
                 $searchQuery = Input::get("search");
                 $viewData['apps'] = Application::search(explode(" ", $searchQuery))->paginate(5);
@@ -112,7 +115,7 @@ class AppController extends BaseController {
                 $viewData['keywords'] = $searchQuery;
                 break;
             default:
-                $viewData['apps'] = Application::with('timeEntry')->paginate(5);
+                $viewData['apps'] = Application::with(['timeEntry','commits'])->paginate(5);
                 break;
         }
         return View::make("pages.staff.app-list")->with($viewData);

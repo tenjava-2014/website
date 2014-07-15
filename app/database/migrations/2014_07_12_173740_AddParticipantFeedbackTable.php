@@ -28,5 +28,4 @@ class AddParticipantFeedbackTable extends Migration {
     public function down() {
         Schema::drop('participant_feedback');
     }
-
 }

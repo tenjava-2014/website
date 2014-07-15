@@ -14,7 +14,12 @@
 </div>
 
         <div class="filter">
-            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>, <a href="{{ URL::to('list/normal') }}">participant apps</a>, <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>, <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a>, <a href="{{ URL::to('list') }}">all apps</a></p>
+            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>,
+                       <a href="{{ URL::to('list/normal') }}">participant apps</a>,
+                       <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>,
+                       <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a> (<a href="{{ URL::to('list/t1') }}">1</a>, <a href="{{ URL::to('list/t2') }}">2</a>, <a href="{{ URL::to('list/t3') }}">3</a>),
+                       <a href="{{ URL::to('list/turnedup') }}">apps w/ > 1 commit</a>,
+                       <a href="{{ URL::to('list') }}">all apps</a></p>
         </div>
         <div class="search">
             <p>
