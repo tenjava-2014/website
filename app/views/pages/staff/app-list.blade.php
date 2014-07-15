@@ -55,8 +55,8 @@
         @if (!$app->judge)
         <tr>
             <td>Times</td>
-            @if ($app->timeEntry == null)
-                <td>User has not yet selected a time!</td>
+            @if ($app->timeEntry === null)
+                <td>User didn't select a time.</td>
             @else
                 <td>{{ $app->timeEntry-getTimesLinks(1) }} {{ $app->timeEntry-getTimesLinks(2) }} {{ $app->timeEntry-getTimesLinks(3) }}</td>
             @endif
@@ -87,7 +87,7 @@
         </tr>
         <tr>
             <td># Commits</td>
-            <td>{{{ $app->commits()->count() }}} @if($app->commits()->count() > 0) <a href="https://github.com/"</td>
+            <td>{{{ $app->commits()->count() }}}</td>
         </tr>
         @endif
         @if ($fullAccess && $app->judge)
