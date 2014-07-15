@@ -21,7 +21,7 @@ class ParticipantTimes extends Model {
     protected $visible = ["t1", "t2", "t3"];
 
     public function appEntry() {
-        return $this->belongsTo("\\TenJava\\Models\\Application", "id", "user_id");
+        return $this->belongsTo("\\TenJava\\Models\\Application", "user_id", "id");
     }
 
     public function getTimesLinks($n) {
