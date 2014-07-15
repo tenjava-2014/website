@@ -92,6 +92,8 @@ class TenJava extends ServiceProvider {
         $router = $this->app['router'];
         /* @see AuthenticationFilter */
         $router->filter('AuthenticationFilter', '\\TenJava\\Filters\\AuthenticationFilter');
+        /* @see ProtectedApiFilter */
+        $router->filter('ProtectedApiFilter', '\\TenJava\\Filters\\ProtectedApiFilter');
         /* @see StaffFilter */
         $router->filter('StaffFilter', '\\TenJava\\Filters\\StaffFilter');
         /* @see AdminFilter */
