@@ -30,7 +30,7 @@ class FeedbackController extends BaseController {
         $app = $this->participants->getParticipantByAuthId($gitHubId);
         /** @var $app Application */
         if ($app != null) {
-            if ($app->commits()->count() > 0) {
+            if ($app->commits->count() > 0) {
                 $viewData["tookPart"] = true;
             }
         }
