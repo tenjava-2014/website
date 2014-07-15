@@ -21,7 +21,7 @@ class DashboardController extends BaseJudgingController {
     }
 
     private function processClaims() {
-        $claimData = ["total" => 0];
+        $claimData = ["total" => 0, "done" => [], "pending" => []];
         $claims = $this->judgeClaims;
         foreach ($claims as $claim) {
             /** @var $claim JudgeClaim */
