@@ -10,5 +10,6 @@ use Illuminate\Database\Query\Builder;
  * @package TenJava\Models
  */
 class ExposedJudge extends Judge {
+    protected $table = "judges";
     protected $visible = ["claims"];
 }
