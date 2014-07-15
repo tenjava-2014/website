@@ -13,6 +13,7 @@ use Illuminate\Database\Query\Builder;
  * @property integer $github_id
  * @property string $github_name
  * @property boolean $admin
+ * @property string $minecraft_name
  * @property boolean $web_team
  * @method static Builder|Judge whereId($value)
  * @method static Builder|Judge whereCreatedAt($value)

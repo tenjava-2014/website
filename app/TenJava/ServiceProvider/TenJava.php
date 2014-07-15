@@ -98,6 +98,7 @@ class TenJava extends ServiceProvider {
         $router->filter('StaffFilter', '\\TenJava\\Filters\\StaffFilter');
         /* @see AdminFilter */
         $router->filter('AdminFilter', '\\TenJava\\Filters\\AdminFilter');
+
         /*
         |--------------------------------------------------------------------------
         | CSRF Protection Filter
@@ -108,7 +109,6 @@ class TenJava extends ServiceProvider {
         | session does not match the one given in this request, we'll bail.
         |
         */
-
         $router->filter('csrf', function () {
             if (\Session::token() != \Input::get('_token')) {
                 throw new TokenMismatchException;
