@@ -1,12 +1,15 @@
 <?php
 namespace TenJava\Controllers\Pages;
 
+use Input;
 use Redirect;
 use TenJava\Contest\ParticipantRepositoryInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use Response;
 use TenJava\Models\Application;
+use TenJava\Models\ParticipantFeedback;
 use Validator;
+use View;
 
 class FeedbackController extends BaseController {
     /**
@@ -50,7 +53,15 @@ class FeedbackController extends BaseController {
                 'feedback.required' => "Sorry, you didn't supply any feedback."
             )
         );
-        return Redirect::to("/");
+
+        if ($validator->fails()) {
+            return Redirect::to("/feedback")->withErrors($validator)->withInput();
+        }
+        $feedback = new ParticipantFeedback(Input::all());
+        $feedback->app_id = Application::where("gh_id", $this->auth->getUserId())->firstOrFail()->id;
+        $feedback->save();
+
+        return View::make("pages.result.thanks.feedback");
     }
 
 } 

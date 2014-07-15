@@ -20,4 +20,5 @@ use Illuminate\Database\Query\Builder;
  */
 class ParticipantFeedback extends Model {
     protected $table = 'participant_feedback';
+    protected $fillable = ["comment"];
 }
