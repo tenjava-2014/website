@@ -4,12 +4,24 @@ namespace TenJava\Controllers\Api;
 use Config;
 use Input;
 use Response;
+use TenJava\Contest\JudgeClaimsInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use Illuminate\Filesystem\Filesystem;
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantCommit;
 
 class ApiController extends BaseController {
+    /**
+     * @var JudgeClaimsInterface
+     */
+    private $claims;
+
+    /**
+     * @param JudgeClaimsInterface $claims
+     */
+    public function __construct(JudgeClaimsInterface $claims) {
+        $this->claims = $claims;
+    }
 
     public function getParticipants() {
         // This is a public endpoint that gives a list of applicants with no info
@@ -64,6 +76,9 @@ class ApiController extends BaseController {
     }
 
     public function getActiveJudges() {
+        if (Input::has("claims")) {
+            return Response::json($this->claims->getAllJudgesWithClaims());
+        }
         return Response::json($this->auth->getAllJudges());
     }
 
