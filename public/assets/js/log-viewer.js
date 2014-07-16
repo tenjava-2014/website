@@ -12,6 +12,7 @@ function setLogsInfo(data, replace) {
 }
 
 $(document).ready(function () {
+    setLogsInfo("Initializing...");
     var infoUrl = "/judging/logs/ajax";
     $.ajax(infoUrl, {
         type: 'GET',
