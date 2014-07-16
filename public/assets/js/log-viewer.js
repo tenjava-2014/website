@@ -11,7 +11,7 @@ function pollThor(data, signature) {
     $.ajax({
         type: 'POST',
         url: url,
-        data: data, // or JSON.stringify ({name: 'jonas'}),
+        data: JSON.stringify(data),
         success: handleThorData,
         contentType: "application/json",
         dataType: 'json',
