@@ -503,6 +503,6 @@ form legend {
 }
 
 form input[type="number"] {
-  font-weight: bold;
-  width: 50px;
+  font-weight: bold !important;
+  width: 50px !important;
 }
