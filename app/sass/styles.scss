@@ -449,6 +449,10 @@ body.judge-interface {
   a.button {
     color: #fff;
   }
+
+  #logs {
+    overflow: auto;
+  }
 }
 
 // github markdown code styles
