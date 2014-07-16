@@ -69,6 +69,9 @@ class TenJava extends ServiceProvider {
         $this->registerFilters();
         $reg = new Registration($this->app['router']);
         $reg->registerRoutes();
+    }
+
+    public function boot() {
         $this->registerFormMacros();
     }
 
