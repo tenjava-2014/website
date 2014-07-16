@@ -29,7 +29,7 @@ class JudgingController extends BaseJudgingController {
     }
 
     private function isClaimOk($claimId) {
-        Log::info("Starting claim check");
+        Log::info("Starting claim check for $claimId");
         if (count($this->judgeClaims['pending']) > 0) {
             Log::info("If passed");
             foreach ($this->judgeClaims['pending'] as $claim) {
