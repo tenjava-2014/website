@@ -4,6 +4,7 @@ namespace TenJava\Controllers\Judging;
 
 
 use Input;
+use Log;
 use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseJudgingController;
@@ -28,10 +29,16 @@ class JudgingController extends BaseJudgingController {
     }
 
     private function isClaimOk($claimId) {
+        Log::info("Starting claim check");
         if (count($this->judgeClaims['pending']) > 0) {
+            Log::info("If passed");
             foreach ($this->judgeClaims['pending'] as $claim) {
+                Log::info("Got claim {$claim->id}");
                 if ($claim->id == $claimId) {
+                    Log::info("Claim matches");
                     return true;
+                } else {
+                    Log::info("Claim doesn't match");
                 }
             }
         }
