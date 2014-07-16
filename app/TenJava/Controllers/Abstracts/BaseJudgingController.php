@@ -36,6 +36,7 @@ abstract class BaseJudgingController extends BaseController {
         $navigation['primary'] = array(
             new NavigationItem("Dashboard", "/judging"),
             new NavigationItem("Judge", "/judging/plugins"),
+            new NavigationItem("Logs", "/judging/logs"),
             new NavigationItem("Oversight", "/judging/oversight"),
             new NavigationItem("Help", "/judging/help"),
         );
