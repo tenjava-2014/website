@@ -166,7 +166,8 @@ class TenJava extends ServiceProvider {
     }
 
     private function registerFormMacros() {
-        $this->app['form']->macro('judgeField', function($name, $id, $max) use ($app) {
+        $app = $this->app;
+        $app['form']->macro('judgeField', function($name, $id, $max) use ($app) {
             $id = htmlentities($id);
             $fb = $this->app['form'];
             /** @var $fb FormBuilder */
