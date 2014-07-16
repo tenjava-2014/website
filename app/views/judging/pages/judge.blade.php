@@ -29,6 +29,17 @@
             {{ Form::judgeField("Fun/usefulness", "idea_fun", 10) }}
             {{ Form::judgeField("Expansion potential", "idea_expansion", 10) }}
             <!--!-------------------!-->
+            <legend>Execution (75 points)</legend>
+            {{ Form::judgeField("User friendliness", "execution_user_friendliness", 20) }}
+            {{ Form::judgeField("Absence of bugs", "execution_absence_bugs", 20) }}
+            {{ Form::judgeField("General plugin mechanics", "execution_general_mechanics", 35) }}
+            <!--!-------------------!-->
+            <legend>Code (100 points)</legend>
+            {{ Form::judgeField("Bukkit API use", "code_bukkit_api", 40) }}
+            {{ Form::judgeField("General Java use", "code_java", 40) }}
+            {{ Form::judgeField("Documentation", "code_documentation", 20) }}
+            <!--!-------------------!-->
+            <legend>PR</legend>
             <div class="control-group">
                 <label for="liked">Liked phrase</label>
                 <div class="control">
