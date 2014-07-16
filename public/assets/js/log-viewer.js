@@ -1,5 +1,9 @@
 function handleInfo(data) {
-    alert(JSON.stringify(data));
+    setLogsInfo("Got data from server " + JSON.stringify(data));
+}
+
+function setLogsInfo(data) {
+    $("#logs").text(data);
 }
 
 $(document).ready(function () {
