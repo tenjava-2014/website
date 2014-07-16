@@ -493,3 +493,15 @@ blockquote.feedback span.username {
   color: #777;
   font-size: 0.8em;
 }
+
+form legend {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: #eee;
+  padding: 15px 5px 15px 15px;
+}
+
+form input[type="number"] {
+  font-weight: bold;
+}

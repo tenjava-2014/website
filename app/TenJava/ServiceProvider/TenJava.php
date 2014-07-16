@@ -3,6 +3,8 @@ namespace TenJava\ServiceProvider;
 
 use App;
 use Artisan;
+use Form;
+use Illuminate\Html\FormBuilder;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
 use TenJava\Exceptions\FailedOauthException;
@@ -67,6 +69,7 @@ class TenJava extends ServiceProvider {
         $this->registerFilters();
         $reg = new Registration($this->app['router']);
         $reg->registerRoutes();
+        $this->registerFormMacros();
     }
 
     private function registerCommands() {
@@ -157,5 +160,15 @@ class TenJava extends ServiceProvider {
             }
         });
 
+    }
+
+    private function registerFormMacros() {
+        Form::macro('judgeField', function($name, $id, $max) {
+            $id = htmlentities($id);
+            $fb = App::make("FormBuilder");
+            /** @var $fb FormBuilder */
+            return '<div class="control-group"><label for="' . $id . '">' . $name . ' (' . $max . ' points)</label>
+                    <div class="control"><input value="' . $fb->old($id) . '" type="number" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '">';
+        });
     }
 }
