@@ -13,7 +13,7 @@
                    Tell us your thoughts on the themes, site, official stream, etc and anything you'd like us to take into account for next time.</p>
                 @if ($errors->any())
                     <div class="alert block error">
-                        <h4>Registration errors</h4>
+                        <h4>Submission errors</h4>
                         <ul>
                             @foreach($errors->all('<li>:message</li>') as $message)
                                 {{ $message }}
