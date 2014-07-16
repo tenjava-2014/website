@@ -2,10 +2,10 @@ function handleInfo(res, status, xhr) {
     setLogsInfo("Got data from server: " + JSON.stringify(res));
     setLogsInfo("Got signature: " + xhr.getResponseHeader("X-Signature"));
     setLogsInfo("Sending data to thor...");
-    pollThor(res);
+    pollThor(res, xhr.getResponseHeader("X-Signature"));
 }
 
-function pollThor(data) {
+function pollThor(data, signature) {
     setLogsInfo("Formulating URL...");
     var url = "http://thor.tenjava.com:8181/log?beta";
     $.ajax({
@@ -14,7 +14,10 @@ function pollThor(data) {
         data: data, // or JSON.stringify ({name: 'jonas'}),
         success: handleThorData,
         contentType: "application/json",
-        dataType: 'json'
+        dataType: 'json',
+        beforeSend: function (request) {
+            request.setRequestHeader("X-Signature", signature);
+        }
     });
 }
 
