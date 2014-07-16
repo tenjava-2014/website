@@ -66,8 +66,8 @@
             ?>
             <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%;">
             <h2>Actions</h2>
-            <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action">Request oversight</a></p>
-            <p><a href="/judging/plugins/skip" class="button button-flat-action">Skip plugin</a></p>
+            <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block">Request oversight</a></p>
+            <p><a href="/judging/plugins/skip" class="button button-flat-action button-block">Skip plugin</a></p>
         </div>
     </div>
 </div>
