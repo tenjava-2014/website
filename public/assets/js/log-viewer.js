@@ -7,7 +7,7 @@ function setLogsInfo(data, replace) {
     if (replace != undefined) {
         $logs.html(data);
     } else {
-        $logs.html($logs.text() + "<br />" + data);
+        $logs.html($logs.html() + "<br />" + data);
     }
 }
 
