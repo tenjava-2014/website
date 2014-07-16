@@ -172,7 +172,7 @@ class TenJava extends ServiceProvider {
             $fb = $this->app['form'];
             /** @var $fb FormBuilder */
             return '<div class="control-group"><label for="' . $id . '">' . $name . ' (' . $max . ' points)</label>
-                    <div class="control"><input value="' . $fb->old($id) . '" type="number" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '">';
+                    <div class="control"><input value="' . $fb->old($id) . '" type="number" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '"></div></div>';
         });
     }
 }
