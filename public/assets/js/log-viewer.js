@@ -15,6 +15,7 @@ function pollThor(data, signature) {
         dataType: 'json',
         beforeSend: function (request) {
             request.setRequestHeader("X-Signature", signature);
+            request.setRequestHeader("X-Pointer-Position", pointer);
         }
     });
 }
