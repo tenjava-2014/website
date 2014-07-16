@@ -21,13 +21,13 @@
             <div class="control-group">
                 <label for="liked_phrase">Liked phrase</label>
                 <div class="control">
-                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("input-helps.liked")]) }}
+                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("judging.input-helps.liked")]) }}
                 </div>
             </div>
             <div class="control-group">
                 <label for="comment">Improvement phrase</label>
                 <div class="control">
-                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("input-helps.improve")]) }}
+                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("judging.input-helps.improve")]) }}
                 </div>
             </div>
             <input type="submit" value="Send" class="button button-block button-flat-primary">
