@@ -1,5 +1,6 @@
-function handleInfo(data) {
-    setLogsInfo("Got data from server " + JSON.stringify(data));
+function handleInfo(res, status, xhr) {
+    setLogsInfo("Got data from server: " + JSON.stringify(res));
+    setLogsInfo("Got signature: " + xhr.getResponseHeader("X-Signature"));
 }
 
 function setLogsInfo(data, replace) {
