@@ -47,7 +47,7 @@ class FeedbackController extends BaseController {
         $validator = Validator::make(
             array(
                 'feedback' => Input::get("comment"),
-                'tookpart' => $this->userTookPart(),
+                'tookpart' => $this->userTookPart() ? "yes" : "",
             ),
             array(
                 'feedback' => 'required|max:65536',
