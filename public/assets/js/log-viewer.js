@@ -1,12 +1,10 @@
+var pointer = 0;
+
 function handleInfo(res, status, xhr) {
-    setLogsInfo("Got data from server: " + JSON.stringify(res));
-    setLogsInfo("Got signature: " + xhr.getResponseHeader("X-Signature"));
-    setLogsInfo("Sending data to thor...");
     pollThor(res, xhr.getResponseHeader("X-Signature"));
 }
 
 function pollThor(data, signature) {
-    setLogsInfo("Formulating URL...");
     var url = "http://thor.tenjava.com:8181/log?beta";
     $.ajax({
         type: 'POST',
@@ -31,7 +29,9 @@ function htmlEncode(value){
 
 
 function handleThorData(res, status, xhr) {
-    setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>", true);
+    setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>");
+    pointer = res.pointer_position;
+    setTimeout(beginLogView, 1000);
 }
 
 function setLogsInfo(data, replace) {
@@ -43,12 +43,16 @@ function setLogsInfo(data, replace) {
     }
 }
 
-$(document).ready(function () {
-    setLogsInfo("Initializing...");
+function beginLogView() {
     var infoUrl = "/judging/logs/ajax";
     $.ajax(infoUrl, {
         type: 'GET',
         dataType: 'json',
         success: handleInfo
     });
+}
+$(document).ready(function () {
+
+    setLogsInfo("");
+    beginLogView();
 });
