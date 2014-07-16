@@ -506,8 +506,7 @@ form legend {
   padding: 15px 5px 15px 15px;
 }
 
-form input[type="number"] {
-  font-weight: bold !important;
-  width: 50px !important;
+form input[type="range"] {
+  width: 50% !important;
 }
 

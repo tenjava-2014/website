@@ -108,3 +108,7 @@ $(document).ready(function () {
     $time.data("active-time", "t1");
     setTimeout(refreshCommits, 30000);
 });
+
+$("input[type=\"range\"]").on('input', function() {
+    alert($(this).val());
+});
