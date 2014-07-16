@@ -24,30 +24,10 @@
             <!--!-------------------!-->
             <legend>Idea (75 points)</legend>
             {{ Form::judgeField("Originality", "idea_originality", 15) }}
-            <div class="control-group">
-                <label for="idea_theme_conformance">Theme conformance (30 points)</label>
-                <div class="control">
-                    {{ Form::text('idea_theme_conformance', null, ['id' => 'idea_theme_conformance']) }}
-                </div>
-            </div>
-            <div class="control-group">
-                <label for="idea_complexity">Complexity (10 points)</label>
-                <div class="control">
-                    {{ Form::text('idea_complexity', null, ['id' => 'idea_complexity']) }}
-                </div>
-            </div>
-            <div class="control-group">
-                <label for="idea_fun">Fun/usefulness (10 points)</label>
-                <div class="control">
-                    {{ Form::text('idea_fun', null, ['id' => 'idea_fun']) }}
-                </div>
-            </div>
-            <div class="control-group">
-                <label for="idea_expansion">Expansion potential (10 points)</label>
-                <div class="control">
-                    {{ Form::text('idea_expansion', null, ['id' => 'idea_expansion']) }}
-                </div>
-            </div>
+            {{ Form::judgeField("Theme conformance", "idea_theme_conformance", 30) }}
+            {{ Form::judgeField("Complexity", "idea_complexity", 10) }}
+            {{ Form::judgeField("Fun/usefulness", "idea_fun", 10) }}
+            {{ Form::judgeField("Expansion potential", "idea_expansion", 10) }}
             <!--!-------------------!-->
             <div class="control-group">
                 <label for="liked">Liked phrase</label>
