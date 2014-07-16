@@ -5,7 +5,7 @@
         <div class="grid-100">
             <h1>Log viewer</h1>
             <p>This page allows you to view a realtime feed of your test server's log file.</p>
-            <div class="server-details" id="logs">Checking for JS...<br /></div>
+            <div class="server-details" id="logs">Checking for JS...</div>
         </div>
     </div>
 </div>
