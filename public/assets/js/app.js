@@ -110,5 +110,5 @@ $(document).ready(function () {
 });
 
 $("input[type=\"range\"]").on('input', function() {
-    alert($(this).val());
+    $("output[for=\""+ $(this).attr("id") + "\"]").html("(" + $(this).val() + ")");
 });
