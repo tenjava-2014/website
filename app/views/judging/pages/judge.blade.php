@@ -5,6 +5,28 @@
         <div class="grid-80">
             <h1>Judging {{{ $claim->repo_name }}}</h1>
 
+            @if ($errors->any())
+            <div class="alert block error">
+                <h4>Judging errors</h4>
+                <ul>
+                    @foreach($errors->all('<li>:message</li>') as $message)
+                    {{ $message }}
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            {{ Form::open(array('class' => 'form')) }}
+            <input type="hidden" name="claim_id" value="{{{ $claim->id }}}">
+            <div class="control-group">
+                <label for="comment">Liked phrase</label>
+                <div class="control">
+                    <textarea name="comment" id="comment">{{{ Input::old('feedback') }}}</textarea>
+                </div>
+            </div>
+            <input type="submit" value="Send" class="button button-block button-flat-primary">
+            {{ Form::close() }}
+
         </div>
         <div class="grid-20">
             <h2>Cat picture :3</h2>
