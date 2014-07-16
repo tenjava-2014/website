@@ -166,9 +166,9 @@ class TenJava extends ServiceProvider {
     }
 
     private function registerFormMacros() {
-        $this->app['form']->macro('judgeField', function($name, $id, $max) {
+        $this->app['form']->macro('judgeField', function($name, $id, $max) use ($app) {
             $id = htmlentities($id);
-            $fb = App::make("FormBuilder");
+            $fb = $this->app['form'];
             /** @var $fb FormBuilder */
             return '<div class="control-group"><label for="' . $id . '">' . $name . ' (' . $max . ' points)</label>
                     <div class="control"><input value="' . $fb->old($id) . '" type="number" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '">';
