@@ -1,6 +1,25 @@
 function handleInfo(res, status, xhr) {
     setLogsInfo("Got data from server: " + JSON.stringify(res));
     setLogsInfo("Got signature: " + xhr.getResponseHeader("X-Signature"));
+    setLogsInfo("Sending data to thor...");
+    pollThor(res);
+}
+
+function pollThor(data) {
+    setLogsInfo("Formulating URL...");
+    var url = "http://thor.tenjava.com:8181/log?beta";
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data, // or JSON.stringify ({name: 'jonas'}),
+        success: handleThorData,
+        contentType: "application/json",
+        dataType: 'json'
+    });
+}
+
+function handleThorData(res, status, xhr) {
+    setLogsInfo("Got response from thor: " + JSON.stringify(res));
 }
 
 function setLogsInfo(data, replace) {
