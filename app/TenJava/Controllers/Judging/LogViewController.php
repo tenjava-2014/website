@@ -24,6 +24,7 @@ class LogViewController extends BaseJudgingController {
 
     public function showLogs() {
         $this->setPageTitle("Log viewer");
+        $this->setActive("logs");
         return View::make("judging.pages.logs");
     }
 
