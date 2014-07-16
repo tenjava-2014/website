@@ -173,8 +173,8 @@ class TenJava extends ServiceProvider {
             /** @var $fb FormBuilder */
             $old = $fb->old($id);
             $old = ($old === null) ? "0" : $old;
-            return '<div class="control-group"><label for="' . $id . '">' . $name . ' (' . $max . ' points)</label>
-                    <div class="control"><input value="' . $old . '" type="number" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '"></div></div>';
+            return '<div class="control-group"><label for="' . $id . '">' . $name . '</label><output for="' . $id . '"></output>
+                    <div class="control"><input value="' . $old . '" type="range" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '"></div></div>';
         });
     }
 }
