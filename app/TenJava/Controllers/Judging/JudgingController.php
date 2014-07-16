@@ -30,13 +30,12 @@ class JudgingController extends BaseJudgingController {
     private function isClaimOk($claimId) {
         if (count($this->judgeClaims['pending']) > 0) {
             foreach ($this->judgeClaims['pending'] as $claim) {
-                if ($claim->id === $claimId) {
+                if ($claim->id == $claimId) {
                     return true;
                 }
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
 }
