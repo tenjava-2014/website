@@ -66,8 +66,16 @@
             ?>
             <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%;">
             <h2>Actions</h2>
-            <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block">Request oversight</a></p>
-            <p><a href="/judging/plugins/skip" class="button button-flat-action button-block">Skip plugin</a></p>
+            <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block"><i class="fa-bell fa"></i> Request oversight</a></p>
+            <p><a href="/judging/plugins/skip" class="button button-flat-action button-block"><i class="fa-forward fa"></i> Skip plugin</a></p>
+            <h2>Tips</h2>
+            <ul>
+                <li>Please remember to take breaks &ndash; don't try and judge all of your plugins at once. A couple a day is fine.</li>
+                <li>Request oversight if you are unable/concerned about rule-breaking to judge a plugin.</li>
+                <ul>
+                    <li>For minor queries, contact an organizer in IRC.</li>
+                </ul>
+            </ul>
         </div>
     </div>
 </div>
