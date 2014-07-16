@@ -22,6 +22,11 @@ class LogViewController extends BaseJudgingController {
         $this->hmac = $hmac;
     }
 
+    public function showLogs() {
+        $this->setPageTitle("Log viewer");
+        return View::make("judging.pages.logs");
+    }
+
     // <@jkcclemens> X-Pointer-Position
 
     public function testHmac() {
