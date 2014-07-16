@@ -19,9 +19,15 @@
             {{ Form::open(array('class' => 'form')) }}
             <input type="hidden" name="claim_id" value="{{{ $claim->id }}}">
             <div class="control-group">
-                <label for="comment">Liked phrase</label>
+                <label for="liked_phrase">Liked phrase</label>
                 <div class="control">
-                    <textarea name="comment" id="comment">{{{ Input::old('feedback') }}}</textarea>
+                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("input-helps.liked")]) }}
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="comment">Improvement phrase</label>
+                <div class="control">
+                    {{ Form::text('liked_phrase', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("input-helps.improve")]) }}
                 </div>
             </div>
             <input type="submit" value="Send" class="button button-block button-flat-primary">
