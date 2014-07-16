@@ -30,6 +30,10 @@ function htmlEncode(value){
 
 
 function handleThorData(res, status, xhr) {
+    if (res.bytes_read == 0) {
+        setTimeout(beginLogView, 5000);
+        return;
+    }
     setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>");
     pointer = res.pointer_position;
     setTimeout(beginLogView, 5000);
