@@ -141,7 +141,7 @@ class TenJava extends ServiceProvider {
                     "default-src 'self'; " .
                     "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; " .
                     "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com; " .
-                    "img-src 'self' https://*.githubusercontent.com http://edge.sf.hitbox.tv http://static-cdn.jtvnw.net; " . // this will likely need changing for twitch
+                    "img-src 'self' https://*.githubusercontent.com http://edge.sf.hitbox.tv http://static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
                     "script-src 'self' https://cdnjs.cloudflare.com https://platform.twitter.com" . $unsafes
@@ -153,7 +153,7 @@ class TenJava extends ServiceProvider {
                     "default-src 'self'; " .
                     "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline'; " .
                     "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com; " .
-                    "img-src 'self' https://*.githubusercontent.com edge.sf.hitbox.tv static-cdn.jtvnw.net; " . // this will likely need changing for twitch
+                    "img-src 'self' https://*.githubusercontent.com edge.sf.hitbox.tv static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
                     "script-src 'self' cdnjs.cloudflare.com platform.twitter.com" . $unsafes
