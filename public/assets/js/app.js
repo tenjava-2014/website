@@ -112,5 +112,5 @@ $(document).ready(function () {
 $("input[type=\"range\"]").on('input', function() {
     var points = $(this).val();
     var pstr = (points == 1) ? " point" : " points";
-    $("output[for=\""+ $(this).attr("id") + "\"]").html("(" + points + "/" + $(this).data("max") + pstr + ")");
+    $("output[for=\""+ $(this).attr("id") + "\"]").html("(" + points + "/" + $(this).attr("max") + pstr + ")");
 });
