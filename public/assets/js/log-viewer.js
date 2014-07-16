@@ -31,7 +31,7 @@ function htmlEncode(value){
 function handleThorData(res, status, xhr) {
     setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>");
     pointer = res.pointer_position;
-    setTimeout(beginLogView, 1000);
+    setTimeout(beginLogView, 5000);
 }
 
 function setLogsInfo(data, replace) {
@@ -53,6 +53,6 @@ function beginLogView() {
 }
 $(document).ready(function () {
 
-    setLogsInfo("");
+    setLogsInfo("", true);
     beginLogView();
 });
