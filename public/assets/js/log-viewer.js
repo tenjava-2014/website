@@ -21,8 +21,17 @@ function pollThor(data, signature) {
     });
 }
 
+function htmlEncode(value){
+    if (value) {
+        return jQuery('<div />').text(value).html();
+    } else {
+        return '';
+    }
+}
+
+
 function handleThorData(res, status, xhr) {
-    setLogsInfo("Got response from thor: " + JSON.stringify(res));
+    setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>", true);
 }
 
 function setLogsInfo(data, replace) {
