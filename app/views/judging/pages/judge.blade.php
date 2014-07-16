@@ -23,12 +23,7 @@
             <input type="hidden" name="claim_id" value="{{{ $claim->id }}}">
             <!--!-------------------!-->
             <legend>Idea (75 points)</legend>
-            <div class="control-group">
-                <label for="idea_originality">Originality (15 points)</label>
-                <div class="control">
-                    {{ Form::text('idea_originality', null, ['id' => 'idea_originality']) }}
-                </div>
-            </div>
+            {{ Form::judgeField("Originality", "idea_originality", 15) }}
             <div class="control-group">
                 <label for="idea_theme_conformance">Theme conformance (30 points)</label>
                 <div class="control">
