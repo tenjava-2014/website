@@ -71,10 +71,8 @@
             <h2>Tips</h2>
             <ul>
                 <li>Please remember to take breaks &ndash; don't try and judge all of your plugins at once. A couple a day is fine.</li>
-                <li>Request oversight if you are unable/concerned about rule-breaking to judge a plugin.</li>
-                <ul>
-                    <li>For minor queries, contact an organizer in IRC.</li>
-                </ul>
+                <li>Request oversight if you are unable to judge a plugin/concerned about rule-breaking to judge a plugin.</li>
+                <li>For minor queries, contact an organizer in IRC.</li>
             </ul>
         </div>
     </div>
