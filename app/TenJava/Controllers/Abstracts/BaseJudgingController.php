@@ -7,6 +7,7 @@ use Github\Client;
 use Illuminate\Routing\Controller;
 use Log;
 use TenJava\Contest\JudgeClaimsInterface;
+use TenJava\Contest\ParticipantRepositoryInterface;
 use TenJava\Models\JudgeClaim;
 use TenJava\Models\ParticipantTimes;
 use View;
@@ -24,11 +25,16 @@ abstract class BaseJudgingController extends BaseController {
     private $claimsInterface;
 
     protected $judgeClaims;
+    /**
+     * @var ParticipantRepositoryInterface
+     */
+    private $participants;
 
-    public function __construct(JudgeClaimsInterface $claimsInterface) {
+    public function __construct(JudgeClaimsInterface $claimsInterface, ParticipantRepositoryInterface $participants) {
         parent::__construct();
         $this->claimsInterface = $claimsInterface;
         $this->shareClaims();
+        $this->participants = $participants;
     }
 
     public function getNavigation() {
@@ -73,6 +79,10 @@ abstract class BaseJudgingController extends BaseController {
 
     private function shareClaims() {
         $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId()));
+        $turnout = [];
+        $turnout['total'] = $this->participants->getParticipantCount();
+        $turnout['real'] = $this->participants->getParticipantsWithCommitCount();
+        View::share("turnout", $turnout);
         View::share("claims", $this->judgeClaims);
     }
 }
