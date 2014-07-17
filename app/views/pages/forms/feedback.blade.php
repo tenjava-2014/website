@@ -26,7 +26,7 @@
                 <div class="control-group">
                     <label for="comment">Comments</label>
                     <div class="control">
-                        <textarea name="comment" id="comment">{{{ Input::old('feedback') }}}</textarea>
+                        <textarea name="comment" id="comment">{{{ Input::old('comment') }}}</textarea>
                     </div>
                 </div>
                 <input type="submit" value="Send feedback" class="button button-block button-flat-primary">

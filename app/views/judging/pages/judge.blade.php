@@ -8,6 +8,8 @@
                 You should be referring to our internal judging document while reviewing this submission.
                 If you think the entry needs to be disqualified or you have other concerns, please request oversight.</p>
 
+            <p><strong>I didn't have time to implement point editing! Make sure everything is right before clicking the submit button. If you really screw up, talk to jkcclemens for support.</strong></p>
+
             @if ($errors->any())
             <div class="alert block error">
                 <h4>Judging errors</h4>
