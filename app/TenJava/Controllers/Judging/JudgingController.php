@@ -20,7 +20,7 @@ class JudgingController extends BaseJudgingController {
         $this->setPageTitle("Judging");
         if (count($this->judgeClaims['pending']) > 0) {
             $viewData = ["claim" => $this->judgeClaims['pending'][0]];
-            if ($this->auth->getJudgeId() % 14 == 0 || $this->auth->getJudgeId() % 4 == 0 || $this->auth->getJudgeId() % 20 == 0 || $this->auth->getJudgeId() % 18 == 0) {
+            if ($this->auth->getJudgeId() == 14 || $this->auth->getJudgeId() == 4 || $this->auth->getJudgeId() == 20 || $this->auth->getJudgeId() == 18) {
                 $viewData['altCats'] = true;
             }
             return View::make("judging.pages.judge", $viewData);
