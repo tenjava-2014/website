@@ -34,7 +34,7 @@ function handleThorData(res, status, xhr) {
         setTimeout(beginLogView, 5000);
         return;
     }
-    setLogsInfo("<pre>" + htmlEncode(res.log_data) + "</pre>");
+    setLogsInfo(htmlEncode(res.log_data));
     pointer = res.pointer_position;
     setTimeout(beginLogView, 5000);
 }
@@ -44,7 +44,7 @@ function setLogsInfo(data, replace) {
     if (replace != undefined) {
         $logs.html(data);
     } else {
-        $logs.html($logs.html() + "<br />" + data);
+        $logs.html($logs.html() + "\n" + data);
     }
 }
 
