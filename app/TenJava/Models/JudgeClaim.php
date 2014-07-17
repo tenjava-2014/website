@@ -32,4 +32,8 @@ class JudgeClaim extends Model {
         /** @see JudgeResult */
         return $this->hasOne("TenJava\\Models\\JudgeResult", "claim_id", "id");
     }
+
+    public function oversight() {
+        return $this->hasOne("TenJava\\Models\\OversightRequest", "claim_id", "id");
+    }
 }
