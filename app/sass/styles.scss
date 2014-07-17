@@ -514,3 +514,7 @@ form input[type="range"] {
   width: 50% !important;
 }
 
+form input[type="number"] {
+  width: 50px !important;
+  font-weight: bold;
+}
