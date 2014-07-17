@@ -52,6 +52,13 @@
                     {{ Form::text('improve', null, ['id' => 'improve', 'placeholder' => Lang::get("judging.input-helps.improve")]) }}
                 </div>
             </div>
+            <legend>Internal (hidden to participant)</legend>
+            <div class="control-group">
+                <label for="improve">Judging notes</label>
+                <div class="control">
+                    {{ Form::text('internal_notes', null, ['id' => 'internal_notes', 'placeholder' => "Optional"]) }}
+                </div>
+            </div>
             <!--!-------------------!-->
             <input type="submit" value="Send" class="button button-block button-flat-primary">
             {{ Form::close() }}
