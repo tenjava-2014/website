@@ -71,8 +71,12 @@
             $width = rand(600,700);
             $height = $width / 6;
             $height *= 4;
+            $url = "http://placekitten.com/" . (int) $width . "/" . (int) $height;
+            if ($altCats) {
+                $url = "/assets/img/cats/" . rand(1,5) . ".png";
+            }
             ?>
-            <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%;">
+            <img src="{{ $url }}" style="width: 100%;">
             <h2>Actions</h2>
             <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block"><i class="fa-bell fa"></i> Request oversight</a></p>
             <!-- <p><a href="/judging/plugins/skip" class="button button-flat-action button-block"><i class="fa-forward fa"></i> Skip plugin</a></p> -->
