@@ -109,7 +109,7 @@ $(document).ready(function () {
     setTimeout(refreshCommits, 30000);
 });
 
-$("input[type=\"range\"]").on('input', function() {
+$("input[type=\"range\"],input[type=\"number\"]").on('input', function() {
     var points = $(this).val();
     var pstr = (points == 1) ? " point" : " points";
     $("output[for=\""+ $(this).attr("id") + "\"]").html("(" + points + "/" + $(this).attr("max") + pstr + ")");
