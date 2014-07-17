@@ -54,6 +54,12 @@ class JudgingController extends BaseJudgingController {
                 "code_documentation" => "required|integer|min:0|max:20",
                 "liked" => "required|min:4",
                 "improve" => "required|min:4",
+            ],
+            [
+                "liked.required" => "Please provide a short phrase/sentence that describes what you liked about the submission.",
+                "improve.required" => "Please provide a short phrase/sentence that describes what you thought could be improved about the submission.",
+                "liked.max" => "Please put more effort into your liked phrase.",
+                "improve.max" => "Please put more effort into your improvement phrase.",
             ]);
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
