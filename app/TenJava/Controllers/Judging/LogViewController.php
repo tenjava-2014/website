@@ -6,6 +6,7 @@ namespace TenJava\Controllers\Judging;
 use Redirect;
 use Response;
 use TenJava\Contest\JudgeClaimsInterface;
+use TenJava\Contest\ParticipantRepositoryInterface;
 use TenJava\Controllers\Abstracts\BaseJudgingController;
 use TenJava\Security\HmacCreationInterface;
 use View;
@@ -17,8 +18,8 @@ class LogViewController extends BaseJudgingController {
      */
     private $hmac;
 
-    public function __construct(JudgeClaimsInterface $claims, HmacCreationInterface $hmac) {
-        parent::__construct($claims);
+    public function __construct(JudgeClaimsInterface $claims, HmacCreationInterface $hmac, ParticipantRepositoryInterface $pri) {
+        parent::__construct($claims, $pri);
         $this->hmac = $hmac;
     }
 
