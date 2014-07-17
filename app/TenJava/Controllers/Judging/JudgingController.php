@@ -9,6 +9,7 @@ use Log;
 use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseJudgingController;
+use Validator;
 use View;
 
 class JudgingController extends BaseJudgingController {
@@ -24,9 +25,38 @@ class JudgingController extends BaseJudgingController {
     }
 
     public function judgePlugin() {
+        // I'm going on holiday tomorrow so this won't be pretty
         $claimId = Input::get("claim_id");
         $claimOk = $this->isClaimOk($claimId);
-        return Response::json((bool) $claimOk);
+        if (!$claimOk) {
+            return Response::json("Invalid claim.");
+        }
+        $fieldNames = ["idea_originality", "idea_theme_conformance", "idea_complexity", "idea_fun", "idea_expansion", "execution_user_friendliness", "execution_absence_bugs", "execution_general_mechanics", "code_bukkit_api", "code_java", "code_documentation"];
+        $dataSource = [];
+        foreach ($fieldNames as $field) {
+            $dataSource[$field] = Input::get($field);
+        }
+        $validator = Validator::make(
+            $dataSource,
+            [
+                "idea_originality" => "required|integer|min:0|max:15",
+                "idea_theme_conformance" => "required|integer|min:0|max:30",
+                "idea_complexity" => "required|integer|min:0|max:10",
+                "idea_fun" => "required|integer|min:0|max:10",
+                "idea_expansion" => "required|integer|min:0|max:10",
+
+                "execution_user_friendliness" => "required|integer|min:0|max:20",
+                "execution_absence_bugs" => "required|integer|min:0|max:20",
+                "execution_general_mechanics" => "required|integer|min:0|max:35",
+
+                "code_bukkit_api" => "required|integer|min:0|max:40",
+                "code_java" => "required|integer|min:0|max:40",
+                "code_documentation" => "required|integer|min:0|max:20",
+            ]);
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+        return "OK";
     }
 
     private function isClaimOk($claimId) {

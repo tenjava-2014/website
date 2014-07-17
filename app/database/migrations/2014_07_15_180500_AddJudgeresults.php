@@ -42,6 +42,8 @@ class AddJudgeresults extends Migration {
             /* Email phrases */
             $table->text("liked");
             $table->text("improve");
+
+            /** $table->text("internal_notes") */
         });
     }
 
