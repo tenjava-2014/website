@@ -72,7 +72,7 @@
             $height = $width / 6;
             $height *= 4;
             $url = "http://placekitten.com/" . (int) $width . "/" . (int) $height;
-            if ($altCats) {
+            if (isset($altCats)) {
                 $url = "/assets/img/cats/" . rand(1,5) . ".png";
             }
             ?>
