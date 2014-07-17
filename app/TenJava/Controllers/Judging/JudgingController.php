@@ -31,7 +31,7 @@ class JudgingController extends BaseJudgingController {
         if (!$claimOk) {
             return Response::json("Invalid claim.");
         }
-        $fieldNames = ["idea_originality", "idea_theme_conformance", "idea_complexity", "idea_fun", "idea_expansion", "execution_user_friendliness", "execution_absence_bugs", "execution_general_mechanics", "code_bukkit_api", "code_java", "code_documentation"];
+        $fieldNames = ["liked", "improve", "idea_originality", "idea_theme_conformance", "idea_complexity", "idea_fun", "idea_expansion", "execution_user_friendliness", "execution_absence_bugs", "execution_general_mechanics", "code_bukkit_api", "code_java", "code_documentation"];
         $dataSource = [];
         foreach ($fieldNames as $field) {
             $dataSource[$field] = Input::get($field);
@@ -52,6 +52,8 @@ class JudgingController extends BaseJudgingController {
                 "code_bukkit_api" => "required|integer|min:0|max:40",
                 "code_java" => "required|integer|min:0|max:40",
                 "code_documentation" => "required|integer|min:0|max:20",
+                "liked" => "required|min:4",
+                "improve" => "required|min:4",
             ]);
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
