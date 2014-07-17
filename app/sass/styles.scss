@@ -478,6 +478,10 @@ div.log-viewer {
   padding: 0px 10px 0px 10px;
 }
 
+.log-viewer pre {
+  line-height: 1em;
+}
+
 blockquote.feedback {
   background: #f9f9f9;
   border-left: 10px solid #ccc;
