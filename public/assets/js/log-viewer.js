@@ -41,7 +41,7 @@ function handleThorData(res, status, xhr) {
 
 function setLogsInfo(data, replace) {
     var $logs = $("#logs");
-    if (replace != undefined) {
+    if (replace != undefined || $logs.text() == "") {
         $logs.html(data);
     } else {
         $logs.html($logs.html() + "\n" + data);
