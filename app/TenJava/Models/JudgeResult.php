@@ -45,6 +45,7 @@ use Illuminate\Database\Query\Builder;
  */
 class JudgeResult extends Model {
     protected $table = "judge_results";
+    protected $fillable = ["liked", "improve", "idea_originality", "idea_theme_conformance", "idea_complexity", "idea_fun", "idea_expansion", "execution_user_friendliness", "execution_absence_bugs", "execution_general_mechanics", "code_bukkit_api", "code_java", "code_documentation", "internal_notes"];
 
     public function claim() {
         return $this->belongsTo("TenJava\\Models\\JudgeClaim", "claim_id", "id");

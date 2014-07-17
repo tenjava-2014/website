@@ -9,6 +9,7 @@ use Log;
 use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseJudgingController;
+use TenJava\Models\JudgeResult;
 use Validator;
 use View;
 
@@ -64,6 +65,11 @@ class JudgingController extends BaseJudgingController {
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
+
+        $judgeResult = new JudgeResult(Input::all());
+        $judgeResult->claim_id = $claimId;
+        $judgeResult->save();
+        return Redirect::to("/judging/plugins");
     }
 
     private function isClaimOk($claimId) {

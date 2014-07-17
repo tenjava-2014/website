@@ -75,7 +75,7 @@
             <img src="http://placekitten.com/{{ (int) $width }}/{{ (int) $height }}" style="width: 100%;">
             <h2>Actions</h2>
             <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block"><i class="fa-bell fa"></i> Request oversight</a></p>
-            <p><a href="/judging/plugins/skip" class="button button-flat-action button-block"><i class="fa-forward fa"></i> Skip plugin</a></p>
+            <!-- <p><a href="/judging/plugins/skip" class="button button-flat-action button-block"><i class="fa-forward fa"></i> Skip plugin</a></p> -->
             <p><a href="/judging/plugins/toggle" class="button button-flat-action button-block"><i class="fa-pencil fa"></i> Toggle input</a></p>
             <h2>Plugin links</h2>
             <p><a href="https://github.com/tenjava/{{{ $claim->repo_name }}}/" target="_blank" class="button button-flat-highlight button-block">GitHub repo</a></p>
