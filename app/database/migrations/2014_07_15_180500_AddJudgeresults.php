@@ -37,8 +37,7 @@ class AddJudgeresults extends Migration {
             /* Scores for Code category */
             $table->integer("code_bukkit_api");
             $table->integer("code_java");
-            $table->integer("will do
-            ");
+            $table->integer("code_documentation");
 
             /* Email phrases */
             $table->text("liked");
