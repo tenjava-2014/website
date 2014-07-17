@@ -69,6 +69,11 @@
             <p><a href="/judging/oversight/{{{ $claim->id }}}" class="button button-flat-action button-block"><i class="fa-bell fa"></i> Request oversight</a></p>
             <p><a href="/judging/plugins/skip" class="button button-flat-action button-block"><i class="fa-forward fa"></i> Skip plugin</a></p>
             <p><a href="/judging/plugins/toggle" class="button button-flat-action button-block"><i class="fa-pencil fa"></i> Toggle input</a></p>
+            <h2>Plugin links</h2>
+            <p><a href="https://github.com/tenjava/{{{ $claim->repo_name }}}/" class="button button-flat-highlight button-block">GitHub repo</a></p>
+            <p><a href="https://github.com/tenjava/{{{ $claim->repo_name }}}/commits" class="button button-flat-highlight button-block">GitHub commits</a></p>
+            <p><a href="http://ci.tenjava.com/job/{{{ $claim->repo_name }}}/" class="button button-flat-highlight button-block">Jenkins Job</a></p>
+            <p><a href="https://tenjava.com/list/search?search={{{ $claim->repo_name }}}/" class="button button-flat-highlight button-block">App search</a></p>
             <h2>Tips</h2>
             <ul>
                 <li>Please remember to take breaks &ndash; don't try and judge all of your plugins at once. A couple a day is fine.</li>
