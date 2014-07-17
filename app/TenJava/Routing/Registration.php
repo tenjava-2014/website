@@ -92,6 +92,7 @@ class Registration {
         $this->router->group(array('before' => 'StaffFilter'), function () {
             $this->router->get('/judging', 'TenJava\\Controllers\\Judging\\DashboardController@showDashboard');
             $this->router->get('/judging/oversight', 'TenJava\\Controllers\\Judging\\OversightController@showOversight');
+            $this->router->get('/judging/oversight/{id}', 'TenJava\\Controllers\\Judging\\OversightController@showOversightForm');
             $this->router->get('/judging/help', 'TenJava\\Controllers\\Judging\\HelpController@showHelp');
             $this->router->get('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@showLatestPlugin');
             $this->router->get('/judging/plugins/toggle', 'TenJava\\Controllers\\Judging\\JudgingController@toggleInputMethod');

@@ -3,7 +3,9 @@
 namespace TenJava\Controllers\Judging;
 
 
+use Response;
 use TenJava\Controllers\Abstracts\BaseJudgingController;
+use TenJava\Models\JudgeClaim;
 use View;
 
 class OversightController extends BaseJudgingController {
@@ -12,6 +14,15 @@ class OversightController extends BaseJudgingController {
         $this->setActive("Oversight");
         $this->setPageTitle("Oversight");
         return View::make("judging.pages.oversight");
+    }
+
+    public function showOversightForm($id) {
+        if (!$this->isClaimOk($id)) {
+            return Response::json("Invalid claim.");
+        }
+
+        $claim = JudgeClaim::findOrFail($id);
+
     }
 
 }
