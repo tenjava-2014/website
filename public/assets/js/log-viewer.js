@@ -44,7 +44,7 @@ function setLogsInfo(data, replace) {
     if (replace != undefined || $logs.text() == "") {
         $logs.html(data);
     } else {
-        $logs.html($logs.html() + "\n" + data);
+        $logs.html($logs.html() + data);
     }
 }
 
