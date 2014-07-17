@@ -10,6 +10,14 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
         return Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
     }
 
+    public function getParticipantCount() {
+        return Application::with('timeEntry')->where('judge', false)->count();
+    }
+
+    public function getParticipantsWithCommitCount() {
+        return Application::with('commits')->has("commits", ">", "0")->where('judge', false)->count();
+    }
+
     public function getUnconfirmedParticipants() {
         return Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->get();
     }

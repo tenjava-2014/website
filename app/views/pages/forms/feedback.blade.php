@@ -13,7 +13,7 @@
                    Tell us your thoughts on the themes, site, official stream, etc and anything you'd like us to take into account for next time.</p>
                 @if ($errors->any())
                     <div class="alert block error">
-                        <h4>Registration errors</h4>
+                        <h4>Submission errors</h4>
                         <ul>
                             @foreach($errors->all('<li>:message</li>') as $message)
                                 {{ $message }}
@@ -24,9 +24,9 @@
 
                 {{ Form::open(array('url' => '/feedback', 'class' => 'form')) }}
                 <div class="control-group">
-                    <label for="feedback">Comments</label>
+                    <label for="comment">Comments</label>
                     <div class="control">
-                        <textarea id="feedback">{{{ Input::old('feedback') }}}</textarea>
+                        <textarea name="comment" id="comment">{{{ Input::old('comment') }}}</textarea>
                     </div>
                 </div>
                 <input type="submit" value="Send feedback" class="button button-block button-flat-primary">

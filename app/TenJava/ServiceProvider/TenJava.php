@@ -3,6 +3,8 @@ namespace TenJava\ServiceProvider;
 
 use App;
 use Artisan;
+use Form;
+use Illuminate\Html\FormBuilder;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
 use TenJava\Exceptions\FailedOauthException;
@@ -26,7 +28,7 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Notification\\IrcMessageBuilderInterface", "\\TenJava\\Notification\\FlareBotMessageBuilder");
         $app->bind("\\TenJava\\Authentication\\EmailOptOutInterface", "\\TenJava\\Authentication\\GitHubEmailOptOut");
         $app->bind("\\TenJava\\Security\\HmacVerificationInterface", "\\TenJava\\Security\\HmacVerification");
-        $app->bind("\\TenJava\\Security\\HmacVerificationInterface", "\\TenJava\\Security\\HmacVerification");
+        $app->bind("\\TenJava\\Security\\HmacCreationInterface", "\\TenJava\\Security\\HmacCreation");
         $app->bind("\\TenJava\\UrlShortener\\UrlShortenerInterface", "\\TenJava\\UrlShortener\\GitIoUrlShortener");
         $app->bind("\\TenJava\\Tools\\String\\StringTruncatorInterface", "\\TenJava\\Tools\\String\\StringTruncator");
         $app->bind("\\TenJava\\Repository\\RepositoryActionInterface", "\\TenJava\\Repository\\EloquentRepositoryAction");
@@ -37,6 +39,7 @@ class TenJava extends ServiceProvider {
         $app->bind("\\TenJava\\Repository\\RepoWebhookInterface", "\\TenJava\\Repository\\GitHubRepoWebhook");
         $app->bind("\\TenJava\\Contest\\ParticipantRepositoryInterface", "\\TenJava\\Contest\\EloquentParticipantRepository");
         $app->bind("\\TenJava\\Contest\\TwitchRepositoryInterface", "\\TenJava\\Contest\\EloquentTwitchRepository");
+        $app->bind("\\TenJava\\Contest\\JudgeClaimsInterface", "\\TenJava\\Contest\\EloquentJudgeClaims");
 
         // Singletons
         $app->singleton('GlobalComposer', 'TenJava\Composers\GlobalComposer');
@@ -68,6 +71,10 @@ class TenJava extends ServiceProvider {
         $reg->registerRoutes();
     }
 
+    public function boot() {
+        $this->registerFormMacros();
+    }
+
     private function registerCommands() {
         $this->commands([
             "\\TenJava\\Commands\\MailTestCommand",
@@ -91,10 +98,13 @@ class TenJava extends ServiceProvider {
         $router = $this->app['router'];
         /* @see AuthenticationFilter */
         $router->filter('AuthenticationFilter', '\\TenJava\\Filters\\AuthenticationFilter');
+        /* @see ProtectedApiFilter */
+        $router->filter('ProtectedApiFilter', '\\TenJava\\Filters\\ProtectedApiFilter');
         /* @see StaffFilter */
         $router->filter('StaffFilter', '\\TenJava\\Filters\\StaffFilter');
         /* @see AdminFilter */
         $router->filter('AdminFilter', '\\TenJava\\Filters\\AdminFilter');
+
         /*
         |--------------------------------------------------------------------------
         | CSRF Protection Filter
@@ -105,7 +115,6 @@ class TenJava extends ServiceProvider {
         | session does not match the one given in this request, we'll bail.
         |
         */
-
         $router->filter('csrf', function () {
             if (\Session::token() != \Input::get('_token')) {
                 throw new TokenMismatchException;
@@ -129,10 +138,10 @@ class TenJava extends ServiceProvider {
             if ($request->secure()) {
                 // Let's be extra strict for the sake of security
                 $response->header('Content-Security-Policy',
-                    "default-src 'self'; " .
+                    "default-src 'self' http://thor.tenjava.com:8181; " .
                     "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; " .
                     "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com; " .
-                    "img-src 'self' https://*.githubusercontent.com http://edge.sf.hitbox.tv http://static-cdn.jtvnw.net; " . // this will likely need changing for twitch
+                    "img-src 'self' https://*.githubusercontent.com http://edge.sf.hitbox.tv http://static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
                     "script-src 'self' https://cdnjs.cloudflare.com https://platform.twitter.com" . $unsafes
@@ -141,10 +150,10 @@ class TenJava extends ServiceProvider {
             } else {
                 // We're in beta served over HTTP so we're not restricting stuff to SSL here
                 $response->header('Content-Security-Policy',
-                    "default-src 'self'; " .
+                    "default-src 'self' http://thor.tenjava.com:8181; " .
                     "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline'; " .
                     "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com; " .
-                    "img-src 'self' https://*.githubusercontent.com edge.sf.hitbox.tv static-cdn.jtvnw.net; " . // this will likely need changing for twitch
+                    "img-src 'self' https://*.githubusercontent.com edge.sf.hitbox.tv static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
                     "script-src 'self' cdnjs.cloudflare.com platform.twitter.com" . $unsafes
@@ -154,5 +163,19 @@ class TenJava extends ServiceProvider {
             }
         });
 
+    }
+
+    private function registerFormMacros() {
+        $app = $this->app;
+        $app['form']->macro('judgeField', function($name, $id, $max) use ($app) {
+            $id = htmlentities($id);
+            $fb = $this->app['form'];
+            /** @var $fb FormBuilder */
+            $old = $fb->old($id);
+            $old = ($old === null) ? "0" : $old;
+            $inputType = $fb->getSessionStore()->has("judge-use-num") ? 'number' : 'range';
+            return '<div class="control-group"><label for="' . $id . '">' . $name . '</label> <output for="' . $id . '">(0/' . $max . ' points)</output>
+                    <div class="control"><input value="' . $old . '" type="' . $inputType . '" min="0" max="' . (int) $max . '" name="' . $id . '" id="' . $id . '"></div></div>';
+        });
     }
 }

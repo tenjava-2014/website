@@ -42,4 +42,9 @@ interface AuthProviderInterface {
      */
     public function getAllJudges();
 
+    /**
+     * @return int|null The user's judge id or null if they're not a judge.
+     */
+    public function getJudgeId();
+
 } 

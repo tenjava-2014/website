@@ -14,7 +14,12 @@
 </div>
 
         <div class="filter">
-            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>, <a href="{{ URL::to('list/normal') }}">participant apps</a>, <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>, <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a>, <a href="{{ URL::to('list') }}">all apps</a></p>
+            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>,
+                       <a href="{{ URL::to('list/normal') }}">participant apps</a>,
+                       <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>,
+                       <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a> (<a href="{{ URL::to('list/t1') }}">1</a>, <a href="{{ URL::to('list/t2') }}">2</a>, <a href="{{ URL::to('list/t3') }}">3</a>),
+                       <a href="{{ URL::to('list/turnedup') }}">apps w/ > 1 commit</a>,
+                       <a href="{{ URL::to('list') }}">all apps</a></p>
         </div>
         <div class="search">
             <p>
@@ -50,10 +55,10 @@
         @if (!$app->judge)
         <tr>
             <td>Times</td>
-            @if ($app->timeEntry == null)
-                <td>User has not yet selected a time!</td>
+            @if ($app->timeEntry === null)
+                <td>User didn't select a time.</td>
             @else
-                <td>{{ $app->timeEntry->t1 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t1", "Time 1") : "" }} {{ $app->timeEntry->t2 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t2", "Time 2") : "" }} {{ $app->timeEntry->t3 ? HTML::link("https://www.github.com/tenjava/" . $app->gh_username . "-t3", "Time 3") : "" }}</td>
+                <td>{{ $app->timeEntry->getTimesLinks(1) }} {{ $app->timeEntry->getTimesLinks(2) }} {{ $app->timeEntry->getTimesLinks(3) }}</td>
             @endif
         </tr>
         @endif
@@ -79,6 +84,10 @@
         <tr>
             <td>Twitch #</td>
             <td><a href="http://twitch.tv/{{{ $app->twitch_username }}}">{{{ $app->twitch_username }}}</a></td>
+        </tr>
+        <tr>
+            <td># Commits</td>
+            <td>{{{ $app->commits()->count() }}}</td>
         </tr>
         @endif
         @if ($fullAccess && $app->judge)

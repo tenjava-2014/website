@@ -20,4 +20,9 @@ use Illuminate\Database\Query\Builder;
  */
 class ParticipantFeedback extends Model {
     protected $table = 'participant_feedback';
+    protected $fillable = ["comment"];
+
+    public function participant() {
+        return $this->belongsTo("TenJava\\Models\\Application", "app_id", "id");
+    }
 }

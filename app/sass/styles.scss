@@ -445,6 +445,14 @@ body.judge-interface {
   a {
     color: #D17A04;
   }
+
+  a.button {
+    color: #fff;
+  }
+
+  #logs {
+    overflow: auto;
+  }
 }
 
 // github markdown code styles
@@ -458,4 +466,63 @@ body.judge-interface {
 tt, code, pre {
   font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
   font-size: 12px;
+}
+
+.server-details {
+  background-color: #eee;
+  border: 1px solid #bbb;
+  padding: 10px;
+}
+
+div.log-viewer {
+  padding: 0px 10px 0px 10px;
+}
+
+.log-viewer pre {
+  line-height: 1.05em;
+}
+
+blockquote.feedback {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  padding: 0.5em 10px;
+  margin-left: 0px;
+  position: relative;
+  quotes: "\201C" "\201D" "\201C" "\201C";
+}
+
+blockquote.feedback:after {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+blockquote.feedback p {
+  display: inline
+}
+
+blockquote.feedback span.username {
+  display: block;
+  color: #777;
+  font-size: 0.8em;
+}
+
+form legend {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: #eee;
+  padding: 15px 5px 15px 15px;
+}
+
+form input[type="range"] {
+  width: 50% !important;
+}
+
+form input[type="number"] {
+  width: 50px !important;
+  font-weight: bold !important;
 }

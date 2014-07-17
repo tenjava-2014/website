@@ -49,6 +49,11 @@ class Registration {
             $this->router->get('/api/session', 'TenJava\\Controllers\\Api\\ApiController@getSessionData');
         });
 
+        /* AUTHED API CLIENTS ONLY */
+        $this->router->group(array('before' => 'ProtectedApiFilter'), function () {
+            $this->router->get('/api/judges/claims', 'TenJava\\Controllers\\Api\\ApiController@getJudgeClaims');
+        });
+
         /* GITHUB WEBHOOKS */
         $this->router->group(array(), function () {
             $this->router->post('/webhook/fire', 'TenJava\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
@@ -86,11 +91,20 @@ class Registration {
         /* JUDGES ONLY */
         $this->router->group(array('before' => 'StaffFilter'), function () {
             $this->router->get('/judging', 'TenJava\\Controllers\\Judging\\DashboardController@showDashboard');
+            $this->router->get('/judging/oversight', 'TenJava\\Controllers\\Judging\\OversightController@showOversight');
+            $this->router->get('/judging/oversight/{id}', 'TenJava\\Controllers\\Judging\\OversightController@showOversightForm');
+            $this->router->post('/judging/oversight/{id}', 'TenJava\\Controllers\\Judging\\OversightController@processOversight');
             $this->router->get('/judging/help', 'TenJava\\Controllers\\Judging\\HelpController@showHelp');
+            $this->router->get('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@showLatestPlugin');
+            $this->router->get('/judging/plugins/toggle', 'TenJava\\Controllers\\Judging\\JudgingController@toggleInputMethod');
+            $this->router->post('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@judgePlugin');
             $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
             $this->router->get('/test/staff', function() {
                 return "Staff only test endpoint.";
             });
+            $this->router->get('/judging/logs/ajax', 'TenJava\\Controllers\\Judging\\LogViewController@testHmac');
+            $this->router->get('/judging/logs', 'TenJava\\Controllers\\Judging\\LogViewController@showLogs');
+
         });
 
         /* ORGANIZERS ONLY */
@@ -101,7 +115,8 @@ class Registration {
             $this->router->get('/test/admin', function() {
                 return Response::json(["env" => App::environment()]);
             });
-        });
+            $this->router->get('/judging/feedback', 'TenJava\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
 
+        });
     }
 }

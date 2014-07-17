@@ -5,6 +5,10 @@ use App;
 use Config;
 use Github\Client;
 use Illuminate\Routing\Controller;
+use Log;
+use TenJava\Contest\JudgeClaimsInterface;
+use TenJava\Contest\ParticipantRepositoryInterface;
+use TenJava\Models\JudgeClaim;
 use TenJava\Models\ParticipantTimes;
 use View;
 use TenJava\Tools\UI\NavigationItem;
@@ -15,15 +19,30 @@ abstract class BaseJudgingController extends BaseController {
 
     const BASE_TITLE = "ten.java judging";
 
-    public function __construct() {
+    /**
+     * @var JudgeClaimsInterface
+     */
+    private $claimsInterface;
+
+    protected $judgeClaims;
+    /**
+     * @var ParticipantRepositoryInterface
+     */
+    private $participants;
+
+    public function __construct(JudgeClaimsInterface $claimsInterface, ParticipantRepositoryInterface $participants) {
         parent::__construct();
+        $this->claimsInterface = $claimsInterface;
+        $this->participants = $participants;
+        $this->shareClaims();
     }
 
     public function getNavigation() {
 
         $navigation['primary'] = array(
             new NavigationItem("Dashboard", "/judging"),
-            new NavigationItem("Assigned plugins", "/judging/plugins"),
+            new NavigationItem("Judge", "/judging/plugins"),
+            new NavigationItem("Logs", "/judging/logs"),
             new NavigationItem("Oversight", "/judging/oversight"),
             new NavigationItem("Help", "/judging/help"),
         );
@@ -42,5 +61,45 @@ abstract class BaseJudgingController extends BaseController {
      */
     public function getPageTitle() {
         return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
+    }
+
+    private function processClaims($claims) {
+        $claimData = ["total" => 0, "done" => [], "pending" => []];
+        foreach ($claims as $claim) {
+            /** @var $claim JudgeClaim */
+            if ($claim->result != null) {
+                $claimData['done'][] = $claim;
+            } else {
+                $claimData['pending'][] = $claim;
+            }
+            $claimData['total'] += 1;
+        }
+        return $claimData;
+    }
+
+    private function shareClaims() {
+        $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId()));
+        $turnout = [];
+        $turnout['total'] = $this->participants->getParticipantCount();
+        $turnout['real'] = $this->participants->getParticipantsWithCommitCount();
+        View::share("turnout", $turnout);
+        View::share("claims", $this->judgeClaims);
+    }
+
+    protected function isClaimOk($claimId) {
+        Log::info("Starting claim check for $claimId");
+        if (count($this->judgeClaims['pending']) > 0) {
+            Log::info("If passed");
+            foreach ($this->judgeClaims['pending'] as $claim) {
+                Log::info("Got claim {$claim->id}");
+                if ($claim->id == $claimId) {
+                    Log::info("Claim matches");
+                    return true;
+                } else {
+                    Log::info("Claim doesn't match");
+                }
+            }
+        }
+        return false;
     }
 }

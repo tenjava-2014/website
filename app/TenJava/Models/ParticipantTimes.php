@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Models;
 
+use HTML;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,8 +14,22 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $t1
  * @property boolean $t2
  * @property boolean $t3
+ * @property Application appEntry
  */
 class ParticipantTimes extends Model {
     protected $table = 'participant_times';
-    protected $visible = ["t1","t2","t3"];
+    protected $visible = ["t1", "t2", "t3"];
+
+    public function appEntry() {
+        return $this->belongsTo("\\TenJava\\Models\\Application", "user_id", "id");
+    }
+
+    public function getTimesLinks($n) {
+        if ($this->{"t" . $n}) {
+            return HTML::link("https://www.github.com/tenjava/" . $this->appEntry->gh_username . "-t$n", "Time $n") .
+            " (" . HTML::link("https://www.github.com/tenjava/" . $this->appEntry->gh_username . "-t$n/commits/", "commits") . ")";
+        } else {
+            return "";
+        }
+    }
 }

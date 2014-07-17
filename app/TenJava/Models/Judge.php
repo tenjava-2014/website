@@ -2,6 +2,7 @@
 namespace TenJava\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * TenJava\Models\Judge
@@ -12,15 +13,22 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $github_id
  * @property string $github_name
  * @property boolean $admin
+ * @property string $minecraft_name
  * @property boolean $web_team
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereId($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereUpdatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereGithubId($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereGithubName($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereAdmin($value) 
- * @method static \Illuminate\Database\Query\Builder|\TenJava\Models\Judge whereWebTeam($value) 
+ * @method static Builder|Judge whereId($value)
+ * @method static Builder|Judge whereCreatedAt($value)
+ * @method static Builder|Judge whereUpdatedAt($value)
+ * @method static Builder|Judge whereGithubId($value)
+ * @method static Builder|Judge whereGithubName($value)
+ * @method static Builder|Judge whereAdmin($value)
+ * @method static Builder|Judge whereWebTeam($value)
  */
 class Judge extends Model {
     protected $guarded = ['id', 'updated_at', 'created_at'];
+    protected $hidden = ['minecraft_username'];
+
+    public function claims() {
+        /** @see JudgeClaim*/
+        return $this->hasMany("TenJava\\Models\\JudgeClaim", "judge_id", "id");
+    }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddParticipantFeedbackTable extends Migration {
+class AddOversightRequestsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -11,12 +11,11 @@ class AddParticipantFeedbackTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('participant_feedback', function (Blueprint $table) {
+        Schema::create('oversight_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->unsignedInteger("app_id");
-            $table->foreign("app_id")->references("id")->on("applications");
-            $table->text("comment");
+            $table->unsignedInteger("claim_id");
+            $table->text("reason");
         });
     }
 
@@ -26,6 +25,7 @@ class AddParticipantFeedbackTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::drop('participant_feedback');
+        Schema::drop('oversight_requests');
     }
+
 }
