@@ -18,7 +18,7 @@
 	<div id="point-ticker">
 		<div class="grid-container">
 			<div class="grid-20 tablet-grid-20">Actual participants: <span>{{{ $turnout['real'] }}}</span></div>
-			<div class="grid-20 tablet-grid-20">Turnout: <span>{{{ sprintf("%.2f%%", $turnout['real'] / $turnout['total']) }}}</span></div>
+			<div class="grid-20 tablet-grid-20">Turnout: <span>{{{ sprintf("%.2f%%", ($turnout['real'] / $turnout['total']) * 100) }}}</span></div>
 			<div class="grid-20 tablet-grid-20">Assigned entries: <span>{{{ $claims['total'] }}}</span></div>
 			<div class="grid-20 tablet-grid-20">Completed entries: <span>{{{ count($claims['done']) }}}</span></div>
 			<div class="grid-20 tablet-grid-20">Entries remaining: <span>{{{ count($claims['pending']) }}}</span></div>
