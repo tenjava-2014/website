@@ -40,10 +40,11 @@
             {{ Form::judgeField("Documentation", "code_documentation", 20) }}
             <!--!-------------------!-->
             <legend>PR</legend>
+            <p>Do not include prefixes like "We liked" or "We thought" or "We suggest" in these phrases! These prefixes will automatically be inserted for you.</p>
             <div class="control-group">
                 <label for="liked">Liked phrase</label>
                 <div class="control">
-                    {{ Form::text('liked', null, ['id' => 'liked_phrase', 'placeholder' => Lang::get("judging.input-helps.liked")]) }}
+                    {{ Form::text('liked', null, ['id' => 'liked', 'placeholder' => Lang::get("judging.input-helps.liked")]) }}
                 </div>
             </div>
             <div class="control-group">

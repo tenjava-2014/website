@@ -64,7 +64,6 @@ class JudgingController extends BaseJudgingController {
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         }
-        return "OK";
     }
 
     private function isClaimOk($claimId) {
