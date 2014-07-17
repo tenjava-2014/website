@@ -57,6 +57,9 @@ class OversightController extends BaseJudgingController {
         $oversight = new OversightRequest(Input::all());
         $oversight->claim_id = $id;
         $oversight->save();
+
+        $claim->judge_id = 16;
+        $claim->save();
         return Redirect::to("/judging");
     }
 }
