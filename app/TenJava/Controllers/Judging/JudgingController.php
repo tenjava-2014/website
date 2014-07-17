@@ -3,6 +3,7 @@
 namespace TenJava\Controllers\Judging;
 
 
+use Session;
 use Input;
 use Log;
 use Redirect;
@@ -43,6 +44,15 @@ class JudgingController extends BaseJudgingController {
             }
         }
         return false;
+    }
+
+    public function toggleInputMethod() {
+        if (Session::has("judge-use-num")) {
+            Session::forget("judge-use-num");
+        } else {
+            Session::put("judge-use-num", true);
+        }
+        return Redirect::back();
     }
 
 }

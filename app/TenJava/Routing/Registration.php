@@ -93,6 +93,7 @@ class Registration {
             $this->router->get('/judging', 'TenJava\\Controllers\\Judging\\DashboardController@showDashboard');
             $this->router->get('/judging/help', 'TenJava\\Controllers\\Judging\\HelpController@showHelp');
             $this->router->get('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@showLatestPlugin');
+            $this->router->get('/judging/plugins/toggle', 'TenJava\\Controllers\\Judging\\JudgingController@toggleInputMethod');
             $this->router->post('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@judgePlugin');
             $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
             $this->router->get('/test/staff', function() {
