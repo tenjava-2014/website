@@ -17,6 +17,8 @@ class OversightController extends BaseJudgingController {
     }
 
     public function showOversightForm($id) {
+        $this->setActive("Oversight");
+        $this->setPageTitle("Requesting oversight");
         if (!$this->isClaimOk($id)) {
             return Response::json("Invalid claim.");
         }
