@@ -33,8 +33,8 @@ abstract class BaseJudgingController extends BaseController {
     public function __construct(JudgeClaimsInterface $claimsInterface, ParticipantRepositoryInterface $participants) {
         parent::__construct();
         $this->claimsInterface = $claimsInterface;
-        $this->shareClaims();
         $this->participants = $participants;
+        $this->shareClaims();
     }
 
     public function getNavigation() {
