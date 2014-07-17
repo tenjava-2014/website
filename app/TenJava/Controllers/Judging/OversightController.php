@@ -22,7 +22,7 @@ class OversightController extends BaseJudgingController {
         }
 
         $claim = JudgeClaim::findOrFail($id);
-
+        return View::make("judging.pages.oversight", ["claim" => $claim]);
     }
 
 }

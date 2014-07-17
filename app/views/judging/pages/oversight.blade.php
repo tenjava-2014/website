@@ -3,6 +3,10 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
+            @if (isset($claim))
+            <h2>Requesting oversight on {{{ $claim->repo_name }}}</h2>
+            <p></p>
+            @else
             <h2>Requesting oversight</h2>
 
             <p>If while judging a plugin you do not think it can be judged or you have concerns about <a
@@ -47,6 +51,7 @@
                 </li>
                 <li>The plugin caused the server to crash so you were unable to fully test it.</li>
             </ul>
+            @endif
         </div>
 
 
