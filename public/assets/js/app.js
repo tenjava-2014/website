@@ -99,10 +99,11 @@ $(document).ready(function () {
         }
     }
 
-
-    $contestTime.click(function () {
-        $time.data("date", formatDate(curTime)).TimeCircles();
-    });
+    if ($contestTime !== undefined && $contestTime.length > 0) {
+        $contestTime.click(function () {
+            $time.data("date", formatDate(curTime)).TimeCircles();
+        });
+    }
 
 
     $time.data("active-time", "t1");
