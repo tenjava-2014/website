@@ -99,7 +99,7 @@ $(document).ready(function () {
         }
     }
 
-    if ($contestTime !== undefined) {
+    if ($contestTime !== undefined && $contestTime.length > 0) {
         $contestTime.click(function () {
             $time.data("date", formatDate(curTime)).TimeCircles();
         });
