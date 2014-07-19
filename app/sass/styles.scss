@@ -449,10 +449,6 @@ body.judge-interface {
   a.button {
     color: #fff;
   }
-
-  #logs {
-    overflow: auto;
-  }
 }
 
 // github markdown code styles
@@ -516,6 +512,8 @@ form legend {
   margin-bottom: 10px;
   background-color: #eee;
   padding: 15px 5px 15px 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 form input[type="range"] {
