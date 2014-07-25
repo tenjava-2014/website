@@ -14,7 +14,7 @@
                 plugin which requires advanced setup, they can flag it for review which removes it from their queue and
                 assigns it to jkcclemens to sort out. Additionally, hawkfalcon is away and unable to judge.</p>
 
-            <p>Judging began on July 17th 2014.</p>
+            <p>Judging began on July 17th 2014 with each submission set to be judged by two unique judges.</p>
 
             @foreach ($judges as $judge)
                 <h3>{{{ $judge->gh_username }}}</h3>
