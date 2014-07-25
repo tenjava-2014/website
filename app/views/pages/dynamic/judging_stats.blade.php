@@ -17,7 +17,6 @@
             <p>Judging began on July 17th 2014 with each submission set to be judged by two unique judges.</p>
 
             @foreach ($judges as $judge)
-                <h3>{{{ $judge->github_name }}}</h3>
                 <?php
                 $i = 0;
                 foreach ($judge->claims() as $claim) {
@@ -25,8 +24,15 @@
                         $i++;
                     }
                 }
+                $totalAssigned = $judge->claims()->count();
+                $x = $totalAssigned - $i;
+                $per = (int)( $i / $totalAssigned) * 100;
                 ?>
-                <p>{{{ $judge->github_name }}} has {{{ $judge->claims()->count() }}} plugins to judge. To date, they've judged {{{ $i }}}.</p>
+                <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0;">
+                    <h3 style="margin: 0; background-color: #888; width: {{{ $per }}}%;">{{{ $judge->github_name }}}</h3>
+                </div>
+
+                <p>{{{ $judge->github_name }}} has {{{ $judge->claims()->count() }}} assigned submissions. To date, they've judged {{{ $i }}} and have {{{ $x }}} remaining.</p>
             @endforeach
         </div>
     </div>
