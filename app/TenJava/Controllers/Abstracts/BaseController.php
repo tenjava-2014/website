@@ -61,16 +61,16 @@ abstract class BaseController extends Controller {
 
         $navigation['primary'] = array(
             new NavigationItem("Home", "/"),
-            new NavigationItem("Sign up", "/signup"),
+            new NavigationItem("Judging stats", "/team/stats"),
             new NavigationItem("Points", "/points"),
             new NavigationItem("Team", "/team"),
         );
 
-        if ($this->hasSelectedTimes() == 'notime') {
+        /**if ($this->hasSelectedTimes() == 'notime') {
             $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
         } else if ($this->hasSelectedTimes() == 'timesdone') {
             unset($navigation['primary'][1]);
-        }
+        }*/
 
         if ($this->auth->isStaff()) {
             $navigation['primary'][] = new NavigationItem("App list", "/list");

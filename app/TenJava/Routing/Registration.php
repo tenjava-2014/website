@@ -27,6 +27,7 @@ class Registration {
             $this->router->get('/ajax/commits', "TenJava\\Controllers\\Pages\\HomeController@ajaxCommits");
             $this->router->get('/points', 'TenJava\\Controllers\\Pages\\PointsController@showLeaderboard');
             $this->router->get('/team', 'TenJava\\Controllers\\Pages\\TeamController@showTeam');
+            $this->router->get('/team/stats', 'TenJava\\Controllers\\Pages\\TeamController@showJudgingStats');
             $this->router->get('/about', 'TenJava\\Controllers\\Pages\\AboutController@showAbout');
             $this->router->get('/signup', 'TenJava\\Controllers\\Pages\\SignupController@showSignUp');
             $this->router->get('/privacy', 'TenJava\\Controllers\\Pages\\PrivacyController@showPrivacyInfo');
