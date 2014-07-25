@@ -32,12 +32,11 @@
                     $per = (int)( $i / $totalAssigned) * 100;
                 }
                 ?>
-                <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0;">
-                    <div style="margin: 0; background-color: #888; width: {{{ $per }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px;">{{{ $judge->github_name }}}</h3></div>
+                <!-- forgive me -->
+                <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
+                    <div style="margin: 0; background-color: #3590E6; width: {{{ $per }}}%; padding: 0;">
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3></div>
                 </div>
-
-                <p>{{{ $judge->github_name }}} has {{{ $judge->claims()->count() }}} assigned submissions. To date, they've judged {{{ $i }}} and have {{{ $x }}} remaining.</p>
             @endforeach
         </div>
     </div>

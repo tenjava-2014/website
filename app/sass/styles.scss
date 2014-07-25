@@ -524,3 +524,6 @@ form input[type="number"] {
   width: 50px !important;
   font-weight: bold !important;
 }
+.judge-progress + .judge-progress {
+  margin-bottom: 10px;
+}
