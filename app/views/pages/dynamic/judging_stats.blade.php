@@ -19,7 +19,7 @@
             @foreach ($judges as $judge)
                 <?php
                 $i = 0;
-                foreach ($judge->claims() as $claim) {
+                foreach ($judge->claims as $claim) {
                     if ($claim->result != null) {
                         $i++;
                     }
