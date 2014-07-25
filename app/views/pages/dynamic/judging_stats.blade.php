@@ -32,7 +32,7 @@
                     $per = (int)( $i / $totalAssigned) * 100;
                 }
                 ?>
-                <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0;">
+                <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0; white-space: nowrap;">
                     <h3 style="margin: 0; background-color: #888; width: {{{ $per }}}%;">{{{ $judge->github_name }}}</h3>
                 </div>
 
