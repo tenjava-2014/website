@@ -26,7 +26,11 @@
                 }
                 $totalAssigned = $judge->claims()->count();
                 $x = $totalAssigned - $i;
-                $per = (int)( $i / $totalAssigned) * 100;
+                if ($totalAssigned == 0) {
+                    $per = 100;
+                } else {
+                    $per = (int)( $i / $totalAssigned) * 100;
+                }
                 ?>
                 <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0;">
                     <h3 style="margin: 0; background-color: #888; width: {{{ $per }}}%;">{{{ $judge->github_name }}}</h3>
