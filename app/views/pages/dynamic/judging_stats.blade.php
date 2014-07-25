@@ -33,7 +33,7 @@
                 }
                 ?>
                 <div class="judge-progress" style="width: 100%; background-color: #ccc; padding: 0; white-space: nowrap;">
-                    <h3 style="margin: 0; background-color: #888; width: {{{ $per }}}%;">{{{ $judge->github_name }}}</h3>
+                    <h3 style="margin: 0; background-color: #888; width: {{{ $per }}}%; padding-top: 5px; paddint-bottom: 5px;">{{{ $judge->github_name }}}</h3>
                 </div>
 
                 <p>{{{ $judge->github_name }}} has {{{ $judge->claims()->count() }}} assigned submissions. To date, they've judged {{{ $i }}} and have {{{ $x }}} remaining.</p>
