@@ -19,4 +19,12 @@ class TeamController extends BaseController {
         return Response::view('pages.static.judges', array("teamMembers" => $teamMembers));
     }
 
+    public function showJudgingStats() {
+        $this->setPageTitle("Judging stats");
+        $this->setActive("judging stats");
+        $viewData['judges'] = Judge::with("claims.result")->get();
+
+        return Response::view('pages.dynamic.judging_stats', $viewData);
+    }
+
 } 
