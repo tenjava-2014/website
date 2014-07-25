@@ -29,7 +29,8 @@
                 if ($totalAssigned == 0) {
                     $per = 100;
                 } else {
-                    $per = (int)( $i / $totalAssigned) * 100;
+                    $per = (floatval($i) / $totalAssigned) * 100;
+                    $per = (int) $per;
                 }
                 ?>
                 <!-- forgive me -->
