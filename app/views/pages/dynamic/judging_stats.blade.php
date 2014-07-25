@@ -17,7 +17,7 @@
             <p>Judging began on July 17th 2014 with each submission set to be judged by two unique judges.</p>
 
             @foreach ($judges as $judge)
-                <h3>{{{ $judge->gh_username }}}</h3>
+                <h3>{{{ $judge->github_name }}}</h3>
                 <?php
                 $i = 0;
                 foreach ($judge->claims() as $claim) {
@@ -26,7 +26,7 @@
                     }
                 }
                 ?>
-                <p>{{{ $judge->gh_username }}} has {{{ $judge->claims()->count() }}} plugins to judge. To date, they've judged {{{ $i }}}.</p>
+                <p>{{{ $judge->github_name }}} has {{{ $judge->claims()->count() }}} plugins to judge. To date, they've judged {{{ $i }}}.</p>
             @endforeach
         </div>
     </div>
