@@ -39,6 +39,8 @@
                         <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3></div>
                 </div>
             @endforeach
+            <h2>Next steps</h2>
+            <p>Once everyone above has judged their submissions, we'll review the scores to ensure they've been awarded fairly and then use the scores to determine the winners. We'll then announce these results via a livestream.</p>
         </div>
     </div>
 </div>
