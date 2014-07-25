@@ -7,9 +7,26 @@
     <div class="grid-container">
         <div class="grid-100">
             <h2>Judging stats</h2>
-            <p>As part of our desire to be transparent. we're making judging statistics public so you can track our progress.</p>
+
+            <p>As part of our desire to be transparent. we're making judging statistics public so you can track our
+                progress. There's a few things to keep in mind with this data. Some judges may have different numbers of
+                assigned plugins for a number of reasons. If judges discover a potentially rule-breaking submission or a
+                plugin which requires advanced setup, they can flag it for review which removes it from their queue and
+                assigns it to jkcclemens to sort out. Additionally, hawkfalcon is away and unable to judge.</p>
+
+            <p>Judging began on July 17th 2014.</p>
+
             @foreach ($judges as $judge)
-                <h3>{{{ $judge }}}</h3>
+                <h3>{{{ $judge->gh_username }}}</h3>
+                <?php
+                $i = 0;
+                foreach ($judge->claims() as $claim) {
+                    if ($claim->result != null) {
+                        $i++;
+                    }
+                }
+                ?>
+                <p>{{{ $judge->gh_username }}} has {{{ $judge->claims()->count() }}} plugins to judge. To date, they've judged {{{ $i }}}.</p>
             @endforeach
         </div>
     </div>
