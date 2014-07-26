@@ -8,6 +8,7 @@ use TenJava\Contest\JudgeClaimsInterface;
 use TenJava\Controllers\Abstracts\BaseController;
 use Illuminate\Filesystem\Filesystem;
 use TenJava\Models\Application;
+use TenJava\Models\Judge;
 use TenJava\Models\ParticipantCommit;
 
 class ApiController extends BaseController {
@@ -82,6 +83,39 @@ class ApiController extends BaseController {
 
     public function getJudgeClaims() {
         return Response::json($this->claims->getAllJudgesWithClaims());
+    }
+
+    public function getJudgeStats() {
+        $judges = Judge::with("claims.result")->get();
+        $stats = ["_info" => "See https://tenjava.com/team/stats for more info."];
+        $totalAssigned = 0;
+        $totalComplete = 0;
+        foreach ($judges as $judge) {
+            /** @var $judge Judge */
+            $assignedToJudge = $judge->claims->count();
+            $judgeEntry = ["github_username" => $judge->github_name, "assigned_items" => $assignedToJudge];
+            $i = 0;
+            foreach ($judge->claims as $claim) {
+                if ($claim->result != null) {
+                    $i++;
+                    $totalComplete++;
+                }
+                $totalAssigned++;
+            }
+            $x = $assignedToJudge - $i;
+            if ($assignedToJudge == 0) {
+                $per = 100;
+            } else {
+                $per = (floatval($i) / $assignedToJudge) * 100;
+                $per = (int) $per;
+            }
+            $judgeEntry["completed_items"] = $i;
+            $judgeEntry["remaining_items"] = $x;
+            $judgeEntry['percentage_complete'] = $per;
+            $stats['judges'][] = $judgeEntry;
+        }
+        $stats['totals'] = ["assigned" => $totalAssigned, "complete" => $totalComplete, "_warning" => "100% completion is not the only pre-requisite for results announcement."];
+        return Response::json($stats);
     }
 
     public function getSessionData() {
