@@ -45,6 +45,7 @@ class Registration {
             $this->router->get('/api/participants', 'TenJava\\Controllers\\Api\\ApiController@getParticipants');
             $this->router->get('/api/checkParticipant/{participant}', 'TenJava\\Controllers\\Api\\ApiController@didParticipantParticipate');
             $this->router->get('/api/judges', 'TenJava\\Controllers\\Api\\ApiController@getActiveJudges');
+            $this->router->get('/api/team/stats', 'TenJava\\Controllers\\Api\\ApiController@getJudgeStats');
             $this->router->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Controllers\\Api\\ApiController@getConfirmedParticipants');
             $this->router->get('/api/points', 'TenJava\\Controllers\\Api\\ApiController@getPoints');
             $this->router->get('/api/session', 'TenJava\\Controllers\\Api\\ApiController@getSessionData');
