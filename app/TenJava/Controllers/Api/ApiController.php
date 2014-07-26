@@ -92,8 +92,8 @@ class ApiController extends BaseController {
         $totalComplete = 0;
         foreach ($judges as $judge) {
             /** @var $judge Judge */
-            $totalAssigned = $judge->claims->count();
-            $judgeEntry = ["github_username" => $judge->github_name, "assigned_items" => $totalAssigned];
+            $assignedToJudge = $judge->claims->count();
+            $judgeEntry = ["github_username" => $judge->github_name, "assigned_items" => $assignedToJudge];
             $i = 0;
             foreach ($judge->claims as $claim) {
                 if ($claim->result != null) {
@@ -102,11 +102,11 @@ class ApiController extends BaseController {
                 }
                 $totalAssigned++;
             }
-            $x = $totalAssigned - $i;
-            if ($totalAssigned == 0) {
+            $x = $assignedToJudge - $i;
+            if ($assignedToJudge == 0) {
                 $per = 100;
             } else {
-                $per = (floatval($i) / $totalAssigned) * 100;
+                $per = (floatval($i) / $assignedToJudge) * 100;
                 $per = (int) $per;
             }
             $judgeEntry["completed_items"] = $i;
