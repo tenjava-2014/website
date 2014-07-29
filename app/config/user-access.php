@@ -56,7 +56,8 @@ return array(
             "Bionicrm"
         ),
         "Sponsors" => array(
-            'Intreppid'
+            'Intreppid',
+            'CurseForge'
         )
     )
 );
