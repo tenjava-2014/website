@@ -40,7 +40,7 @@
         <div class="grid-100">
             <h3>CurseForge</h3>
 
-            <p>CurseForge has sponsored us and generously provided us with an additional 20,000 points to distribute to our winning developers.</p>
+            <p><a href="http://curseforge.com">CurseForge</a> has sponsored us and generously provided us with an additional 20,000 points to distribute to our winning developers.</p>
         </div>
 
     </div>
