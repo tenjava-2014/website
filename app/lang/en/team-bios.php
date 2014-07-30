@@ -26,5 +26,6 @@ return array(
   "cindyker" => "Programmer (Java, C/C++, .NET), server owner and love cats. =^..^= ",
   "Kashike" => "Java developer/Bukkit forker. I love kittens :3",
   "alexmack929" => "Java Developer, known wearer of top hats and network specialist. Definitely has a social life.",
-  "Eviltechie" => "A Broadcast Engineer who also knows Java. Prefers to drink tea though. Allergic to cats."
+  "Eviltechie" => "A Broadcast Engineer who also knows Java. Prefers to drink tea though. Allergic to cats.",
+  "hatstand0" => "Java developer. Australian. Not a fan of bios."
 );
