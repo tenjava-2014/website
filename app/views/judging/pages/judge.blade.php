@@ -11,7 +11,7 @@
             <p><strong>I didn't have time to implement point editing! Make sure everything is right before clicking the submit button. If you really screw up, talk to jkcclemens for support.</strong></p>
             @if (isset($oversight))
             <blockquote class="feedback">
-                <p>{{{ $oversight->created_at->diffForHumans() }}}: oversight req. from {{{ $oversighr->originalJudge->github_name }}} with reason:</p>
+                <p>{{{ $oversight->created_at->diffForHumans() }}}: oversight req. from {{{ $oversight->originalJudge->github_name }}} with reason:</p>
                 <p>{{{ $oversight->reason }}}</p>
             </blockquote>
             @endif
