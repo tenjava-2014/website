@@ -9,7 +9,12 @@
                 If you think the entry needs to be disqualified or you have other concerns, please request oversight.</p>
 
             <p><strong>I didn't have time to implement point editing! Make sure everything is right before clicking the submit button. If you really screw up, talk to jkcclemens for support.</strong></p>
-
+            @if (isset($oversight))
+            <blockquote class="feedback">
+                <p>{{{ $oversight->created_at->diffForHumans() }}}: oversight req. from {{{ $oversighr->originalJudge->github_name }}} with reason:</p>
+                <p>{{{ $oversight->reason }}}</p>
+            </blockquote>
+            @endif
             @if ($errors->any())
             <div class="alert block error">
                 <h4>Judging errors</h4>
