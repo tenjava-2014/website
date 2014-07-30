@@ -37,6 +37,12 @@
 
         </div>
 
+        <div class="grid-100">
+            <h3>CurseForge</h3>
+
+            <p>CurseForge has sponsored us and generously provided us with an additional 20,000 points to distribute to our winning developers.</p>
+        </div>
+
     </div>
 </div>
 <div class="grid-container">
