@@ -22,7 +22,7 @@ class TeamController extends BaseController {
     public function showJudgingStats() {
         $this->setPageTitle("Judging stats");
         $this->setActive("judging stats");
-        $viewData['judges'] = Judge::with("claims.result")->where("show_on_judge_page", true)->get();
+        $viewData['judges'] = Judge::with("claims.result")->where("show_on_judge_page", true)->where("enabled", true)->get();
 
         return Response::view('pages.dynamic.judging_stats', $viewData);
     }
