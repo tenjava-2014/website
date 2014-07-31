@@ -47,7 +47,7 @@ class AuthController extends BaseController {
             $githubUsername = $result['login'];
             Session::put("application_data", array("id" => $result['id'], "username" => $githubUsername, "emails" => $emails));
 
-            $judge = Judge::where("github_id", $result['id'])->first();
+            $judge = Judge::where("github_id", $result['id'])->where("enabled", true)->first();
             if ($judge !== null) {
                 Session::put("judge", $judge);
             }
