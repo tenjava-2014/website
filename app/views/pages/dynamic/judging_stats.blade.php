@@ -32,10 +32,11 @@
                     $per = (floatval($i) / $totalAssigned) * 100;
                     $per = (int) $per;
                 }
+                $finished = ($totalAssigned === $i);
                 ?>
                 <!-- forgive me -->
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
-                    <div style="margin: 0; background-color: #3590E6; width: {{{ $per }}}%; padding: 0;">
+                    <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
                         <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3></div>
                 </div>
             @endforeach
