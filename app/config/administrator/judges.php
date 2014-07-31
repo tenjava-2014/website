@@ -28,6 +28,13 @@ return array(
         'web_team' => array(
             'type' => 'bool'
         ),
+        'enabled' => array(
+            'type' => 'bool'
+        ),
+        'show_on_judge_page' => array(
+            'type' => 'bool',
+            'title' => 'Show on stats'
+        ),
         'created_at',
         'updated_at',
     ),
@@ -43,7 +50,8 @@ return array(
         'github_id' => array(
             'title' => 'GitHub ID',
         ),
-        'admin'
+        'admin',
+        'enabled'
     ),
 
     /**
@@ -63,7 +71,14 @@ return array(
         'admin' => array(
             'title' => 'Is organizer?',
             'type' => 'bool'
-        )
+        ),
+        'enabled' => array(
+            'type' => 'bool'
+        ),
+        'show_on_judge_page' => array(
+            'type' => 'bool',
+            'title' => 'Show on stats'
+        ),
     ),
 
     'action_permissions' => array(
