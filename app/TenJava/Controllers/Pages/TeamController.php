@@ -21,7 +21,7 @@ class TeamController extends BaseController {
     }
 
     private function incrementJudgeStat(&$array, $judge, $type) {
-            $array[$type][$judge] += 1;
+            $array[$judge][$type] += 1;
             return $array;
     }
 
