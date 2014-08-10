@@ -11,7 +11,6 @@
                     <span class="username"><a href="/list/search?search={{{ $item->participant->gh_username }}}">{{{ $item->participant->gh_username }}}</a>, <span title="{{{ $item->created_at }}}">{{{ $item->created_at->diffForHumans() }}}</span></span>
                 </blockquote>
             @endforeach
-
             <div class="text-center">{{ $feedbacks->links() }}</div>
         </div>
     </div>
