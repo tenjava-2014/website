@@ -58,6 +58,10 @@ class TeamController extends BaseController {
             $entry['finished'] = ($entry['completed'] == $entry['assigned']);
             $entry['percent'] = (int)($entry['assigned'] == 0) ? 100 : (floatval($entry['completed']) / $entry['assigned']) * 100;
         }
+
+        $viewData['total_progress']['finished'] = ($viewData['total_progress']['completed_claims'] == $viewData['total_progress']['total_claims']);
+        $viewData['total_progress']['percent'] = (int) (floatval($viewData['total_progress']['completed_claims']) / $viewData['total_progress']['total_claims']) * 100;
+
         $viewData['judges'] = $judges;
         return Response::view('pages.dynamic.judging_stats', $viewData);
     }

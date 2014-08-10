@@ -17,35 +17,17 @@
             <p>Judging began on July 17th 2014 with each submission set to be judged by two unique judges.</p>
 
             @foreach ($judges as $judge)
-                <?php
-                // This logic really shouldn't be here but it is
-                $i = 0;
-                foreach ($judge->claims as $claim) {
-                    if ($claim->result != null) {
-                        $i++;
-                    }
-                }
-                $totalAssigned = $judge->claims()->count();
-                $x = $totalAssigned - $i;
-                if ($totalAssigned == 0) {
-                    $per = 100;
-                } else {
-                    $per = (floatval($i) / $totalAssigned) * 100;
-                    $per = (int) $per;
-                }
-                $finished = ($totalAssigned === $i);
-                ?>
                 <!-- forgive me -->
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
                     <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3>
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $judge_progress[$judge->github_name] }}}/{{{ $totalAssigned }}})</h3>
                     </div>
                 </div>
             @endforeach
             <h2>Overall progress</h2>
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
-                    <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $totalPercent }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3>
+                    <div style="margin: 0; background-color: {{ $total_progress['finished'] ? "#7DB500" : "#3590E6" }}; width: {{{ $total_progress['percent'] }}}%; padding: 0;">
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $total_progress['percent'] }}} ({{{ $total_progress['completed_claims'] }}}/{{{ $total_progress['total_claims'] }}})</h3>
                     </div>
                 </div>
             <h2>Next steps</h2>
