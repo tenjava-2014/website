@@ -18,6 +18,7 @@
 
             @foreach ($judges as $judge)
                 <?php
+                // This logic really shouldn't be here but it is
                 $i = 0;
                 foreach ($judge->claims as $claim) {
                     if ($claim->result != null) {
@@ -37,9 +38,16 @@
                 <!-- forgive me -->
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
                     <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3></div>
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3>
+                    </div>
                 </div>
             @endforeach
+            <h2>Overall progress</h2>
+                <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
+                    <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $totalPercent }}} ({{{ $i }}}/{{{ $totalAssigned }}})</h3>
+                    </div>
+                </div>
             <h2>Next steps</h2>
             <p>Once everyone above has judged their submissions, we'll review the scores to ensure they've been awarded fairly and then use the scores to determine the winners. We'll then announce these results via a livestream.</p>
         </div>
