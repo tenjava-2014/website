@@ -171,13 +171,9 @@ class TenJava extends ServiceProvider {
     private function registerBladeExtensions() {
         $app = $this->app;
         $app['blade.compiler']->extend(function($view, $compiler)  {
-            $pattern = $compiler->createMatcher('prettyDate');
-            /* $value = preg_replace($pattern, '$1<time datetime="<?php echo $2->toISO8601String(); ?>" title="<?php echo $2->toDateTimeString(); ?>"><?php echo $2->diffForHumans(); ?></time>', $view);*/
-            //Log::info("Got value " . $value);
-            $matches = [];
-            preg_match($pattern, $view, $matches);
-            Log::info("Our pattern is " . json_encode($matches));
-            return $view;
+            $pattern = '/(?<!\w)(\s*)@prettyDate(\s*\((.*)\))/';
+            $value = preg_replace($pattern, '$1<time datetime="<?php echo $3->toISO8601String(); ?>" title="<?php echo $3->toDateTimeString(); ?>"><?php echo $3->diffForHumans(); ?></time>', $view);
+            return $value;
         });
     }
 
