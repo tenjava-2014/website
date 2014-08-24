@@ -11,6 +11,8 @@
                 <p>This data should not be disclosed to judges, participants or the public under any circumstances.</p>
             </div>
 
+            {{{ count($claims) }}}
+
         </div>
     </div>
 </div>
