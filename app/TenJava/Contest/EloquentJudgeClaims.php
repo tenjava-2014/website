@@ -8,9 +8,7 @@ use TenJava\Models\Judge;
 class EloquentJudgeClaims implements JudgeClaimsInterface {
 
     public function getClaimsForJudge($judgeId) {
-        Log::info("Instructed to get claims...");
         $judge = Judge::with("claims.result")->where("id", $judgeId)->firstOrFail();
-        Log::info("Got judge " . json_encode($judge->toArray()));
         return $judge->claims;
     }
 
