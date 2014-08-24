@@ -68,6 +68,7 @@ class TenJava extends ServiceProvider {
         $this->registerCommands();
         $this->registerHeaders();
         $this->registerFilters();
+        $this->registerBladeExtensions();
         $reg = new Registration($this->app['router']);
         $reg->registerRoutes();
     }
@@ -164,6 +165,14 @@ class TenJava extends ServiceProvider {
             }
         });
 
+    }
+
+    private function registerBladeExtensions() {
+        $app = $this->app;
+        $app['blade.compiler']->extend(function($view, $compiler)  {
+            $pattern = $compiler->createMatcher('prettyDate');
+            return preg_replace($pattern, '$1<time datetime="<?php echo $2->toISO8601String(); ?>" title="<?php echo $t2->toDateTimeString(); ?>"><?php echo $2->diffForHumans(); ?></time>', $view);
+        });
     }
 
     private function registerFormMacros() {
