@@ -3,7 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
-            <h1>Results viewer for {{{ $claim->repo_name }}}</h1>
+            <h1>Results viewer for {{{ $relevantClaims[0]->repo_name }}}</h1>
             <div class="alert basic error">
                 <strong>This page is restricted.</strong>
                 <p>This data should not be disclosed to judges, participants or the public under any circumstances.</p>
