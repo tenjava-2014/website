@@ -4,6 +4,7 @@ namespace TenJava\Controllers\Judging;
 
 use TenJava\Controllers\Abstracts\BaseJudgingController;
 use TenJava\Models\JudgeClaim;
+use TenJava\Models\JudgeResult;
 use View;
 
 class ReviewController extends BaseJudgingController {
@@ -14,6 +15,6 @@ class ReviewController extends BaseJudgingController {
 
         $claims = JudgeClaim::with(["judge", "result"])->whereRepoName($repoName)->get();
         $this->setPageTitle("Results");
-        return View::make("judging.pages.result-view", ["relevantClaims" => $claims]);
+        return View::make("judging.pages.result-view", ["relevantClaims" => $claims, "columns" => JudgeResult::$pointColumns]);
     }
 }

@@ -31,6 +31,12 @@
                 <blockquote class="feedback">
                     <p> {{ object_get($claim, "result.improve") }}</p>
                 </blockquote>
+                <h3>Point scores</h3>
+                <ul>
+                    @foreach ($columns as $column)
+                        <li>{{{ $column }}}: {{{ object_get($claim, "result.$column") }}}</li>
+                    @endforeach
+                </ul>
             @endforeach
         </div>
     </div>

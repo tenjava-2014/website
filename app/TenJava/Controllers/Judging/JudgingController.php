@@ -48,7 +48,7 @@ class JudgingController extends BaseJudgingController {
         if (!$claimOk) {
             return Response::json("Invalid claim.");
         }
-        $fieldNames = ["liked", "improve", "idea_originality", "idea_theme_conformance", "idea_complexity", "idea_fun", "idea_expansion", "execution_user_friendliness", "execution_absence_bugs", "execution_general_mechanics", "code_bukkit_api", "code_java", "code_documentation"];
+        $fieldNames = JudgeResult::$pointColumns;
         $dataSource = [];
         foreach ($fieldNames as $field) {
             $dataSource[$field] = Input::get($field);
