@@ -13,6 +13,7 @@ class ReviewController extends BaseJudgingController {
         // Let's grab all of the claims which match this repo name
 
         $claims = JudgeClaim::with(["judge", "result"])->whereRepoName($repoName)->get();
+        $this->setPageTitle("Results");
         return View::make("judging.pages.result-view", ["claims" => $claims]);
     }
 }
