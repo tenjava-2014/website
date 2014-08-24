@@ -7,6 +7,7 @@ use Form;
 use Illuminate\Html\FormBuilder;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
+use Log;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
 use TenJava\Routing\Registration;
@@ -171,7 +172,9 @@ class TenJava extends ServiceProvider {
         $app = $this->app;
         $app['blade.compiler']->extend(function($view, $compiler)  {
             $pattern = $compiler->createMatcher('prettyDate');
-            return preg_replace($pattern, '$1<time datetime="<?php echo $2->toISO8601String(); ?>" title="<?php echo $t2->toDateTimeString(); ?>"><?php echo $2->diffForHumans(); ?></time>', $view);
+            $value = preg_replace($pattern, '$1<time datetime="<?php echo $2->toISO8601String(); ?>" title="<?php echo $t2->toDateTimeString(); ?>"><?php echo $2->diffForHumans(); ?></time>', $view);
+            Log::info("Got value " . $value);
+            return $value;
         });
     }
 
