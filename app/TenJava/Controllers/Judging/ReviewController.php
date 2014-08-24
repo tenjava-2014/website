@@ -15,6 +15,8 @@ class ReviewController extends BaseJudgingController {
 
         $claims = JudgeClaim::with(["judge", "result"])->whereRepoName($repoName)->get();
         $this->setPageTitle("Results");
-        return View::make("judging.pages.result-view", ["relevantClaims" => $claims, "columns" => JudgeResult::$pointColumns]);
+        $allColumns = JudgeResult::$pointColumns;
+        $allColumns = array_diff($allColumns, ["liked", "improve"]);
+        return View::make("judging.pages.result-view", ["relevantClaims" => $claims, "columns" => $allColumns]);
     }
 }
