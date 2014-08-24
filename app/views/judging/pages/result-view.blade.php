@@ -16,7 +16,7 @@
 
             @foreach ($relevantClaims as $claim)
                 <h2>Claim from {{ $claim->judge->github_name }}</h2>
-                <p>This claim was created @prettyDate($claim->created_at->diffForHumans()). The attached result was created @prettyDate($claim->result->created_at->diffForHumans()).</p>
+                <p>This claim was created @prettyDate($claim->created_at). The attached result was created @prettyDate($claim->result->created_at).</p>
             @endforeach
         </div>
     </div>
