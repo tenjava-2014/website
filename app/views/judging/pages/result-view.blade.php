@@ -17,6 +17,18 @@
             @foreach ($relevantClaims as $claim)
                 <h2>Claim from {{ $claim->judge->github_name }}</h2>
                 <p>This claim was created {{ BladeHelpers::prettyDate($claim->created_at) }}. The attached result was created {{ BladeHelpers::prettyDate($claim->result->created_at) }}.</p>
+                <h3>Internal notes</h3>
+                <blockquote class="feedback">
+                    <p> {{ object_get($claim, "result.internal_notes") }}</p>
+                </blockquote>
+                <h3>Positive comment</h3>
+                <blockquote class="feedback">
+                    <p> {{ object_get($claim, "result.liked") }}</p>
+                </blockquote>
+                <h3>Improvement comment</h3>
+                <blockquote class="feedback">
+                    <p> {{ object_get($claim, "result.improve") }}</p>
+                </blockquote>
             @endforeach
         </div>
     </div>
