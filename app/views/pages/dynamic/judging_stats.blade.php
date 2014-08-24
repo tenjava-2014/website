@@ -8,6 +8,11 @@
         <div class="grid-100">
             <h2>Judging stats</h2>
 
+            <div class="alert basic">
+                <strong>We're working on reviewing inconsistent scores right now!</strong>
+                <p>Now that judging is finished, we're hard at work reviewing all of the assigned scores for inconsistencies. We've identified about 130 of these (~ 10% of all scores allocated) and are working to check each one to ensure all entries are judged fairly. Your patience is appreciated!</p>
+            </div>
+
             <p>As part of our desire to be transparent. we're making judging statistics public so you can track our
                 progress. There's a few things to keep in mind with this data. Some judges may have different numbers of
                 assigned plugins for a number of reasons. If judges discover a potentially rule-breaking submission or a
