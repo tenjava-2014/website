@@ -24,7 +24,7 @@ class JudgeClaim extends Model {
     protected $table = "judge_claims";
 
     public function judge() {
-        /** @see Judge */
+        /** @see TenJava\Models\Judge */
         return $this->belongsTo("TenJava\\Models\\Judge", "judge_id", "id");
     }
 
