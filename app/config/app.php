@@ -193,6 +193,7 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
         'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
         'Twitter'         => 'Thujohn\Twitter\TwitterFacade',
+        'BladeHelpers'    => 'TenJava\Tools\BladeHelpers'
     ),
 
 );

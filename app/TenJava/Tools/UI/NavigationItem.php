@@ -1,5 +1,4 @@
 <?php
-
 namespace TenJava\Tools\UI;
 
 class NavigationItem {
