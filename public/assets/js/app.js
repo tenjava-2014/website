@@ -69,6 +69,7 @@ $(document).ready(function () {
         var t2 = $times.data("t2");
         var t3 = $times.data("t3");
         var t3End = $times.data("t3") + (60 * 60 * 10);
+        var results = $times.data("res");
         var $time = $(".time-circle");
         var curTime = new Date();
 
@@ -94,8 +95,10 @@ $(document).ready(function () {
             curTime = new Date(curTime.getTime() + (t3End * 1000));
             $time.data("date", formatDate(curTime)).TimeCircles();
         } else {
-            $contestTime.text("Contest has ended! Check twitter for updates on judging.");
-            $time.hide();
+            $contestTime.text("Time until results announcement:");
+            $time.data("active-time", "res");
+            curTime = new Date(curTime.getTime() + (results * 1000));
+            $time.data("date", formatDate(curTime)).TimeCircles();
         }
     }
 

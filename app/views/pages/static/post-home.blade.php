@@ -9,6 +9,7 @@
             <div id="times-info" data-t1="{{{ $contestTimes->getTimeUntil($contestTimes->getT1StartTime()) }}}"
                                  data-t2="{{{ $contestTimes->getTimeUntil($contestTimes->getT2StartTime()) }}}"
                                  data-t3="{{{ $contestTimes->getTimeUntil($contestTimes->getT3StartTime()) }}}"
+                                 data-res="{{{ $contestTimes->getTimeUntil($contestTimes->getResultsAnnouncement()) }}}"
                                  data-t1-active="{{{ $contestTimes->isT1Active() ? 'true' : 'false' }}}"
                                  data-t2-active="{{{ $contestTimes->isT2Active() ? 'true' : 'false' }}}"
                                  data-t3-active="{{{ $contestTimes->isT3Active() ? 'true' : 'false' }}}"></div>
@@ -45,8 +46,12 @@
 	        @elseif($hst != 'noapp' && $hst != 'notime')
 	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
 	        @endif
+            <!-- <p>
+                <a href="/results" class="button button-block button-large button-flat-action">View results</a>
+                <span class="text-light">View the winning entries!</span>
+            </p>-->
             <p>
-                <a href="/themes" class="button button-block button-large button-flat-royal">View contest themes</a>
+                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
                 <span class="text-light">View the available themes for each timeslot.</span>
             </p>
             <p>
