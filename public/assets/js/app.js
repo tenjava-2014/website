@@ -93,8 +93,13 @@ $(document).ready(function () {
             $time.data("active-time", "t3e");
             curTime = new Date(curTime.getTime() + (t3End * 1000));
             $time.data("date", formatDate(curTime)).TimeCircles();
+        } else if (t3End < 0 && results > 0) {
+            $contestTime.text("Time until results announcement:");
+            $time.data("active-time", "res");
+            curTime = new Date(curTime.getTime() + (results * 1000));
+            $time.data("date", formatDate(curTime)).TimeCircles();
         } else {
-            $contestTime.text("Contest has ended! Check twitter for updates on judging.");
+            $contestTime.text("Thanks for your support!");
             $time.hide();
         }
     }

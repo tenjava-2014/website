@@ -45,6 +45,11 @@
 	        @elseif($hst != 'noapp' && $hst != 'notime')
 	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
 	        @endif
+
+            <!--<p>
+                <a href="/results" class="button button-block button-large button-flat-action">View results</a>
+                <span class="text-light">View the winning entries!</span>
+            </p>-->
             <p>
                 <a href="/themes" class="button button-block button-large button-flat-royal">View contest themes</a>
                 <span class="text-light">View the available themes for each timeslot.</span>
