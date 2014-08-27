@@ -63,6 +63,10 @@ class MailInfoCommand extends Command {
                 $this->error($app->gh_username . " has no email entry (none available). Contact DBO: " . $app->dbo_username);
             } else {
                 $this->comment("Chosen email is " . $chosenEmail);
+                Mail::queue(array('text' => 'emails.results'), array("user" => $app->gh_username), function ($message) use ($chosenEmail) {
+                    $message->from('tenjava@tenjava.com', 'ten.java Team');
+                    $message->to($chosenEmail)->subject('ten.java results');
+                });
                 $this->comment("Email sent!");
             }
 
