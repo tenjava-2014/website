@@ -92,7 +92,8 @@ class TenJava extends ServiceProvider {
             "\\TenJava\\Commands\\TwitchCleanupCommand",
             "\\TenJava\\Commands\\TwitchPollCommand",
             "\\TenJava\\Commands\\MailInfoCommand",
-            "\\TenJava\\Commands\\TimeAnnounceCommand"]);
+            "\\TenJava\\Commands\\TimeAnnounceCommand",
+            "\\TenJava\\Commands\\UserVerificationChecker"]);
     }
 
     private function registerFilters() {

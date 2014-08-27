@@ -15,14 +15,14 @@ class MailInfoCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'tenjava:finalmail';
+    protected $name = 'tenjava:streammail';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Send final mail to people.';
+    protected $description = 'Send stream mail to people.';
 
     /**
      * Create a new command instance.
@@ -43,9 +43,6 @@ class MailInfoCommand extends Command {
         foreach ($apps as $app) {
             /** @var $app Application */
             $this->info("Checking " . $app->gh_username);
-            $timeEntry = $app->timeEntry;
-            /** @var $timeEntry ParticipantTimes */
-            $this->comment("No time entry!");
             $emails = json_decode($app->github_email, true);
             if (array_key_exists("fail", $emails)) {
                 $this->error($app->gh_username . " has no email entry (user declined). Contact DBO: " . $app->dbo_username);
@@ -66,15 +63,6 @@ class MailInfoCommand extends Command {
                 $this->error($app->gh_username . " has no email entry (none available). Contact DBO: " . $app->dbo_username);
             } else {
                 $this->comment("Chosen email is " . $chosenEmail);
-                $data = ["t1" => false, "t2" => false, "t3" => false];
-                if ($timeEntry != null) {
-                    $data = $timeEntry->toArray();
-                }
-                $this->info(json_encode($data));
-                Mail::send(array('text' => 'emails.final-info'), $data, function ($message) use ($chosenEmail) {
-                    $message->from('tenjava@tenjava.com', 'ten.java Team');
-                    $message->to($chosenEmail)->subject('ten.java info');
-                });
                 $this->comment("Email sent!");
             }
 

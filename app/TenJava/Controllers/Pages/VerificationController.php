@@ -29,7 +29,7 @@ class VerificationController extends BaseController {
     public function getVerificationKey() {
         $this->setPageTitle("Verification Key");
         $data = $this->auth->getUserId() . "-" . $this->auth->getUsername();
-        $key = $this->hmac->createSignature($data, "gh-data.verification-key");
+        $key = $this->hmac->createSignature($data, Config::get("gh-data.verification-key"));
         return View::make("pages.dynamic.winner-verification")->with(["key" => $key]);
     }
 
