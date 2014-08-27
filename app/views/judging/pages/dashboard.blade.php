@@ -54,7 +54,7 @@
 </div>
 <div class="grid-container">
     <div class="grid-100 grid-parent">
-        <div class="grid-20 hide-on-mobile">
+        <div class="grid-20 hide-on-mobile signup-image">
             <img src="/assets/img/thirdparty/clock.svg" alt="Clock icon">
         </div>
         <div class="grid-80">

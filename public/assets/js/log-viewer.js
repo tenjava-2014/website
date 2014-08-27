@@ -5,7 +5,7 @@ function handleInfo(res, status, xhr) {
 }
 
 function pollThor(data, signature) {
-    var url = "http://thor.tenjava.com:8181/log?beta";
+    var url = "https://results.tenjava.com:8181/log";
     $.ajax({
         type: 'POST',
         url: url,
@@ -44,7 +44,7 @@ function setLogsInfo(data, replace) {
     if (replace != undefined || $logs.text() == "") {
         $logs.html(data);
     } else {
-        $logs.html($logs.html() + "\n" + data);
+        $logs.html($logs.html() + data);
     }
 }
 

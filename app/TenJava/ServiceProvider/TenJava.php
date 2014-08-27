@@ -7,6 +7,7 @@ use Form;
 use Illuminate\Html\FormBuilder;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
+use Log;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
 use TenJava\Routing\Registration;
@@ -139,9 +140,9 @@ class TenJava extends ServiceProvider {
             if ($request->secure()) {
                 // Let's be extra strict for the sake of security
                 $response->header('Content-Security-Policy',
-                    "default-src 'self' http://thor.tenjava.com:8181; " .
+                    "default-src 'self' https://results.tenjava.com:8181; " .
                     "style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline'; " .
-                    "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com; " .
+                    "font-src 'self' https://cdnjs.cloudflare.com themes.googleusercontent.com https://fonts.gstatic.com; " .
                     "img-src 'self' https://*.githubusercontent.com http://edge.sf.hitbox.tv http://static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch
@@ -151,9 +152,9 @@ class TenJava extends ServiceProvider {
             } else {
                 // We're in beta served over HTTP so we're not restricting stuff to SSL here
                 $response->header('Content-Security-Policy',
-                    "default-src 'self' http://thor.tenjava.com:8181; " .
+                    "default-src 'self' https://results.tenjava.com:8181; " .
                     "style-src 'self' cdnjs.cloudflare.com fonts.googleapis.com 'unsafe-inline'; " .
-                    "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com; " .
+                    "font-src 'self' cdnjs.cloudflare.com themes.googleusercontent.com fonts.gstatic.com; " .
                     "img-src 'self' https://*.githubusercontent.com edge.sf.hitbox.tv static-cdn.jtvnw.net http://placekitten.com; " . // this will likely need changing for twitch
                     "media-src 'self'; " . // this will likely need changing for twitch
                     "object-src 'self'; " . // this will likely need changing for twitch

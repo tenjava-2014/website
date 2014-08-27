@@ -8,6 +8,11 @@
         <div class="grid-100">
             <h2>Judging stats</h2>
 
+            <div class="alert basic">
+                <strong>We're working on reviewing inconsistent scores right now!</strong>
+                <p>Now that judging is finished, we're hard at work reviewing all of the assigned scores for inconsistencies. We've identified about 130 of these (~ 10% of all scores allocated) and are working to check each one to ensure all entries are judged fairly. Your patience is appreciated!</p>
+            </div>
+
             <p>As part of our desire to be transparent. we're making judging statistics public so you can track our
                 progress. There's a few things to keep in mind with this data. Some judges may have different numbers of
                 assigned plugins for a number of reasons. If judges discover a potentially rule-breaking submission or a
@@ -19,8 +24,8 @@
             @foreach ($judges as $judge)
                 <!-- forgive me -->
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
-                    <div style="margin: 0; background-color: {{ $finished ? "#7DB500" : "#3590E6" }}; width: {{{ $per }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $judge_progress[$judge->github_name] }}}/{{{ $totalAssigned }}})</h3>
+                    <div style="margin: 0; background-color: {{ $judge_progress[$judge->github_name]['finished'] ? "#7DB500" : "#3590E6" }}; width: {{{ $judge_progress[$judge->github_name]['percent'] }}}%; padding: 0;">
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $judge_progress[$judge->github_name]['completed'] }}}/{{{ $judge_progress[$judge->github_name]['assigned'] }}})</h3>
                     </div>
                 </div>
             @endforeach

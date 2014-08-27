@@ -26,8 +26,10 @@ class ParticipantTimes extends Model {
 
     public function getTimesLinks($n) {
         if ($this->{"t" . $n}) {
-            return HTML::link("https://www.github.com/tenjava/" . $this->appEntry->gh_username . "-t$n", "Time $n") .
-            " (" . HTML::link("https://www.github.com/tenjava/" . $this->appEntry->gh_username . "-t$n/commits/", "commits") . ")";
+            $concatName = $this->appEntry->gh_username . "-t$n";
+            return HTML::link("https://www.github.com/tenjava/" . $concatName, "Time $n") .
+            " (" . HTML::link("https://www.github.com/tenjava/" . $concatName . "-t$n/commits/", "commits") . ", ".
+            HTML::link("/judging/results-viewer/" . $concatName, "results") .")";
         } else {
             return "";
         }

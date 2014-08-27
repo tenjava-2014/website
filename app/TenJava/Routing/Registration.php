@@ -119,7 +119,7 @@ class Registration {
                 return Response::json(["env" => App::environment()]);
             });
             $this->router->get('/judging/feedback', 'TenJava\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
-
+            $this->router->get('/judging/results-viewer/{repoName}', 'TenJava\\Controllers\\Judging\\ReviewController@displayResultsForParticipant');
         });
     }
 }

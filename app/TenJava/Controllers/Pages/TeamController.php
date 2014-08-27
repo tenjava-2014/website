@@ -21,7 +21,7 @@ class TeamController extends BaseController {
     }
 
     private function incrementJudgeStat(&$array, $judge, $type) {
-            $array[$type][$judge] += 1;
+            $array[$judge][$type] += 1;
             return $array;
     }
 
@@ -60,8 +60,8 @@ class TeamController extends BaseController {
         }
 
         $viewData['total_progress']['finished'] = ($viewData['total_progress']['completed_claims'] == $viewData['total_progress']['total_claims']);
-        $viewData['total_progress']['percent'] = (int) ($viewData['total_progress']['total_claims'] == 0) ? 100 : (floatval($viewData['total_progress']['completed_claims']) / $viewData['total_progress']['total_claims']) * 100;
-
+        $viewData['total_progress']['percent'] = ($viewData['total_progress']['total_claims'] == 0) ? 100 :(floatval($viewData['total_progress']['completed_claims']) / $viewData['total_progress']['total_claims']) * 100;
+        $viewData['total_progress']['percent'] = (int) $viewData['total_progress']['percent'];
         $viewData['judges'] = $judges;
         return Response::view('pages.dynamic.judging_stats', $viewData);
     }

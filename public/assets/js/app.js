@@ -69,6 +69,7 @@ $(document).ready(function () {
         var t2 = $times.data("t2");
         var t3 = $times.data("t3");
         var t3End = $times.data("t3") + (60 * 60 * 10);
+        var results = $times.data("res");
         var $time = $(".time-circle");
         var curTime = new Date();
 

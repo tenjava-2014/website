@@ -59,4 +59,8 @@ class ContestTimes implements ContestTimesInterface {
     function isT3Finished() {
         return (time() > $this->getT3EndTime());
     }
+
+    function getResultsAnnouncement() {
+        return Config::get("contest-times.results");
+    }
 }

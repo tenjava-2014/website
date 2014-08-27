@@ -22,11 +22,8 @@
                 200 participants have signed up, and we've been blown away by the response on Twitter, the Bukkit
                 forums, and in IRC.</p>
 
-            <p>If you're interested in getting involved, you can sign up as a participant or apply to be a judge using
-                the links to the right. If you have spare CurseForge points you'd like to donate, use the donate button
-                to learn how.</p>
+            <p>The contest is now over and we're in the final stages of the judging process. We hope to be announcing the winning entries soon. You can keep up to date with the judging progress via twitter.</p>
 
-            <p>Once you've signed up, you might like to have a look at our <a href="/wiki">wiki</a> which includes information on Git, Maven, getting started with the contest and more.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
 	        @if($hst == 'noapp')
