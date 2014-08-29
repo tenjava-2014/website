@@ -51,6 +51,10 @@
                 <span class="text-light">View the winning entries!</span>
             </p>-->
             <p>
+               <a href="https://www.youtube.com/watch?v=cQ-FQ9ee2Yo" class="button button-block button-large button-flat-action">View results live stream</a>
+               <span class="text-light">We'll be announcing the results at 7PM on August 30th.</span>
+           </p>
+            <p>
                 <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
                 <span class="text-light">View the available themes for each timeslot.</span>
             </p>
