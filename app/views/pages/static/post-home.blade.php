@@ -63,6 +63,10 @@
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
 
+            <div class="tf2-details">
+                <p>We have a TF2 server available and will be playing before and after the results are announced. If you'd like to join us, connect to thor.tenjava.com</p>
+            </div>
+
         </div>
     </div>
 </div>

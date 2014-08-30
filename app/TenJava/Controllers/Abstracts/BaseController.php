@@ -61,7 +61,7 @@ abstract class BaseController extends Controller {
 
         $navigation['primary'] = array(
             new NavigationItem("Home", "/"),
-            new NavigationItem("Judging stats", "/team/stats"),
+            new NavigationItem("Results", "/results"),
             new NavigationItem("Points", "/points"),
             new NavigationItem("Team", "/team"),
         );

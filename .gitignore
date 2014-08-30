@@ -16,3 +16,4 @@ public/assets/css/*
 .idea
 public/packages/
 .sass-cache
+app/views/pages/secure/results.blade.php
