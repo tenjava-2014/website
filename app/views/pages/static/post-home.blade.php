@@ -51,15 +51,15 @@
                 <span class="text-light">View the winning entries!</span>
             </p>-->
             <p>
-               <a href="https://www.youtube.com/watch?v=cQ-FQ9ee2Yo" class="button button-block button-large button-flat-action">View results live stream</a>
-               <span class="text-light">We'll be announcing the results at 7PM on August 30th.</span>
+               <a href="/results" class="button button-block button-large button-flat-action">View results</a>
+               <span class="text-light">We announced the results at 7PM on August 30th.</span>
            </p>
             <p>
                 <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
-                <span class="text-light">View the available themes for each timeslot.</span>
+                <span class="text-light">View the themes we offered for each timeslot.</span>
             </p>
             <p>
-                <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
+                <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
 

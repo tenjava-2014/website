@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-<div class="grid-container">
+<!-- <div class="grid-container">
     <div class="grid-80">
         <a id="donate"></a>
         <h3>Donate points</h3>
@@ -52,5 +52,5 @@
     <div class="grid-20 hide-on-mobile hide-on-tablet signup-image signup-margin">
         <img src="{{ asset('/assets/img/thirdparty/send.svg') }}" alt="Send icon">
     </div>
-</div>
+</div> -->
 @stop
