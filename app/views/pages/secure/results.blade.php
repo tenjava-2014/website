@@ -80,6 +80,6 @@
         <img src="{{ asset('/assets/img/thirdparty/trophy.svg') }}" alt="Trophy icon">
     </div>
 
-    <div class="grid-100 grid-padding-sucks"><br /><small>We won't enter into discussions relating to the winning entries. The organizer's decision is final.</small></div>
+    <div class="grid-100 grid-padding-sucks"><br /><small>We won't enter into discussions relating to the winning entries. The organizers' decision is final.</small></div>
 </div>
 @stop
