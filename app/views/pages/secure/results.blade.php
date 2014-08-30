@@ -27,7 +27,7 @@
         <h3>2nd Place &mdash; mbaxter's entry for timeslot 3</h3>
         <p>
             mbaxter's plugin adds an aptly-dubbed "WonderBow" that users with necessary permissions can access via a
-            a command. The WonderBow chooses a random "Wonder" to be applied upon each shot. Available effects range
+            command. The WonderBow chooses a random "Wonder" to be applied upon each shot. Available effects range
             from floating chickens to exploding cows. We had great fun playing with this entry and were impressed by
             the use of new language features and overall code structure.
         </p>
