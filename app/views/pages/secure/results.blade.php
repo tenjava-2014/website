@@ -61,7 +61,7 @@
         <h3>Top ten</h3>
         <p>
             The top ten entries were:
-            <ul>
+            <ol>
                 <li>Ribesg-t2</li>
                 <li>mbax-t3</li>
                 <li>turt2live-t3</li>
@@ -73,7 +73,7 @@
                 <li>hintss-t3</li>
                 <li>Lolmewn-t2</li>
 
-            </ul>
+            </ol>
         </p>
 
     </div>
