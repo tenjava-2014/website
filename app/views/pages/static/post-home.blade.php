@@ -40,12 +40,6 @@
                 information on Git, Maven, getting started with the contest and more.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
-
-			@if($hst == 'notime')
-            <p>You have not chosen a timeslot in the required time and cannot participate.</p>
-	        @elseif($hst != 'noapp' && $hst != 'notime')
-	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
-	        @endif
             <!-- <p>
                 <a href="/results" class="button button-block button-large button-flat-action">View results</a>
                 <span class="text-light">View the winning entries!</span>
@@ -63,9 +57,9 @@
                 <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
             </p>
 
-            <div class="tf2-details">
+            <!-- <div class="tf2-details">
                 <p>We have a TF2 server available and will be playing before and after the results are announced. If you'd like to join us, connect to thor.tenjava.com</p>
-            </div>
+            </div> -->
 
         </div>
     </div>
