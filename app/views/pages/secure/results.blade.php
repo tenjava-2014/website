@@ -61,7 +61,8 @@
         <h3>Top ten</h3>
         <p>
             The top ten entries were:
-            <ul>
+        </p>
+            <ol>
                 <li>Ribesg-t2</li>
                 <li>mbax-t3</li>
                 <li>turt2live-t3</li>
@@ -73,8 +74,7 @@
                 <li>hintss-t3</li>
                 <li>Lolmewn-t2</li>
 
-            </ul>
-        </p>
+            </ol>
 
     </div>
     <div class="grid-10 hide-on-mobile signup-image grid-padding-sucks">
