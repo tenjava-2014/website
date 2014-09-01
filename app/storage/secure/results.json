@@ -20,9 +20,9 @@
             "code_documentation": 7,
             "idea_expansion": 8,
             "idea_complexity": 9,
-            "idea_total": 12,
-            "execution_total": 13,
-            "code_total": 14,
+            "idea": 12,
+            "execution": 13,
+            "code": 14,
             "execution_user_friendliness": 10,
             "execution_absence_bugs": 11
         }
