@@ -37,9 +37,9 @@
             </p>
 
             <ul>
-                <li>Idea: {{{ $cur['results']['idea_total'] }}} / 75</li>
-                <li>Execution: {{{ $cur['results']['execution_total'] }}} / 75</li>
-                <li>Code: {{{ $cur['results']['code_total'] }}} / 100</li>
+                <li>Idea: {{{ $cur['results']['idea'] }}} / 75</li>
+                <li>Execution: {{{ $cur['results']['execution'] }}} / 75</li>
+                <li>Code: {{{ $cur['results']['code'] }}} / 100</li>
             </ul>
         @else
             <p>
