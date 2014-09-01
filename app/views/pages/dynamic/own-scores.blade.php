@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="grid-container">
-    <h2>Scores for your entries</h2>
+    <h2>Feedback for your entries</h2>
     <p>
-        This page contains the averaged score data for your ten.java entries. You might not have any scores here if you
+        This page contains the judge feedback and score info for your ten.java entries. You might not have any data here if you
         didn't take part or your entry was disqualified.
     </p>
     @foreach ($times as $time)
