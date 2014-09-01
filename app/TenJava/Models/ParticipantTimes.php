@@ -28,7 +28,7 @@ class ParticipantTimes extends Model {
         $arr = [];
         for ($i = 1; $i <= 3; $i++) {
             if ($this->{"t" . $i}) {
-                $arr[] = ($prefix != null) ? $prefix . "t" . $i : "t" . $i;
+                $arr[] = ($prefix != null) ? $prefix . "-t" . $i : "t" . $i;
             }
         }
         return $arr;
