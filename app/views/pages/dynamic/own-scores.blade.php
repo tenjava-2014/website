@@ -19,20 +19,32 @@
             </p>
             @foreach ($cur['liked'] as $msg)
                 <blockquote class="feedback">
-                    <p>{{{ $msg  }}}</p>
+                    <p>{{{ $msg }}}</p>
                 </blockquote>
             @endforeach
 
-            <p>And here's what we thought could be improved:</p>
+            <p>
+                And here's what we thought could be improved:
+            </p>
             @foreach ($cur['improve'] as $msg)
                 <blockquote class="feedback">
-                    <p>{{{ $msg  }}}</p>
+                    <p>{{{ $msg }}}</p>
                 </blockquote>
             @endforeach
+
+            <p>
+                Finally, here are the scores we awarded the entry for each major category:
+            </p>
+
+            <ul>
+                <li>Idea: {{{ $cd['results']['idea_total'] }}} / 75</li>
+                <li>Execution: {{{ $cd['results']['execution_total'] }}} / 75</li>
+                <li>Code: {{{ $cd['results']['code_total'] }}} / 100</li>
+            </ul>
         @else
             <p>
                We don't have any applicable score data for this entry. If you think we should, please contact us with
-               the link in the footer.
+               the email link in the footer.
             </p>
         @endif
     @endforeach

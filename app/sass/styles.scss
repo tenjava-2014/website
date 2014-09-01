@@ -527,3 +527,10 @@ form input[type="number"] {
 .judge-progress + .judge-progress {
   margin-top: 10px;
 }
+blockquote.feedback {
+  word-break: break-all;
+  padding-right: 35px;
+}
+blockquote.feedback p {
+  word-break: break-all;
+}

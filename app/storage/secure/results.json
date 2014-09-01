@@ -10,18 +10,21 @@
         ],
         "place": 121233,
         "results": {
-            "execution_general_mechanics": 0,
-            "idea_fun": 0,
-            "execution_absence_bugs": 0,
-            "execution_user_friendliness": 0,
-            "code_documentation": 0,
-            "idea_complexity": 0,
+            "idea_theme_conformance": 1,
             "total": 0,
-            "idea_theme_conformance": 0,
-            "code_bukkit_api": 0,
-            "idea_expansion": 0,
-            "idea_originality": 0,
-            "code_java": 0
+            "code_bukkit_api": 2,
+            "idea_fun": 3,
+            "code_java": 4,
+            "idea_originality": 5,
+            "execution_general_mechanics": 6,
+            "code_documentation": 7,
+            "idea_expansion": 8,
+            "idea_complexity": 9,
+            "idea_total": 12,
+            "execution_total": 13,
+            "code_total": 14,
+            "execution_user_friendliness": 10,
+            "execution_absence_bugs": 11
         }
     }
 }
