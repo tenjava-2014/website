@@ -11,7 +11,7 @@
         @if (array_key_exists($time, $data))
             <?php $cur = $data[$time]; ?>
             <p>
-                This entry was awarded a total of <strong>{{{ $cur['total'] }}}</strong> points by our judging team and
+                This entry was awarded a total of <strong>{{{ $cur['results']['total'] }}}</strong> points by our judging team and
                 places {{{ $cur['place'] . ordinal($cur['place']) }}} out of all judged entries.
             </p>
             <p>
