@@ -11,6 +11,9 @@ class ScoreViewController extends BaseController {
     public function showScores() {
         $this->setPageTitle("Your entry scores");
         $app = $this->getApplication();
+        if ($app == null) {
+            return Response::view('errors.noapp');
+        }
         $timeEntry = $app->timeEntry;
 
         return Response::view('pages.dynamic.own-scores',
@@ -25,7 +28,7 @@ class ScoreViewController extends BaseController {
         // Quite honestly, the entire authentication system is a mystery
         // I have no clue how it works anymore and it needs redoing one day
         $githubName = $this->auth->getUsername();
-        $app = Application::where("gh_username", $githubName);
+        $app = Application::where("gh_username", $githubName)->first();
 
         return $app;
     }
