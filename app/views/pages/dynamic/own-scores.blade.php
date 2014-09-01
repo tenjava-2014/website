@@ -18,16 +18,16 @@
                 Here's a quick summary of what our judging team liked about this entry:
             </p>
             @foreach ($cur['liked'] as $msg)
-                <div class="feedback">
+                <blockquote class="feedback">
                     <p>{{{ $msg  }}}</p>
-                </div>
+                </blockquote>
             @endforeach
 
             <p>And here's what we thought could be improved:</p>
             @foreach ($cur['improve'] as $msg)
-                <div class="feedback">
+                <blockquote class="feedback">
                     <p>{{{ $msg  }}}</p>
-                </div>
+                </blockquote>
             @endforeach
         @else
             <p>
