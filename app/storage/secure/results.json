@@ -1,0 +1,30 @@
+{
+    "lol768-t1": {
+        "improve": [
+            "the whole plugin",
+            "everything"
+        ],
+        "liked": [
+            "nothing",
+            "the lack of code"
+        ],
+        "place": 121233,
+        "results": {
+            "idea_theme_conformance": 1,
+            "total": 0,
+            "code_bukkit_api": 2,
+            "idea_fun": 3,
+            "code_java": 4,
+            "idea_originality": 5,
+            "execution_general_mechanics": 6,
+            "code_documentation": 7,
+            "idea_expansion": 8,
+            "idea_complexity": 9,
+            "idea": 12,
+            "execution": 13,
+            "code": 14,
+            "execution_user_friendliness": 10,
+            "execution_absence_bugs": 11
+        }
+    }
+}

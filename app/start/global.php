@@ -50,4 +50,4 @@ App::error(function (Exception $exception, $code) {
     Log::error($exception);
 });
 
-
+require app_path().'/helpers.php';

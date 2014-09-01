@@ -532,15 +532,20 @@ form input[type="number"] {
   color: #444;
   padding: 5px 0 5px 0;
 }
-
 .grid-padding-sucks {
   padding-left: 0;
   padding-right: 0;
 }
-
 .outdated-info-notice {
   margin: 0 !important;
   border: none !important;
   border-radius: 0 !important;
   text-align: center;
+}
+blockquote.feedback {
+  word-break: break-all;
+  padding-right: 35px;
+}
+blockquote.feedback p {
+  word-break: break-all;
 }

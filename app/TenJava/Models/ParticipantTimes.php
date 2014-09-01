@@ -24,6 +24,16 @@ class ParticipantTimes extends Model {
         return $this->belongsTo("\\TenJava\\Models\\Application", "user_id", "id");
     }
 
+    public function getApplicableTimes($prefix = null) {
+        $arr = [];
+        for ($i = 1; $i <= 3; $i++) {
+            if ($this->{"t" . $i}) {
+                $arr[] = ($prefix != null) ? $prefix . "-t" . $i : "t" . $i;
+            }
+        }
+        return $arr;
+    }
+
     public function getTimesLinks($n) {
         if ($this->{"t" . $n}) {
             $concatName = $this->appEntry->gh_username . "-t$n";
