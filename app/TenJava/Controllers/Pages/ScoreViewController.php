@@ -15,7 +15,9 @@ class ScoreViewController extends BaseController {
             return Response::view('errors.noapp');
         }
         $timeEntry = $app->timeEntry;
-
+        if ($timeEntry == null) {
+            return Response::view('errors.noapp');
+        }
         return Response::view('pages.dynamic.own-scores',
                               ["app" => $app, "times" => $timeEntry->getApplicableTimes($app->gh_username),
                                "data" => $this->getResultsInfo()]);
