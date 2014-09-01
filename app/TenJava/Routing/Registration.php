@@ -68,6 +68,7 @@ class Registration {
 
         /* LOGGED IN USERS ONLY */
         $this->router->group(array('before' => 'AuthenticationFilter'), function () {
+            $this->router->get('/own-scores', "TenJava\\Controllers\\Pages\\ScoreViewController@showScores");
             $this->router->get('/register/participant', "TenJava\\Controllers\\Application\\AppController@showApplyParticipant");
             $this->router->post('/times/confirm', "TenJava\\Controllers\\Application\\TimeController@confirmUserTimes");
             $this->router->get('/times/select', "TenJava\\Controllers\\Application\\TimeController@showUserTimes");
