@@ -13,7 +13,7 @@ class TeamController extends BaseController {
         $this->setPageTitle("Meet the team");
         $this->setActive("team");
         $teamMembers = array();
-        $teamMembers['Organizers'] = Judge::where("admin", true)->lists("github_name");
+        $teamMembers['Organizers'] = Judge::where("admin", true)->where("github_name", "!=", "lol768")->lists("github_name");
         $teamMembers['Web Team'] = Judge::where("web_team", true)->lists("github_name");
         $teamMembers['Judges'] = Judge::lists("github_name");
         $teamMembers['Sponsors'] = Config::get("user-access.present.Sponsors");
