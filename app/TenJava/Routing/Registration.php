@@ -86,11 +86,16 @@ class Registration {
                 Session::clear();
                 return Redirect::to("/");
             });
+            $this->router->get('/subscribe', 'TenJava\\Controllers\\Pages\\NewsController@showSubscribePage');
+            $this->router->model('subscription', 'TenJava\\Models\\Subscription');
+            $this->router->get('/confirm/{subscription}/{sha1}', 'TenJava\\Controllers\\Pages\\NewsController@confirm');
         });
 
         /* CSRF PROTECTED AUTH PAGES */
         $this->router->group(array('before' => 'AuthenticationFilter|csrf'), function () {
             $this->router->post('/apply/{type}', 'TenJava\\Controllers\\Application\\AppController@processApplication');
+            $this->router->post('/subscribe', 'TenJava\\Controllers\\Pages\\NewsController@subscribe');
+            $this->router->post('/unsubscribe', 'TenJava\\Controllers\\Pages\\NewsController@unsubscribe');
         });
 
         /* JUDGES ONLY */
