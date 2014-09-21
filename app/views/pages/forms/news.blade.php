@@ -14,6 +14,10 @@
             </div>
             @endif
             <h2>Get Contest News</h2>
+            <p>
+                You can subscribe to news about the upcoming ten.java contest here. If you subscribe, you will receive
+                periodic emails from the ten.java team about the next ten.java contest! You can unsubscribe at any time.
+            </p>
             @if ($subscription === null)
             {{ Form::open(array('url' => '/subscribe', 'class' => 'form')) }}
             <div class="control-group">
