@@ -17,15 +17,14 @@ class NewsController extends BaseController {
     }
 
     private function getEmails() {
-        /*$old_emails = array_filter($this->auth->getEmails(), function ($email) {
+        $old_emails = array_filter($this->auth->getEmails(), function ($email) {
             return !ends_with($email, '@users.noreply.github.com');
         });
         $emails = [];
         foreach ($old_emails as $email) {
             $emails[$email] = $email;
         }
-        return $emails;*/
-        return null;
+        return $emails;
     }
 
     public function subscribe() {
