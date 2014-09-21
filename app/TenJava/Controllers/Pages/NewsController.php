@@ -14,6 +14,7 @@ use Validator;
 class NewsController extends BaseController {
 
     public function __construct(HmacCreationInterface $hmacCreationInterface, HmacVerificationInterface $hmacVerificationInterface) {
+        parent::__construct();
         $this->hmacCreator = $hmacCreationInterface;
         $this->hmacVerifier = $hmacVerificationInterface;
     }
@@ -77,6 +78,9 @@ class NewsController extends BaseController {
     }
 
     public function confirm(Subscription $subscription, $sha1) {
+        if ($subscription->confirmed) {
+            return Response::view('pages.dynamic.news-confirm', ['valid', true]);
+        }
         $valid = $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
         if ($valid) {
             $subscription->confirmed = true;
