@@ -23,7 +23,7 @@
             <div class="control-group">
                 <label for="email">Email</label>
                 <div class="control">
-                @if ($emails === null)
+                @if ($emails === null || count($emails) < 1)
                 <div class="alert basic error">
                     We don't have access to any of your GitHub emails! Please specify an email to send mail to below.
                 </div>
