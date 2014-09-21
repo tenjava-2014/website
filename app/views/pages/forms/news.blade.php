@@ -4,6 +4,7 @@
     <div class="grid-container">
         <div class="grid-100">
             <h2>Get Contest News</h2>
+            @if ($subscription === null)
             {{ Form::open(array('url' => '/subscribe', 'class' => 'form')) }}
             <div class="control-group">
                 <label for="email">Email</label>
@@ -20,6 +21,12 @@
             </div>
             <input type="submit" value="Subscribe" class="button button-block button-flat-primary">
             {{ Form::close() }}
+            @else
+            <p>
+                You have already subscribed for news with the email <em>{{{ $subscription->email }}}</em>. If you would
+                like to, you can <a href="#">unsubscribe</a>.
+            </p>
+            @endif
         </div>
     </div>
 </div>
