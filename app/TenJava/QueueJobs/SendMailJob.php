@@ -19,8 +19,8 @@ class SendMailJob {
         $subject = $data['subject'];
         $subscription = Subscription::where('gh_id', $gh_id)->first();
         $send_data = static::getData($subscription);
-        if (isset($data['hmac']) && $data['hmac']) {
-            $send_data['hmac'] = $this->hmacCreator;
+        if (isset($data['data'])) {
+            $send_data = array_merge($send_data, $data['data']);
         }
         if ($subscription !== null) {
             Mail::send($template, $send_data, function (Message $message) use ($subscription, $subject) {
@@ -30,12 +30,12 @@ class SendMailJob {
         $job->delete();
     }
 
-    public static function getData(Subscription $recipient) {
+    public static function getData(Subscription $subscription) {
         return [
-            'name' => $recipient->gh_username,
-            'id' => $recipient->gh_id,
-            'email' => $recipient->email,
-            'subscription_id' => $recipient->id
+            'name' => $subscription->gh_username,
+            'id' => $subscription->gh_id,
+            'email' => $subscription->email,
+            'subscription_id' => $subscription->id
         ];
     }
 

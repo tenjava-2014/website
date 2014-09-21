@@ -7,12 +7,14 @@ use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 use TenJava\Models\Subscription;
+use TenJava\Security\HmacCreationInterface;
 use TenJava\Security\HmacVerificationInterface;
 use Validator;
 
 class NewsController extends BaseController {
 
-    public function __construct(HmacVerificationInterface $hmacVerificationInterface) {
+    public function __construct(HmacCreationInterface $hmacCreationInterface, HmacVerificationInterface $hmacVerificationInterface) {
+        $this->hmacCreator = $hmacCreationInterface;
         $this->hmacVerifier = $hmacVerificationInterface;
     }
 
@@ -57,7 +59,9 @@ class NewsController extends BaseController {
                 'gh_id' => $this->auth->getUserId(),
                 'template' => 'emails.news.welcome',
                 'subject' => 'Confirm Subscription to ten.java Updates!',
-                'hmac' => true
+                'data' => [
+                    'confirm_url' => 'https://tenjava.com/confirm/' . e($subscription->id) . '/' . e($this->hmacCreator->createSignature($email, Config::get('gh-data.verification-key')))
+                ]
             ]
         );
         return Redirect::back();
