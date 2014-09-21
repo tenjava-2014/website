@@ -81,14 +81,14 @@ class NewsController extends BaseController {
 
     public function confirm(Subscription $subscription, $sha1) {
         if ($subscription->confirmed) {
-            return Response::view('pages.dynamic.news-confirm', ['valid', true]);
+            return Response::view('pages.dynamic.news-confirm', ['valid' => true]);
         }
         $valid = $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
         if ($valid) {
             $subscription->confirmed = true;
             $subscription->save();
         }
-        return Response::view('pages.dynamic.news-confirm', ['valid', $valid]);
+        return Response::view('pages.dynamic.news-confirm', ['valid' => $valid]);
     }
 
 }
