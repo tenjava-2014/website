@@ -7,6 +7,7 @@ use Mail;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use TenJava\Models\Subscription;
+use TenJava\QueueJobs\SendMailJob;
 
 class MailNewsCommand extends Command {
 
@@ -48,12 +49,7 @@ class MailNewsCommand extends Command {
         };
         foreach ($recipients as $recipient) {
             $this->info("Sending to " . $recipient->email . ".");
-            $data = [
-                'name' => $recipient->gh_username,
-                'id' => $recipient->gh_id,
-                'email' => $recipient->email
-            ];
-            Mail::send($template, $data, function (Message $message) use ($recipient, $subject) {
+            Mail::send($template, SendMailJob::getData($recipient), function (Message $message) use ($recipient, $subject) {
                 $message->to($recipient->email, $recipient->gh_username)->subject($subject)->from('no-reply@tenjava.com', 'The ten.java Team');
             });
         }

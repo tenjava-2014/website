@@ -1,10 +1,13 @@
 <?php namespace TenJava\Controllers\Pages;
 
 use Input;
+use Queue;
 use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 use TenJava\Models\Subscription;
+use TenJava\Security\HmacCreationInterface;
+use TenJava\Security\HmacVerificationInterface;
 use Validator;
 
 class NewsController extends BaseController {
@@ -44,6 +47,15 @@ class NewsController extends BaseController {
         $subscription->gh_username = $this->auth->getUsername();
         $subscription->email = $email;
         $subscription->save();
+        Queue::push(
+            '\\TenJava\\QueueJobs\\SendMailJob',
+            [
+                'gh_id' => $this->auth->getUserId(),
+                'template' => 'emails.news.welcome',
+                'subject' => 'Confirm Subscription to ten.java Updates!',
+                'hmac' => true
+            ]
+        );
         return Redirect::back();
     }
 
