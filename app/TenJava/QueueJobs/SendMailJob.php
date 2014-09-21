@@ -5,13 +5,8 @@ use Illuminate\Mail\Message;
 use Illuminate\Queue\Jobs\Job;
 use Mail;
 use TenJava\Models\Subscription;
-use TenJava\Security\HmacCreationInterface;
 
 class SendMailJob {
-
-    public function __construct(HmacCreationInterface $hmacCreationInterface) {
-        $this->hmacCreator = $hmacCreationInterface;
-    }
 
     public function fire(Job $job, $data) {
         $template = $data['template'];
