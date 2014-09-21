@@ -54,6 +54,8 @@ class NewsController extends BaseController {
         $subscription->gh_username = $this->auth->getUsername();
         $subscription->email = $email;
         $subscription->save();
+        parse_str($this->hmacCreator->createSignature($email, Config::get('gh-data.verification-key')), $output);
+        $sha1 = $output['sha1'];
         Queue::push(
             '\\TenJava\\QueueJobs\\SendMailJob',
             [
@@ -61,7 +63,7 @@ class NewsController extends BaseController {
                 'template' => 'emails.news.welcome',
                 'subject' => 'Confirm Subscription to ten.java Updates!',
                 'data' => [
-                    'confirm_url' => 'https://tenjava.com/confirm/' . e($subscription->id) . '/' . e($this->hmacCreator->createSignature($email, Config::get('gh-data.verification-key')))
+                    'confirm_url' => 'https://tenjava.com/confirm/' . e($subscription->id) . '/' . e($sha1)
                 ]
             ]
         );
