@@ -27,9 +27,9 @@
                 <div class="alert basic error">
                     We don't have access to any of your GitHub emails! Please specify an email to send mail to below.
                 </div>
-                {{ Form::input('email', null, array('placeholder' => 'me@example.com')) }}
+                {{ Form::input('email', null, array('placeholder' => 'me@example.com', 'id' => 'email')) }}
                 @else
-                {{ Form::select('email', $emails) }}
+                {{ Form::select('email', $emails, null, array('id' => 'email')) }}
                 @endif
                 </div>
             </div>
