@@ -42,7 +42,7 @@ class MailNewsCommand extends Command {
     public function fire() {
         $template = $this->argument('template');
         $test = $this->option('test');
-        $recipients = $test ? [Subscription::where('gh_username', 'jkcclemens')->first()] : Subscription::where('confirmed', true);
+        $recipients = $test ? [Subscription::where('gh_username', 'jkcclemens')->first()] : Subscription::where('confirmed', true)->get();
         $subject = $this->option('subject') ? $this->option('subject') : 'ten.java Update';
         if (!$this->confirm('Send template ' . $template . ' (test: ' . ($test ? 'yes' : 'no') . ') to ' . count($recipients) . ' people with the subject "' . $subject . '"?', false)) {
             return;
