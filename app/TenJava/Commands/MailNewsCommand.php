@@ -46,7 +46,7 @@ class MailNewsCommand extends Command {
         $subject = $this->option('subject') ? $this->option('subject') : 'ten.java Update';
         if (!$this->confirm('Send template ' . $template . ' (test: ' . ($test ? 'yes' : 'no') . ') to ' . count($recipients) . ' people with the subject "' . $subject . '"?', false)) {
             return;
-        };
+        }
         foreach ($recipients as $recipient) {
             $this->info("Sending to " . $recipient->email . ".");
             Mail::send($template, SendMailJob::getData($recipient), function (Message $message) use ($recipient, $subject) {
