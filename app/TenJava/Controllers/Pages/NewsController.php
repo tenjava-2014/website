@@ -35,7 +35,8 @@ class NewsController extends BaseController {
             return Redirect::back()->withErrors($validator)->withInput();
         }
         $email = Input::get('email');
-        if (!in_array($email, $this->getEmails())) {
+        $emails = $this->getEmails();
+        if (($emails !== null && count($emails) > 0) && !in_array($email, $emails)) {
             return Redirect::back()->withErrors(['Invalid email.'])->withInput();
         }
         $subscription = new Subscription();
