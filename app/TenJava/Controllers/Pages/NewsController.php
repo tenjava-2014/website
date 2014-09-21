@@ -24,7 +24,6 @@ class NewsController extends BaseController {
     }
 
     private function getEmails() {
-        if ($this->auth === null) return null; // TODO: How?
         $old_emails = array_filter($this->auth->getEmails(), function ($email) {
             return !ends_with($email, '@users.noreply.github.com');
         });
