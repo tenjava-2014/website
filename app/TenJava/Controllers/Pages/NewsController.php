@@ -4,11 +4,8 @@ use TenJava\Controllers\Abstracts\BaseController;
 
 class NewsController extends BaseController {
 
-    public function __construct() {
-        $this->beforeFilter('AuthenticationFilter');
-    }
-
     public function showSubscribePage() {
+        $this->setPageTitle('Subscribe to ten.java news');
         $emails = $this->auth->getEmails();
         return Response::view('pages.forms.news', ['emails' => $emails]);
     }
