@@ -1,6 +1,7 @@
 <?php namespace TenJava\Controllers\Pages;
 
 use TenJava\Controllers\Abstracts\BaseController;
+use Response;
 
 class NewsController extends BaseController {
 
