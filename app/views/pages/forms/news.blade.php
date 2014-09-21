@@ -34,8 +34,11 @@
             @else
             <p>
                 You have already subscribed for news with the email <em>{{{ $subscription->email }}}</em>. If you would
-                like to, you can <a href="#">unsubscribe</a>.
+                like to, you can unsubscribe below.
             </p>
+            {{ Form::open(array('url' => '/unsubscribe', 'class' => 'form')) }}
+                <input type="submit" value="Unsubscribe" class="button button-block button-flat-primary"/>
+            {{ Form::close() }}
             @endif
         </div>
     </div>
