@@ -79,6 +79,14 @@ class NewsController extends BaseController {
         return Redirect::back();
     }
 
+    public function unsubscribeDirectly(Subscription $subscription, $sha1) {
+        $valid = $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
+        if ($valid) {
+            $subscription->delete();
+        }
+        return Response::view('pages.dynamic.news-unsubscribed', ['valid' => $valid]);
+    }
+
     public function confirm(Subscription $subscription, $sha1) {
         if ($subscription->confirmed) {
             return Response::view('pages.dynamic.news-confirm', ['valid' => true]);
