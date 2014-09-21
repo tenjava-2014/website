@@ -1,7 +1,7 @@
 <?php
 namespace TenJava\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
 /**
  * Class Subscription
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $gh_username
  * @property string $email
  */
-class Subscription extends Model {
+class Subscription extends Eloquent {
     protected $table = 'subscriptions';
     protected $guarded = ['id', 'updated_at', 'created_at'];
     protected $hidden = ['email'];

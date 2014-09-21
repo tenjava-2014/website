@@ -92,6 +92,8 @@ class Registration {
         /* CSRF PROTECTED AUTH PAGES */
         $this->router->group(array('before' => 'AuthenticationFilter|csrf'), function () {
             $this->router->post('/apply/{type}', 'TenJava\\Controllers\\Application\\AppController@processApplication');
+            $this->router->post('/subscribe', 'TenJava\\Controllers\\Pages\\NewsController@subscribe');
+            $this->router->post('/unsubscribe', 'TenJava\\Controllers\\Pages\\NewsController@unsubscribe');
         });
 
         /* JUDGES ONLY */
