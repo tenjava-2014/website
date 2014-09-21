@@ -2,6 +2,7 @@
 namespace TenJava\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Mail\Message;
 use Mail;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -41,13 +42,21 @@ class MailNewsCommand extends Command {
         $template = $this->argument('template');
         $test = $this->option('test');
         $recipients = $test ? [Subscription::where('gh_username', 'jkcclemens')->first()] : Subscription::all();
-        if (!$this->confirm('Send template ' . $template . ' (test: ' . $test . ') to ' . count($recipients) . ' people?', false)) {
+        $subject = $this->option('subject') ? $this->option('subject') : 'ten.java Update';
+        if (!$this->confirm('Send template ' . $template . ' (test: ' . ($test ? 'yes' : 'no') . ') to ' . count($recipients) . ' people with the subject "' . $subject . '"?', false)) {
             return;
         };
-        /*Mail::send($template, array(), function ($message) {
-            $message->to('woo@lol768.com', 'Some Name')->subject('Welcome!');
-        });*/
-        $this->info("Would've sent.");
+        foreach ($recipients as $recipient) {
+            $this->info("Sending to " . $recipient->email . ".");
+            $data = [
+                'name' => $recipient->gh_username,
+                'id' => $recipient->gh_id,
+                'email' => $recipient->email
+            ];
+            Mail::send($template, $data, function (Message $message) use ($recipient, $subject) {
+                $message->to($recipient->email, $recipient->gh_username)->subject($subject);
+            });
+        }
     }
 
     /**
@@ -68,7 +77,8 @@ class MailNewsCommand extends Command {
      */
     protected function getOptions() {
         return array(
-            ['test', null, InputOption::VALUE_NONE, 'Send the email to jkcclemens instead']
+            ['test', null, InputOption::VALUE_NONE, 'Send the email to jkcclemens instead'],
+            ['subject', null, InputOption::VALUE_REQUIRED, 'Subject of the email']
         );
     }
 
