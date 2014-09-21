@@ -6,13 +6,11 @@ use Illuminate\Queue\Jobs\Job;
 use Mail;
 use TenJava\Models\Subscription;
 use TenJava\Security\HmacCreationInterface;
-use TenJava\Security\HmacVerificationInterface;
 
 class SendMailJob {
 
-    public function __construct(HmacCreationInterface $hmacCreationInterface, HmacVerificationInterface $hmacVerificationInterface) {
+    public function __construct(HmacCreationInterface $hmacCreationInterface) {
         $this->hmacCreator = $hmacCreationInterface;
-        $this->hmacVerifier = $hmacVerificationInterface;
     }
 
     public function fire(Job $job, $data) {
@@ -36,7 +34,8 @@ class SendMailJob {
         return [
             'name' => $recipient->gh_username,
             'id' => $recipient->gh_id,
-            'email' => $recipient->email
+            'email' => $recipient->email,
+            'subscription_id' => $recipient->id
         ];
     }
 

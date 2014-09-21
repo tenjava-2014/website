@@ -87,6 +87,8 @@ class Registration {
                 return Redirect::to("/");
             });
             $this->router->get('/subscribe', 'TenJava\\Controllers\\Pages\\NewsController@showSubscribePage');
+            $this->router->model('subscription', 'TenJava\\Models\\Subscription');
+            $this->router->get('/confirm/{subscription}/{sha1}', 'TenJava\\Controllers\\Pages\\NewsController@confirm');
         });
 
         /* CSRF PROTECTED AUTH PAGES */

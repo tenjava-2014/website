@@ -1,16 +1,20 @@
 <?php namespace TenJava\Controllers\Pages;
 
+use Config;
 use Input;
 use Queue;
 use Redirect;
 use Response;
 use TenJava\Controllers\Abstracts\BaseController;
 use TenJava\Models\Subscription;
-use TenJava\Security\HmacCreationInterface;
 use TenJava\Security\HmacVerificationInterface;
 use Validator;
 
 class NewsController extends BaseController {
+
+    public function __construct(HmacVerificationInterface $hmacVerificationInterface) {
+        $this->hmacVerifier = $hmacVerificationInterface;
+    }
 
     public function showSubscribePage() {
         $this->setPageTitle('Subscribe to ten.java news');
@@ -66,6 +70,15 @@ class NewsController extends BaseController {
         }
         $subscription->delete();
         return Redirect::back();
+    }
+
+    public function confirm(Subscription $subscription, $sha1) {
+        $valid = $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
+        if ($valid) {
+            $subscription->confirmed = true;
+            $subscription->save();
+        }
+        return Response::view('pages.dynamic.news-confirm', ['valid', $valid]);
     }
 
 }
