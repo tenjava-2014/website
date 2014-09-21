@@ -13,18 +13,19 @@ class NewsController extends BaseController {
         $this->setPageTitle('Subscribe to ten.java news');
         $emails = $this->getEmails();
         $subscription = Subscription::where('gh_id', $this->auth->getUserId())->first();
-        return Response::view('pages.forms.news', ['subscription' => $subscription, 'emails' => null]);
+        return Response::view('pages.forms.news', ['subscription' => $subscription, 'emails' => $emails]);
     }
 
     private function getEmails() {
-        $old_emails = array_filter($this->auth->getEmails(), function ($email) {
+        /*$old_emails = array_filter($this->auth->getEmails(), function ($email) {
             return !ends_with($email, '@users.noreply.github.com');
         });
         $emails = [];
         foreach ($old_emails as $email) {
             $emails[$email] = $email;
         }
-        return $emails;
+        return $emails;*/
+        return null;
     }
 
     public function subscribe() {
