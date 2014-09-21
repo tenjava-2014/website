@@ -41,7 +41,7 @@ class NewsController extends BaseController {
         $subscription = new Subscription();
         $subscription->gh_id = $this->auth->getUserId();
         $subscription->gh_username = $this->auth->getUsername();
-        $subscription->email = Input::get('email');
+        $subscription->email = $email;
         $subscription->save();
         return Redirect::back();
     }
