@@ -54,7 +54,7 @@ class MailNewsCommand extends Command {
                 'email' => $recipient->email
             ];
             Mail::send($template, $data, function (Message $message) use ($recipient, $subject) {
-                $message->to($recipient->email, $recipient->gh_username)->subject($subject);
+                $message->to($recipient->email, $recipient->gh_username)->subject($subject)->from('no-reply@tenjava.com', 'The ten.java Team');
             });
         }
     }
