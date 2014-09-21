@@ -3,6 +3,16 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-100">
+            @if ($errors->any())
+            <div class="alert block error">
+                <h4>Request errors</h4>
+                <ul>
+                    @foreach($errors->all('<li>:message</li>') as $message)
+                    {{ $message }}
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <h2>Get Contest News</h2>
             @if ($subscription === null)
             {{ Form::open(array('url' => '/subscribe', 'class' => 'form')) }}
