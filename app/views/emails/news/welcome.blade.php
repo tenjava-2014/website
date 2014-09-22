@@ -3,7 +3,7 @@
     You're receiving this email because someone (hopefully you!) used this email address to subscribe to updates about
     the upcoming ten.java competition. If this was on purpose, please confirm your subscription by clicking
     <a href="{{{ $confirm_url }}}">here</a>.
-    You won't receive any updates until you've confirmed your email, so be sure to click that link!
+    <strong>You won't receive any updates until you've confirmed your email</strong>, so be sure to click that link!
 </p>
 <p>
     Thanks for subscribing! When there is significant news about the upcoming ten.java contest, you will receive an
