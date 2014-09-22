@@ -14,7 +14,7 @@
     "thujohn/twitter": "dev-master",
     "frozennode/administrator": "dev-master",
     "fzaninotto/faker": "1.5.*@dev",
-    "fedeisas/laravel-mail-css-inliner": "1.*"
+    "emil/inliner": "dev-master"
   },
   "autoload": {
     "classmap": [
