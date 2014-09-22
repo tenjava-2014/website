@@ -53,10 +53,10 @@ class MailNewsCommand extends Command {
             return;
         }
         foreach ($recipients as $recipient) {
-            $this->info("Sending to " . $recipient->email . ".");
+            $this->info("Queueing mail to " . $recipient->email . ".");
             $data = SendMailJob::getData($recipient);
             $data['unsubscribe_url'] = 'https://tenjava.com/unsubscribe/' . e($recipient->id) . '/' . e($this->news->getEmailHMAC($recipient));
-            Mail::send($template, $data, function (Message $message) use ($recipient, $subject) {
+            Mail::queue($template, $data, function (Message $message) use ($recipient, $subject) {
                 $message->to($recipient->email, $recipient->gh_username)->subject($subject)->from('no-reply@tenjava.com', 'The ten.java Team');
             });
         }
