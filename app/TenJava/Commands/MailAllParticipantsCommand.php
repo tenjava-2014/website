@@ -41,7 +41,7 @@ class MailAllParticipantsCommand extends Command {
      */
     public function fire() {
         $apps = $this->option('test') ? [Application::where('gh_username', 'jkcclemens')->first()] : Application::where("judge", false)->get();
-        if (!$this->confirm('Send email to ' . count($apps) . 'people?')) {
+        if (!$this->confirm('Send email to ' . count($apps) . ' people?')) {
             return;
         }
         foreach ($apps as $app) {
@@ -64,12 +64,11 @@ class MailAllParticipantsCommand extends Command {
             if ($chosenEmail === null) {
                 $this->error($app->gh_username . " has no email entry (none available). Contact DBO: " . $app->dbo_username);
             } else {
-                $this->comment("Chosen email is " . $chosenEmail);
+                $this->info("Queueing email to " . $chosenEmail . ".");
                 Mail::queue('emails.last-email', ['name' => $app->gh_username], function (Message $message) use ($chosenEmail, $app) {
                     $message->from('no-reply@tenjava.com', 'The ten.java Team');
                     $message->to($chosenEmail, $app->gh_username)->subject('ten.java News Updates');
                 });
-                $this->comment("Email sent!");
             }
 
         }
