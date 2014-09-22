@@ -94,7 +94,8 @@ class TenJava extends ServiceProvider {
             "\\TenJava\\Commands\\MailInfoCommand",
             "\\TenJava\\Commands\\TimeAnnounceCommand",
             "\\TenJava\\Commands\\UserVerificationChecker",
-            "\\TenJava\\Commands\\MailNewsCommand"]);
+            "\\TenJava\\Commands\\MailNewsCommand",
+            "\\TenJava\\Commands\\MailAllParticipantsCommand"]);
     }
 
     private function registerFilters() {

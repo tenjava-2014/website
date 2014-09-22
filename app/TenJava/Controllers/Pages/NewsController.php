@@ -54,8 +54,6 @@ class NewsController extends BaseController {
         $subscription->gh_username = $this->auth->getUsername();
         $subscription->email = $email;
         $subscription->save();
-        parse_str($this->hmacCreator->createSignature($email, Config::get('gh-data.verification-key')), $output);
-        $sha1 = $output['sha1'];
         Queue::push(
             '\\TenJava\\QueueJobs\\SendMailJob',
             [
@@ -63,11 +61,20 @@ class NewsController extends BaseController {
                 'template' => 'emails.news.welcome',
                 'subject' => 'Confirm Subscription to ten.java Updates!',
                 'data' => [
-                    'confirm_url' => 'https://tenjava.com/confirm/' . e($subscription->id) . '/' . e($sha1)
+                    'confirm_url' => 'https://tenjava.com/confirm/' . e($subscription->id) . '/' . e(static::getEmailHMAC($subscription))
                 ]
             ]
         );
         return Redirect::back();
+    }
+
+    /**
+     * @param Subscription $subscription
+     * @return string
+     */
+    public function getEmailHMAC(Subscription $subscription) {
+        parse_str($this->hmacCreator->createSignature($subscription->email, Config::get('gh-data.verification-key')), $output);
+        return $output['sha1'];
     }
 
     public function unsubscribe() {
@@ -79,11 +86,28 @@ class NewsController extends BaseController {
         return Redirect::back();
     }
 
+    public function unsubscribeDirectly(Subscription $subscription, $sha1) {
+        $valid = static::compareEmailHMAC($subscription, $sha1);
+        if ($valid) {
+            $subscription->delete();
+        }
+        return Response::view('pages.dynamic.news-unsubscribed', ['valid' => $valid]);
+    }
+
+    /**
+     * @param Subscription $subscription
+     * @param $sha1
+     * @return bool
+     */
+    public function compareEmailHMAC(Subscription $subscription, $sha1) {
+        return $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
+    }
+
     public function confirm(Subscription $subscription, $sha1) {
         if ($subscription->confirmed) {
             return Response::view('pages.dynamic.news-confirm', ['valid' => true]);
         }
-        $valid = $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
+        $valid = static::compareEmailHMAC($subscription, $sha1);
         if ($valid) {
             $subscription->confirmed = true;
             $subscription->save();

@@ -1,11 +1,13 @@
 <?php
 namespace TenJava\Commands;
 
+use Config;
 use Illuminate\Console\Command;
 use Illuminate\Mail\Message;
 use Mail;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use TenJava\Controllers\Pages\NewsController;
 use TenJava\Models\Subscription;
 use TenJava\QueueJobs\SendMailJob;
 
@@ -28,10 +30,13 @@ class MailNewsCommand extends Command {
     /**
      * Create a new command instance.
      *
+     * @param \TenJava\Controllers\Pages\NewsController $newsController
+     * @internal param \TenJava\Security\HmacCreationInterface $hmacCreationInterface
      * @return \TenJava\Commands\MailNewsCommand
      */
-    public function __construct() {
+    public function __construct(NewsController $newsController) {
         parent::__construct();
+        $this->news = $newsController;
     }
 
     /**
@@ -48,8 +53,10 @@ class MailNewsCommand extends Command {
             return;
         }
         foreach ($recipients as $recipient) {
-            $this->info("Sending to " . $recipient->email . ".");
-            Mail::send($template, SendMailJob::getData($recipient), function (Message $message) use ($recipient, $subject) {
+            $this->info("Queueing mail to " . $recipient->email . ".");
+            $data = SendMailJob::getData($recipient);
+            $data['unsubscribe_url'] = 'https://tenjava.com/unsubscribe/' . e($recipient->id) . '/' . e($this->news->getEmailHMAC($recipient));
+            Mail::queue($template, $data, function (Message $message) use ($recipient, $subject) {
                 $message->to($recipient->email, $recipient->gh_username)->subject($subject)->from('no-reply@tenjava.com', 'The ten.java Team');
             });
         }
