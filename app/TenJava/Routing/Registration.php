@@ -36,7 +36,7 @@ class Registration {
             $this->router->get('/toggle-optout', 'TenJava\\Controllers\\Authentication\\AuthController@toggleOptout');
             $this->router->get('/themes', 'TenJava\\Controllers\\Contest\\ThemesController@showThemes');
             $this->router->get('/results', "TenJava\\Controllers\\Pages\\ResultsController@showContestResults");
-            $this->router->get('/wiki', function() {
+            $this->router->get('/wiki', function () {
                 return Redirect::to("https://github.com/tenjava/resources/wiki");
             });
         });
@@ -75,14 +75,14 @@ class Registration {
             $this->router->get('/times/select', "TenJava\\Controllers\\Application\\TimeController@showUserTimes");
             $this->router->get('/times/thanks', "TenJava\\Controllers\\Application\\TimeController@showThanks");
             $this->router->get('/register/judge', "TenJava\\Controllers\\Application\\AppController@showApplyJudge");
-            $this->router->get('/login', function() {
-               return Redirect::to("/");
+            $this->router->get('/login', function () {
+                return Redirect::to("/");
             });
             $this->router->get('/charts', 'TenJava\\Controllers\\Pages\\ChartsController@showCharts');
             $this->router->get('/feedback', 'TenJava\\Controllers\\Pages\\FeedbackController@showFeedback');
             $this->router->post('/feedback', 'TenJava\\Controllers\\Pages\\FeedbackController@sendFeedback');
             $this->router->get('/verification/key', "TenJava\\Controllers\\Pages\\VerificationController@getVerificationKey");
-            $this->router->get('/logout', function() {
+            $this->router->get('/logout', function () {
                 Session::clear();
                 return Redirect::to("/");
             });
@@ -110,7 +110,7 @@ class Registration {
             $this->router->get('/judging/plugins/toggle', 'TenJava\\Controllers\\Judging\\JudgingController@toggleInputMethod');
             $this->router->post('/judging/plugins', 'TenJava\\Controllers\\Judging\\JudgingController@judgePlugin');
             $this->router->get('/list/{filter?}', 'TenJava\\Controllers\\Application\\AppController@listApps');
-            $this->router->get('/test/staff', function() {
+            $this->router->get('/test/staff', function () {
                 return "Staff only test endpoint.";
             });
             $this->router->get('/judging/logs/ajax', 'TenJava\\Controllers\\Judging\\LogViewController@testHmac');
@@ -123,7 +123,7 @@ class Registration {
             $this->router->post('/list/decline', 'TenJava\\Controllers\\Application\\AppController@declineJudgeApp');
             $this->router->post('/list/accept', 'TenJava\\Controllers\\Application\\AppController@acceptJudgeApp');
             $this->router->post('/list/remove-participant', 'TenJava\\Controllers\\Application\\AppController@deleteUserEntry');
-            $this->router->get('/test/admin', function() {
+            $this->router->get('/test/admin', function () {
                 return Response::json(["env" => App::environment()]);
             });
             $this->router->get('/judging/feedback', 'TenJava\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
