@@ -126,7 +126,7 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'TenJava\ServiceProvider\TenJava',
         'Frozennode\Administrator\AdministratorServiceProvider',
-        'Emil\Inliner\InlinerServiceProvider'
+        'Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider'
     ),
 
     /*
