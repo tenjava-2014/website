@@ -7,6 +7,7 @@ use Illuminate\Mail\Message;
 use Mail;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use TenJava\Controllers\Pages\NewsController;
 use TenJava\Models\Subscription;
 use TenJava\QueueJobs\SendMailJob;
 use TenJava\Security\HmacCreationInterface;
@@ -54,7 +55,7 @@ class MailNewsCommand extends Command {
         foreach ($recipients as $recipient) {
             $this->info("Sending to " . $recipient->email . ".");
             $data = SendMailJob::getData($recipient);
-            $data['unsubscribe_url'] = 'https://tenjava.com/unsubscribe/' . e($recipient->id) . '/' . e($this->hmacCreator->createSignature($recipient->email, Config::get('gh-data.verification-key')));
+            $data['unsubscribe_url'] = 'https://tenjava.com/unsubscribe/' . e($recipient->id) . '/' . e(NewsController::getEmailHMAC($recipient));
             Mail::send($template, $data, function (Message $message) use ($recipient, $subject) {
                 $message->to($recipient->email, $recipient->gh_username)->subject($subject)->from('no-reply@tenjava.com', 'The ten.java Team');
             });
