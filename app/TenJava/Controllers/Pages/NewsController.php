@@ -15,8 +15,8 @@ class NewsController extends BaseController {
 
     public function __construct(HmacCreationInterface $hmacCreationInterface, HmacVerificationInterface $hmacVerificationInterface) {
         parent::__construct();
-        $this->hmacCreator = $hmacCreationInterface;
-        $this->hmacVerifier = $hmacVerificationInterface;
+        static::$hmacCreator = $hmacCreationInterface;
+        static::$hmacVerifier = $hmacVerificationInterface;
     }
 
     /**
