@@ -15,17 +15,8 @@ class NewsController extends BaseController {
 
     public function __construct(HmacCreationInterface $hmacCreationInterface, HmacVerificationInterface $hmacVerificationInterface) {
         parent::__construct();
-        static::$hmacCreator = $hmacCreationInterface;
-        static::$hmacVerifier = $hmacVerificationInterface;
-    }
-
-    /**
-     * @param Subscription $subscription
-     * @return string
-     */
-    public static function getEmailHMAC(Subscription $subscription) {
-        parse_str(static::$hmacCreator->createSignature($subscription->email, Config::get('gh-data.verification-key')), $output);
-        return $output['sha1'];
+        $this->hmacCreator = $hmacCreationInterface;
+        $this->hmacVerifier = $hmacVerificationInterface;
     }
 
     public function showSubscribePage() {
@@ -77,6 +68,15 @@ class NewsController extends BaseController {
         return Redirect::back();
     }
 
+    /**
+     * @param Subscription $subscription
+     * @return string
+     */
+    public function getEmailHMAC(Subscription $subscription) {
+        parse_str($this->hmacCreator->createSignature($subscription->email, Config::get('gh-data.verification-key')), $output);
+        return $output['sha1'];
+    }
+
     public function unsubscribe() {
         $subscription = Subscription::where('gh_id', $this->auth->getUserId())->first();
         if ($subscription === null) {
@@ -99,9 +99,9 @@ class NewsController extends BaseController {
      * @param $sha1
      * @return bool
      */
-    public static function compareEmailHMAC(Subscription $subscription, $sha1) {
+    public function compareEmailHMAC(Subscription $subscription, $sha1) {
         parse_str($sha1, $output);
-        return static::$hmacVerifier->verifySignature($subscription->email, $output['sha1'], Config::get('gh-data.verification-key'));
+        return $this->hmacVerifier->verifySignature($subscription->email, $output['sha1'], Config::get('gh-data.verification-key'));
     }
 
     public function confirm(Subscription $subscription, $sha1) {
