@@ -7,6 +7,7 @@
             color: #333;
         }
         .footer {
+            border-top: 1px solid #999;
             font-size: .75em;
             color: #999;
         }
