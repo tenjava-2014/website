@@ -100,8 +100,7 @@ class NewsController extends BaseController {
      * @return bool
      */
     public function compareEmailHMAC(Subscription $subscription, $sha1) {
-        parse_str($sha1, $output);
-        return $this->hmacVerifier->verifySignature($subscription->email, $output['sha1'], Config::get('gh-data.verification-key'));
+        return $this->hmacVerifier->verifySignature($subscription->email, $sha1, Config::get('gh-data.verification-key'));
     }
 
     public function confirm(Subscription $subscription, $sha1) {
