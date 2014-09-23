@@ -87,6 +87,10 @@ class Registration {
                 return Redirect::to("/");
             });
             $this->router->get('/subscribe', 'TenJava\\Controllers\\Pages\\NewsController@showSubscribePage');
+            $this->router->post('/resend-confirmation', 'TenJava\\Controllers\\Pages\\NewsController@resendConfirmationEmail');
+            $this->router->get('/resend-confirmation/thanks',
+                              ['uses' => 'TenJava\\Controllers\\Pages\\NewsController@showResendConfirmation',
+                               'as' => "resend-thanks"]);
             $this->router->model('subscription', 'TenJava\\Models\\Subscription');
             $this->router->get('/confirm/{subscription}/{sha1}', 'TenJava\\Controllers\\Pages\\NewsController@confirm');
             $this->router->get('/unsubscribe/{subscription}/{sha1}', 'TenJava\\Controllers\\Pages\\NewsController@unsubscribeDirectly');

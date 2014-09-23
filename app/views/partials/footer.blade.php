@@ -7,7 +7,7 @@
             </p>
 		</div>
 		<div class="grid-20 tablet-grid-50 mobile-grid-100">
-			<ul class="social-media">
+			<ul class="soc-links">
 				<li><a href="mailto:{{{ HTML::obfuscate('tenjava@' . 'ten' . 'java.com') }}}"><i class="fa fa-2x fa-envelope-square"></i></a></li>
 				<li><a title="" target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
 				<li><a target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-twitter-square"></i></a></li>
