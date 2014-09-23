@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /assets/
 Disallow: /register
 Disallow: /judge
+Disallow: /subscribe
+Disallow: /judging
