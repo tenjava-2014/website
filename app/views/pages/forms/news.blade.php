@@ -54,7 +54,7 @@
                         <input type="submit" value="Resend confirmation" class="button button-block button-flat-royal"/>
                     {{ Form::close() }}
 
-                    {{ Form::open(array('url' => '/unsubscribe', 'class' => 'form')) }}
+                    {{ Form::open(array('url' => '/unsubscribe', 'class' => 'form top-margin-10')) }}
                         <input type="submit" value="Cancel subscription request" class="button button-block button-flat-primary"/>
                     {{ Form::close() }}
                 @endif
