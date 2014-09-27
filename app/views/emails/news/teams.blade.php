@@ -29,7 +29,7 @@
     </p>
     <p>
         That's all that there is to officially announce currently. There are definitely more things in planning! When
-        there is more that is officially decided upon, another topic will be made.
+        there is more that is officially decided upon, another update will be made.
     </p>
     <p>
         Definitely looking forward to the next one. It's gonna be great.
