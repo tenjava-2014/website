@@ -100,7 +100,7 @@ $(document).ready(function () {
             curTime = new Date(curTime.getTime() + (results * 1000));
             $time.data("date", formatDate(curTime)).TimeCircles();
         } else {
-            $contestTime.text("Thanks for your support!");
+            $contestTime.html("Latest news: <a href='http://forums.tenjava.com/t/the-next-ten-java-teams-teams-everywhere/119'>The next ten.java: teams! Teams everywhere!</a>");
             $time.hide();
         }
     }
