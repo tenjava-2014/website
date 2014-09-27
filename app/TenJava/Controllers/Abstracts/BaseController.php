@@ -61,6 +61,7 @@ abstract class BaseController extends Controller {
 
         $navigation['primary'] = array(
             new NavigationItem("Home", "/"),
+            new NavigationItem("Forums", "http://forums.tenjava.com"),
             new NavigationItem("Results", "/results"),
             new NavigationItem("Points", "/points"),
             new NavigationItem("Team", "/team"),
