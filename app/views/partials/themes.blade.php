@@ -1,8 +1,10 @@
 <h2>Themes</h2>
-<p>As each timeslot starts, this page will list the available themes for each one. If you're participating, you
-    need to choose one of the themes from your timeslot and note it in the README file. This should be the first
-    thing you do at the start of your timeslot. Unsure which timeslot you selected? See <a href="/times/select">this page</a>.</p>
-<p>We suggest you spend some time at the start of your timeslot thinking about an idea you can use which relates to your chosen theme. </p>
+<p>
+  This page lists the themes that were available for participants to choose from in the most recent contest.
+  Participants documented their theme choice in their repo's README file and then set out to build an idea using the theme.
+  We awarded points for plugins that used their chosen theme well.
+</p>
+
 <h2>Timeslot 1 ({{ $t1 }})</h2>
 @if ($times->isT1Active() || $times->isT1Finished())
     @include("themes.t1")
