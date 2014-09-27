@@ -553,3 +553,9 @@ blockquote.feedback p {
 .fa-generic-bird-square:before { // I love you ABP <3
   content: "\f081";
 }
+#contestTime {
+  text-shadow: 0px 0px 10px #000;
+  a {
+    color: #CCF;
+  }
+}
