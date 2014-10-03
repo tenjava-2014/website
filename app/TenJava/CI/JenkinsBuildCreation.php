@@ -4,6 +4,7 @@
 namespace TenJava\CI;
 
 
+use App;
 use Config;
 use GuzzleHttp\Client;
 use Illuminate\Filesystem\Filesystem;
@@ -14,7 +15,9 @@ class JenkinsBuildCreation implements BuildCreationInterface {
     private $jobConfig;
 
     public function __construct() {
-        $this->jobConfig = (new Filesystem())->get(base_path() . '/../app_config/config.xml');
+        if (!App::environment('local')) {
+            $this->jobConfig = (new Filesystem())->get(base_path() . '/../app_config/config.xml');
+        }
     }
 
     public function createJob($repoName) {

@@ -48,15 +48,15 @@ class TenJava extends ServiceProvider {
 
         // Error handlers
         $app->missing(function ($exception) use ($app) {
-            return $app->make("\\TenJava\\Controllers\\ErrorController")->missing();
+            return $app->make("\\TenJava\\Http\\Controllers\\ErrorController")->missing();
         });
 
         $app->error(function (UnauthorizedException $ignored) use ($app) {
-            return $app->make('\\TenJava\\Controllers\\ErrorController')->unauthorized();
+            return $app->make('\\TenJava\\Http\\Controllers\\ErrorController')->unauthorized();
         });
 
         $app->error(function (FailedOauthException $exception) use ($app) {
-            return $app->make('\\TenJava\\Controllers\\ErrorController')->oauth();
+            return $app->make('\\TenJava\\Http\\Controllers\\ErrorController')->oauth();
         });
 
         $app->down(function () {
