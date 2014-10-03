@@ -41,8 +41,7 @@
                 href="https://forums.bukkit.org/threads/ten-java-plugin-contest-2014-http-tenjava-com-200-signups-currently-13-530-points.269253/">new
                 thread</a>. Soon after, we began to once again accept donations in the form of CurseForge points for
             the prize pot. In two weeks, we managed to raise over $700 to be distributed towards the winning
-            participants. We spent time creating a new site with a more streamlined, automated signup system, and to
-            date, we've seen over {{{ $appsData->count }}} sign-ups. </p>
+            participants. We spent time creating a new site with a more streamlined, automated signup system.</p>
 
         <p>We will be holding the contest on July 12 with 3 separate times (and 6 separate themes) this year. We've been
         overwhelmed by the community's response to our plans and are looking forward to the event itself.</p>

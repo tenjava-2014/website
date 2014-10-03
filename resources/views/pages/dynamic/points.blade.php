@@ -8,32 +8,6 @@
                 developers who sign up to the scheme (applies to BukkitDev, CurseForge and other sites). Developers with
                 more popular projects will receive more points. We rely on point donations to form the contest prize.
                 The more points given, the more we can give out to the winning developers. For more stats on point donations, see <a href="http://kyleclemens.com/tenjava">this page</a>.</p>
-            <div class="alert basic info condensed text-center" id="points-total"><h3>We've raised {{ number_format($data->points) }}
-                ({{ money_format('$%i', round($data->points / 20, 2)) }}) points from {{{ $totalCount }}} people!</h3></div>
-        </div>
-        <div class="grid-50">
-            <a id="top"></a>
-            <h3>Top donors</h3>
-            <p>The following users have contributed the most points to the prize pool. Thank you for your help and contributions! Without these people, the prize pool would not be nearly as amazing.</p>
-            <ol class="list-large" id="top-donors-list">
-                @foreach ($top as $key => $value)
-                    <li>
-                        <a href="http://dev.bukkit.org/profiles/{{{ $key }}}">{{{ $key }}}</a> ({{{ $value }}} {{ ($value == 1) ? "pt" : "pts" }})
-                    </li>
-                @endforeach
-            </ol>
-        </div>
-        <div class="grid-50">
-            <a id="recent"></a>
-            <h3>Recent donors</h3>
-            <p>The following people have recently contributed points to the prize pool. Any very recent donations might take a few minutes to show up. Thank you for your help and contributions!</p>
-            <ol class="list-large" id="recent-donors-list">
-                @foreach ($recent as $element)
-                    <li>
-                        <a href="http://dev.bukkit.org/profiles/{{{ $element->username }}}">{{{ $element->username }}}</a> ({{{ $element->amount }}} {{ ($element->amount == 1) ? "pt" : "pts" }})
-                    </li>
-                @endforeach
-            </ol>
         </div>
         <div class="grid-100">
             <h3>CurseForge</h3>

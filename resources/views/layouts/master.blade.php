@@ -18,10 +18,10 @@
 	@include('partials.nav')
 	<div id="point-ticker">
 		<div class="grid-container">
-			<div class="grid-25 tablet-grid-20">Latest Donation: <span>{{ $pointsData->recent_transactions{0}->username }} ({{ number_format($pointsData->recent_transactions{0}->amount) }} points)</span></div>
-			<div class="grid-25 tablet-grid-20">Top Donation: <span>{{ $pointsData->better_top{0}->username }} ({{ number_format($pointsData->better_top{0}->amount) }} points)</span></div>
-			<div class="grid-25 tablet-grid-20">Prize: <span>{{ number_format($pointsData->points) }} points (${{ number_format($pointsData->points * 0.05, 2) }})</span></div>
-			<div class="grid-25 tablet-grid-20">Total Sign-ups: <span>{{ $appsData->count }} participants</span></div>
+            <div class="grid-25 tablet-grid-20"></div>
+            <div class="grid-25 tablet-grid-20"></div>
+            <div class="grid-25 tablet-grid-20"></div>
+            <div class="grid-25 tablet-grid-20"></div>
 		</div>
 	</div>
 	@yield('content')

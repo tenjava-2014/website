@@ -1,57 +1,57 @@
 @extends('layouts.master')
 @section('content')
-<div id="header">
-    <div class="grid-container">
+<div id="post-header">
+    <div class="grid-container header-container">
         <div class="grid-100 text-center">
-            The unofficial 10 hour Bukkit plugin contest.<br />
-	        <small>July 12, 2014 &mdash; {{ $carbonDiff }}</small>
+            <h4 id="contestTime">Thanks for your support!</h4>
         </div>
     </div>
 </div>
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
+            <p><em>Took part this year and want to see what we thought of your entry? View the feedback <a href="/own-scores">here</a>!</em></p>
+            <p><em>Want to keep updated with the latest ten.java news? Ask to receive an email when news about the next contest is released <a href="/subscribe">here</a>!</em></p>
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
                 a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
                 volunteers, and we use CurseForge points to award prizes to the winning developers. Last year we had
                 just under 90 registered participants.</p>
 
-            <p>This year, in just under 2 weeks, we have managed to raise the equivalent of $700 in CurseForge points
-                (14,000 in total) for use as a prize fund, solely due to the generosity of the developer community. Over
-                200 participants have signed up, and we've been blown away by the response on Twitter, the Bukkit
-                forums, and in IRC.</p>
+            <p>This year, we were able to raise 22,000 points solely due to donations from the community. We were lucky
+            enough to be sponsored by CurseForge who donated an additional 20,000 points to the prize fund. This brought
+            us up to a total of $2,100 to be distributed amongst the winning developers.</p>
 
-            <p>The contest is now over and we're in the final stages of the judging process. We hope to be announcing the winning entries soon. You can keep up to date with the judging progress via twitter.</p>
-
+            <p>On August 30th, after a month of judging, we announced the winning entries via a livestream.
+            You can view the <a href="/results">results</a> page for more information.</p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
-	        @if($hst == 'noapp')
+            <!-- <p>
+                <a href="/results" class="button button-block button-large button-flat-action">View results</a>
+                <span class="text-light">View the winning entries!</span>
+            </p>-->
             <p>
-                <a href="/register/participant" class="button button-large button-block button-flat-action">Register as Participant</a>
-                <span class="text-light">There are currently {{ $appsData->count }} participants</span>
+               <a href="/results" class="button button-block button-large button-flat-action">View results</a>
+               <span class="text-light">We announced the results at 7PM on August 30th.</span>
+           </p>
+            <p>
+                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
+                <span class="text-light">View the themes we offered for each timeslot.</span>
+            </p>
+            <p>
+                <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
+                <span class="text-light">We've raised {{ /*number_format($pointsData->points)*/ '10' }} points! That's a whopping ${{ /*number_format($pointsData->points * 0.05, 2)*/ '10' }}!</span>
             </p>
 
-            <p>
-                <a href="/register/judge" class="button button-block button-flat-primary">Apply to Become a Judge</a>
-                <span class="text-light">There are currently {{ $noJudges }} judges</span>
-            </p>
-			@elseif($hst == 'notime')
-	        <p>
-		        <a href="/times/select" class="button button-large button-block button-flat-action">Choose a Time</a>
-		        <span class="text-light">Pick a time for the competition</span>
-	        </p>
-	        @else
-	        <p>You have completed every step for signing up! Thank you for your participation, and good luck!</p>
-	        @endif
-            <p>
-                <a href="/points#donate" class="button button-block button-flat-highlight">Make a Donation</a>
-                <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
-            </p>
+            <!-- <div class="tf2-details">
+                <p>We have a TF2 server available and will be playing before and after the results are announced. If you'd like to join us, connect to thor.tenjava.com</p>
+            </div> -->
+
         </div>
     </div>
 </div>
 @if(count($tweets) > 0)
-@include('partials.twitter')
+    @include('partials.twitter')
 @endif
 @stop
+

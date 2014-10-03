@@ -1,2 +1,4 @@
 <?php
-return array('default' => 'sqlite');
+return [
+    'default' => 'sqlite'
+];

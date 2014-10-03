@@ -1,9 +1,11 @@
 <?php namespace TenJava\Providers;
 
+use Auth;
 use Illuminate\Routing\Router;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Redirect;
+use Session;
 
 class RouteServiceProvider extends ServiceProvider {
 
@@ -62,7 +64,7 @@ class RouteServiceProvider extends ServiceProvider {
 
     private function routeNoAuthPages() {
         $this->group(array(), function () {
-            $this->get('/', "TenJava\\Http\\Controllers\\Pages\\HomeController@index");
+            $this->get('/', ['as' => 'index', 'uses' => "TenJava\\Http\\Controllers\\Pages\\HomeController@index"]);
             $this->get('/streams', "TenJava\\Http\\Controllers\\Pages\\HomeController@showStreams");
             $this->get('/ajax/commits', "TenJava\\Http\\Controllers\\Pages\\HomeController@ajaxCommits");
             $this->get('/points', 'TenJava\\Http\\Controllers\\Pages\\PointsController@showLeaderboard');
@@ -90,17 +92,12 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/times/select', "TenJava\\Http\\Controllers\\Application\\TimeController@showUserTimes");
             $this->get('/times/thanks', "TenJava\\Http\\Controllers\\Application\\TimeController@showThanks");
             $this->get('/register/judge', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyJudge");
-            $this->get('/login', function () {
-                return Redirect::to("/");
-            });
+            $this->get('/login', "TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub");
             $this->get('/charts', 'TenJava\\Http\\Controllers\\Pages\\ChartsController@showCharts');
             $this->get('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@showFeedback');
             $this->post('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@sendFeedback');
             $this->get('/verification/key', "TenJava\\Http\\Controllers\\Pages\\VerificationController@getVerificationKey");
-            $this->get('/logout', function () {
-                Session::clear();
-                return Redirect::to("/");
-            });
+            $this->get('/logout', "TenJava\\Http\\Controllers\\Authentication\\AuthController@logout");
             $this->get('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@showSubscribePage');
             $this->post('/resend-confirmation', 'TenJava\\Http\\Controllers\\Pages\\NewsController@resendConfirmationEmail');
             $this->get('/resend-confirmation/thanks',

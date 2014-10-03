@@ -105,6 +105,7 @@ return array(
         'TenJava\Providers\FilterServiceProvider',
         'TenJava\Providers\LogServiceProvider',
         'TenJava\Providers\RouteServiceProvider',
+        'TenJava\Providers\DriverServiceProvider',
 
         /*
          * Laravel Framework Service Providers...
@@ -129,16 +130,14 @@ return array(
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
 
         /*
          * Additional Service Providers
          */
         'Thujohn\Twitter\TwitterServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        //'TenJava\ServiceProvider\TenJava',
-        //'Frozennode\Administrator\AdministratorServiceProvider',
-        //'Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider',
-        'Laravel\Socialite\SocialiteServiceProvider'
+        'Laravel\Socialite\SocialiteServiceProvider',
 
     ],
 
@@ -199,7 +198,9 @@ return array(
         'View' => 'Illuminate\Support\Facades\View',
         'Twitter' => 'Thujohn\Twitter\TwitterFacade',
         'BladeHelpers' => 'TenJava\Tools\BladeHelpers',
-        'Socialite' => 'Laravel\Socialite\Facades\Socialite'
+        'Socialite' => 'Laravel\Socialite\Facades\Socialite',
+        'Form' => 'Illuminate\Html\FormFacade',
+        'HTML' => 'Illuminate\Html\HtmlFacade'
 
     ],
 
