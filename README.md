@@ -1,3 +1,5 @@
+![We're awesome](http://img.shields.io/badge/Pull%20Requests%20Closed%20In-less%20than%20a%20minute-brightgreen.svg?style=flat)
+
 ten.java website
 ================
 
