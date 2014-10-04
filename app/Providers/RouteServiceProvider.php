@@ -85,9 +85,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/toggle-optout', 'TenJava\\Http\\Controllers\\Authentication\\AuthController@toggleOptout');
             $this->get('/themes', 'TenJava\\Http\\Controllers\\Contest\\ThemesController@showThemes');
             $this->get('/results', "TenJava\\Http\\Controllers\\Pages\\ResultsController@showContestResults");
-            $this->get('/wiki', function () {
-                return Redirect::to("https://github.com/tenjava/resources/wiki");
-            });
+            $this->get('/wiki', 'TenJava\Http\Controllers\Pages\HomeController@wiki');
         });
     }
 
@@ -105,9 +103,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/logout', "TenJava\\Http\\Controllers\\Authentication\\AuthController@logout");
             $this->get('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@showSubscribePage');
             $this->post('/resend-confirmation', 'TenJava\\Http\\Controllers\\Pages\\NewsController@resendConfirmationEmail');
-            $this->get('/resend-confirmation/thanks',
-                ['uses' => 'TenJava\\Http\\Controllers\\Pages\\NewsController@showResendConfirmation',
-                    'as' => "resend-thanks"]);
+            $this->get('/resend-confirmation/thanks', ['uses' => 'TenJava\\Http\\Controllers\\Pages\\NewsController@showResendConfirmation', 'as' => "resend-thanks"]);
             $this->model('subscription', 'TenJava\\Models\\Subscription');
             $this->get('/confirm/{subscription}/{sha1}', 'TenJava\\Http\\Controllers\\Pages\\NewsController@confirm');
             $this->get('/unsubscribe/{subscription}/{sha1}', 'TenJava\\Http\\Controllers\\Pages\\NewsController@unsubscribeDirectly');
@@ -163,9 +159,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/judging/plugins/toggle', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@toggleInputMethod');
             $this->post('/judging/plugins', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@judgePlugin');
 //            $this->get('/list/{filter?}', 'TenJava\\Http\\Controllers\\Application\\AppController@listApps');
-            $this->get('/test/staff', function () {
-                return "Staff only test endpoint. " . Auth::user()->username;
-            });
+            $this->get('/test/staff', 'TenJava\Http\Controllers\Pages\HomeController@staffTest');
             $this->get('/judging/logs/ajax', 'TenJava\\Http\\Controllers\\Judging\\LogViewController@testHmac');
             $this->get('/judging/logs', 'TenJava\\Http\\Controllers\\Judging\\LogViewController@showLogs');
 
@@ -177,9 +171,7 @@ class RouteServiceProvider extends ServiceProvider {
 //            $this->post('/list/decline', 'TenJava\\Http\\Controllers\\Application\\AppController@declineJudgeApp');
 //            $this->post('/list/accept', 'TenJava\\Http\\Controllers\\Application\\AppController@acceptJudgeApp');
 //            $this->post('/list/remove-participant', 'TenJava\\Http\\Controllers\\Application\\AppController@deleteUserEntry');
-            $this->get('/test/admin', function () {
-                return Response::json(["env" => App::environment()]);
-            });
+            $this->get('/test/admin', 'TenJava\Http\Controllers\Pages\HomeController@adminTest');
 //            $this->get('/judging/feedback', 'TenJava\\Http\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
 //            $this->get('/judging/results-viewer/{repoName}', 'TenJava\\Http\\Controllers\\Judging\\ReviewController@displayResultsForParticipant');
         });

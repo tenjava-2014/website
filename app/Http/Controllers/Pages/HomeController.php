@@ -1,14 +1,22 @@
 <?php
 namespace TenJava\Http\Controllers\Pages;
 
+use App;
+use Auth;
 use Carbon\Carbon;
 use Config;
 use Input;
+use Redirect;
+use Response;
 use TenJava\Contest\TwitchRepositoryInterface;
 use TenJava\Http\Controllers\Abstracts\BaseController;
 use View;
 
 class HomeController extends BaseController {
+
+    public function adminTest() {
+        return Response::json(["env" => App::environment()]);
+    }
 
     public function ajaxCommits() {
         return View::make("partials.commits", ["commits" => []]);
@@ -28,6 +36,14 @@ class HomeController extends BaseController {
     public function showStreams(TwitchRepositoryInterface $twitch) {
         $viewData['twitch'] = $twitch->getOnlineStreamers();
         return View::make("pages.dynamic.streams")->with($viewData);
+    }
+
+    public function staffTest() {
+        return "Staff only test endpoint. " . Auth::user()->username;
+    }
+
+    public function wiki() {
+        return Redirect::to("https://github.com/tenjava/resources/wiki");
     }
 
 }
