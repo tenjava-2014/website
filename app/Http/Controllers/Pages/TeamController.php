@@ -10,22 +10,22 @@ use TenJava\Staff;
 class TeamController extends BaseController {
 
     public function showJudgingStats() {
-        $this->setPageTitle("Judging stats");
-        $this->setActive("judging stats");
-        $viewData['judges'] = $judges = Staff::judge()->with("claims")->get();
-        $viewData['total_progress'] = ["total_claims" => 0, "completed_claims" => 0];
+        $this->setPageTitle('Judging stats');
+        $this->setActive('judging stats');
+        $viewData['judges'] = $judges = Staff::judge()->with('claims')->get();
+        $viewData['total_progress'] = ['total_claims' => 0, 'completed_claims' => 0];
         $viewData['judge_progress'] = [];
         foreach ($judges as $judge) {
             /**
              * @var $judge Staff
              */
-            $viewData['judge_progress'][$judge->github_name] = ["completed" => 0, "assigned" => 0];
+            $viewData['judge_progress'][$judge->username] = ['completed' => 0, 'assigned' => 0];
             foreach ($judge->claims as $claim) {
                 $viewData['total_progress']['total_claims'] += 1;
-                $this->incrementJudgeAssigned($viewData['judge_progress'], $judge->github_name);
+                $this->incrementJudgeAssigned($viewData['judge_progress'], $judge->username);
                 if ($claim->result != null) {
                     $viewData['total_progress']['completed_claims'] += 1;
-                    $this->incrementJudgeCompleted($viewData['judge_progress'], $judge->github_name);
+                    $this->incrementJudgeCompleted($viewData['judge_progress'], $judge->username);
                 }
             }
         }
@@ -39,7 +39,7 @@ class TeamController extends BaseController {
         $viewData['total_progress']['percent'] = ($viewData['total_progress']['total_claims'] == 0) ? 100 : (floatval($viewData['total_progress']['completed_claims']) / $viewData['total_progress']['total_claims']) * 100;
         $viewData['total_progress']['percent'] = (int)$viewData['total_progress']['percent'];
         $viewData['judges'] = $judges;
-        return Response::view('pages.dynamic.judging_stats');
+        return Response::view('pages.dynamic.judging_stats', $viewData);
     }
 
     private function incrementJudgeAssigned(&$array, $judge) {
