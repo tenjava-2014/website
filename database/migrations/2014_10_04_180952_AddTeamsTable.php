@@ -11,6 +11,10 @@ class AddTeamsTable extends Migration {
      * @return void
      */
     public function down() {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('team_id');
+            $table->dropColumn('team_id');
+        });
         Schema::drop('teams');
     }
 
@@ -31,6 +35,10 @@ class AddTeamsTable extends Migration {
             $table->text('general_rules');
             $table->text('prize_rules');
             $table->text('miscellaneous_rules');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('team_id')->unsigned()->nullable();
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

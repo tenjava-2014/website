@@ -30,8 +30,6 @@ class AddUserTable extends Migration {
             $table->string('email')->unique()->nullable();
             $table->text('emails')->nullable();
             $table->boolean('allow_email')->default(true);
-            $table->integer('team_id')->unsigned()->nullable();
-            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

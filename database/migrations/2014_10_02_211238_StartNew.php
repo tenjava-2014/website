@@ -22,6 +22,7 @@ class StartNew extends Migration {
      */
     public function up() {
         // Drop everything but failed_jobs, migrations, and subscriptions
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         Schema::dropIfExists('applications');
         Schema::dropIfExists('judge_claims');
         Schema::dropIfExists('judge_results');
@@ -33,6 +34,7 @@ class StartNew extends Migration {
         Schema::dropIfExists('participant_times');
         Schema::dropIfExists('repo_actions');
         Schema::dropIfExists('user_avatars');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
     }
 
 }
