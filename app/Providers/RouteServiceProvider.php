@@ -81,10 +81,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/team', 'TenJava\\Http\\Controllers\\Pages\\TeamController@showTeam');
             $this->get('/team/stats', 'TenJava\\Http\\Controllers\\Pages\\TeamController@showJudgingStats');
             $this->get('/about', 'TenJava\\Http\\Controllers\\Pages\\AboutController@showAbout');
-            $this->get('/signup', 'TenJava\\Http\\Controllers\\Pages\\SignupController@showSignUp');
             $this->get('/privacy', 'TenJava\\Http\\Controllers\\Pages\\PrivacyController@showPrivacyInfo');
-            $this->get('/oauth/refusal', 'TenJava\\Http\\Controllers\\Authentication\\AuthController@showRefusal');
-            $this->get('/oauth/confirm', 'TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub');
             $this->get('/toggle-optout', 'TenJava\\Http\\Controllers\\Authentication\\AuthController@toggleOptout');
             $this->get('/themes', 'TenJava\\Http\\Controllers\\Contest\\ThemesController@showThemes');
             $this->get('/results', "TenJava\\Http\\Controllers\\Pages\\ResultsController@showContestResults");
@@ -119,13 +116,13 @@ class RouteServiceProvider extends ServiceProvider {
 
     private function routeNoAuthAPI() {
         $this->group(array(), function () {
-            /*$this->get('/api/participants', 'TenJava\\Http\\Controllers\\Api\\ApiController@getParticipants');
-            $this->get('/api/checkParticipant/{participant}', 'TenJava\\Http\\Controllers\\Api\\ApiController@didParticipantParticipate');
+//            $this->get('/api/participants', 'TenJava\\Http\\Controllers\\Api\\ApiController@getParticipants');
+//            $this->get('/api/checkParticipant/{participant}', 'TenJava\\Http\\Controllers\\Api\\ApiController@didParticipantParticipate');
             $this->get('/api/judges', 'TenJava\\Http\\Controllers\\Api\\ApiController@getActiveJudges');
             $this->get('/api/team/stats', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeStats');
-            $this->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Http\\Controllers\\Api\\ApiController@getConfirmedParticipants');
-            $this->get('/api/points', 'TenJava\\Http\\Controllers\\Api\\ApiController@getPoints');
-            $this->get('/api/session', 'TenJava\\Http\\Controllers\\Api\\ApiController@getSessionData');*/
+//            $this->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Http\\Controllers\\Api\\ApiController@getConfirmedParticipants');
+//            $this->get('/api/points', 'TenJava\\Http\\Controllers\\Api\\ApiController@getPoints');
+//            $this->get('/api/session', 'TenJava\\Http\\Controllers\\Api\\ApiController@getSessionData');
         });
     }
 
@@ -138,12 +135,12 @@ class RouteServiceProvider extends ServiceProvider {
     private function routeWebhooks() {
         /* GITHUB WEBHOOKS */
         $this->group(array(), function () {
-            $this->post('/webhook/fire', 'TenJava\\Http\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
+//            $this->post('/webhook/fire', 'TenJava\\Http\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
         });
 
         /* JENKINS WEBHOOKS */
         $this->group(array(), function () {
-            $this->post('/jenkins/fire', 'TenJava\\Http\\Controllers\\Jenkins\\WebhookController@processWebhook');
+//            $this->post('/jenkins/fire', 'TenJava\\Http\\Controllers\\Jenkins\\WebhookController@processWebhook');
         });
     }
 
@@ -165,7 +162,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/judging/plugins', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@showLatestPlugin');
             $this->get('/judging/plugins/toggle', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@toggleInputMethod');
             $this->post('/judging/plugins', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@judgePlugin');
-            $this->get('/list/{filter?}', 'TenJava\\Http\\Controllers\\Application\\AppController@listApps');
+//            $this->get('/list/{filter?}', 'TenJava\\Http\\Controllers\\Application\\AppController@listApps');
             $this->get('/test/staff', function () {
                 return "Staff only test endpoint. " . Auth::user()->username;
             });
@@ -177,14 +174,14 @@ class RouteServiceProvider extends ServiceProvider {
 
     private function routeOrganizerPages() {
         $this->group(array('before' => 'organizer'), function () {
-            $this->post('/list/decline', 'TenJava\\Http\\Controllers\\Application\\AppController@declineJudgeApp');
-            $this->post('/list/accept', 'TenJava\\Http\\Controllers\\Application\\AppController@acceptJudgeApp');
-            $this->post('/list/remove-participant', 'TenJava\\Http\\Controllers\\Application\\AppController@deleteUserEntry');
+//            $this->post('/list/decline', 'TenJava\\Http\\Controllers\\Application\\AppController@declineJudgeApp');
+//            $this->post('/list/accept', 'TenJava\\Http\\Controllers\\Application\\AppController@acceptJudgeApp');
+//            $this->post('/list/remove-participant', 'TenJava\\Http\\Controllers\\Application\\AppController@deleteUserEntry');
             $this->get('/test/admin', function () {
                 return Response::json(["env" => App::environment()]);
             });
-            $this->get('/judging/feedback', 'TenJava\\Http\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
-            $this->get('/judging/results-viewer/{repoName}', 'TenJava\\Http\\Controllers\\Judging\\ReviewController@displayResultsForParticipant');
+//            $this->get('/judging/feedback', 'TenJava\\Http\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
+//            $this->get('/judging/results-viewer/{repoName}', 'TenJava\\Http\\Controllers\\Judging\\ReviewController@displayResultsForParticipant');
         });
     }
 

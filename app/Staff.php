@@ -30,6 +30,8 @@ class Staff extends Model {
     const ORGANIZER_BIT = 4;
     protected $table = 'staff';
     protected $guarded = ['id', 'updated_at', 'created_at'];
+    protected $visible = ['id', 'updated_at', 'created_at', 'username', 'status'];
+    protected $appends = ['username'];
 
     public function claims() {
         return $this->hasMany('\TenJava\Team', 'claimed_by');

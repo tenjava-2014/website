@@ -26,7 +26,7 @@
             <h3>Remaining plugins ({{ count($claims['pending']) }}/{{ $claims['total'] }})</h3>
             <ul>
                 @foreach ($claims['pending'] as $claim)
-                    <li>{{ $claim->repo_name }}</li>
+                    <li>{{ $claim->name }}</li>
                 @endforeach
             </ul>
         </div>

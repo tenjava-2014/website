@@ -4,17 +4,13 @@ namespace TenJava\Http\Controllers\Abstracts;
 use App;
 use Auth;
 use Config;
-use Github\Client;
 use Illuminate\Routing\Controller;
 use Log;
 use TenJava\Contest\JudgeClaimsInterface;
 use TenJava\Contest\ParticipantRepositoryInterface;
-use TenJava\Models\JudgeClaim;
-use TenJava\Models\ParticipantTimes;
+use TenJava\Team;
 use View;
 use TenJava\Tools\UI\NavigationItem;
-use TenJava\Models\Application;
-use TenJava\Authentication\AuthProviderInterface;
 
 abstract class BaseJudgingController extends BaseController {
 
@@ -65,9 +61,10 @@ abstract class BaseJudgingController extends BaseController {
     }
 
     private function processClaims($claims) {
+        // TODO: Make results
         $claimData = ["total" => 0, "done" => [], "pending" => []];
         foreach ($claims as $claim) {
-            /** @var $claim JudgeClaim */
+            /** @var $claim Team */
             if ($claim->result != null) {
                 $claimData['done'][] = $claim;
             } else {

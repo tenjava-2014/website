@@ -10,6 +10,7 @@ use Illuminate\Filesystem\Filesystem;
 use TenJava\Models\Application;
 use TenJava\Models\Judge;
 use TenJava\Models\ParticipantCommit;
+use TenJava\Staff;
 
 class ApiController extends BaseController {
     /**
@@ -78,7 +79,7 @@ class ApiController extends BaseController {
     }
 
     public function getActiveJudges() {
-        return Response::json($this->auth->getAllJudges());
+        return Response::json(Staff::judge()->get());
     }
 
     public function getJudgeClaims() {
@@ -86,14 +87,14 @@ class ApiController extends BaseController {
     }
 
     public function getJudgeStats() {
-        $judges = Judge::with("claims.result")->get();
-        $stats = ["_info" => "See https://tenjava.com/team/stats for more info."];
+        $judges = Staff::judge()->with("claims")->get();
+        $stats = ['_info' => 'See https://tenjava.com/team/stats for more info.'];
         $totalAssigned = 0;
         $totalComplete = 0;
         foreach ($judges as $judge) {
-            /** @var $judge Judge */
+            /** @var $judge Staff */
             $assignedToJudge = $judge->claims->count();
-            $judgeEntry = ["github_username" => $judge->github_name, "assigned_items" => $assignedToJudge];
+            $judgeEntry = ['username' => $judge->username, 'assigned_items' => $assignedToJudge];
             $i = 0;
             foreach ($judge->claims as $claim) {
                 if ($claim->result != null) {
@@ -109,12 +110,12 @@ class ApiController extends BaseController {
                 $per = (floatval($i) / $assignedToJudge) * 100;
                 $per = (int) $per;
             }
-            $judgeEntry["completed_items"] = $i;
-            $judgeEntry["remaining_items"] = $x;
+            $judgeEntry['completed_items'] = $i;
+            $judgeEntry['remaining_items'] = $x;
             $judgeEntry['percentage_complete'] = $per;
             $stats['judges'][] = $judgeEntry;
         }
-        $stats['totals'] = ["assigned" => $totalAssigned, "complete" => $totalComplete, "_warning" => "100% completion is not the only pre-requisite for results announcement."];
+        $stats['totals'] = ['assigned' => $totalAssigned, 'complete' => $totalComplete, '_warning' => "100% completion is not the only pre-requisite for results announcement."];
         return Response::json($stats);
     }
 
