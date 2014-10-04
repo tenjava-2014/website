@@ -67,8 +67,8 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeFilters() {
-        $this->filter('staff', 'TenJava\Filters\StaffFilter');
-        $this->filter('organizer', 'TenJava\Filters\OrganizerFilter');
+        $this->filter('staff', 'TenJava\Http\Filters\StaffFilter');
+        $this->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
     }
 
     private function routeNoAuthPages() {

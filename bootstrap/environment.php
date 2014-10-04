@@ -11,6 +11,11 @@
 |
 */
 
+/**
+ * @var $app \Illuminate\Foundation\Application
+ */
+// $env = $app['env'] = 'replace_me';
+
 $env = $app->detectEnvironment([
 
     'local' => ['David.local'],

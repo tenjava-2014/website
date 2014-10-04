@@ -1,5 +1,5 @@
 <?php
-namespace TenJava\Filters;
+namespace TenJava\Http\Filters;
 
 use Redirect;
 use Request;
@@ -13,4 +13,4 @@ class ProtectedApiFilter {
             throw new UnauthorizedException();
         }
     }
-} 
+}

@@ -1,4 +1,4 @@
-<?php namespace TenJava\Filters;
+<?php namespace TenJava\Http\Filters;
 
 use Illuminate\Contracts\Auth\Authenticator;
 use Redirect;
