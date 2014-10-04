@@ -20,8 +20,7 @@ class DashboardController extends BaseJudgingController {
     }
 
     private function getServerPort() {
-        $auth = $this->auth;
-        return 25565 + $auth->getJudgeId();
+        return 25565 + \Auth::id();
     }
 
 }

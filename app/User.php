@@ -4,6 +4,35 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Contracts\Auth\User as UserContract;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * TenJava\User
+ *
+ * @property integer $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $remember_token
+ * @property integer $gh_id
+ * @property string $username
+ * @property string $name
+ * @property string $email
+ * @property string $emails
+ * @property boolean $allow_email
+ * @property integer $team_id
+ * @property-read \TenJava\Staff $staff
+ * @property-read \Illuminate\Database\Eloquent\Collection|\$related[] $morphedByMany
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereGhId($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereEmails($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereAllowEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereTeamId($value)
+ * @property-read \TenJava\Team $team
+ */
 class User extends Model implements UserContract {
 
     use UserTrait;
@@ -22,10 +51,6 @@ class User extends Model implements UserContract {
      */
     protected $hidden = ['password', 'remember_token', 'email', 'emails'];
 
-    public function staff() {
-        return $this->belongsTo('\TenJava\Staff');
-    }
-
     public function getEmails() {
         return json_decode($this->emails);
     }
@@ -41,6 +66,14 @@ class User extends Model implements UserContract {
     public function setOptoutStatus($optout) {
         $this->allow_email = !$optout;
         $this->save();
+    }
+
+    public function staff() {
+        return $this->hasOne('\TenJava\Staff');
+    }
+
+    public function team() {
+        return $this->belongsTo('\TenJava\Team');
     }
 
 }

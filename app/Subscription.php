@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Subscription whereGhUsername($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Subscription whereGhId($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Subscription whereConfirmed($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\$related[] $morphedByMany
  */
 class Subscription extends Model {
     protected $table = 'subscriptions';

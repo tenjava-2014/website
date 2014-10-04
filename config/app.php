@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
     /*
     |--------------------------------------------------------------------------
@@ -138,6 +138,7 @@ return array(
         'Thujohn\Twitter\TwitterServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
+        'GrahamCampbell\Markdown\MarkdownServiceProvider',
 
     ],
 
@@ -200,8 +201,9 @@ return array(
         'BladeHelpers' => 'TenJava\Tools\BladeHelpers',
         'Socialite' => 'Laravel\Socialite\Facades\Socialite',
         'Form' => 'Illuminate\Html\FormFacade',
-        'HTML' => 'Illuminate\Html\HtmlFacade'
+        'HTML' => 'Illuminate\Html\HtmlFacade',
+        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'
 
     ],
 
-);
+];

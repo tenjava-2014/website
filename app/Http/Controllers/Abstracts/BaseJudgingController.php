@@ -2,6 +2,7 @@
 namespace TenJava\Http\Controllers\Abstracts;
 
 use App;
+use Auth;
 use Config;
 use Github\Client;
 use Illuminate\Routing\Controller;
@@ -78,7 +79,7 @@ abstract class BaseJudgingController extends BaseController {
     }
 
     private function shareClaims() {
-        $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge($this->auth->getJudgeId()));
+        $this->judgeClaims = $this->processClaims($this->claimsInterface->getClaimsForJudge(Auth::id()));
         $turnout = [];
         $turnout['total'] = $this->participants->getParticipantCount();
         $turnout['real'] = $this->participants->getParticipantsWithCommitCount();

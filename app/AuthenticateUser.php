@@ -3,6 +3,7 @@
 use Illuminate\Contracts\Auth\Authenticator;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Redirect;
+use Request;
 use Session;
 use TenJava\Repository\UserRepository;
 
@@ -31,7 +32,7 @@ class AuthenticateUser {
         if (!$hasCode) return $this->getAuthorizationFirst();
         $user = $this->userRepository->getGitHubUser($this->getGitHubUser());
         $this->auth->login($user);
-        return Redirect::back();
+        return Redirect::intended(Request::header('referer'));
     }
 
     public function logout() {

@@ -48,7 +48,6 @@ class AppServiceProvider extends ServiceProvider {
         $app = $this->app;
 
         // Interface bindings
-        $app->bind("\\TenJava\\Authentication\\AuthProviderInterface", "\\TenJava\\Authentication\\GitHubAuthProvider");
         $app->bind("\\TenJava\\Notification\\IrcNotifierInterface", "\\TenJava\\Notification\\FlareBotIrcNotifier");
         $app->bind("\\TenJava\\Notification\\IrcMessageBuilderInterface", "\\TenJava\\Notification\\FlareBotMessageBuilder");
         $app->bind("\\TenJava\\Authentication\\EmailOptOutInterface", "\\TenJava\\Authentication\\GitHubEmailOptOut");

@@ -1,10 +1,12 @@
 <?php namespace TenJava\Providers;
 
+use App;
 use Auth;
-use Illuminate\Routing\Router;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
 use Redirect;
+use Response;
 use Session;
 
 class RouteServiceProvider extends ServiceProvider {
@@ -37,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider {
             });
         });
 
+        $this->routeFilters();
+
         /* NO AUTH REQUIRED */
         $this->routeNoAuthPages();
 
@@ -60,6 +64,11 @@ class RouteServiceProvider extends ServiceProvider {
 
         /* ORGANIZERS ONLY */
         $this->routeOrganizerPages();
+    }
+
+    private function routeFilters() {
+        $this->filter('staff', 'TenJava\Filters\StaffFilter');
+        $this->filter('organizer', 'TenJava\Filters\OrganizerFilter');
     }
 
     private function routeNoAuthPages() {
@@ -147,7 +156,7 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeJudgePages() {
-        $this->group(array('before' => 'StaffFilter'), function () {
+        $this->group(['before' => 'staff'], function () {
             $this->get('/judging', 'TenJava\\Http\\Controllers\\Judging\\DashboardController@showDashboard');
             $this->get('/judging/oversight', 'TenJava\\Http\\Controllers\\Judging\\OversightController@showOversight');
             $this->get('/judging/oversight/{id}', 'TenJava\\Http\\Controllers\\Judging\\OversightController@showOversightForm');
@@ -158,7 +167,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->post('/judging/plugins', 'TenJava\\Http\\Controllers\\Judging\\JudgingController@judgePlugin');
             $this->get('/list/{filter?}', 'TenJava\\Http\\Controllers\\Application\\AppController@listApps');
             $this->get('/test/staff', function () {
-                return "Staff only test endpoint.";
+                return "Staff only test endpoint. " . Auth::user()->username;
             });
             $this->get('/judging/logs/ajax', 'TenJava\\Http\\Controllers\\Judging\\LogViewController@testHmac');
             $this->get('/judging/logs', 'TenJava\\Http\\Controllers\\Judging\\LogViewController@showLogs');
@@ -167,7 +176,7 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeOrganizerPages() {
-        $this->group(array('before' => 'AdminFilter'), function () {
+        $this->group(array('before' => 'organizer'), function () {
             $this->post('/list/decline', 'TenJava\\Http\\Controllers\\Application\\AppController@declineJudgeApp');
             $this->post('/list/accept', 'TenJava\\Http\\Controllers\\Application\\AppController@acceptJudgeApp');
             $this->post('/list/remove-participant', 'TenJava\\Http\\Controllers\\Application\\AppController@deleteUserEntry');

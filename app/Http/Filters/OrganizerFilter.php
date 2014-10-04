@@ -1,16 +1,12 @@
-<?php namespace TenJava\Filters;
+<?php
+namespace TenJava\Filters;
 
 use Illuminate\Contracts\Auth\Authenticator;
 use Redirect;
 use Request;
 use TenJava\Exceptions\UnauthorizedException;
 
-class StaffFilter {
-
-    /**
-     * @var \Illuminate\Contracts\Auth\Authenticator
-     */
-    private $auth;
+class OrganizerFilter {
 
     public function __construct(Authenticator $auth) {
         $this->auth = $auth;
@@ -19,7 +15,9 @@ class StaffFilter {
     public function filter() {
         if (!$this->auth->check()) {
             return Redirect::guest('/login');
-        } else if ($this->auth->user()->staff === null) {
+        }
+        $staff = $this->auth->user()->staff;
+        if ($staff === null || !$staff->isOrganizer()) {
             throw new UnauthorizedException();
         }
     }

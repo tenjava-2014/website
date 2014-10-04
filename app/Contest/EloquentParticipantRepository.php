@@ -1,7 +1,4 @@
-<?php
-namespace TenJava\Contest;
-
-use TenJava\Models\Application;
+<?php namespace TenJava\Contest;
 
 class EloquentParticipantRepository implements ParticipantRepositoryInterface {
 
@@ -11,11 +8,13 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
     }
 
     public function getParticipantCount() {
-        return Application::with('timeEntry')->where('judge', false)->count();
+//        return Application::with('timeEntry')->where('judge', false)->count();
+        return 0;
     }
 
     public function getParticipantsWithCommitCount() {
-        return Application::with('commits')->has("commits", ">", "0")->where('judge', false)->count();
+//        return Application::with('commits')->has("commits", ">", "0")->where('judge', false)->count();
+        return 0;
     }
 
     public function getUnconfirmedParticipants() {

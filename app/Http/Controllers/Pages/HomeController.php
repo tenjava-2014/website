@@ -11,17 +11,16 @@ use View;
 class HomeController extends BaseController {
 
     public function ajaxCommits() {
-        return View::make("partials.commits", ["commits" => $this->commits->getRecentCommits(5)]);
+        return View::make("partials.commits", ["commits" => []]);
     }
 
     public function index() {
         parent::setActive("Home");
         $this->setPageTitle("Home");
-        $noJudges = count(Config::get("user-access.present.Judges"));
         $carbonDiff = Carbon::createFromTimeStamp(Config::get("contest-times.t1"));
         $carbonDiff = str_replace("from now", "remaining", $carbonDiff->diffForHumans());
 
-        $viewData = ["noJudges" => $noJudges, "carbonDiff" => $carbonDiff];
+        $viewData = ["carbonDiff" => $carbonDiff];
         $viewName = "pages.static.home";
         return View::make($viewName)->with($viewData);
     }

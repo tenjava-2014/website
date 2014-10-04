@@ -8,11 +8,13 @@ use TenJava\Models\Judge;
 class EloquentJudgeClaims implements JudgeClaimsInterface {
 
     public function getClaimsForJudge($judgeId) {
-        $judge = Judge::with("claims.result")->where("id", $judgeId)->firstOrFail();
-        return $judge->claims;
+//        $judge = Judge::with("claims.result")->where("id", $judgeId)->firstOrFail();
+//        return $judge->claims;
+        return [];
     }
 
     public function getAllJudgesWithClaims() {
-        return ExposedJudge::with("claims.result")->get();
+//        return ExposedJudge::with("claims.result")->get();
+        return [];
     }
 }

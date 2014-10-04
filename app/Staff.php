@@ -3,12 +3,40 @@
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * TenJava\Staff
+ *
+ * @property integer $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property integer $user_id
+ * @property integer $status
+ * @property-read \TenJava\User $user
+ * @property-read mixed $username
+ * @property-read \Illuminate\Database\Eloquent\Collection|\$related[] $morphedByMany
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Staff whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Staff whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Staff whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Staff whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Staff whereStatus($value)
+ * @method static Builder judge()
+ * @method static Builder organizer()
+ * @method static Builder webTeam()
+ */
 class Staff extends Model {
-    protected $table = 'staff';
-    protected $guarded = ['id', 'updated_at', 'created_at'];
     const JUDGE_BIT = 1;
     const WEB_TEAM_BIT = 2;
     const ORGANIZER_BIT = 4;
+    protected $table = 'staff';
+    protected $guarded = ['id', 'updated_at', 'created_at'];
+
+    public function claims() {
+        return $this->belongsToMany('\TenJava\Team', 'claimed_by');
+    }
+
+    public function getUsernameAttribute() {
+        return $this->user->username;
+    }
 
     public function isJudge() {
         return $this->status & self::JUDGE_BIT;
@@ -57,9 +85,5 @@ class Staff extends Model {
 
     public function user() {
         return $this->belongsTo('\TenJava\User');
-    }
-
-    public function getUsernameAttribute() {
-        return $this->user->username;
     }
 }
