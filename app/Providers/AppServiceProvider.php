@@ -66,6 +66,7 @@ class AppServiceProvider extends ServiceProvider {
         $app->bind("\\TenJava\\Contest\\TwitchRepositoryInterface", "\\TenJava\\Contest\\EloquentTwitchRepository");
         $app->bind("\\TenJava\\Contest\\JudgeClaimsInterface", "\\TenJava\\Contest\\EloquentJudgeClaims");
         $app->bind("\\TenJava\\Authentication\\UserImpersonationInterface", "\\TenJava\\Authentication\\GitHubUserImpersonation");
+        $app->bind('\TenJava\Repository\UserRepositoryInterface', '\TenJava\Repository\UserRepository');
 
         // Singletons
         $app->singleton('GlobalComposer', '\\TenJava\\Composers\\GlobalComposer');

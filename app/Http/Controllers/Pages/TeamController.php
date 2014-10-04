@@ -4,20 +4,14 @@ namespace TenJava\Http\Controllers\Pages;
 use Config;
 use Response;
 use TenJava\Http\Controllers\Abstracts\BaseController;
-use TenJava\Models\Judge;
-use TenJava\Models\JudgeClaim;
+use TenJava\Repository\UserRepositoryInterface;
 
 class TeamController extends BaseController {
 
-    public function showTeam() {
+    public function showTeam(UserRepositoryInterface $userRepository) {
         $this->setPageTitle("Meet the team");
         $this->setActive("team");
-        $teamMembers = array();
-//        $teamMembers['Organizers'] = Judge::where("admin", true)->where("github_name", "!=", "lol768")->lists("github_name");
-//        $teamMembers['Web Team'] = Judge::where("web_team", true)->lists("github_name");
-//        $teamMembers['Judges'] = Judge::lists("github_name");
-        $teamMembers['Sponsors'] = Config::get("user-access.present.Sponsors");
-        return Response::view('pages.static.judges', array("teamMembers" => $teamMembers));
+        return Response::view('pages.static.team', ["teamMembers" => $userRepository->getStaffMembers()]);
     }
 
     private function incrementJudgeStat(&$array, $judge, $type) {

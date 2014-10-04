@@ -22,6 +22,10 @@ class User extends Model implements UserContract {
      */
     protected $hidden = ['password', 'remember_token', 'email', 'emails'];
 
+    public function staff() {
+        return $this->belongsTo('\TenJava\Staff');
+    }
+
     public function getEmails() {
         return json_decode($this->emails);
     }

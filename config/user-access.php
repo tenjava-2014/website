@@ -1,8 +1,8 @@
 <?php
-return array(
+return [
     // judges
     // LEGACY!
-    'staff' => array(
+    'staff' => [
         2715715 => "CaptainBern", //captain
         4945312 => "MasterEjay", //ejay
         2356709 => "aerouk", //aero
@@ -17,26 +17,26 @@ return array(
         3134154 => "robbo5899", //robbo
         2664312 => "inventorman101", //inventorman
         5958957 => "Bionicrm", //bionic
-    ),
+    ],
     // organizers
-    'admins' => array(
+    'admins' => [
         2552726 => "lol768", //lol768
         955250 => "jkcclemens", //jkc
         1509618 => "hawkfalcon" //hawk
-    ),
+    ],
 
-    'present' => array(
-        'Organizers' => array(
+    'present' => [
+        'Organizers' => [
             'lol768',
             'jkcclemens',
             'hawkfalcon'
-        ),
-        "Web team" => array(
+        ],
+        "Web team" => [
             'lol768',
             'jkcclemens',
             'lDucks'
-        ),
-        "Judges" => array(
+        ],
+        "Judges" => [
             'lol768',
             'jkcclemens',
             'hawkfalcon',
@@ -55,10 +55,10 @@ return array(
             "rigor789",
             "Bionicrm",
             "Eviltechie"
-        ),
-        "Sponsors" => array(
-            'Intreppid',
-            'CurseForge'
-        )
-    )
-);
+        ],
+        "Sponsors" => [
+//            'Intreppid',
+//            'CurseForge'
+        ]
+    ]
+];

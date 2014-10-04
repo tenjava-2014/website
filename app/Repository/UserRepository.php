@@ -1,10 +1,12 @@
 <?php namespace TenJava\Repository;
 
+use Config;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
+use TenJava\Staff;
 use TenJava\User;
 
-class UserRepository {
+class UserRepository implements UserRepositoryInterface {
 
     public function getGitHubUser(SocialiteUser $socialiteUser) {
         return $this->byGitHubID($socialiteUser);
@@ -42,5 +44,22 @@ class UserRepository {
         $user->gh_id = $socialiteUser->getId();
         $this->update($user, $socialiteUser);
         return $user;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStaffMembers() {
+        $teamMembers = [];
+        $this->addIfEntries($teamMembers, 'Organizers', Staff::organizer()->get()->lists('username'));
+        $this->addIfEntries($teamMembers, 'Web Team', Staff::webTeam()->get()->lists('username'));
+        $this->addIfEntries($teamMembers, 'Judges', Staff::judge()->get()->lists('username'));
+        $this->addIfEntries($teamMembers, 'Sponsors', Config::get('user-access.present.Sponsors'));
+        return $teamMembers;
+    }
+
+    private function addIfEntries(array &$addTo, $key, array $adding) {
+        if (count($adding) < 1) return;
+        $addTo[$key] = $adding;
     }
 }
