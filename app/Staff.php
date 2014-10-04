@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder judge()
  * @method static Builder organizer()
  * @method static Builder webTeam()
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Team[] $claims
  */
 class Staff extends Model {
     const JUDGE_BIT = 1;
@@ -31,7 +32,7 @@ class Staff extends Model {
     protected $guarded = ['id', 'updated_at', 'created_at'];
 
     public function claims() {
-        return $this->belongsToMany('\TenJava\Team', 'claimed_by');
+        return $this->hasMany('\TenJava\Team', 'claimed_by');
     }
 
     public function getUsernameAttribute() {

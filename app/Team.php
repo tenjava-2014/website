@@ -24,10 +24,17 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereGeneralRules($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Team wherePrizeRules($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereMiscellaneousRules($value)
+ * @property-read \TenJava\Staff $claimedBy
+ * @property integer $claimed_by
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereClaimedBy($value)
  */
 class Team extends Model {
     protected $table = 'teams';
     protected $guarded = ['id', 'updated_at', 'created_at'];
+
+    public function claimedBy() {
+        return $this->belongsTo('\TenJava\Staff', 'claimed_by');
+    }
 
     public function leader() {
         return $this->belongsTo('\TenJava\User', 'leader_id');
@@ -35,9 +42,5 @@ class Team extends Model {
 
     public function members() {
         return $this->hasMany('\TenJava\User');
-    }
-
-    public function claimedBy() {
-        return $this->hasOne('\TenJava\Staff');
     }
 }
