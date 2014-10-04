@@ -8,7 +8,7 @@
                 <h1>
                     <a name="user-content-hello-judge_name" class="anchor" href="#hello-judge_name"
                        rel="noreferrer"><span
-                            class="octicon octicon-link"></span></a>Hello, {{{ $auth->getUsername() }}}!</h1>
+                            class="octicon octicon-link"></span></a>Hello, {{ $auth->getUsername() }}!</h1>
 
                 <p>Welcome to your private testing server. Here are some tips to get you started.</p>
 

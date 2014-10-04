@@ -16,21 +16,21 @@
                         <h4>Submission errors</h4>
                         <ul>
                             @foreach($errors->all('<li>:message</li>') as $message)
-                                {{ $message }}
+                                {!! $message !!}
                             @endforeach
                         </ul>
                     </div>
                 @endif
 
-                {{ Form::open(array('url' => '/feedback', 'class' => 'form')) }}
+                {!! Form::open(array('url' => '/feedback', 'class' => 'form')) !!}
                 <div class="control-group">
                     <label for="comment">Comments</label>
                     <div class="control">
-                        <textarea name="comment" id="comment">{{{ Input::old('comment') }}}</textarea>
+                        <textarea name="comment" id="comment">{{ Input::old('comment') }}</textarea>
                     </div>
                 </div>
                 <input type="submit" value="Send feedback" class="button button-block button-flat-primary">
-                {{ Form::close() }}
+                {!! Form::close() !!}
             @endif
         </div>
     </div>

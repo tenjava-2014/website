@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('additional-scripts')
-<script type="application/javascript" src="{{ asset('/assets/js/Chart.min.js') }}"></script>
+<script type="application/javascript" src="{!! asset('/assets/js/Chart.min.js') !!}"></script>
 @stop
 @section('content')
 <div class="content-back">
@@ -24,16 +24,16 @@
             @foreach ($judges as $judge)
                 <!-- forgive me -->
                 <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
-                    <div style="margin: 0; background-color: {{ $judge_progress[$judge->github_name]['finished'] ? "#7DB500" : "#3590E6" }}; width: {{{ $judge_progress[$judge->github_name]['percent'] }}}%; padding: 0;">
-                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $judge->github_name }}} ({{{ $judge_progress[$judge->github_name]['completed'] }}}/{{{ $judge_progress[$judge->github_name]['assigned'] }}})</h3>
+                    <div style="margin: 0; background-color: {!! $judge_progress[$judge->github_name]['finished'] ? "#7DB500" : "#3590E6" !!}; width: {{ $judge_progress[$judge->github_name]['percent'] }}%; padding: 0;">
+                        <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{ $judge->github_name }} ({{ $judge_progress[$judge->github_name]['completed'] }}/{{ $judge_progress[$judge->github_name]['assigned'] }})</h3>
                     </div>
                 </div>
             @endforeach
             <h2>Overall progress</h2>
             <p>Please note that 100% completion of entries is not the only pre-requisite for results to be announced. We need to check scores allocated and prepare the site before announcing the results.</p>
             <div class="judge-progress" style="width: 100%; background-color: #aaa; padding: 0;">
-                <div style="margin: 0; background-color: {{ $total_progress['finished'] ? "#7DB500" : "#3590E6" }}; width: {{{ $total_progress['percent'] }}}%; padding: 0;">
-                    <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{{ $total_progress['percent'] }}}% ({{{ $total_progress['completed_claims'] }}}/{{{ $total_progress['total_claims'] }}})</h3>
+                <div style="margin: 0; background-color: {!! $total_progress['finished'] ? "#7DB500" : "#3590E6" !!}; width: {{ $total_progress['percent'] }}%; padding: 0;">
+                    <h3 style="white-space: nowrap; margin: 0; padding: 5px; color: #fff;">{{ $total_progress['percent'] }}% ({{ $total_progress['completed_claims'] }}/{{ $total_progress['total_claims'] }})</h3>
                 </div>
             </div>
             <h2>Next steps</h2>
@@ -43,5 +43,5 @@
 </div>
 @stop
 @section('post-scripts')
-<script type="application/javascript" src="{{ asset('/assets/js/charts.js') }}"></script>
+<script type="application/javascript" src="{!! asset('/assets/js/charts.js') !!}"></script>
 @stop

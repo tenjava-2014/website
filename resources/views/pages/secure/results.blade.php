@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="grid-10 hide-on-mobile signup-image grid-padding-sucks">
-        <img src="{{ asset('/assets/img/medals/medal_bronze.png') }}" alt="Medal icon">
+        <img src="{!! asset('/assets/img/medals/medal_bronze.png') !!}" alt="Medal icon">
     </div>
 
     <div class="grid-90 grid-padding-sucks">
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="grid-10 hide-on-mobile signup-image grid-padding-sucks">
-        <img src="{{ asset('/assets/img/medals/medal_iron.png') }}" alt="Medal icon">
+        <img src="{!! asset('/assets/img/medals/medal_iron.png') !!}" alt="Medal icon">
     </div>
 
     <div class="grid-90 grid-padding-sucks">
@@ -54,7 +54,7 @@
 
 
     <div class="grid-10 hide-on-mobile signup-image grid-padding-sucks">
-        <img src="{{ asset('/assets/img/medals/medal_gold.png') }}" alt="Medal icon">
+        <img src="{!! asset('/assets/img/medals/medal_gold.png') !!}" alt="Medal icon">
     </div>
 
     <div class="grid-90 grid-padding-sucks">
@@ -78,7 +78,7 @@
 
     </div>
     <div class="grid-10 hide-on-mobile signup-image grid-padding-sucks">
-        <img src="{{ asset('/assets/img/thirdparty/trophy.svg') }}" alt="Trophy icon">
+        <img src="{!! asset('/assets/img/thirdparty/trophy.svg') !!}" alt="Trophy icon">
     </div>
 
     <div class="grid-100 grid-padding-sucks"><br /><small>We won't enter into discussions relating to the winning entries. The organizers' decision is final.</small></div>

@@ -1,4 +1,4 @@
-Hi there {{ $user }}!
+Hi there {!! $user !!}!
 
 According to our records, at some point in the past you've expressed interest in the ten.java contest. Whether or not
 you were actually able to participate on July 12th, we thought you might be interested to see the results.

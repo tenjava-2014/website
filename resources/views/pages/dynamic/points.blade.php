@@ -24,7 +24,7 @@
         <p><a href="https://store.curseforge.com" class="button button-large button-flat-action">Visit store</a></p>
     </div>
     <div class="grid-20 hide-on-mobile hide-on-tablet signup-image signup-margin">
-        <img src="{{ asset('/assets/img/thirdparty/send.svg') }}" alt="Send icon">
+        <img src="{!! asset('/assets/img/thirdparty/send.svg') !!}" alt="Send icon">
     </div>
 </div> -->
 @stop

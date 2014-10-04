@@ -10,7 +10,6 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
-            <p><em>Took part this year and want to see what we thought of your entry? View the feedback <a href="/own-scores">here</a>!</em></p>
             <p><em>Want to keep updated with the latest ten.java news? Ask to receive an email when news about the next contest is released <a href="/subscribe">here</a>!</em></p>
             <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
                 November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
@@ -40,7 +39,7 @@
             </p>
             <p>
                 <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
-                <span class="text-light">We've raised {{ /*number_format($pointsData->points)*/ '10' }} points! That's a whopping ${{ /*number_format($pointsData->points * 0.05, 2)*/ '10' }}!</span>
+                <span class="text-light">We've raised {!! /*number_format($pointsData->points)*/ '10' !!} points! That's a whopping ${!! /*number_format($pointsData->points * 0.05, 2)*/ '10' !!}!</span>
             </p>
 
             <!-- <div class="tf2-details">

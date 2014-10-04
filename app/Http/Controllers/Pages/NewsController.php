@@ -60,7 +60,10 @@ class NewsController extends BaseController {
     public function showSubscribePage() {
         $this->setPageTitle('Subscribe to ten.java news');
         // FIXME: SRP (move to own function)
-        return Response::view('pages.forms.news', ['subscription' => $this->getSubscription()]);
+        return Response::view('pages.forms.news', [
+            'subscription' => $this->getSubscription(),
+            'emails' => Auth::user()->getEmails()
+        ]);
     }
 
     public function subscribe() {

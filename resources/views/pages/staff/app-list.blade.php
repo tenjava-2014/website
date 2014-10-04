@@ -2,7 +2,7 @@
 @section('content')
 <div class="grid-container">
     <div class="grid-100">
-<h2>App list ({{{ $apps->getTotal() }}} applications)</h2>
+<h2>App list ({{ $apps->getTotal() }} applications)</h2>
 <div class="alert basic error">This page is restricted.
     @if ($fullAccess)
         <p>You currently have full access to all user data. You <strong>must not</strong> share this data with anyone (unless
@@ -14,41 +14,41 @@
 </div>
 
         <div class="filter">
-            <p>Filter: <a href="{{ URL::to('list/judges') }}">judge apps</a>,
-                       <a href="{{ URL::to('list/normal') }}">participant apps</a>,
-                       <a href="{{ URL::to('list/unc') }}">unconfirmed participant apps</a>,
-                       <a href="{{ URL::to('list/conf') }}">confirmed participant apps</a> (<a href="{{ URL::to('list/t1') }}">1</a>, <a href="{{ URL::to('list/t2') }}">2</a>, <a href="{{ URL::to('list/t3') }}">3</a>),
-                       <a href="{{ URL::to('list/turnedup') }}">apps w/ > 1 commit</a>,
-                       <a href="{{ URL::to('list') }}">all apps</a></p>
+            <p>Filter: <a href="{!! URL::to('list/judges') !!}">judge apps</a>,
+                       <a href="{!! URL::to('list/normal') !!}">participant apps</a>,
+                       <a href="{!! URL::to('list/unc') !!}">unconfirmed participant apps</a>,
+                       <a href="{!! URL::to('list/conf') !!}">confirmed participant apps</a> (<a href="{!! URL::to('list/t1') !!}">1</a>, <a href="{!! URL::to('list/t2') !!}">2</a>, <a href="{!! URL::to('list/t3') !!}">3</a>),
+                       <a href="{!! URL::to('list/turnedup') !!}">apps w/ > 1 commit</a>,
+                       <a href="{!! URL::to('list') !!}">all apps</a></p>
         </div>
         <div class="search">
             <p>
-                {{ Form::open(array('url' => URL::to('list/search'), 'class' => 'form', 'method' => 'GET')) }}
-                    <input type="text" placeholder="Search..." name="search"{{ isset($keywords)? 'value="' . $keywords . '"' : '' }}><button type="submit" class="button button-search"><i class="fa fa-search">
+                {!! Form::open(array('url' => URL::to('list/search'), 'class' => 'form', 'method' => 'GET')) !!}
+                    <input type="text" placeholder="Search..." name="search"{!! isset($keywords)? 'value="' . $keywords . '"' : '' !!}><button type="submit" class="button button-search"><i class="fa fa-search">
                     </i></button>
-                {{ Form::close() }}
+                {!! Form::close() !!}
             </p>
         </div>
         <div class="clearfix"></div>
-<div class="text-center">{{ $apps->appends($append)->links() }}</div>
+<div class="text-center">{!! $apps->appends($append)->links() !!}</div>
 
 @foreach ($apps as $app)
-    <h3 class="{{{ ($app->judge) ? 'judge-app' : 'participant-app' }}}">{{{ $app->gh_username }}} <a
-        href="http://github.com/{{{ $app->gh_username }}}"><i class="fa fa-user"></i></a></h3>
+    <h3 class="{{ ($app->judge) ? 'judge-app' : 'participant-app' }}">{{ $app->gh_username }} <a
+        href="http://github.com/{{ $app->gh_username }}"><i class="fa fa-user"></i></a></h3>
     <table class="pure-table pure-table-bordered app-table">
         <tbody>
         <tr>
             <td width="10%">Created at</td>
-            <td width="90%"><span title="{{{ $app->created_at }}}">{{{ $app->created_at->diffForHumans() }}}</span></td>
+            <td width="90%"><span title="{{ $app->created_at }}">{{ $app->created_at->diffForHumans() }}</span></td>
         </tr>
         <tr>
             <td>DBO</td>
-            <td><a href="http://dev.bukkit.org/profiles/{{{ $app->dbo_username }}}">{{{ $app->dbo_username }}}</a></td>
+            <td><a href="http://dev.bukkit.org/profiles/{{ $app->dbo_username }}">{{ $app->dbo_username }}</a></td>
         </tr>
         @if ($app->judge)
         <tr>
             <td>MC *</td>
-            <td><a href="https://minecraft.net/haspaid.jsp?user={{{ $app->mc_username }}}">{{{ $app->mc_username }}}</a>
+            <td><a href="https://minecraft.net/haspaid.jsp?user={{ $app->mc_username }}">{{ $app->mc_username }}</a>
             </td>
         </tr>
         @endif
@@ -58,61 +58,61 @@
             @if ($app->timeEntry === null)
                 <td>User didn't select a time.</td>
             @else
-                <td>{{ $app->timeEntry->getTimesLinks(1) }} {{ $app->timeEntry->getTimesLinks(2) }} {{ $app->timeEntry->getTimesLinks(3) }}</td>
+                <td>{!! $app->timeEntry->getTimesLinks(1) !!} {!! $app->timeEntry->getTimesLinks(2) !!} {!! $app->timeEntry->getTimesLinks(3) !!}</td>
             @endif
         </tr>
         @endif
         @if ($fullAccess)
         <tr>
             <td>Emails</td>
-            <td>{{{ $app->formatEmails() }}}</td>
+            <td>{{ $app->formatEmails() }}</td>
         </tr>
         @endif
         @if ($app->judge)
         <tr>
             <td>IRC *</td>
-            <td>{{{ $app->irc_username }}}</td>
+            <td>{{ $app->irc_username }}</td>
         </tr>
         @endif
         @if ($fullAccess && $app->judge)
         <tr>
             <td>GMail *</td>
-            <td>{{{ $app->gmail }}}</td>
+            <td>{{ $app->gmail }}</td>
         </tr>
         @endif
         @if (!$app->judge)
         <tr>
             <td>Twitch #</td>
-            <td><a href="http://twitch.tv/{{{ $app->twitch_username }}}">{{{ $app->twitch_username }}}</a></td>
+            <td><a href="http://twitch.tv/{{ $app->twitch_username }}">{{ $app->twitch_username }}</a></td>
         </tr>
         <tr>
             <td># Commits</td>
-            <td>{{{ $app->commits()->count() }}}</td>
+            <td>{{ $app->commits()->count() }}</td>
         </tr>
         @endif
         @if ($fullAccess && $app->judge)
         <tr>
             <td>Actions</td>
             <td>
-            {{ Form::open(array('url' => '/list/accept', 'class' => 'action-form')) }}
-                {{ Form::hidden('app_id', $app->id) }}
-                {{ Form::submit('Accept app', ['class' => 'button button-small button-flat-action']); }}
-            {{ Form::close() }}
+            {!! Form::open(array('url' => '/list/accept', 'class' => 'action-form')) !!}
+                {!! Form::hidden('app_id', $app->id) !!}
+                {!! Form::submit('Accept app', ['class' => 'button button-small button-flat-action']); !!}
+            {!! Form::close() !!}
 
-            {{ Form::open(array('url' => '/list/decline', 'class' => 'action-form')) }}
-                {{ Form::hidden('app_id', $app->id) }}
-                {{ Form::submit('Decline app', ['class' => 'button button-small button-flat-primary']); }}
-            {{ Form::close() }}
+            {!! Form::open(array('url' => '/list/decline', 'class' => 'action-form')) !!}
+                {!! Form::hidden('app_id', $app->id) !!}
+                {!! Form::submit('Decline app', ['class' => 'button button-small button-flat-primary']); !!}
+            {!! Form::close() !!}
             </td>
         </tr>
         @elseif ($fullAccess)
         <tr>
             <td>Actions</td>
             <td>
-                {{ Form::open(array('url' => '/list/remove-participant', 'class' => 'action-form')) }}
-                    {{ Form::hidden('app_id', $app->id) }}
-                    {{ Form::submit('Destroy app and repos', ['class' => 'button button-small button-flat-primary']); }}
-                {{ Form::close() }}
+                {!! Form::open(array('url' => '/list/remove-participant', 'class' => 'action-form')) !!}
+                    {!! Form::hidden('app_id', $app->id) !!}
+                    {!! Form::submit('Destroy app and repos', ['class' => 'button button-small button-flat-primary']); !!}
+                {!! Form::close() !!}
             </td>
         </tr>
         @endif
@@ -120,6 +120,6 @@
     </table>
 @endforeach
 
-<div class="text-center">{{ $apps->appends($append)->links() }}</div>
+<div class="text-center">{!! $apps->appends($append)->links() !!}</div>
         </div></div>
 @stop

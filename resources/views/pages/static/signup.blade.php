@@ -15,17 +15,17 @@
 					that these plugins are shared with the community.</p>
 			</div>
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="{{ asset('/assets/img/thirdparty/share.svg') }}" alt="Share icon">
+				<img src="{!! asset('/assets/img/thirdparty/share.svg') !!}" alt="Share icon">
 			</div>
 		</div>
 		<div class="grid-100 grid-parent">
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="{{ asset('/assets/img/thirdparty/trophy.svg') }}" alt="Trophy icon">
+				<img src="{!! asset('/assets/img/thirdparty/trophy.svg') !!}" alt="Trophy icon">
 			</div>
 			<div class="grid-80">
 				<h3>Points</h3>
-				<p>We've already raised {{ number_format($pointsData->points) }} CurseForge points, which is equivalent
-					to ${{ number_format($pointsData->points * 0.05, 2) }}. By participating, you have the chance to win
+				<p>We've already raised {!! number_format($pointsData->points) !!} CurseForge points, which is equivalent
+					to ${!! number_format($pointsData->points * 0.05, 2) !!}. By participating, you have the chance to win
 					a share of the prize pot. We're splitting the pot in portions of 50%, 30%, and 20% to first, second,
 					and third, respectively. Points can be cashed out via PayPal or redeemed as Amazon gift cards, so
 					it's definitely worth getting involved!</p>
@@ -41,12 +41,12 @@
 					repositories.</p>
 			</div>
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="{{ asset('/assets/img/thirdparty/book.svg') }}" alt="Book icon">
+				<img src="{!! asset('/assets/img/thirdparty/book.svg') !!}" alt="Book icon">
 			</div>
 		</div>
 		<div class="grid-100 grid-parent">
 			<div class="grid-20 hide-on-mobile signup-image">
-				<img src="{{ asset('/assets/img/thirdparty/happy.svg') }}" alt="Happy face icon">
+				<img src="{!! asset('/assets/img/thirdparty/happy.svg') !!}" alt="Happy face icon">
 			</div>
 			<div class="grid-80">
 				<h3>Have fun</h3>
@@ -73,7 +73,7 @@
 		</small>
 	</div>
 	<div class="grid-20 hide-on-mobile signup-image signup-margin">
-		<img src="{{ asset('/assets/img/thirdparty/rocket.svg') }}" alt="Rocket icon">
+		<img src="{!! asset('/assets/img/thirdparty/rocket.svg') !!}" alt="Rocket icon">
 	</div>
 </div>
 @elseif($hst == 'notime')
@@ -86,7 +86,7 @@
 		<p><a href="/times/select" class="button button-large button-flat-action">Choose a Time</a>
 	</div>
 	<div class="grid-20 hide-on-mobile signup-image signup-margin">
-		<img src="{{ asset('/assets/img/thirdparty/clock.svg') }}" alt="Clock icon">
+		<img src="{!! asset('/assets/img/thirdparty/clock.svg') !!}" alt="Clock icon">
 	</div>
 </div>
 @endif

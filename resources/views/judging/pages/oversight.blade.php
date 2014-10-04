@@ -4,25 +4,25 @@
     <div class="grid-container">
         <div class="grid-100">
             @if (isset($claim))
-            <h2>Requesting oversight on {{{ $claim->repo_name }}}</h2>
+            <h2>Requesting oversight on {{ $claim->repo_name }}</h2>
             <p>Please provide a detailed explanation of why you are requesting oversight for this submission so we can easily investigate what is going on and get it sorted.</p>
             @if ($errors->any())
             <div class="alert block error">
                 <h4>Request errors</h4>
                 <ul>
                     @foreach($errors->all('<li>:message</li>') as $message)
-                    {{ $message }}
+                    {!! $message !!}
                     @endforeach
                 </ul>
             </div>
             @endif
 
-            {{ Form::open(array('class' => 'form')) }}
-            <input type="hidden" name="claim_id" value="{{{ $claim->id }}}">
+            {!! Form::open(array('class' => 'form')) !!}
+            <input type="hidden" name="claim_id" value="{{ $claim->id }}">
             <div class="control-group">
                 <label for="reason">Comments</label>
                 <div class="control">
-                    <textarea name="reason" id="reason">{{{ Input::old('reason') }}}</textarea>
+                    <textarea name="reason" id="reason">{{ Input::old('reason') }}</textarea>
                 </div>
             </div>
             <input type="submit" value="Send oversight" class="button button-block button-flat-primary">

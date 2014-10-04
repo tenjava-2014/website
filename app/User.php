@@ -20,6 +20,23 @@ class User extends Model implements UserContract {
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token', 'email'];
+    protected $hidden = ['password', 'remember_token', 'email', 'emails'];
+
+    public function getEmails() {
+        return json_decode($this->emails);
+    }
+
+    /**
+     * True if opted-out. False if not.
+     * @return boolean
+     */
+    public function getOptoutStatus() {
+        return !$this->allow_email;
+    }
+
+    public function setOptoutStatus($optout) {
+        $this->allow_email = !$optout;
+        $this->save();
+    }
 
 }

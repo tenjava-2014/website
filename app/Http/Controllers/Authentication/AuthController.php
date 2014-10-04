@@ -10,7 +10,6 @@ use TenJava\AuthenticateUser;
 use TenJava\Http\Controllers\Abstracts\BaseController;
 use View;
 
-// TODO: Email opt-out
 class AuthController extends BaseController {
 
     /**
@@ -33,6 +32,12 @@ class AuthController extends BaseController {
 
     public function showRefusal() {
         return View::make("pages.auth.refusal");
+    }
+
+    public function toggleOptout() {
+        $user = Auth::user();
+        $user->setOptoutStatus(!$user->getOptoutStatus());
+        return Redirect::to('/privacy#email-access');
     }
 
 }

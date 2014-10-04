@@ -8,6 +8,7 @@ use Illuminate\Html\FormBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Laravel\Socialite\SocialiteManager;
 use Log;

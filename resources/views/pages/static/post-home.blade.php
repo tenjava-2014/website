@@ -6,13 +6,13 @@
             <h4 id="contestTime">Time until contest start:</h4>
             <!-- For some reason, PHP decides that string representations of booleans should be "1" for true and "" for false -->
             <!-- As much as this is intuitive, we're going to use a ternary operator here to get something sensible. -->
-            <div id="times-info" data-t1="{{{ $contestTimes->getTimeUntil($contestTimes->getT1StartTime()) }}}"
-                                 data-t2="{{{ $contestTimes->getTimeUntil($contestTimes->getT2StartTime()) }}}"
-                                 data-t3="{{{ $contestTimes->getTimeUntil($contestTimes->getT3StartTime()) }}}"
-                                 data-res="{{{ $contestTimes->getTimeUntil($contestTimes->getResultsAnnouncement()) }}}"
-                                 data-t1-active="{{{ $contestTimes->isT1Active() ? 'true' : 'false' }}}"
-                                 data-t2-active="{{{ $contestTimes->isT2Active() ? 'true' : 'false' }}}"
-                                 data-t3-active="{{{ $contestTimes->isT3Active() ? 'true' : 'false' }}}"></div>
+            <div id="times-info" data-t1="{{ $contestTimes->getTimeUntil($contestTimes->getT1StartTime()) }}"
+                                 data-t2="{{ $contestTimes->getTimeUntil($contestTimes->getT2StartTime()) }}"
+                                 data-t3="{{ $contestTimes->getTimeUntil($contestTimes->getT3StartTime()) }}"
+                                 data-res="{{ $contestTimes->getTimeUntil($contestTimes->getResultsAnnouncement()) }}"
+                                 data-t1-active="{{ $contestTimes->isT1Active() ? 'true' : 'false' }}"
+                                 data-t2-active="{{ $contestTimes->isT2Active() ? 'true' : 'false' }}"
+                                 data-t3-active="{{ $contestTimes->isT3Active() ? 'true' : 'false' }}"></div>
             <div class="time-circle" data-timer="900"></div>
         </div>
     </div>
@@ -50,7 +50,7 @@
             </p>
             <p>
                 <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
-                <span class="text-light">We've raised {{ number_format($pointsData->points) }} points! That's a whopping ${{ number_format($pointsData->points * 0.05, 2) }}!</span>
+                <span class="text-light">We've raised {!! number_format($pointsData->points) !!} points! That's a whopping ${!! number_format($pointsData->points * 0.05, 2) !!}!</span>
             </p>
 
             <!-- <div class="tf2-details">

@@ -65,6 +65,7 @@ class RouteServiceProvider extends ServiceProvider {
     private function routeNoAuthPages() {
         $this->group(array(), function () {
             $this->get('/', ['as' => 'index', 'uses' => "TenJava\\Http\\Controllers\\Pages\\HomeController@index"]);
+            $this->get('/login', "TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub");
             $this->get('/streams', "TenJava\\Http\\Controllers\\Pages\\HomeController@showStreams");
             $this->get('/ajax/commits', "TenJava\\Http\\Controllers\\Pages\\HomeController@ajaxCommits");
             $this->get('/points', 'TenJava\\Http\\Controllers\\Pages\\PointsController@showLeaderboard');
@@ -85,18 +86,16 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeAuthPages() {
-        $this->group(array('before' => 'AuthenticationFilter'), function () {
-            $this->get('/own-scores', "TenJava\\Http\\Controllers\\Pages\\ScoreViewController@showScores");
-            $this->get('/register/participant', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyParticipant");
+        $this->group(array('before' => 'auth'), function () {
+            /*$this->get('/register/participant', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyParticipant");
             $this->post('/times/confirm', "TenJava\\Http\\Controllers\\Application\\TimeController@confirmUserTimes");
             $this->get('/times/select', "TenJava\\Http\\Controllers\\Application\\TimeController@showUserTimes");
             $this->get('/times/thanks', "TenJava\\Http\\Controllers\\Application\\TimeController@showThanks");
             $this->get('/register/judge', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyJudge");
-            $this->get('/login', "TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub");
             $this->get('/charts', 'TenJava\\Http\\Controllers\\Pages\\ChartsController@showCharts');
             $this->get('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@showFeedback');
             $this->post('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@sendFeedback');
-            $this->get('/verification/key', "TenJava\\Http\\Controllers\\Pages\\VerificationController@getVerificationKey");
+            $this->get('/verification/key', "TenJava\\Http\\Controllers\\Pages\\VerificationController@getVerificationKey");*/
             $this->get('/logout', "TenJava\\Http\\Controllers\\Authentication\\AuthController@logout");
             $this->get('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@showSubscribePage');
             $this->post('/resend-confirmation', 'TenJava\\Http\\Controllers\\Pages\\NewsController@resendConfirmationEmail');
@@ -111,19 +110,19 @@ class RouteServiceProvider extends ServiceProvider {
 
     private function routeNoAuthAPI() {
         $this->group(array(), function () {
-            $this->get('/api/participants', 'TenJava\\Http\\Controllers\\Api\\ApiController@getParticipants');
+            /*$this->get('/api/participants', 'TenJava\\Http\\Controllers\\Api\\ApiController@getParticipants');
             $this->get('/api/checkParticipant/{participant}', 'TenJava\\Http\\Controllers\\Api\\ApiController@didParticipantParticipate');
             $this->get('/api/judges', 'TenJava\\Http\\Controllers\\Api\\ApiController@getActiveJudges');
             $this->get('/api/team/stats', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeStats');
             $this->get('/api/participants/confirmed/{confirmed}', 'TenJava\\Http\\Controllers\\Api\\ApiController@getConfirmedParticipants');
             $this->get('/api/points', 'TenJava\\Http\\Controllers\\Api\\ApiController@getPoints');
-            $this->get('/api/session', 'TenJava\\Http\\Controllers\\Api\\ApiController@getSessionData');
+            $this->get('/api/session', 'TenJava\\Http\\Controllers\\Api\\ApiController@getSessionData');*/
         });
     }
 
     private function routeAuthAPI() {
         $this->group(array('before' => 'ProtectedApiFilter'), function () {
-            $this->get('/api/judges/claims', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeClaims');
+//            $this->get('/api/judges/claims', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeClaims');
         });
     }
 
@@ -140,8 +139,8 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeCSRFAuthPages() {
-        $this->group(array('before' => 'AuthenticationFilter|csrf'), function () {
-            $this->post('/apply/{type}', 'TenJava\\Http\\Controllers\\Application\\AppController@processApplication');
+        $this->group(array('before' => 'auth|csrf'), function () {
+//            $this->post('/apply/{type}', 'TenJava\\Http\\Controllers\\Application\\AppController@processApplication');
             $this->post('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@subscribe');
             $this->post('/unsubscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@unsubscribe');
         });

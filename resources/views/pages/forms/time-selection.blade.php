@@ -30,7 +30,7 @@
                 </li>
             </ul>
 
-            <p>Please choose the competition time(s) for the <strong>{{{ $username }}}</strong> user. It is recommended
+            <p>Please choose the competition time(s) for the <strong>{{ $username }}</strong> user. It is recommended
                 that all
                 participants stick to 1 time only. That said, it is feasible to participate in both time 1 and an
                 additional time for those interested.</p>
@@ -43,7 +43,7 @@
                 <h4>Form errors</h4>
                 <ul>
                     @foreach($errors->all('<li>:message</li>') as $message)
-                        {{ $message }}
+                        {!! $message !!}
                     @endforeach
                 </ul>
             </div>

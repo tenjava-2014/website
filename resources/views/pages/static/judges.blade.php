@@ -4,7 +4,7 @@
 	<div class="grid-container">
 		@foreach ($teamMembers as $key => $values)
 		<div class="grid-100 tablet-grid-100 mobile-grid-100">
-			<h2>{{{ $key }}}</h2>
+			<h2>{{ $key }}</h2>
 		</div>
 		<?php $i = 0; ?>
 		@foreach ($values as $value)

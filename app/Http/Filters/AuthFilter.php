@@ -52,7 +52,7 @@ class AuthFilter {
 			}
 			else
 			{
-				return $this->response->redirectGuest('auth/login');
+				return $this->response->redirectGuest('/login');
 			}
 		}
 	}

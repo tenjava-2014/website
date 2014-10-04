@@ -1,6 +1,7 @@
 <?php
 namespace TenJava\Http\Controllers\Pages;
 
+use Auth;
 use TenJava\Http\Controllers\Abstracts\BaseController;
 use Response;
 

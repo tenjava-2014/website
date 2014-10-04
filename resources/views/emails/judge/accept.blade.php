@@ -1,4 +1,4 @@
-Hi there {{{ $user }}}!
+Hi there {{ $user }}!
 
 We'd like to have you join our judging team :)
 

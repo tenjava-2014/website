@@ -16,17 +16,17 @@
                 twice by two separate judges. Please do not disclose which entries you have been assigned to anyone
                 (this includes other judges/organizers).</p>
 
-            <h3>Completed plugins ({{{ count($claims['done']) }}}/{{{ $claims['total'] }}})</h3>
+            <h3>Completed plugins ({{ count($claims['done']) }}/{{ $claims['total'] }})</h3>
             <ul>
                 @foreach ($claims['done'] as $claim)
-                <li>{{{ $claim->repo_name }}}</li>
+                <li>{{ $claim->repo_name }}</li>
                 @endforeach
             </ul>
 
-            <h3>Remaining plugins ({{{ count($claims['pending']) }}}/{{{ $claims['total'] }}})</h3>
+            <h3>Remaining plugins ({{ count($claims['pending']) }}/{{ $claims['total'] }})</h3>
             <ul>
                 @foreach ($claims['pending'] as $claim)
-                    <li>{{{ $claim->repo_name }}}</li>
+                    <li>{{ $claim->repo_name }}</li>
                 @endforeach
             </ul>
         </div>
@@ -39,7 +39,7 @@
                 information on the CraftBukkit/Java versions you should be using so that we can try to ensure test
                 environments are consistent.</p>
 
-            <div class="server-details"><strong>Server IP:</strong> thor.tenjava.com:{{{ $judgePort }}}<br /><br /><em>These connection details are specific to you. Please do not disclose them.</em></div>
+            <div class="server-details"><strong>Server IP:</strong> thor.tenjava.com:{{ $judgePort }}<br /><br /><em>These connection details are specific to you. Please do not disclose them.</em></div>
 
             <p>For information on how to use the tools available to you on the judging servers, see the <a
                     href="/judging/help">help</a> page.</p>

@@ -1,6 +1,6 @@
 @extends('emails.news.template')
 @section('content')
-    <h1>Hey, {{{ $name }}}!</h1>
+    <h1>Hey, {{ $name }}!</h1>
     <p>
         It's official. The next ten.java is on its way, and it comes bearing some big news.
     </p>

@@ -1,4 +1,4 @@
-<h1>Hey, {{{ $name }}}!</h1>
+<h1>Hey, {{ $name }}!</h1>
 <p>
     You participated in the last ten.java, so we thought you may be interested in news about the next one! If you'd like
     to get periodic emails about the next contest, <a href="https://tenjava.com/subscribe">subscribe</a> to our mailing

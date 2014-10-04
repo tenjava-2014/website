@@ -20,7 +20,7 @@ class AddUserTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('users', function(Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->rememberToken();
@@ -29,6 +29,7 @@ class AddUserTable extends Migration {
             $table->string('name');
             $table->string('email')->unique()->nullable();
             $table->text('emails');
+            $table->boolean('allow_email')->default(true);
         });
     }
 

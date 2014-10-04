@@ -8,11 +8,11 @@ class GithubEmailProvider extends GithubProvider {
     /**
      * {@inheritdoc}
      */
-    protected function getUserByToken($token) {
+    public function getUserByToken($token) {
         return array_merge(parent::getUserByToken($token), $this->getUserEmails($token));
     }
 
-    protected function getUserEmails($token) {
+    private function getUserEmails($token) {
         $response = $this->getHttpClient()->get('https://api.github.com/user/emails?access_token=' . $token, [
             'headers' => [
                 'Accept' => 'application/vnd.github.v3+json'
@@ -25,7 +25,7 @@ class GithubEmailProvider extends GithubProvider {
     /**
      * {@inheritdoc}
      */
-    protected function mapUserToObject(array $user) {
+    public function mapUserToObject(array $user) {
         return (new User)->setRaw($user)->map([
             'id' => $user['id'], 'nickname' => $user['login'], 'name' => $user['name'],
             'email' => $user['email'] === null ? $this->getPrimaryEmail($user['emails']) : $user['email'],
@@ -33,7 +33,7 @@ class GithubEmailProvider extends GithubProvider {
         ]);
     }
 
-    protected function getPrimaryEmail(array $emails) {
+    private function getPrimaryEmail(array $emails) {
         foreach ($emails as $email) {
             if ($email['primary']) return $email['email'];
         }

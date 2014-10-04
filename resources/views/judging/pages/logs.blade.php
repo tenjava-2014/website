@@ -9,10 +9,10 @@
             <pre id="logs">Log viewer app v0.1\n--------------------\nChecking for JS...</pre>
             </div>
         </div>
-        
+
     </div>
 </div>
 @stop
 @section('post-scripts')
-<script type="application/javascript" src="{{ asset('/assets/js/log-viewer.js') }}"></script>
+<script type="application/javascript" src="{!! asset('/assets/js/log-viewer.js') !!}"></script>
 @stop

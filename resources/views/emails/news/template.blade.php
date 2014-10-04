@@ -20,7 +20,7 @@
 <body>
 @yield('content')
 <p class="footer">
-    Don't want to receive these emails anymore? <a href="{{{ $unsubscribe_url }}}">Unsubscribe</a>.
+    Don't want to receive these emails anymore? <a href="{{ $unsubscribe_url }}">Unsubscribe</a>.
 </p>
 </body>
 </html>

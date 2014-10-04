@@ -43,18 +43,20 @@
 		<p>To ensure applicants and participants have a choice about what information they choose to provide, we
 			have made it possible to opt-out of email sharing. If you choose to opt-out, we will not have access to
 			your GitHub emails. This applies to participants and judge applications. Judge applicants must still
-			provide a GMail address to be considered. To opt-out, simply use the link below:</p>
-
+			provide a GMail address to be considered.
+        @if (Auth::check())
+            To opt-out, simply use the link below:</p>
 		<p>
 			<strong>Current opt-out status:</strong>
-			{{ ($emailOptOut) ? "You are opted out." : "You are <em>not</em> opted out." }}
+			{!! ($emailOptOut) ? "You are opted out." : "You are <em>not</em> opted out." !!}
 		</p>
 
 		<p>
-			<a class="button {{ (!$emailOptOut) ? "button-flat-action" : "button-flat-primary" }}" href="/toggle-optout">
-			{{ ($emailOptOut) ? "Opt in" : "Opt out" }}
+			<a class="button {!! (!$emailOptOut) ? "button-flat-action" : "button-flat-primary" !!}" href="/toggle-optout">
+			{!! ($emailOptOut) ? "Opt in" : "Opt out" !!}
 			</a>
 		</p>
+        @endif
 	</div>
 </div>
 @stop

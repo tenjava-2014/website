@@ -1,4 +1,4 @@
-Hi there, {{{ $user }}}.
+Hi there, {{ $user }}.
 
 According to our records, you've signed up for the ten.java contest but you haven't yet chosen a time. All participants need to choose a time to be able to take part.
 
