@@ -1,15 +1,12 @@
 <?php
 namespace TenJava\Http\Controllers\Pages;
 
+use Auth;
 use Input;
-use TenJava\Contest\TwitchRepositoryInterface;
 use TenJava\Http\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
 use Config;
-use TenJava\Models\ParticipantCommit;
-use TenJava\Repository\ParticipantCommitRepositoryInterface;
 use TenJava\Security\HmacCreationInterface;
-use TenJava\Time\ContestTimesInterface;
 use View;
 
 class VerificationController extends BaseController {
@@ -27,10 +24,10 @@ class VerificationController extends BaseController {
     }
 
     public function getVerificationKey() {
-        $this->setPageTitle("Verification Key");
-        $data = $this->auth->getUserId() . "-" . $this->auth->getUsername();
+        $this->setPageTitle('Verification Key');
+        $data = Auth::id() . "-" . Auth::user()->username;
         $key = $this->hmac->createSignature($data, Config::get("gh-data.verification-key"));
-        return View::make("pages.dynamic.winner-verification")->with(["key" => $key]);
+        return View::make('pages.dynamic.winner-verification')->with(['key' => $key]);
     }
 
 }

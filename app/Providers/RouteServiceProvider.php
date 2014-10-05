@@ -69,6 +69,7 @@ class RouteServiceProvider extends ServiceProvider {
     private function routeFilters() {
         $this->filter('staff', 'TenJava\Http\Filters\StaffFilter');
         $this->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
+        $this->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 
     private function routeNoAuthPages() {
@@ -98,8 +99,8 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/register/judge', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyJudge");
             $this->get('/charts', 'TenJava\\Http\\Controllers\\Pages\\ChartsController@showCharts');
             $this->get('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@showFeedback');
-            $this->post('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@sendFeedback');
-            $this->get('/verification/key', "TenJava\\Http\\Controllers\\Pages\\VerificationController@getVerificationKey");*/
+            $this->post('/feedback', 'TenJava\\Http\\Controllers\\Pages\\FeedbackController@sendFeedback');*/
+            $this->get('/verification/key', "TenJava\\Http\\Controllers\\Pages\\VerificationController@getVerificationKey");
             $this->get('/logout', "TenJava\\Http\\Controllers\\Authentication\\AuthController@logout");
             $this->get('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@showSubscribePage');
             $this->post('/resend-confirmation', 'TenJava\\Http\\Controllers\\Pages\\NewsController@resendConfirmationEmail');
@@ -123,8 +124,8 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeAuthAPI() {
-        $this->group(array('before' => 'ProtectedApiFilter'), function () {
-//            $this->get('/api/judges/claims', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeClaims');
+        $this->group(array('before' => 'protected_api'), function () {
+            $this->get('/api/judges/claims', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeClaims');
         });
     }
 
