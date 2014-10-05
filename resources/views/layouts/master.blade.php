@@ -6,7 +6,6 @@
 	<link rel="icon" type="image/png" href="{!! asset('/assets/img/favicon.ico') !!}" />
 	<link href="{!! asset('/assets/css/grid.css') !!}" rel="stylesheet" />
 	<link href="{!! asset('/assets/css/styles.css') !!}?v=1.53" rel="stylesheet" />
-    <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
     @yield('additional-scripts')
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
 	<meta name="description" content="Ten hour Bukkit plugin development contest." />
@@ -32,5 +31,6 @@
 <script type="application/javascript" src="{!! asset('/assets/js/time-circles.js') !!}"></script>
 <script type="application/javascript" src="{!! asset('/assets/js/jquery.timediff.min.js') !!}"></script>
 <script type="application/javascript" src="{!! asset('/assets/js/app.js?v=1.1') !!}"></script>
+<script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
 </body>
 </html>
