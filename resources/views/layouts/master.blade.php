@@ -14,7 +14,6 @@
 </head>
 <body>
 <div id="wrapper">
-    <div class="alert basic outdated-info-notice">A lot of the info on this site is outdated now that the contest is over. Please bear with us as we edit pages to make them relevant again.</div>
 	@include('partials.nav')
 	<div id="point-ticker">
 		<div class="grid-container">
