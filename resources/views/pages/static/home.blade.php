@@ -23,10 +23,15 @@
                 by a group of volunteers, and we award a prize to the winning developers. Last year, we gave out $2,100
                 USD and had just under 300 registered participants.
             </p>
-
             <p>
                 On August 30, 2014, after a month of judging, we announced the winning entries of last year's
                 competition via a livestream. You can view the <a href="/results">results</a> page for more information.
+            </p>
+            <p>
+                News about the next competition can be obtained in the
+                <a href="http://forums.tenjava.com/category/news">News category</a> on the forums. Alternatively, there
+                are news emails that reiterate posts in that category that can be signed up for
+                <a href="/subscribe">here</a>.
             </p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
