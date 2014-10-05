@@ -3,8 +3,8 @@
 namespace TenJava\Http\Controllers\Judging;
 
 
+use Auth;
 use TenJava\Http\Controllers\Abstracts\BaseJudgingController;
-use TenJava\Models\JudgeClaim;
 use View;
 
 class DashboardController extends BaseJudgingController {
@@ -20,7 +20,7 @@ class DashboardController extends BaseJudgingController {
     }
 
     private function getServerPort() {
-        return 25565 + \Auth::id();
+        return 25565 + Auth::id();
     }
 
 }

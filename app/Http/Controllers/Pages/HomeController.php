@@ -8,8 +8,10 @@ use Config;
 use Input;
 use Redirect;
 use Response;
+use TenJava\Claim;
 use TenJava\Contest\TwitchRepositoryInterface;
 use TenJava\Http\Controllers\Abstracts\BaseController;
+use TenJava\User;
 use View;
 
 class HomeController extends BaseController {

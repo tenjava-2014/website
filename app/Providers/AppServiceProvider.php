@@ -11,7 +11,6 @@ use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
-use Laravel\Socialite\SocialiteManager;
 use Log;
 use Symfony\Component\HttpFoundation\Response;
 use TenJava\Exceptions\FailedOauthException;
@@ -29,16 +28,22 @@ class AppServiceProvider extends ServiceProvider {
 
     private function registerFormMacros() {
         $app = $this->app;
-        /*$app['form']->macro('judgeField', function ($name, $id, $max) use ($app) {
+        $app['form']->macro('judgeField', function ($name, $id, $max) use ($app) {
             $id = htmlentities($id);
             $fb = $this->app['form'];
             /** @var $fb FormBuilder */
-        /*$old = $fb->old($id);
-        $old = ($old === null) ? "0" : $old;
-        $inputType = $fb->getSessionStore()->has("judge-use-num") ? 'number' : 'range';
-        return '<div class="control-group"><label for="' . $id . '">' . $name . '</label> <output for="' . $id . '">(0/' . $max . ' points)</output>
+            $old = $fb->old($id);
+            $old = ($old === null) ? "0" : $old;
+            $inputType = $fb->getSessionStore()->has("judge-use-num") ? 'number' : 'range';
+            return '<div class="control-group"><label for="' . $id . '">' . $name . '</label> <output for="' . $id . '">(0/' . $max . ' points)</output>
                 <div class="control"><input value="' . $old . '" type="' . $inputType . '" min="0" max="' . (int)$max . '" name="' . $id . '" id="' . $id . '"></div></div>';
-    });*/
+        });
+    }
+
+    private function registerRouteFilters(Router $router) {
+        $router->filter('staff', 'TenJava\Http\Filters\StaffFilter');
+        $router->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
+        $router->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 
     /**
@@ -151,11 +156,5 @@ class AppServiceProvider extends ServiceProvider {
             }
         });*/
         // TODO: Fix
-    }
-
-    private function registerRouteFilters(Router $router) {
-        $router->filter('staff', 'TenJava\Http\Filters\StaffFilter');
-        $router->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
-        $router->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 }

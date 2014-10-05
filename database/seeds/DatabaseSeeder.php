@@ -2,9 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use TenJava\User;
+use TenJava\Claim;
 use TenJava\Staff;
 use TenJava\Team;
+use TenJava\User;
 
 class DatabaseSeeder extends Seeder {
 
@@ -46,7 +47,7 @@ class ApplicationSeeder extends Seeder {
             'username' => 'lol768',
             'name' => 'Lol Seven-Hundred-Sixty-Eight',
             'email' => 'lol768@foo.bar',
-            'allow_email' => true
+            'allow_email' => true,
         ]);
         User::create([
             'gh_id' => 1509618,
@@ -61,10 +62,23 @@ class ApplicationSeeder extends Seeder {
         ]);
         Team::create([
             'name' => 'Prancing Jackrabbits',
-            'leader_id' => 1,
+            'leader_id' => 2,
             'general_rules' => 'Stay in school.',
             'prize_rules' => 'Even split.',
             'miscellaneous_rules' => "Don't die."
+        ]);
+        /**
+         * @var $user User
+         */
+        $user = User::find(2);
+        $user->team_id = 1;
+        $user->save();
+        $user = User::find(3);
+        $user->team_id = 1;
+        $user->save();
+        Claim::create([
+            'staff_id' => 1,
+            'team_id' => 1
         ]);
     }
 

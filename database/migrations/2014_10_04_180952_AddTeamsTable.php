@@ -28,8 +28,7 @@ class AddTeamsTable extends Migration {
             $table->increments('id');
             $table->timestamps();
             $table->string('name')->unique();
-            $table->integer('claimed_by')->unsigned()->nullable();
-            $table->foreign('claimed_by')->references('id')->on('staff');
+            $table->string('repo_name')->unique()->nullable();
             $table->integer('leader_id')->unsigned()->unique();
             $table->foreign('leader_id')->references('id')->on('users');
             $table->text('general_rules');

@@ -3,7 +3,7 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-80">
-            <h1>Judging {{ $claim->repo_name }}</h1>
+            <h1>Judging {{ $claim->team->name }}</h1>
             <p>Please judge plugins as objectively as possible.
                 You should be referring to our internal judging document while reviewing this submission.
                 If you think the entry needs to be disqualified or you have other concerns, please request oversight.</p>
