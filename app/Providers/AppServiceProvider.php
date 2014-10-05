@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Html\FormBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -19,10 +20,11 @@ use View;
 
 class AppServiceProvider extends ServiceProvider {
 
-    public function boot(ViewFactory $view) {
+    public function boot(ViewFactory $view, Router $router) {
         $this->registerFormMacros();
         $factory = app('Illuminate\Contracts\View\Factory');
         $factory->composer('*', '\\TenJava\\Composers\\GlobalComposer');
+        $this->registerRouteFilters($router);
     }
 
     private function registerFormMacros() {
@@ -149,5 +151,11 @@ class AppServiceProvider extends ServiceProvider {
             }
         });*/
         // TODO: Fix
+    }
+
+    private function registerRouteFilters(Router $router) {
+        $router->filter('staff', 'TenJava\Http\Filters\StaffFilter');
+        $router->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
+        $router->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 }

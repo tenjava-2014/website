@@ -39,8 +39,6 @@ class RouteServiceProvider extends ServiceProvider {
             });
         });
 
-        $this->routeFilters();
-
         /* NO AUTH REQUIRED */
         $this->routeNoAuthPages();
 
@@ -66,14 +64,8 @@ class RouteServiceProvider extends ServiceProvider {
         $this->routeOrganizerPages();
     }
 
-    private function routeFilters() {
-        $this->filter('staff', 'TenJava\Http\Filters\StaffFilter');
-        $this->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
-        $this->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
-    }
-
     private function routeNoAuthPages() {
-        $this->group(array(), function () {
+        $this->group([], function () {
             $this->get('/', ['as' => 'index', 'uses' => "TenJava\\Http\\Controllers\\Pages\\HomeController@index"]);
             $this->get('/login', "TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub");
             $this->get('/streams', "TenJava\\Http\\Controllers\\Pages\\HomeController@showStreams");
@@ -91,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeAuthPages() {
-        $this->group(array('before' => 'auth'), function () {
+        $this->group(['before' => 'auth'], function () {
             /*$this->get('/register/participant', "TenJava\\Http\\Controllers\\Application\\AppController@showApplyParticipant");
             $this->post('/times/confirm', "TenJava\\Http\\Controllers\\Application\\TimeController@confirmUserTimes");
             $this->get('/times/select', "TenJava\\Http\\Controllers\\Application\\TimeController@showUserTimes");
@@ -112,7 +104,7 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeNoAuthAPI() {
-        $this->group(array(), function () {
+        $this->group([], function () {
 //            $this->get('/api/participants', 'TenJava\\Http\\Controllers\\Api\\ApiController@getParticipants');
 //            $this->get('/api/checkParticipant/{participant}', 'TenJava\\Http\\Controllers\\Api\\ApiController@didParticipantParticipate');
             $this->get('/api/judges', 'TenJava\\Http\\Controllers\\Api\\ApiController@getActiveJudges');
@@ -124,25 +116,25 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeAuthAPI() {
-        $this->group(array('before' => 'protected_api'), function () {
-            $this->get('/api/judges/claims', 'TenJava\\Http\\Controllers\\Api\\ApiController@getJudgeClaims');
+        $this->group(['before' => 'protected_api'], function () {
+            $this->get('/api/judges/claims', 'TenJava\Http\Controllers\Api\ApiController@getJudgeClaims');
         });
     }
 
     private function routeWebhooks() {
         /* GITHUB WEBHOOKS */
-        $this->group(array(), function () {
+        $this->group([], function () {
 //            $this->post('/webhook/fire', 'TenJava\\Http\\Controllers\\Commit\\WebhookController@processGitHubWebhook');
         });
 
         /* JENKINS WEBHOOKS */
-        $this->group(array(), function () {
+        $this->group([], function () {
 //            $this->post('/jenkins/fire', 'TenJava\\Http\\Controllers\\Jenkins\\WebhookController@processWebhook');
         });
     }
 
     private function routeCSRFAuthPages() {
-        $this->group(array('before' => 'auth|csrf'), function () {
+        $this->group(['before' => 'auth|csrf'], function () {
 //            $this->post('/apply/{type}', 'TenJava\\Http\\Controllers\\Application\\AppController@processApplication');
             $this->post('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@subscribe');
             $this->post('/unsubscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@unsubscribe');
@@ -168,7 +160,7 @@ class RouteServiceProvider extends ServiceProvider {
     }
 
     private function routeOrganizerPages() {
-        $this->group(array('before' => 'organizer'), function () {
+        $this->group(['before' => 'organizer'], function () {
 //            $this->post('/list/decline', 'TenJava\\Http\\Controllers\\Application\\AppController@declineJudgeApp');
 //            $this->post('/list/accept', 'TenJava\\Http\\Controllers\\Application\\AppController@acceptJudgeApp');
 //            $this->post('/list/remove-participant', 'TenJava\\Http\\Controllers\\Application\\AppController@deleteUserEntry');
