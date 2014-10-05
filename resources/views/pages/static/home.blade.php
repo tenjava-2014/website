@@ -18,10 +18,10 @@
             </p>
             <p>
                 <strong>ten.java</strong> is an unofficial, biannual Minecraft plugin development contest. Created in
-                November of 2013 by nkrecklow, with the first ever contest taking place on the December 7 of the same
-                year, ten.java is a ten-hour competition to create an original plugin based on a theme. Plugins are
-                judged by a group of volunteers, and we award a prize to the winning developers. Last year, we gave out
-                $2,100 USD and had just under 300 registered participants.
+                November of 2013 by nkrecklow, with the first ever contest taking place on December 7 of the same year,
+                ten.java is a ten-hour competition to create an original plugin based on a theme. Plugins are judged
+                by a group of volunteers, and we award a prize to the winning developers. Last year, we gave out $2,100
+                USD and had just under 300 registered participants.
             </p>
 
             <p>
