@@ -10,19 +10,24 @@
 <div class="content-back">
     <div class="grid-container">
         <div class="grid-60">
-            <p><em>Want to keep updated with the latest ten.java news? Ask to receive an email when news about the next contest is released <a href="/subscribe">here</a>!</em></p>
-            <p><strong>ten.java</strong> is an unofficial, biannual Bukkit plugin development contest. Created in early
-                November by nkrecklow, with the first ever contest taking place on the 7th of December 2013, ten.java is
-                a ten-hour competition to create an original plugin based on a theme. Plugins are judged by a group of
-                volunteers, and we use CurseForge points to award prizes to the winning developers. Last year we had
-                just under 90 registered participants.</p>
+            <p>
+                <em>
+                    Want to keep updated with the latest ten.java news? Ask to receive an email when news about the next
+                    contest is released <a href="/subscribe">here</a>!
+                </em>
+            </p>
+            <p>
+                <strong>ten.java</strong> is an unofficial, biannual Minecraft plugin development contest. Created in
+                November of 2013 by nkrecklow, with the first ever contest taking place on the December 7 of the same
+                year, ten.java is a ten-hour competition to create an original plugin based on a theme. Plugins are
+                judged by a group of volunteers, and we award a prize to the winning developers. Last year, we gave out
+                $2,100 USD and had just under 300 registered participants.
+            </p>
 
-            <p>This year, we were able to raise 22,000 points solely due to donations from the community. We were lucky
-            enough to be sponsored by CurseForge who donated an additional 20,000 points to the prize fund. This brought
-            us up to a total of $2,100 to be distributed amongst the winning developers.</p>
-
-            <p>On August 30th, after a month of judging, we announced the winning entries via a livestream.
-            You can view the <a href="/results">results</a> page for more information.</p>
+            <p>
+                On August 30, 2014, after a month of judging, we announced the winning entries of last year's
+                competition via a livestream. You can view the <a href="/results">results</a> page for more information.
+            </p>
         </div>
         <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right text-center">
             <!-- <p>
@@ -31,15 +36,18 @@
             </p>-->
             <p>
                <a href="/results" class="button button-block button-large button-flat-action">View results</a>
-               <span class="text-light">We announced the results at 7PM on August 30th.</span>
-           </p>
+               <span class="text-light">We announced the results at 7PM on August 30.</span>
+            </p>
             <p>
                 <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
                 <span class="text-light">View the themes we offered for each timeslot.</span>
             </p>
             <p>
                 <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
-                <span class="text-light">We've raised {!! /*number_format($pointsData->points)*/ '10' !!} points! That's a whopping ${!! /*number_format($pointsData->points * 0.05, 2)*/ '10' !!}!</span>
+                <span class="text-light">
+                    We raised {!! /*number_format($pointsData->points)*/ '10' !!} points! That's a whopping
+                    ${!! /*number_format($pointsData->points * 0.05, 2)*/ '10' !!}!
+                </span>
             </p>
 
             <!-- <div class="tf2-details">
