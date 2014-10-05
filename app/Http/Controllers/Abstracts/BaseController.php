@@ -36,12 +36,13 @@ abstract class BaseController extends Controller {
 
     public function getNavigation() {
 
-        $navigation['primary'] = array(
-            new NavigationItem("Home", "/"),
-            new NavigationItem("Results", "/results"),
-            new NavigationItem("Points", "/points"),
-            new NavigationItem("Team", "/team"),
-        );
+        $navigation['primary'] = [
+            new NavigationItem('Home', '/'),
+            new NavigationItem('Forums', 'http://forums.tenjava.com'),
+            new NavigationItem('Results', '/results'),
+            new NavigationItem('Points', '/points'),
+            new NavigationItem('Team', '/team'),
+        ];
 
         /**if ($this->hasSelectedTimes() == 'notime') {
          * $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
