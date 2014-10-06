@@ -2,6 +2,7 @@
 
 use App;
 use Artisan;
+use GrahamCampbell\Markdown\MarkdownServiceProvider;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Html\FormBuilder;
@@ -12,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Log;
+use Markdown;
 use Symfony\Component\HttpFoundation\Response;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
@@ -19,11 +21,11 @@ use View;
 
 class AppServiceProvider extends ServiceProvider {
 
-    public function boot(ViewFactory $view, Router $router) {
+    public function boot(ViewFactory $view) {
         $this->registerFormMacros();
         $factory = app('Illuminate\Contracts\View\Factory');
         $factory->composer('*', '\\TenJava\\Composers\\GlobalComposer');
-        $this->registerRouteFilters($router);
+        Markdown::getParsedown()->setMarkupEscaped(true);
     }
 
     private function registerFormMacros() {
@@ -38,12 +40,6 @@ class AppServiceProvider extends ServiceProvider {
             return '<div class="control-group"><label for="' . $id . '">' . $name . '</label> <output for="' . $id . '">(0/' . $max . ' points)</output>
                 <div class="control"><input value="' . $old . '" type="' . $inputType . '" min="0" max="' . (int)$max . '" name="' . $id . '" id="' . $id . '"></div></div>';
         });
-    }
-
-    private function registerRouteFilters(Router $router) {
-        $router->filter('staff', 'TenJava\Http\Filters\StaffFilter');
-        $router->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
-        $router->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 
     /**

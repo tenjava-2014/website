@@ -70,6 +70,7 @@ return [
     ],
 
     'second' => [
+        'Aardvarks',
         'Anteaters',
         'Antelopes',
         'Bears',

@@ -31,13 +31,14 @@ class AddTeamsTable extends Migration {
             $table->string('repo_name')->unique()->nullable();
             $table->integer('leader_id')->unsigned()->unique();
             $table->foreign('leader_id')->references('id')->on('users');
+            $table->text('description');
             $table->text('general_rules');
             $table->text('prize_rules');
-            $table->text('miscellaneous_rules');
+            $table->text('miscellaneous_rules')->nullable();
         });
         Schema::table('users', function (Blueprint $table) {
             $table->integer('team_id')->unsigned()->nullable();
-            $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('set null');
         });
     }
 

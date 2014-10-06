@@ -506,24 +506,54 @@ blockquote.feedback span.username {
   font-size: 0.8em;
 }
 
-form legend {
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background-color: #eee;
-  padding: 15px 5px 15px 15px;
-  width: 100%;
-  box-sizing: border-box;
+form {
+  legend {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    padding: 15px 5px 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  input[type="range"] {
+    width: 50% !important;
+  }
+  input[type="number"] {
+    width: 50px !important;
+    font-weight: bold !important;
+  }
 }
 
-form input[type="range"] {
-  width: 50% !important;
+.team-info {
+  background: none repeat scroll 0% 0% #F9F9F9;
+  border-left: .625em solid #CCC;
+  padding: 0.5em .625em;
+  margin-left: 0px;
+  position: relative;
 }
 
-form input[type="number"] {
-  width: 50px !important;
-  font-weight: bold !important;
+div.username {
+  margin-bottom: .5em;
+  img {
+    max-height: 2em;
+    max-width: 2em;
+    vertical-align: middle;
+  }
+  &.leader {
+    background-color: #ffe85e;
+    &:after {
+      font-style: oblique;
+      color: #888;
+      content: 'Leader';
+    }
+  }
+  a.remove {
+    float: right;
+    font-weight: bold;
+  }
 }
+
 .judge-progress + .judge-progress {
   margin-top: 10px;
 }

@@ -32,6 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereAllowEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereTeamId($value)
  * @property-read \TenJava\Team $team
+ * @property string $avatar
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereAvatar($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Invite[] $invites
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Request[] $requests
  */
 class User extends Model implements UserContract {
 
@@ -63,8 +67,27 @@ class User extends Model implements UserContract {
         return !$this->allow_email;
     }
 
+    public function invites() {
+        return $this->hasMany('\TenJava\Invite');
+    }
+
+    public function requests() {
+        return $this->hasMany('\TenJava\Request');
+    }
+
     public function setOptoutStatus($optout) {
         $this->allow_email = !$optout;
+        $this->save();
+    }
+
+    public function setTeam(Team $team) {
+        $this->team_id = $team->id;
+        foreach ($this->requests as $request) {
+            $request->delete();
+        }
+        foreach ($this->invites as $invite) {
+            $invite->delete();
+        }
         $this->save();
     }
 

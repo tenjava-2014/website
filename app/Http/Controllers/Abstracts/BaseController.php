@@ -39,9 +39,9 @@ abstract class BaseController extends Controller {
         $navigation['primary'] = [
             new NavigationItem('Home', '/'),
             new NavigationItem('Forums', 'http://forums.tenjava.com'),
-            new NavigationItem('Results', '/results'),
+            new NavigationItem('Teams', '/teams'),
             new NavigationItem('Points', '/points'),
-            new NavigationItem('Team', '/team'),
+            new NavigationItem('Staff', '/staff'),
         ];
 
         /**if ($this->hasSelectedTimes() == 'notime') {

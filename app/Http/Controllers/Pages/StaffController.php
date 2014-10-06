@@ -7,7 +7,7 @@ use TenJava\Http\Controllers\Abstracts\BaseController;
 use TenJava\Repository\UserRepositoryInterface;
 use TenJava\Staff;
 
-class TeamController extends BaseController {
+class StaffController extends BaseController {
 
     public function showJudgingStats() {
         $this->setPageTitle('Judging stats');
@@ -43,7 +43,7 @@ class TeamController extends BaseController {
     }
 
     private function incrementJudgeAssigned(&$array, $judge) {
-        $array = $this->incrementJudgeStat($array, $judge, "assigned");
+        $array = $this->incrementJudgeStat($array, $judge, 'assigned');
     }
 
     private function incrementJudgeStat(&$array, $judge, $type) {
@@ -52,12 +52,12 @@ class TeamController extends BaseController {
     }
 
     private function incrementJudgeCompleted(&$array, $judge) {
-        $array = $this->incrementJudgeStat($array, $judge, "completed");
+        $array = $this->incrementJudgeStat($array, $judge, 'completed');
     }
 
     public function showTeam(UserRepositoryInterface $userRepository) {
-        $this->setPageTitle("Meet the team");
-        $this->setActive("team");
-        return Response::view('pages.static.team', ["teamMembers" => $userRepository->getStaffMembers()]);
+        $this->setPageTitle('Meet the staff');
+        $this->setActive('staff');
+        return Response::view('pages.static.staff', ["staffMembers" => $userRepository->getStaffMembers()]);
     }
 }

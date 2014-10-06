@@ -71,14 +71,16 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/streams', "TenJava\\Http\\Controllers\\Pages\\HomeController@showStreams");
             $this->get('/ajax/commits', "TenJava\\Http\\Controllers\\Pages\\HomeController@ajaxCommits");
             $this->get('/points', 'TenJava\\Http\\Controllers\\Pages\\PointsController@showLeaderboard');
-            $this->get('/team', 'TenJava\\Http\\Controllers\\Pages\\TeamController@showTeam');
-            $this->get('/team/stats', 'TenJava\\Http\\Controllers\\Pages\\TeamController@showJudgingStats');
+            $this->get('/staff', 'TenJava\\Http\\Controllers\\Pages\\StaffController@showTeam');
+            $this->get('/staff/stats', 'TenJava\\Http\\Controllers\\Pages\\StaffController@showJudgingStats');
             $this->get('/about', 'TenJava\\Http\\Controllers\\Pages\\AboutController@showAbout');
             $this->get('/privacy', 'TenJava\\Http\\Controllers\\Pages\\PrivacyController@showPrivacyInfo');
             $this->get('/toggle-optout', 'TenJava\\Http\\Controllers\\Authentication\\AuthController@toggleOptout');
             $this->get('/themes', 'TenJava\\Http\\Controllers\\Contest\\ThemesController@showThemes');
             $this->get('/results', "TenJava\\Http\\Controllers\\Pages\\ResultsController@showContestResults");
             $this->get('/wiki', 'TenJava\Http\Controllers\Pages\HomeController@wiki');
+            $this->get('/teams', 'TenJava\Http\Controllers\Teams\TeamsController@showTeamsPage');
+            $this->get('/team/{team}', ['as' => 'team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@showTeamPage']);
         });
     }
 
@@ -100,6 +102,16 @@ class RouteServiceProvider extends ServiceProvider {
             $this->model('subscription', 'TenJava\\Models\\Subscription');
             $this->get('/confirm/{subscription}/{sha1}', 'TenJava\\Http\\Controllers\\Pages\\NewsController@confirm');
             $this->get('/unsubscribe/{subscription}/{sha1}', 'TenJava\\Http\\Controllers\\Pages\\NewsController@unsubscribeDirectly');
+            $this->get('/teams/create', 'TenJava\Http\Controllers\Teams\TeamsController@showCreateTeamPage');
+            $this->get('/teams/generatename/{amount?}', 'TenJava\Http\Controllers\Teams\TeamsController@randomTeamName');
+            $this->get('/teams/uninvite/{invite}', ['as' => 'uninvite', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@uninvite']);
+            $this->get('/teams/remove_from/{user}', ['as' => 'remove_from_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@removeFromTeam']);
+            $this->get('/teams/accept/{invite}', ['as' => 'accept_invite', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@acceptInvite']);
+            $this->get('/teams/leave', ['as' => 'leave_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@leaveTeam']);
+            $this->get('/teams/request/{team}', ['as' => 'request_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@requestToJoin']);
+            $this->get('/teams/accept_request/{request}', ['as' => 'accept_request', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@acceptRequest']);
+            $this->get('/teams/remove_request/{request}', ['as' => 'remove_request', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@removeRequest']);
+            $this->get('/teams/update', ['as' => 'update_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@showUpdateTeamPage']);
         });
     }
 
@@ -138,6 +150,10 @@ class RouteServiceProvider extends ServiceProvider {
 //            $this->post('/apply/{type}', 'TenJava\\Http\\Controllers\\Application\\AppController@processApplication');
             $this->post('/subscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@subscribe');
             $this->post('/unsubscribe', 'TenJava\\Http\\Controllers\\Pages\\NewsController@unsubscribe');
+            $this->post('/teams/create', 'TenJava\Http\Controllers\Teams\TeamsController@createTeam');
+            $this->post('/teams/invite', 'TenJava\Http\Controllers\Teams\TeamsController@inviteToTeam');
+            $this->post('/teams/delete', ['as' => 'delete_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@deleteTeam']);
+            $this->post('/teams/update', ['as' => 'update_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@updateTeam']);
         });
     }
 
@@ -168,6 +184,20 @@ class RouteServiceProvider extends ServiceProvider {
 //            $this->get('/judging/feedback', 'TenJava\\Http\\Controllers\\Judging\\ViewFeedbackController@showFeedback');
 //            $this->get('/judging/results-viewer/{repoName}', 'TenJava\\Http\\Controllers\\Judging\\ReviewController@displayResultsForParticipant');
         });
+    }
+
+    public function register() {
+        $this->registerRouteFilters();
+    }
+
+    private function registerRouteFilters() {
+        $this->model('user', 'TenJava\User');
+        $this->model('team', 'TenJava\Team');
+        $this->model('invite', 'TenJava\Invite');
+        $this->model('request', 'TenJava\Request');
+        $this->filter('staff', 'TenJava\Http\Filters\StaffFilter');
+        $this->filter('organizer', 'TenJava\Http\Filters\OrganizerFilter');
+        $this->filter('protected_api', 'TenJava\Http\Filters\ProtectedApiFilter');
     }
 
 }

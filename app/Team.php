@@ -27,6 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \TenJava\Staff $claimedBy
  * @property integer $claimed_by
  * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereClaimedBy($value)
+ * @property string $repo_name
+ * @property string $description
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereRepoName($value)
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\Team whereDescription($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Invite[] $invites
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Request[] $requests
  */
 class Team extends Model {
     protected $table = 'teams';
@@ -36,11 +42,19 @@ class Team extends Model {
         return $this->belongsTo('\TenJava\Staff', 'claimed_by');
     }
 
+    public function invites() {
+        return $this->hasMany('\TenJava\Invite');
+    }
+
     public function leader() {
         return $this->belongsTo('\TenJava\User', 'leader_id');
     }
 
     public function members() {
         return $this->hasMany('\TenJava\User');
+    }
+
+    public function requests() {
+        return $this->hasMany('\TenJava\Request');
     }
 }

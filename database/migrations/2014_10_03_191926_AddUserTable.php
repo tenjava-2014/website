@@ -30,6 +30,7 @@ class AddUserTable extends Migration {
             $table->string('email')->unique()->nullable();
             $table->text('emails')->nullable();
             $table->boolean('allow_email')->default(true);
+            $table->string('avatar')->nullable();
         });
     }
 

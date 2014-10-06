@@ -63,6 +63,7 @@ class ApplicationSeeder extends Seeder {
         Team::create([
             'name' => 'Prancing Jackrabbits',
             'leader_id' => 2,
+            'description' => 'Wow!',
             'general_rules' => 'Stay in school.',
             'prize_rules' => 'Even split.',
             'miscellaneous_rules' => "Don't die."

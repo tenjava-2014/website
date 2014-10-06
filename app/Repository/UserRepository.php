@@ -26,6 +26,7 @@ class UserRepository implements UserRepositoryInterface {
         $user->name = $socialiteUser->getName();
         $user->email = $socialiteUser->getEmail();
         $user->emails = json_encode($this->getGitHubEmails($socialiteUser));
+        $user->avatar = $socialiteUser->getAvatar();
         $user->save();
         return $user;
     }

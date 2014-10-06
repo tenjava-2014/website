@@ -41,7 +41,7 @@
             </p>-->
             <p>
                <a href="/results" class="button button-block button-large button-flat-action">View results</a>
-               <span class="text-light">We announced the results at 7PM on August 30.</span>
+               <span class="text-light">We announced the results at 7PM on August 30, 2014.</span>
             </p>
             <p>
                 <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>

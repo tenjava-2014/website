@@ -202,7 +202,8 @@ return [
         'Socialite' => 'Laravel\Socialite\Facades\Socialite',
         'Form' => 'Illuminate\Html\FormFacade',
         'HTML' => 'Illuminate\Html\HtmlFacade',
-        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'
+        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
+        'Str' => 'Illuminate\Support\Str'
 
     ],
 
