@@ -31,7 +31,7 @@ class AuthenticateUser {
     public function execute($hasCode) {
         if (!$hasCode) return $this->getAuthorizationFirst();
         $user = $this->userRepository->getGitHubUser($this->getGitHubUser());
-        $this->auth->login($user);
+        $this->auth->login($user, true);
         return Redirect::intended(Request::header('referer'));
     }
 
