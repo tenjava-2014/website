@@ -14,6 +14,7 @@
             </div>
             <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right">
                 <div class="text-center">
+                    @if (Auth::check() && Auth::user()->staff === null)
                     @if ($team)
                     <p>
                         <a href="{!! URL::route('team', [$team]) !!}" class="button button-block button-large button-flat-primary">View your team</a>
@@ -24,6 +25,7 @@
                         <a href="/teams/create" class="button button-block button-large button-flat-action">Create a team</a>
                         <span class="text-light">{{ $allTeams->count() }} {{ Str::plural('team', $allTeams->count()) }} already created.</span>
                     </p>
+                    @endif
                     @endif
                 </div>
                 @if (!$team && $invites && $invites->count() > 0)

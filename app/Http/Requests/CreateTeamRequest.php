@@ -7,12 +7,21 @@ use TenJava\Team;
 class CreateTeamRequest extends FormRequest {
 
     /**
+     * @var \TenJava\User
+     */
+    private $user;
+
+    public function __construct() {
+        $this->user = Auth::user();
+    }
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
     public function authorize() {
-        return Team::whereLeaderId(Auth::id())->count() < 1;
+        return $this->user->staff === null && Team::whereLeaderId(Auth::id())->count() < 1;
     }
 
     /**
@@ -21,7 +30,7 @@ class CreateTeamRequest extends FormRequest {
      * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
      */
     public function forbiddenResponse() {
-        return $this->response(['You have already created a team.']);
+        return $this->response([$this->user->staff === null ? 'You have already created a team.' : 'Staff cannot create teams.']);
     }
 
     /**
