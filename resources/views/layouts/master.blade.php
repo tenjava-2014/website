@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="wrapper">
-	@include('partials.nav')
+	@include('partials.nav', ['logo' => asset(app()->env == 'prod' ? '/assets/img/logo_light.svg' : '/assets/img/logo_light_beta.svg')])
 	<div id="point-ticker">
 		<div class="grid-container">
             <div class="grid-25 tablet-grid-20"></div>

@@ -14,7 +14,7 @@
 </head>
 <body class="judge-interface">
 <div id="wrapper">
-	@include('partials.nav', array("judgeLogo" => true))
+    @include('partials.nav', ['logo' => asset('/assets/img/logo_light_judge.svg')])
 	<div id="point-ticker">
 		<div class="grid-container">
 			<div class="grid-20 tablet-grid-20">Actual participants: <span>{{ $turnout['real'] }}</span></div>
