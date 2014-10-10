@@ -2,8 +2,6 @@
 namespace TenJava\Contest;
 
 use Log;
-use TenJava\Models\ExposedJudge;
-use TenJava\Models\Judge;
 use TenJava\Staff;
 
 class EloquentJudgeClaims implements JudgeClaimsInterface {

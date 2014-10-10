@@ -39,7 +39,13 @@
                 information on the CraftBukkit/Java versions you should be using so that we can try to ensure test
                 environments are consistent.</p>
 
-            <div class="server-details"><strong>Server IP:</strong> thor.tenjava.com:{{ $judgePort }}<br /><br /><em>These connection details are specific to you. Please do not disclose them.</em></div>
+            <div class="server-details">
+                <strong>Server IP:</strong> thor.tenjava.com:{{ $judgePort }}
+                <br/><br/>
+                <em>
+                    These connection details are specific to you. Please do not disclose them.
+                </em>
+            </div>
 
             <p>For information on how to use the tools available to you on the judging servers, see the <a
                     href="/judging/help">help</a> page.</p>

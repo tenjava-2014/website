@@ -9,9 +9,9 @@ use View;
 
 abstract class BaseController extends Controller {
 
-    const BASE_TITLE = "ten.java";
+    const BASE_TITLE = 'ten.java';
     protected $activeNavTitle = null;
-    protected $pageTitle = "";
+    protected $pageTitle = '';
 
     public function __construct() {
         View::share('titleAdd', $this->getPageTitle());

@@ -2,7 +2,6 @@
 
 use App;
 use Artisan;
-use GrahamCampbell\Markdown\MarkdownServiceProvider;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Html\FormBuilder;
