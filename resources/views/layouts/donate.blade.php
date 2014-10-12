@@ -17,10 +17,29 @@
     @include('partials.nav', ['logo' => asset('/assets/img/logo_light_secure.svg')])
     <div id="point-ticker">
         <div class="grid-container">
-            <div class="grid-25 tablet-grid-20"></div>
-            <div class="grid-25 tablet-grid-20"></div>
-            <div class="grid-25 tablet-grid-20"></div>
-            <div class="grid-25 tablet-grid-20"></div>
+            <div class="grid-25 tablet-grid-20">
+                Latest Donation:
+                <span>
+                    @if ($pointsData->recent->count() > 0)
+                    {{ $pointsData->recent{0}->user->username }} ({{ $formatter->formatCurrency($pointsData->recent{0}->amount, 'USD') }})
+                    @else
+                    None
+                    @endif
+                </span>
+            </div>
+            <div class="grid-25 tablet-grid-20">
+                Top Donor:
+                <span>
+                    @if ($pointsData->top->count() > 0)
+                    {{ $pointsData->top{0}->username }} ({{ $formatter->formatCurrency($pointsData->top{0}->amount, 'USD') }})
+                    @else
+                    None
+                    @endif
+                </span>
+            </div>
+            <div class="grid-25 tablet-grid-20">Prize: <span>{{ $formatter->formatCurrency($pointsData->totalMoney, 'USD') }}</span>
+            </div>
+            <div class="grid-25 tablet-grid-20">Total Sign-ups: <span>{{ $pointsData->teams }} {{ Str::plural('team', $pointsData->teams) }}</span></div>
         </div>
     </div>
     @yield('content')
