@@ -11,7 +11,7 @@
             </p>
             <div class="alert basic info condensed text-center" id="points-total">
                 <h3>
-                    We've raised {{ $formatter->formatCurrency($totalMoney, 'USD') }}* from {{ $teams }} {{ Str::plural('person', $teams) }}!
+                    We've raised {{ $formatter->formatCurrency($totalMoney, 'USD') }}* from {{ $donors }} {{ Str::plural('person', $teams) }}!
                 </h3>
                 <h4>
                     That's {{ $goal }}% of our goal!

@@ -47,6 +47,7 @@ class GlobalComposer {
         $sorted = $this->sortHighest($visible);
         $top = $this->getFirstAssociative($sorted, 5);
         return $this->arrayToObject([
+            'donors' => $sorted->count(),
             'recent' => $this->arrayToObject($recent),
             'top' => $this->arrayToObject($top),
             'totalMoney' => $this->getTotalMoney(),
