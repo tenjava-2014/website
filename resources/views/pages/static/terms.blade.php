@@ -322,7 +322,7 @@
         </p>
 
         <p>
-            This document is CC-BY-SA. It was last updated October 11, 2014.
+            This document is CC-BY-SA. It was last updated October 12, 2014.
         </p>
         <p>
             Originally adapted from the <a href="http://en.wordpress.com/tos/">WordPress Terms of Service</a>.
