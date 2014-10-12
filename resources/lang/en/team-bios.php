@@ -5,7 +5,7 @@
 return array(
   "lDucks" => "DBO staff, likes web dev and abusing lol768, full-time duck. Used to run a large Minecraft server, no longer maintains plugins.",
   "lol768" => "DBO staff, likes web dev and <s>being abused by lDucks</s> writing clean code.",
-  "jkcclemens" => "Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organi<strong>z</strong>er.",
+  "jkcclemens" => "Developer, Minecraft & Bukkit enthusiast, and cool guy. Make/maintain plugins in my spare time. Sociable in non-real-life places. The best American organizer.",
   "hawkfalcon" => "Avian Hybrid, ShockNetwork Owner, awesome person.",
   "aerouk" => "Server owner, web developer, fan of nice-looking code and cool web applications.",
   "MasterEjay" => "Java / iOS Developer. Loves watching movies and playing the piano.",
