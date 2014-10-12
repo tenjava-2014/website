@@ -251,6 +251,7 @@
             </li>
             <li><a href="https://square.com/cash">Cash</a> (US only)</li>
             <li>PayPal transfer (extra fees from PayPal apply)</li>
+            <li>Bank transfer</li>
         </ul>
         <p>
             If any prize recipient is unable to receive money via one of these methods, he will not receive his portion
