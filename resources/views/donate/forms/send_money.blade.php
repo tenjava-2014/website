@@ -42,7 +42,14 @@
             <div class="control-group">
                 {!! Form::label('email', 'Email Address (for receipt)') !!}
                 <div class="control">
-                    {!! Form::email('email', Auth::user()->email, ['id' => 'email', 'placeholder' => 'you@example.com', 'data-stripe' => 'email']) !!}
+                    @if ($emails === null || count($emails) < 1)
+                    <div class="alert basic error">
+                        We don't have access to any of your GitHub emails! Please specify an email to send mail to below.
+                    </div>
+                    {!! Form::text('email', null, ['placeholder' => 'me@example.com', 'id' => 'email']) !!}
+                    @else
+                    {!! Form::select('email', $emails, null, ['id' => 'email']) !!}
+                    @endif
                 </div>
             </div>
             <div class="control-group">

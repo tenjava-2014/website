@@ -2,6 +2,7 @@
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use TenJava\Util\EmailUtil;
 
 class SendMoneyRequest extends FormRequest {
 
@@ -26,7 +27,7 @@ class SendMoneyRequest extends FormRequest {
     public function rules() {
         return [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|in:' . implode(',', EmailUtil::getEmails() ? : [$this->request->get('email')]),
             'amount' => 'required|numeric|min:0.50',
             'confirmation' => 'accepted',
             'terms' => 'accepted',

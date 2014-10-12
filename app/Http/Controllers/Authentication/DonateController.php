@@ -20,7 +20,8 @@ class DonateController extends BaseDonateController {
                 'amount' => $request->amount * 100,
                 'currency' => 'usd',
                 'card' => $request->stripeToken,
-                'description' => $description
+                'description' => $description,
+                'receipt_email' => $request->email
             ]);
         } catch (Stripe_Error $e) {
             $json = $e->getJsonBody()['error'];
@@ -44,7 +45,8 @@ class DonateController extends BaseDonateController {
                 'amount' => $request->amount * 100,
                 'currency' => 'usd',
                 'card' => $request->stripeToken,
-                'description' => $description
+                'description' => $description,
+                'receipt_email' => $request->email
             ]);
         } catch (Stripe_Error $e) {
             $json = $e->getJsonBody()['error'];

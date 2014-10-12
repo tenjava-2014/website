@@ -11,12 +11,10 @@ use TenJava\Http\Controllers\Abstracts\BaseController;
 use TenJava\Security\HmacCreationInterface;
 use TenJava\Security\HmacVerificationInterface;
 use TenJava\Subscription;
+use TenJava\Util\EmailUtil;
 use Validator;
 use View;
 
-const GITHUB_NOREPLY_EMAIL = '@users.noreply.github.com';
-
-// TODO: Yell at lol768 for being a Nazi (blah blah blah SRP blah blah)
 class NewsController extends BaseController {
 
     /**
@@ -120,7 +118,7 @@ class NewsController extends BaseController {
         // FIXME: SRP (move to own function)
         return Response::view('pages.forms.news', [
             'subscription' => $this->getSubscription(),
-            'emails' => $this->getEmails()
+            'emails' => EmailUtil::getInputEmails()
         ]);
     }
 
@@ -131,25 +129,6 @@ class NewsController extends BaseController {
         $user = Auth::user();
         if ($user == null) return null;
         return Subscription::query()->where('gh_id', $user->gh_id)->first();
-    }
-
-    /**
-     * @return array
-     */
-    public function getEmails() {
-        return $this->removeNoReplyEmails(Auth::user()->getEmails());
-    }
-
-    /**
-     * @param array $emails The emails array to remove no-reply addresses from.
-     * @return array The cleaned array.
-     */
-    private function removeNoReplyEmails(array $emails) {
-        // FIXME: Make util class for this.
-        $old_emails = array_filter($emails, function ($email) {
-            return !ends_with($email, GITHUB_NOREPLY_EMAIL);
-        });
-        return $old_emails;
     }
 
     /**
@@ -164,7 +143,7 @@ class NewsController extends BaseController {
             return Redirect::back()->withErrors($validator)->withInput();
         }
         $email = Input::get('email');
-        $emails = $this->getEmails();
+        $emails = EmailUtil::getInputEmails();
         if (($emails !== null && count($emails) > 0) && !in_array($email, $emails)) {
             return Redirect::back()->withErrors(['Invalid email.'])->withInput();
         }
