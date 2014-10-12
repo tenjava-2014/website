@@ -17,8 +17,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property string $emails
  * @property boolean $allow_email
+ * @property string $avatar
  * @property integer $team_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Invite[] $invites
+ * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Request[] $requests
  * @property-read \TenJava\Staff $staff
+ * @property-read \TenJava\Team $team
  * @property-read \Illuminate\Database\Eloquent\Collection|\$related[] $morphedByMany
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereCreatedAt($value)
@@ -30,12 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereEmails($value)
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereAllowEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereTeamId($value)
- * @property-read \TenJava\Team $team
- * @property string $avatar
  * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereAvatar($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Invite[] $invites
- * @property-read \Illuminate\Database\Eloquent\Collection|\TenJava\Request[] $requests
+ * @method static \Illuminate\Database\Query\Builder|\TenJava\User whereTeamId($value)
  */
 class User extends Model implements UserContract {
 
@@ -69,6 +69,11 @@ class User extends Model implements UserContract {
 
     public function invites() {
         return $this->hasMany('\TenJava\Invite');
+    }
+
+    public function link() {
+        $safe_username = e($this->username);
+        return '<a href="https://github.com/' . $safe_username . '">' . $safe_username . '</a>';
     }
 
     public function requests() {
