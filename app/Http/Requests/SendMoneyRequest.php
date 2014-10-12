@@ -25,6 +25,7 @@ class SendMoneyRequest extends FormRequest {
      */
     public function rules() {
         return [
+            'name' => 'required',
             'email' => 'required|email',
             'amount' => 'required|numeric|min:0.50',
             'confirmation' => 'accepted',

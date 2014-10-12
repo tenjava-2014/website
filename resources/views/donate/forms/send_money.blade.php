@@ -46,6 +46,12 @@
                 </div>
             </div>
             <div class="control-group">
+                {!! Form::label('name', 'Cardholder Name') !!}
+                <div class="control">
+                    {!! Form::text('name', Auth::user()->name, ['id' => 'name', 'placeholder' => 'John Doe', 'data-stripe' => 'name']) !!}
+                </div>
+            </div>
+            <div class="control-group">
                 {!! Form::label('card', 'Credit Card') !!}
                 <div class="control">
                     {!! Form::text(null, null, ['size' => 20, 'id' => 'card', 'placeholder' => 'XXXX XXXX XXXX XXXX', 'data-stripe' => 'number']) !!}
