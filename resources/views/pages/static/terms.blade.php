@@ -259,6 +259,12 @@
             members of his team, if possible. If, for any reason, the portion of the prize cannot be redistributed, due
             to rules or otherwise, it will be kept by ten.java.
         </p>
+        <p>
+            You agree that you may be required to file to your tax agency for large sums of money that you may receive
+            upon winning the contest. If ten.java sends more than six hundred United States Dollars to any one person,
+            it will file a <a href="http://www.irs.gov/uac/Form-1099-MISC,-Miscellaneous-Income-">1099-MISC form</a> to
+            the Internal Revenue Service (IRS), stating such.
+        </p>
 
         <h3>16.3. Team rules</h3>
         <p>
