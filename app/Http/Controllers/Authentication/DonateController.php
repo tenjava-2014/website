@@ -20,7 +20,7 @@ class DonateController extends BaseDonateController {
     }
 
     public function donate(DonateRequest $request) {
-        $description = 'ten.java Donation from ' . Auth::user()->name;
+        $description = 'ten.java Donation from ' . (Auth::user()->name ? : Auth::user()->username);
         try {
             Stripe_Charge::create([
                 'amount' => $request->amount * 100,
@@ -50,7 +50,7 @@ class DonateController extends BaseDonateController {
     }
 
     public function sendMoney(SendMoneyRequest $request) {
-        $description = 'ten.java Organizer Donation from ' . Auth::user()->name;
+        $description = 'ten.java Organizer Donation from ' . (Auth::user()->name ? : Auth::user()->username);
         try {
             Stripe_Charge::create([
                 'amount' => $request->amount * 100,
