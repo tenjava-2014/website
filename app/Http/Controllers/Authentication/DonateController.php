@@ -13,12 +13,6 @@ use View;
 
 class DonateController extends BaseDonateController {
 
-    public function showDonatePage() {
-        $this->setPageTitle('Donate');
-        $this->setActive('donate');
-        return View::make('donate.forms.donate');
-    }
-
     public function donate(DonateRequest $request) {
         $description = 'ten.java Donation from ' . (Auth::user()->name ? : Auth::user()->username);
         try {
@@ -43,12 +37,6 @@ class DonateController extends BaseDonateController {
         return View::make('donate.forms.donate')->with('success', true)->with('description', $description);
     }
 
-    public function showSendMoneyPage() {
-        $this->setPageTitle('Donate to organizers');
-        $this->setActive('donate to organizers');
-        return View::make('donate.forms.send_money');
-    }
-
     public function sendMoney(SendMoneyRequest $request) {
         $description = 'ten.java Organizer Donation from ' . (Auth::user()->name ? : Auth::user()->username);
         try {
@@ -70,5 +58,17 @@ class DonateController extends BaseDonateController {
         $donation->fee_applied = (Donation::all()->sum('amount') + $request->amount) > 1000;
         $donation->save();
         return View::make('donate.forms.send_money')->with('success', true)->with('description', $description);
+    }
+
+    public function showDonatePage() {
+        $this->setPageTitle('Donate');
+        $this->setActive('donate');
+        return View::make('donate.forms.donate');
+    }
+
+    public function showSendMoneyPage() {
+        $this->setPageTitle('Donate to organizers');
+        $this->setActive('donate to organizers');
+        return View::make('donate.forms.send_money');
     }
 }
