@@ -7,10 +7,11 @@
                 @if ($isLeader)
                 @if ($team->members->count() < 3 || $team->members->count() > 5)
                 <div class="alert block error">
-                    <h4>This team is not valid!</h4>
+                    <h4>This team is not yet valid!</h4>
                     <p>
                         Teams must have between three and five members, including the leader. This team has
-                        {{ $team->members->count() }} {{ Str::plural('member', $team->members->count()) }}.
+                        {{ $team->members->count() }} {{ Str::plural('member', $team->members->count()) }}. Invite more
+                        people!
                     </p>
                 </div>
                 @endif
