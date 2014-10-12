@@ -10,7 +10,6 @@ Thumbs.db
 config/app.php
 _ide_helper.php
 public/assets/data.json
-public/assets/css/*
 *.sqlite
 .idea
 public/packages/
