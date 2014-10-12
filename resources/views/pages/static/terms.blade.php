@@ -2,7 +2,6 @@
 @section('content')
 <div class="grid-container">
     <div class="grid-100">
-        <a id="privacy-info"></a>
         <h1>Terms of service</h1>
         <p>
             The following terms and conditions govern all use of the tenjava.com website and all content, services and
@@ -19,7 +18,8 @@
             services. If these terms and conditions are considered an offer by ten.java, acceptance is expressly
             limited to these terms. The Website is available only to individuals who are at least 13 years old.
         </p>
-        <h2>1. Your tenjava.com account</h2>
+
+        <h2><a href="#1" id="1">1. Your tenjava.com account</a></h2>
         <p>
             If you create an account on the Website by authorizing GitHub to share data with ten.java, you are
             responsible for maintaining the security of your account and you are fully responsible for all activities
@@ -27,7 +27,8 @@
             or any other breaches of security. ten.java will not be liable for any acts or omissions by you, including
             any damages of any kind incurred as a result of such acts or omissions.
         </p>
-        <h2>2. Responsibility of contributors</h2>
+
+        <h2><a href="#2" id="2">2. Responsibility of contributors</a></h2>
         <p>
             If you post material to the Website, post links on the Website, or otherwise make (or allow any third party
             to make) material available by means of the Website (any such material, "Content"), You are entirely
@@ -77,7 +78,8 @@
                 otherwise.
             </li>
         </ul>
-        <h2>3. User content license</h2>
+
+        <h2><a href="#3" id="3">3. User content license</a></h2>
         <p>
             User contributions are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported
             License. Without limiting any of those representations or warranties, ten.java has the right (though not the
@@ -87,7 +89,7 @@
             sole discretion. ten.java will have no obligation to provide a refund of any amounts previously paid.
         </p>
 
-        <h2>4. Responsibility of website visitors</h2>
+        <h2><a href="#4" id="4">4. Responsibility of website visitors</a></h2>
         <p>
             ten.java has not reviewed, and cannot review, all of the material, including computer software, posted to
             the Website, and cannot therefore be responsible for that material's content, use or effects. By operating
@@ -103,7 +105,7 @@
             those visitors of content there posted.
         </p>
 
-        <h2>5. Content posted on other websites</h2>
+        <h2><a href="#5" id="5">5. Content posted on other websites</a></h2>
         <p>
             We have not reviewed, and cannot review, all of the material, including computer software, made available
             through the websites and webpages to which tenjava.com links, and that link to tenjava.com. ten.java does
@@ -115,7 +117,7 @@
             non-tenjava.com websites and webpages.
         </p>
 
-        <h2>6. Copyright infringement and DMCA policy</h2>
+        <h2><a href="#6" id="6">6. Copyright infringement and DMCA policy</a></h2>
         <p>
             As ten.java asks others to respect its intellectual property rights, it respects the intellectual property
             rights of others. If you believe that material located on or linked to by tenjava.com violates your
@@ -128,7 +130,7 @@
             obligation to provide a refund of any amounts previously paid to ten.java.
         </p>
 
-        <h2>7. Intellectual property</h2>
+        <h2><a href="#7" id="7">7. Intellectual property</a></h2>
         <p>
             This Agreement does not transfer from ten.java to you any ten.java or third party intellectual property, and
             all right, title and interest in and to such property will remain (as between the parties) solely with
@@ -139,12 +141,12 @@
             license to reproduce or otherwise use any ten.java or third-party trademarks.
         </p>
 
-        <h2>8. Advertisements</h2>
+        <h2><a href="#8" id="8">8. Advertisements</a></h2>
         <p>
             ten.java reserves the right to display advertisements on your content and on the Website.
         </p>
 
-        <h2>9. Termination</h2>
+        <h2><a href="#9" id="9">9. Termination</a></h2>
         <p>
             ten.java may terminate your access to all or any part of the Website at any time, with or without cause,
             with or without notice, effective immediately. If you wish to terminate this Agreement or your tenjava.com
@@ -154,7 +156,7 @@
             provisions, warranty disclaimers, indemnity and limitations of liability.
         </p>
 
-        <h2>10. Disclaimer of warranties</h2>
+        <h2><a href="#10" id="10">10. Disclaimer of warranties</a></h2>
         <p>
             The Website is provided "as is." ten.java and its suppliers and licensors hereby disclaim all warranties of
             any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for
@@ -164,7 +166,7 @@
             discretion and risk.
         </p>
 
-        <h2>11. Limitation of liability</h2>
+        <h2><a href="#11" id="11">11. Limitation of liability</a></h2>
         <p>
             In no event will ten.java, or its suppliers or licensors, be liable with respect to any subject matter of
             this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i)
@@ -175,7 +177,7 @@
             control. The foregoing shall not apply to the extent prohibited by applicable law.
         </p>
 
-        <h2>12. General representation and warranty</h2>
+        <h2><a href="#12" id="12">12. General representation and warranty</a></h2>
         <p>
             You represent and warrant that (i) your use of the Website will be in strict accordance with the ten.java
             Privacy Policy, Community Guidelines, with this Agreement and with all applicable laws and regulations
@@ -186,7 +188,7 @@
             intellectual property rights of any third party.
         </p>
 
-        <h2>13. Indemnification</h2>
+        <h2><a href="#13" id="13">13. Indemnification</a></h2>
         <p>
             You agree to indemnify and hold harmless ten.java, its contractors, and its licensors, and their respective
             directors, officers, employees and agents from and against any and all claims and expenses, including
@@ -194,7 +196,7 @@
             Agreement.
         </p>
 
-        <h2>14. Changes</h2>
+        <h2><a href="#14" id="14">14. Changes</a></h2>
         <p>
             ten.java reserves the right, at its sole discretion, to modify or replace any part of this Agreement. It is
             your responsibility to check this Agreement periodically for changes. Your continued use of or access to the
@@ -204,7 +206,7 @@
             subject to the terms and conditions of this Agreement.
         </p>
 
-        <h2>15. Payment</h2>
+        <h2><a href="#15" id="15">15. Payment</a></h2>
         <p>
             Optional paid services or upgrades may be available on the Website. When utilizing an optional paid service
             or upgrade, you agree to pay ten.java the one-time fees indicated. These fees are not refundable.
@@ -218,12 +220,12 @@
             You agree that any payment to ten.java and its organizers is non-refundable.
         </p>
 
-        <h2>16. Teams</h2>
+        <h2><a href="#16" id="16">16. Teams</a></h2>
         <p>
             By joining a team, you acknowledge and agree to the following terms:
         </p>
 
-        <h3>16.1. Prize fees</h3>
+        <h3><a href="#16.1" id="16.1">16.1. Prize fees</a></h3>
         <p>
             Any money collected incurs a handling fee after $1,000 USD has been handled by ten.java's account. Any money
             donated to either a) the prize pool or b) the organizers will contribute to this limit. After $1,000 USD has
@@ -232,7 +234,7 @@
             show these applied fees, but the displayed amount may not be exact.
         </p>
 
-        <h3>16.2. Prize distribution</h3>
+        <h3><a href="#16.2" id="16.2">16.2. Prize distribution</a></h3>
         <p>
             Upon completion of judging of all submitted entries, the total prize pool will be distributed based upon the
             set rules of the winning team. All members of the team are required to agree to the rules before the contest
@@ -267,7 +269,7 @@
             Revenue Service (IRS), stating such.
         </p>
 
-        <h3>16.3. Team rules</h3>
+        <h3><a href="#16.3" id="16.3">16.3. Team rules</a></h3>
         <p>
             Every member of a team is required to agree to his team's rules. Any breach of these rules may be handled by
             the team leader or a ten.java organizer. The team leader has the right to revoke repository access of any
@@ -280,7 +282,8 @@
             member resides in, if not the United States, or e) legal reasons, including, but not limited to, a court
             order.
         </p>
-        <h4>16.3.1. Member removal</h4>
+
+        <h4><a href="#16.3.1" id="16.3.1">16.3.1. Member removal</a></h4>
         <p>
             The team leader has the right to remove any member from his team before the team-change deadline, as defined
             by ten.java, for any reason. If a member breaks the team rules during the contest, the team leader may
@@ -297,7 +300,7 @@
             contest; he may only re-enter during the next contest, if any such contest exists.
         </p>
 
-        <h2>17. Miscellaneous</h2>
+        <h2><a href="#17" id="17">17. Miscellaneous</a></h2>
         <p>
             This Agreement constitutes the entire agreement between ten.java and you concerning the subject matter
             hereof, and they may only be modified by a written amendment signed by an authorized executive of ten.java,
@@ -321,9 +324,11 @@
             successors and permitted assigns.
         </p>
 
+        <a id="updated"></a>
         <p>
             This document is CC-BY-SA. It was last updated October 12, 2014.
         </p>
+        <a id="copyright"></a>
         <p>
             Originally adapted from the <a href="http://en.wordpress.com/tos/">WordPress Terms of Service</a>.
         </p>
