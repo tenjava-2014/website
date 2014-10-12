@@ -9,8 +9,8 @@ composer.lock
 Thumbs.db
 config/app.php
 _ide_helper.php
-resources/assets/data.json
-resources/assets/css/*
+public/assets/data.json
+public/assets/css/*
 *.sqlite
 .idea
 public/packages/
