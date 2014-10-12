@@ -44,6 +44,10 @@ class HomeController extends BaseController {
         return "Staff only test endpoint. " . Auth::user()->username;
     }
 
+    public function terms() {
+        return View::make('pages.static.terms');
+    }
+
     public function wiki() {
         return Redirect::to("https://github.com/tenjava/resources/wiki");
     }

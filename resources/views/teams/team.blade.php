@@ -93,7 +93,10 @@
                         @if ($invite)
                         <p>
                             <a href="{!! URL::route('accept_invite', [$invite]) !!}" class="button button-block button-large button-flat-primary">Accept invite</a>
-                            <span class="text-light">Accepting this invite means you accept all the team rules.</span>
+                            <span class="text-light">
+                                Accepting this invite means you accept all the team rules and the
+                                <a href="{!! URL::route('terms') !!}">terms of service</a>.
+                            </span>
                         </p>
                         @elseif ($team->members->count() < 5)
                         <p>

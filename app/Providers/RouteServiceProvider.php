@@ -81,6 +81,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/wiki', 'TenJava\Http\Controllers\Pages\HomeController@wiki');
             $this->get('/teams', 'TenJava\Http\Controllers\Teams\TeamsController@showTeamsPage');
             $this->get('/team/{team}', ['as' => 'team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@showTeamPage']);
+            $this->get('/terms', ['as' => 'terms', 'uses' => 'TenJava\Http\Controllers\Pages\HomeController@terms']);
         });
     }
 

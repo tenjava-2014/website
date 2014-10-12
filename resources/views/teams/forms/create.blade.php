@@ -44,7 +44,8 @@
             {!! Form::submit($creating ? 'Create team' : 'Update team', ['class' => 'button button-block button-flat-primary']) !!}
             @if ($creating)
             <span class="text-light">
-                Creating a team will delete all outstanding requests and invites.
+                Creating a team will delete all outstanding requests and invites. By creating a team, you acknowledge
+                that you agree to the <a href="{!! URL::route('terms') !!}">terms of service</a>.
             </span>
             @endif
             {!! Form::close() !!}
