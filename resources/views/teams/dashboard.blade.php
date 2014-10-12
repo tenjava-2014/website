@@ -5,12 +5,18 @@
         <div class="grid-container">
             <div class="grid-60">
                 <h2>Teams</h2>
+                @if (count($allTeams) > 0)
                 @foreach ($allTeams as $a_team)
                     <p>
                         <a href="{!! URL::route('team', [$a_team->id]) !!}">{{ $a_team->name }}</a>
                         <span class="text-light">Lead by {{ $a_team->leader->username }}</span>
                     </p>
                 @endforeach
+                @else
+                <p>
+                    Uh-oh! No teams here. You may be interested in <a href="/teams/create">creating one</a>.
+                </p>
+                @endif
             </div>
             <div class="grid-30 mobile-grid-100 tablet-grid-100 pull-right">
                 <div class="text-center">
