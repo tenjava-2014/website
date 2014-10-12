@@ -43,19 +43,12 @@
                 <span class="text-light">View the winning entries!</span>
             </p>-->
             <p>
-               <a href="/results" class="button button-block button-large button-flat-action">View results</a>
-               <span class="text-light">We announced the results at 7PM on August 30, 2014.</span>
+                <a href="{!! URL::route('donate') !!}" class="button button-block button-large button-flat-action">Donate to the prize pool</a>
+                <span class="text-light">Help us reward the winners!</span>
             </p>
             <p>
-                <a href="/themes" class="button button-block button-flat-royal">View contest themes</a>
-                <span class="text-light">View the themes we offered for each timeslot.</span>
-            </p>
-            <p>
-                <a href="/points" class="button button-block button-flat-highlight">View point donations</a>
-                <span class="text-light">
-                    We raised {!! /*number_format($pointsData->points)*/ '10' !!} points! That's a whopping
-                    ${!! /*number_format($pointsData->points * 0.05, 2)*/ '10' !!}!
-                </span>
+                <a href="{!! URL::route('prize') !!}" class="button button-block button-flat-royal">View prize donations</a>
+                <span class="text-light">We have raised {{ $formatter->formatCurrency($pointsData['totalMoney'], 'USD') }}!</span>
             </p>
 
             <!-- <div class="tf2-details">

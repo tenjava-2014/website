@@ -13,6 +13,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Log;
 use Markdown;
+use Stripe;
 use Symfony\Component\HttpFoundation\Response;
 use TenJava\Exceptions\FailedOauthException;
 use TenJava\Exceptions\UnauthorizedException;
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider {
         $factory = app('Illuminate\Contracts\View\Factory');
         $factory->composer('*', '\\TenJava\\Composers\\GlobalComposer');
         Markdown::getParsedown()->setMarkupEscaped(true);
+        Stripe::setApiKey($_ENV['STRIPE_KEY']);
     }
 
     private function registerFormMacros() {

@@ -438,21 +438,40 @@ h3.judge-app {
 
 // judge panel styles
 
-body.judge-interface {
-  nav .nav-links li a:hover, nav .nav-links li.active a {
-    background: none repeat scroll 0% 0% #DE8204;
+body {
+  &.judge-interface {
+    nav .nav-links li a:hover, nav .nav-links li.active a {
+      background: none repeat scroll 0% 0% #DE8204;
+    }
+
+    nav {
+      border-bottom: 4px solid #DE8204;
+    }
+
+    a {
+      color: #D17A04;
+    }
+
+    a.button {
+      color: #fff;
+    }
   }
 
-  nav {
-    border-bottom: 4px solid #DE8204;
-  }
+  &.donate-interface {
+    nav .nav-links li a:hover, nav .nav-links li.active a {
+      background: none repeat scroll 0 0 #039903;
+    }
 
-  a {
-    color: #D17A04;
-  }
+    nav {
+      border-bottom: 4px solid #039903;
+    }
 
-  a.button {
-    color: #fff;
+    a {
+      color: #038703;
+      &.button {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -587,6 +606,11 @@ blockquote.feedback p {
 .fa-generic-bird-square:before { // I love you ABP <3
   content: "\f081";
 }
+
+#donation-errors:empty {
+  display: none;
+}
+
 hr {
   border: 1px solid #aaa;
 }

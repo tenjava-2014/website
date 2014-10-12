@@ -16,7 +16,7 @@ abstract class BaseController extends Controller {
     public function __construct() {
         View::share('titleAdd', $this->getPageTitle());
         View::share('nav', $this->getNavigation());
-        View::share("hst", $this->hasSelectedTimes());
+        View::share('hst', $this->hasSelectedTimes());
     }
 
     /**
@@ -40,11 +40,11 @@ abstract class BaseController extends Controller {
             new NavigationItem('Home', '/'),
             new NavigationItem('Forums', 'http://forums.tenjava.com'),
             new NavigationItem('Teams', '/teams'),
-            new NavigationItem('Points', '/points'),
+            new NavigationItem('Prize', '/prize'),
             new NavigationItem('Staff', '/staff'),
         ];
 
-        /**if ($this->hasSelectedTimes() == 'notime') {
+        /*if ($this->hasSelectedTimes() == 'notime') {
          * $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
          * } else if ($this->hasSelectedTimes() == 'timesdone') {
          * unset($navigation['primary'][1]);
@@ -77,7 +77,7 @@ abstract class BaseController extends Controller {
                 return "timesdone";
             }
         }*/
-        return "timesdone";
+        return 'timesdone';
     }
 
     /**

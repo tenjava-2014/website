@@ -8,10 +8,8 @@ use Config;
 use Input;
 use Redirect;
 use Response;
-use TenJava\Claim;
 use TenJava\Contest\TwitchRepositoryInterface;
 use TenJava\Http\Controllers\Abstracts\BaseController;
-use TenJava\User;
 use View;
 
 class HomeController extends BaseController {
@@ -30,7 +28,9 @@ class HomeController extends BaseController {
         $carbonDiff = Carbon::createFromTimeStamp(Config::get("contest-times.t1"));
         $carbonDiff = str_replace("from now", "remaining", $carbonDiff->diffForHumans());
 
-        $viewData = ["carbonDiff" => $carbonDiff];
+        $viewData = [
+            'carbonDiff' => $carbonDiff,
+        ];
         $viewName = "pages.static.home";
         return View::make($viewName)->with($viewData);
     }

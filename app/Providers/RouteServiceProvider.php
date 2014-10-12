@@ -70,7 +70,7 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/login', "TenJava\\Http\\Controllers\\Authentication\\AuthController@loginWithGitHub");
             $this->get('/streams', "TenJava\\Http\\Controllers\\Pages\\HomeController@showStreams");
             $this->get('/ajax/commits', "TenJava\\Http\\Controllers\\Pages\\HomeController@ajaxCommits");
-            $this->get('/points', 'TenJava\\Http\\Controllers\\Pages\\PointsController@showLeaderboard');
+            $this->get('/prize', ['as' => 'prize', 'uses' => 'TenJava\\Http\\Controllers\\Pages\\PrizeController@showLeaderboard']);
             $this->get('/staff', 'TenJava\\Http\\Controllers\\Pages\\StaffController@showTeam');
             $this->get('/staff/stats', 'TenJava\\Http\\Controllers\\Pages\\StaffController@showJudgingStats');
             $this->get('/about', 'TenJava\\Http\\Controllers\\Pages\\AboutController@showAbout');
@@ -113,6 +113,8 @@ class RouteServiceProvider extends ServiceProvider {
             $this->get('/teams/accept_request/{request}', ['as' => 'accept_request', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@acceptRequest']);
             $this->get('/teams/remove_request/{request}', ['as' => 'remove_request', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@removeRequest']);
             $this->get('/teams/update', ['as' => 'update_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@showUpdateTeamPage']);
+            $this->get('/donate', ['as' => 'donate', 'uses' => 'TenJava\Http\Controllers\Authentication\DonateController@showDonatePage']);
+            $this->get('/sendmoney', ['as' => 'send_money', 'uses' => 'TenJava\Http\Controllers\Authentication\DonateController@showSendMoneyPage']);
         });
     }
 
@@ -155,6 +157,8 @@ class RouteServiceProvider extends ServiceProvider {
             $this->post('/teams/invite', 'TenJava\Http\Controllers\Teams\TeamsController@inviteToTeam');
             $this->post('/teams/delete', ['as' => 'delete_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@deleteTeam']);
             $this->post('/teams/update', ['as' => 'update_team', 'uses' => 'TenJava\Http\Controllers\Teams\TeamsController@updateTeam']);
+            $this->post('/donate', ['as' => 'donate', 'uses' => 'TenJava\Http\Controllers\Authentication\DonateController@donate']);
+            $this->post('/sendmoney', ['as' => 'send_money', 'uses' => 'TenJava\Http\Controllers\Authentication\DonateController@sendMoney']);
         });
     }
 
