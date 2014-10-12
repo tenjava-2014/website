@@ -3,7 +3,10 @@
 <div id="post-header">
     <div class="grid-container header-container">
         <div class="grid-100 text-center">
-            <h4 id="contestTime">Thanks for your support!</h4>
+            <h4>
+                The unofficial Minecraft plugin contest<br/>
+                <small>Coming soon</small>
+            </h4>
         </div>
     </div>
 </div>
