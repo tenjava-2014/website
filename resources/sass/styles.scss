@@ -100,6 +100,11 @@ ul.soc-links {
   line-height: .1em;
 }
 
+.text-light-plain {
+  color: #919191;
+  line-height: .1em;
+}
+
 .filter {
   float: left;
 }
@@ -521,7 +526,7 @@ form {
   }
   input[type="number"] {
     width: 50px !important;
-    font-weight: bold !important;
+//    font-weight: bold !important;
   }
 }
 
@@ -581,4 +586,7 @@ blockquote.feedback p {
 }
 .fa-generic-bird-square:before { // I love you ABP <3
   content: "\f081";
+}
+hr {
+  border: 1px solid #aaa;
 }
