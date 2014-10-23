@@ -251,7 +251,9 @@
                     <li>Necessary postage costs will be debited from the portion of the prize won.</li>
                 </ul>
             </li>
-            <li><a href="https://square.com/cash">Cash</a> (US only)</li>
+            <li>
+                <a href="https://square.com/cash">Cash</a> (US only), if the total prize is no greater than $2,500 USD
+            </li>
             <li>PayPal transfer (extra fees from PayPal apply)</li>
             <li>Bank transfer</li>
         </ul>
