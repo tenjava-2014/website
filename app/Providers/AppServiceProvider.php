@@ -75,11 +75,11 @@ class AppServiceProvider extends ServiceProvider {
         $app->singleton('GlobalComposer', '\\TenJava\\Composers\\GlobalComposer');
 
         // Error handlers
-        $app->missing(function ($exception) use ($app) {
+        /*$app->missing(function ($exception) use ($app) {
             return $app->make("\\TenJava\\Http\\Controllers\\ErrorController")->missing();
-        });
+        });*/ // TODO: FIXME
 
-        $app->error(function (UnauthorizedException $ignored) use ($app) {
+        /**$app->error(function (UnauthorizedException $ignored) use ($app) {
             return $app->make('\\TenJava\\Http\\Controllers\\ErrorController')->unauthorized();
         });
 
@@ -89,7 +89,7 @@ class AppServiceProvider extends ServiceProvider {
 
         $app->down(function () {
             return View::make("errors.maintenance");
-        });
+        });*/ // TODO: FIXME
 
         $this->registerCommands();
         $this->registerHeaders();
