@@ -100,9 +100,8 @@ return [
          */
         'TenJava\Providers\AppServiceProvider',
         'TenJava\Providers\ArtisanServiceProvider',
-        'TenJava\Providers\ErrorServiceProvider',
         'TenJava\Providers\EventServiceProvider',
-        'TenJava\Providers\FilterServiceProvider',
+        'TenJava\Providers\RouteServiceProvider',
         'TenJava\Providers\LogServiceProvider',
         'TenJava\Providers\RouteServiceProvider',
         'TenJava\Providers\DriverServiceProvider',
@@ -120,12 +119,10 @@ return [
         'Illuminate\Filesystem\FilesystemServiceProvider',
         'Illuminate\Foundation\Providers\FoundationServiceProvider',
         'Illuminate\Hashing\HashServiceProvider',
-        'Illuminate\Log\LogServiceProvider',
         'Illuminate\Mail\MailServiceProvider',
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
         'Illuminate\Redis\RedisServiceProvider',
-        'Illuminate\Auth\Reminders\ReminderServiceProvider',
         'Illuminate\Session\SessionServiceProvider',
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
@@ -206,5 +203,5 @@ return [
         'Str' => 'Illuminate\Support\Str'
 
     ],
-
+    'log' => 'daily',
 ];
