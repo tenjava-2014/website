@@ -1,7 +1,6 @@
 <?php namespace TenJava\Providers;
 
 use Exception;
-use Illuminate\Contracts\Exception\Handler;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;
 

@@ -3,9 +3,9 @@ namespace TenJava\Http\Controllers\Pages;
 
 use Input;
 use Redirect;
+use Response;
 use TenJava\Contest\ParticipantRepositoryInterface;
 use TenJava\Http\Controllers\Abstracts\BaseController;
-use Response;
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantFeedback;
 use Validator;
@@ -23,24 +23,6 @@ class FeedbackController extends BaseController {
     public function __construct(ParticipantRepositoryInterface $participants) {
         parent::__construct();
         $this->participants = $participants;
-    }
-
-    public function showFeedback() {
-        $this->setPageTitle("Provide feedback");
-        $viewData = ["tookPart" => $this->userTookPart()];
-
-
-        return Response::view('pages.forms.feedback', $viewData);
-    }
-
-    private function userTookPart() {
-        $gitHubId = $this->auth->getUserId();
-        $app = $this->participants->getParticipantByAuthId($gitHubId);
-        /** @var $app Application */
-        if ($app != null) {
-            return ($app->commits->count() > 0);
-        }
-        return false;
     }
 
     public function sendFeedback() {
@@ -68,6 +50,24 @@ class FeedbackController extends BaseController {
         $feedback->save();
 
         return View::make("pages.result.thanks.feedback");
+    }
+
+    public function showFeedback() {
+        $this->setPageTitle("Provide feedback");
+        $viewData = ["tookPart" => $this->userTookPart()];
+
+
+        return Response::view('pages.forms.feedback', $viewData);
+    }
+
+    private function userTookPart() {
+        $gitHubId = $this->auth->getUserId();
+        $app = $this->participants->getParticipantByAuthId($gitHubId);
+        /** @var $app Application */
+        if ($app != null) {
+            return ($app->commits->count() > 0);
+        }
+        return false;
     }
 
 }

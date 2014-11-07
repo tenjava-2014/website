@@ -1,8 +1,6 @@
 <?php namespace TenJava\Providers;
 
-use Illuminate\Foundation\Support\Providers\AppServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
-use Illuminate\Routing\Stack\Builder as Stack;
 
 class AppServiceProvider extends ServiceProvider {
 

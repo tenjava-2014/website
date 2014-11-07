@@ -2,10 +2,10 @@
 namespace TenJava\Http\Controllers\Pages;
 
 use Auth;
-use Input;
-use TenJava\Http\Controllers\Abstracts\BaseController;
 use Carbon\Carbon;
 use Config;
+use Input;
+use TenJava\Http\Controllers\Abstracts\BaseController;
 use TenJava\Security\HmacCreationInterface;
 use View;
 

@@ -2,8 +2,8 @@
 namespace TenJava\Http\Controllers\Pages;
 
 use Auth;
-use TenJava\Http\Controllers\Abstracts\BaseController;
 use Response;
+use TenJava\Http\Controllers\Abstracts\BaseController;
 
 class PrivacyController extends BaseController {
 

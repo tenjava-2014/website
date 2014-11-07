@@ -39,6 +39,17 @@ class GitHubRepoWebhook implements RepoWebhookInterface {
     }
 
     /**
+     * @return \Github\Api\Repository\Hooks
+     */
+    private function getApiClient() {
+        /*$client = new Client();
+        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
+        /** @var \Github\Api\Repo $repo */
+        /*$repo =  $client->api('repo');
+        return $repo->hooks();*/
+    }
+
+    /**
      * @return array The webhook data.
      */
     private function getWebhookData() {
@@ -54,16 +65,5 @@ class GitHubRepoWebhook implements RepoWebhookInterface {
             'secret' => Config::get("webhooks.secret")
         ];
         return $dataArray;*/
-    }
-
-    /**
-     * @return \Github\Api\Repository\Hooks
-     */
-    private function getApiClient() {
-        /*$client = new Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
-        /** @var \Github\Api\Repo $repo */
-        /*$repo =  $client->api('repo');
-        return $repo->hooks();*/
     }
 }

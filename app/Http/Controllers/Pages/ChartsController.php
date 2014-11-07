@@ -2,8 +2,8 @@
 namespace TenJava\Http\Controllers\Pages;
 
 use DB;
-use TenJava\Http\Controllers\Abstracts\BaseController;
 use Response;
+use TenJava\Http\Controllers\Abstracts\BaseController;
 use TenJava\Models\Application;
 
 class ChartsController extends BaseController {
