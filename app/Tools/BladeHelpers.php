@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Tools;
+<?php namespace TenJava\Tools;
 
 use Carbon\Carbon;
 

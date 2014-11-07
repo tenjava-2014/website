@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Security;
+<?php namespace TenJava\Security;
 
 interface HmacVerificationInterface {
 
@@ -11,4 +10,4 @@ interface HmacVerificationInterface {
      */
     public function verifySignature($data, $signature, $secret);
 
-} 
+}

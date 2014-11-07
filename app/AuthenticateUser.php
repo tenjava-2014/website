@@ -35,12 +35,6 @@ class AuthenticateUser {
         return Redirect::intended(Request::header('referer'));
     }
 
-    public function logout() {
-        $this->auth->logout();
-        Session::clear();
-        return Redirect::route('index');
-    }
-
     private function getAuthorizationFirst() {
         return $this->getDriver()->redirect();
     }
@@ -51,6 +45,12 @@ class AuthenticateUser {
 
     private function getGitHubUser() {
         return $this->getDriver()->user();
+    }
+
+    public function logout() {
+        $this->auth->logout();
+        Session::clear();
+        return Redirect::route('index');
     }
 
 }

@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Security;
+<?php namespace TenJava\Security;
 
 interface HmacCreationInterface {
 

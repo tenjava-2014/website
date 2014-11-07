@@ -1,3 +1,6 @@
 <?php
-//No HTTP cookies
-return array("secure" => true);
+
+// No HTTP cookies
+return [
+    'secure' => true
+];

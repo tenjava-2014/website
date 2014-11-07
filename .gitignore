@@ -5,6 +5,8 @@ composer.phar
 composer.lock
 .env.*.php
 .env.php
+.env
+.env.*
 .DS_Store
 Thumbs.db
 config/app.php
@@ -15,3 +17,4 @@ public/assets/data.json
 public/packages/
 .sass-cache
 *.iml
+/node_modules/

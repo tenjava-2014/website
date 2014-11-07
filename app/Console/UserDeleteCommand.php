@@ -2,7 +2,6 @@
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use TenJava\Models\Application;
 
 class UserDeleteCommand extends Command {
 
@@ -35,13 +34,13 @@ class UserDeleteCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $app = Application::where("gh_username", $this->argument("name"))->first();
+        $app = Application::where('gh_username', $this->argument('name'))->first();
         if ($app == null) {
-            $this->error("No such application.");
+            $this->error('No such application.');
         } else {
             if ($this->confirm('Are you ABSOLUTELY sure?')) {
                 $app->delete();
-                $this->info("Application entry deleted.");
+                $this->info('Application entry deleted.');
             }
         }
     }
@@ -52,13 +51,14 @@ class UserDeleteCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array(
-            array(
-                "name",
+        return [
+            [
+                'name',
                 InputArgument::REQUIRED,
                 "The user's GitHub username.",
                 null
-            ));
+            ]
+        ];
     }
 
     /**
@@ -67,7 +67,7 @@ class UserDeleteCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array();
+        return [];
     }
 
 }

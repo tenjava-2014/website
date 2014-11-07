@@ -37,8 +37,8 @@ class TwitterUpdateCommand extends Command {
     public function fire() {
         $twitter = new Twitter();
         $twitter = $twitter->getUserTimeline(array('screen_name' => 'tenjava', 'count' => 42, 'format' => 'array', 'exclude_replies' => true, 'include_rts' => false));
-        Cache::forever("tweets", array_slice($twitter, 0, 5));
-        $this->info("Successfully fetched tweets!");
+        Cache::forever('tweets', array_slice($twitter, 0, 5));
+        $this->info('Successfully fetched tweets!');
     }
 
     /**
@@ -47,7 +47,7 @@ class TwitterUpdateCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array();
+        return [];
     }
 
     /**
@@ -56,7 +56,7 @@ class TwitterUpdateCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array();
+        return [];
     }
 
 }

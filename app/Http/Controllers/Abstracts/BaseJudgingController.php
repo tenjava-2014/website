@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Http\Controllers\Abstracts;
+<?php namespace TenJava\Http\Controllers\Abstracts;
 
 use App;
 use Auth;
@@ -79,11 +78,11 @@ abstract class BaseJudgingController extends BaseController {
      * @return string The current page title.
      */
     public function getPageTitle() {
-        return ($this->pageTitle == "") ? self::BASE_TITLE : $this->pageTitle . " - " . self::BASE_TITLE;
+        return ($this->pageTitle == '') ? self::BASE_TITLE : $this->pageTitle . ' - ' . self::BASE_TITLE;
     }
 
     protected function isClaimOk($claimId) {
-        Log::info('Starting claim check for $claimId');
+        Log::info("Starting claim check for $claimId");
         if (count($this->judgeClaims['pending']) > 0) {
             Log::info('If passed');
             foreach ($this->judgeClaims['pending'] as $claim) {

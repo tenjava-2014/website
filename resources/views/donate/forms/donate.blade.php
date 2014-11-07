@@ -16,9 +16,11 @@
             @if (isset($success) && $success)
             <div class="alert block success">
                 <h4>Success!</h4>
+
                 <p>
                     Donation made! Thank you very much!
                 </p>
+
                 <p class="text-light-plain">
                     For your records, this transaction will show up on your statement as <code>{{ $description }}</code>.
                 </p>
@@ -29,12 +31,14 @@
                 Our current prize pool is $1,000,000,000,000 USD! You can contribute by donating to it! Every little bit
                 counts!
             </p>
+
             <p>
                 We care about security. As evidence, our servers never touch your sensitive data. The service we use to
                 charge your card, <a href="https://stripe.com/">Stripe</a>, handles all of your data, through encrypted
                 channels. All we get back is an encrypted message to use. Even if we wanted to, we couldn't handle your
                 sensitive data. If you have questions, <a href="#">contact us</a>.
             </p>
+
             <p>
                 <strong>Please read!</strong> Stripe applies a 2.9% + 30¢ fee to any donation you make. This means that
                 if you donate $10.00, the prize pool will only increase by $9.41, etc.
@@ -83,7 +87,8 @@
             <div class="control-group">
                 {!! Form::label('amount', 'Amount (in USD)') !!}
                 <div class="control">
-                    {!! Form::input('number', 'amount', null, ['step' => 'any', 'placeholder' => '10.00', 'id' => 'amount']) !!}
+                    {!! Form::input('number', 'amount', null, ['step' => 'any', 'placeholder' => '10.00', 'id' => 'amount', 'oninput' = 'fill(this, receive, percentage)']) !!}
+                    We will receive $<span id="receive"></span> (<span id="percentage"></span>%).
                 </div>
             </div>
             <div class="control-group">
@@ -106,7 +111,6 @@
     </div>
 </div>
 @stop
-
 @section('post-scripts')
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -130,5 +134,24 @@
             return false;
         });
     });
+    function fill(input, receive, percentage) {
+        var amount = Number(input.value);
+        var receiveAmount = 0;
+        var percentageAmount = 0;
+        if (!isNaN(amount) && amount >= .5) {
+            receiveAmount = amount - ((amount * .029) + .3);
+            percentageAmount = 100 - (((amount * 2.9) + 30) / amount);
+        }
+        receive.innerHTML = receiveAmount.toFixed(2);
+        percentage.innerHTML = percentageAmount.toFixed(2);
+    }
+    function piece(input, send) {
+        var amount = Number(input.value);
+        var amountToSet = 0;
+        if (!isNaN(amount) && amount >= .5) {
+            amountToSet = (amount + .3) / 0.971;
+        }
+        send.innerHTML = amountToSet.toFixed(2);
+    }
 </script>
 @stop

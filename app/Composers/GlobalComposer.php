@@ -1,6 +1,4 @@
-<?php
-
-namespace TenJava\Composers;
+<?php namespace TenJava\Composers;
 
 use ArrayObject;
 use Auth;
@@ -18,8 +16,6 @@ class GlobalComposer {
     public function __construct(App $app, CacheRepository $cache) {
         $this->tweets = $cache->get('tweets');
     }
-
-    // TODO: Extract to util class
 
     public function compose(View $view) {
         $view->with('tweets', $this->tweets);

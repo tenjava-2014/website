@@ -12,12 +12,11 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{!! asset('/assets/img/icons/apple-touch-icon-120x120.png') !!}"/>
     <link rel="apple-touch-icon" sizes="144x144" href="{!! asset('/assets/img/icons/apple-touch-icon-144x144.png') !!}"/>
     <link rel="apple-touch-icon" sizes="152x152" href="{!! asset('/assets/img/icons/apple-touch-icon-152x152.png') !!}"/>
-    <link href="{!! asset('/assets/css/grid.css') !!}" rel="stylesheet"/>
-    <link href="{!! asset('/assets/css/styles.css') !!}?v=1.51" rel="stylesheet"/>
+    <link href="{!! elixir('styles.css') !!}" rel="stylesheet"/>
     <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
     @yield('additional-scripts')
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <meta name="description" content="Ten hour Bukkit plugin development contest."/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+    <meta name="description" content="Ten-hour, Java development contests."/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
 </head>
 <body class="judge-interface">

@@ -2,10 +2,8 @@
 
 use Illuminate\Console\Command;
 use Mail;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use TenJava\Models\Application;
-use TenJava\Models\ParticipantTimes;
+use Symfony\Component\Console\Input\InputOption;
 
 class MailInfoCommand extends Command {
 
@@ -38,20 +36,20 @@ class MailInfoCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $apps = Application::where("judge", false)->get();
+        $apps = Application::where('judge', false)->get();
         foreach ($apps as $app) {
             /** @var $app Application */
-            $this->info("Checking " . $app->gh_username);
+            $this->info('Checking ' . $app->gh_username);
             $emails = json_decode($app->github_email, true);
-            if (array_key_exists("fail", $emails)) {
-                $this->error($app->gh_username . " has no email entry (user declined). Contact DBO: " . $app->dbo_username);
+            if (array_key_exists('fail', $emails)) {
+                $this->error($app->gh_username . ' has no email entry (user declined). Contact DBO: ' . $app->dbo_username);
                 continue;
-            } else if (array_key_exists("others", $emails)) {
+            } else if (array_key_exists('others', $emails)) {
                 $emails = $emails['others'];
             }
             $chosenEmail = null;
             foreach ($emails as $email) {
-                if (str_contains($email, "users.noreply")) {
+                if (str_contains($email, 'users.noreply')) {
                     continue;
                 } else {
                     $chosenEmail = $email;
@@ -59,14 +57,14 @@ class MailInfoCommand extends Command {
                 }
             }
             if ($chosenEmail === null) {
-                $this->error($app->gh_username . " has no email entry (none available). Contact DBO: " . $app->dbo_username);
+                $this->error($app->gh_username . ' has no email entry (none available). Contact DBO: ' . $app->dbo_username);
             } else {
-                $this->comment("Chosen email is " . $chosenEmail);
-                Mail::queue(array('text' => 'emails.results'), array("user" => $app->gh_username), function ($message) use ($chosenEmail) {
+                $this->comment('Chosen email is ' . $chosenEmail);
+                Mail::queue(array('text' => 'emails.results'), array('user' => $app->gh_username), function ($message) use ($chosenEmail) {
                     $message->from('tenjava@tenjava.com', 'ten.java Team');
                     $message->to($chosenEmail)->subject('ten.java results');
                 });
-                $this->comment("Email sent!");
+                $this->comment('Email sent!');
             }
 
         }
@@ -79,7 +77,7 @@ class MailInfoCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array();
+        return [];
     }
 
     /**
@@ -88,7 +86,7 @@ class MailInfoCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array();
+        return [];
     }
 
 }

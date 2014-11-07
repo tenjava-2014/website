@@ -1,13 +1,8 @@
 <?php namespace TenJava\Providers;
 
-use App;
-use Auth;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
-use Redirect;
-use Response;
-use Session;
 
 class RouteServiceProvider extends ServiceProvider {
 

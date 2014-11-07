@@ -14,6 +14,7 @@ return [
     */
 
     'debug' => true,
+
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -77,10 +78,9 @@ return [
     |
     */
 
-    'cipher' => MCRYPT_RIJNDAEL_256,
-
-    // Override in local conf
     'key' => $_ENV['APP_ENCRYPTION_KEY'],
+
+    'cipher' => MCRYPT_RIJNDAEL_128,
 
     /*
     |--------------------------------------------------------------------------
@@ -102,10 +102,10 @@ return [
         'TenJava\Providers\ArtisanServiceProvider',
         'TenJava\Providers\ErrorServiceProvider',
         'TenJava\Providers\EventServiceProvider',
-        'TenJava\Providers\FilterServiceProvider',
         'TenJava\Providers\LogServiceProvider',
         'TenJava\Providers\RouteServiceProvider',
         'TenJava\Providers\DriverServiceProvider',
+        'TenJava\Providers\RegistrationServiceProvider',
 
         /*
          * Laravel Framework Service Providers...
@@ -125,7 +125,7 @@ return [
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
         'Illuminate\Redis\RedisServiceProvider',
-        'Illuminate\Auth\Reminders\ReminderServiceProvider',
+        'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
         'Illuminate\Session\SessionServiceProvider',
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
@@ -203,7 +203,7 @@ return [
         'Form' => 'Illuminate\Html\FormFacade',
         'HTML' => 'Illuminate\Html\HtmlFacade',
         'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
-        'Str' => 'Illuminate\Support\Str'
+        'Str' => 'Illuminate\Support\Str',
 
     ],
 

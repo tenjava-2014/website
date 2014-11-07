@@ -2,15 +2,10 @@
 
 use App;
 use Config;
-use Exception;
-use Github\Api\Repository\Hooks;
-use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use TenJava\CI\BuildTriggerInterface;
-use TenJava\Models\Application;
-use TenJava\Repository\RepositoryActionInterface;
 
 class JenkinsJobTriggerCommand extends Command {
 
@@ -50,8 +45,8 @@ class JenkinsJobTriggerCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $this->buildTrigger->setToken(Config::get("webhooks.jenkins_token"));
-        $this->buildTrigger->triggerBuild("lol768-t1", "Manual cmd");
+        $this->buildTrigger->setToken(Config::get('webhooks.jenkins_token'));
+        $this->buildTrigger->triggerBuild('lol768-t1', 'Manual cmd');
     }
 
 }

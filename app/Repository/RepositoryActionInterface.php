@@ -1,7 +1,4 @@
-<?php
-
-
-namespace TenJava\Repository;
+<?php namespace TenJava\Repository;
 
 
 interface RepositoryActionInterface {
@@ -19,16 +16,16 @@ interface RepositoryActionInterface {
     public function isRepoActionComplete($action, $repo);
 
     /**
-     * @param string $action The action identifier to set.
-     * @param string $repo The repository name to set the action on.
-     * @return void
-     */
-    public function setRepoActionComplete($action, $repo);
-
-    /**
      * @param array $repos An array of repository names.
      * @param string $action The action identifier to set.
      * @return void
      */
     public function setMultipleReposActionComplete($repos, $action);
-} 
+
+    /**
+     * @param string $action The action identifier to set.
+     * @param string $repo The repository name to set the action on.
+     * @return void
+     */
+    public function setRepoActionComplete($action, $repo);
+}

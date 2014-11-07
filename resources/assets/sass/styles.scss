@@ -1,0 +1,612 @@
+@import url(//fonts.googleapis.com/css?family=Roboto:400,300,700,500,700italic,900,900italic,500italic,400italic,300italic);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
+@import 'vars';
+@import "thirdparty/forms";
+@import "thirdparty/alerts";
+@import "thirdparty/tables";
+@import 'thirdparty/buttons';
+@import "thirdparty/time-circles";
+
+html {
+  overflow-y: scroll; // Always-active vert. scrollbar
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+  font-size: 15px;
+  // background: url("http://subtlepatterns.com/patterns/debut_light.png");
+  background: #eee;
+  color: $textColor;
+  line-height: 1.4em;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto (-1 * $footerHeight);
+}
+
+//noinspection CssUnknownTarget
+#header {
+  background: url(/assets/img/bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 75px 0;
+  color: white;
+  font-size: 48px;
+  font-style: italic;
+  line-height: 1.2em;
+  font-family: "Roboto";
+}
+
+footer, .push {
+  height: $footerHeight;
+  overflow: hidden;
+}
+
+.push {
+  margin-top: 15px;
+}
+
+footer {
+  background: #1E1E1F;
+  color: white;
+
+  p {
+    font-size: 12px;
+  }
+}
+
+ul.soc-links {
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
+  float: right;
+
+  li {
+    display: inline;
+
+    &+li {
+      margin-left: 5px;
+    }
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-light {
+  color: #919191;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: .1em;
+}
+
+.text-light-plain {
+  color: #919191;
+  line-height: .1em;
+}
+
+.filter {
+  float: left;
+}
+
+.search {
+  float: right;
+}
+
+nav {
+  width: 100%;
+  padding: 15px 0 10px;
+  background: #3B3D44;
+  border-bottom: 4px solid #3590E6;
+
+  .nav-links {
+    text-align: center;
+    float: right;
+    list-style: none;
+
+    li {
+      display: inline;
+
+      a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 27px;
+        text-transform: lowercase;
+
+        &:active {
+          outline: none;
+          /*    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4) inset;*/
+        }
+      }
+
+      a:hover, &.active a {
+        background: #3590E6;
+        transition: background .3s ease-in-out;
+      }
+
+      &+li {
+        margin-left: -4px;
+      }
+    }
+  }
+}
+// Mobile styles :D
+@media screen and (max-width: 768px) {
+  .brand {
+    text-align: left;
+  }
+
+  .brand > a, .brand > div {
+    display: inline;
+  }
+
+  .brand > div {
+    float: right;
+  }
+
+  #header, #post-header {
+    display: none;
+  }
+
+  .nav-links {
+    float: left !important;
+    margin: inherit 0;
+    padding: 0;
+
+    li {
+      width: 100%;
+      text-align: left !important;
+      display: list-item !important;
+
+      &+li {
+        margin: 0 !important;
+        padding: 0;
+      }
+
+      a {
+        padding: 5px !important;
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  #wrapper {
+    margin: 0 auto (-1 * $mobileFooterHeight);
+  }
+
+  footer, .push {
+    height: $mobileFooterHeight;
+  }
+
+  ul.soc-links {
+    text-align: center;
+    float: none !important;
+  }
+
+  #header, #post-header {
+    padding: 40px 0 !important;
+  }
+
+  nav ul, nav li, nav a {
+    display: block;
+    width: 100%;
+  }
+}
+
+#point-ticker {
+  width: 100%;
+  padding: 10px;
+  background: #1E1E1F;
+  font-size: 12px;
+  color: #c6c6c6;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 1.3em;
+  text-align: center;
+
+  span {
+    color: white;
+  }
+}
+
+.twitch-footer {
+  margin-top: -5px;
+  background: #3590E6;
+  padding: 8px;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  line-height: 1em;
+}
+
+.twitch-snapshot img {
+  width: 100%;
+  max-height: 147px;
+}
+
+a {
+  text-decoration: none;
+  color: #3590E6;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.button {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+i.fa.black {
+  color: #1e1e1f;
+}
+
+.fa-stack.bottom {
+  vertical-align: bottom !important;
+}
+
+.time {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.content-back {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+
+  .team-entry {
+    background-color: #EEEEEE;
+  }
+}
+
+.content-back+.push {
+  margin-top: -30px;
+}
+
+.content {
+  background-color: white;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  /*
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  */
+  border-radius: 3px;
+
+  p {
+    margin: 0;
+  }
+
+  &+p {
+    margin-top: 10px;
+  }
+}
+
+.list-large {
+  font-size: 18px;
+  line-height: 1.5em;
+  list-style: decimal;
+}
+
+.team-entry {
+  background-color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height: 100%;
+
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  p {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.team-entry-parent {
+  height: 410px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.top-margin-10 {
+  margin-top: 10px;
+}
+
+
+.signup-image {
+  margin: -40px inherit inherit;
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
+
+  &.signup-margin {
+    margin: 0;
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+ul.unstyled {
+  list-style: none outside none;
+  padding-left: 0;
+}
+
+div.alert.condensed {
+  padding: 0em 1em 0em 1em;
+}
+
+.pagination {
+  list-style: none;
+
+  li {
+    display: inline;
+
+    &+li {
+      margin-left: 10px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+}
+
+#main-logo {
+  height: 50px;
+  border: none;
+}
+
+h3.judge-app {
+  color: #0a0;
+}
+
+.action-form {
+  display: inline;
+}
+
+.button-search {
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: none;
+}
+
+#post-header > .header-container {
+  //background-color: rgba(0,0,0,0.5);
+  //border-radius: 3px;
+}
+
+#post-header {
+  padding: 10px 0 30px !important;
+  //min-height: 200px;
+  background: url(/assets/img/bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  font-family: "Roboto";
+}
+
+#post-header .time-circle {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.streams .twitch {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+// judge panel styles
+
+body {
+  &.judge-interface {
+    nav .nav-links li a:hover, nav .nav-links li.active a {
+      background: none repeat scroll 0% 0% #DE8204;
+    }
+
+    nav {
+      border-bottom: 4px solid #DE8204;
+    }
+
+    a {
+      color: #D17A04;
+    }
+
+    a.button {
+      color: #fff;
+    }
+  }
+
+  &.donate-interface {
+    nav .nav-links li a:hover, nav .nav-links li.active a {
+      background: none repeat scroll 0 0 #039903;
+    }
+
+    nav {
+      border-bottom: 4px solid #039903;
+    }
+
+    a {
+      color: #038703;
+      &.button {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// github markdown code styles
+.markdown-body code, .markdown-body tt {
+  margin: 0px;
+  border: 1px solid #DDD;
+  background-color: #F8F8F8;
+  border-radius: 3px;
+  padding: 0px;
+}
+tt, code, pre {
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.server-details {
+  background-color: #eee;
+  border: 1px solid #bbb;
+  padding: 10px;
+}
+
+div.log-viewer {
+  padding: 0px 10px 0px 10px;
+}
+
+.log-viewer pre {
+  line-height: 1.05em;
+}
+
+blockquote.feedback {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  padding: 0.5em 10px;
+  margin-left: 0px;
+  position: relative;
+  quotes: "\201C" "\201D" "\201C" "\201C";
+}
+
+blockquote.feedback:after {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+blockquote.feedback p {
+  display: inline
+}
+
+blockquote.feedback span.username {
+  display: block;
+  color: #777;
+  font-size: 0.8em;
+}
+
+form {
+  legend {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    padding: 15px 5px 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  input[type="range"] {
+    width: 50% !important;
+  }
+  input[type="number"] {
+    width: 50px !important;
+//    font-weight: bold !important;
+  }
+}
+
+.team-info {
+  background: none repeat scroll 0% 0% #F9F9F9;
+  border-left: .625em solid #CCC;
+  padding: 0.5em .625em;
+  margin-left: 0px;
+  position: relative;
+}
+
+div.username {
+  margin-bottom: .5em;
+  img {
+    max-height: 2em;
+    max-width: 2em;
+    vertical-align: middle;
+  }
+  &.leader {
+    background-color: #ffe85e;
+    &:after {
+      font-style: oblique;
+      color: #888;
+      content: 'Leader';
+    }
+  }
+  a.remove {
+    float: right;
+    font-weight: bold;
+  }
+}
+
+.judge-progress + .judge-progress {
+  margin-top: 10px;
+}
+.tf2-details {
+  background-color: #eee;
+  color: #444;
+  padding: 5px 0 5px 0;
+}
+.grid-padding-sucks {
+  padding-left: 0;
+  padding-right: 0;
+}
+.outdated-info-notice {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  text-align: center;
+}
+blockquote.feedback {
+  word-break: break-all;
+  padding-right: 35px;
+}
+blockquote.feedback p {
+  word-break: break-all;
+}
+.fa-generic-bird-square:before { // I love you ABP <3
+  content: "\f081";
+}
+
+#donation-errors:empty {
+  display: none;
+}
+
+hr {
+  border: 1px solid #aaa;
+}

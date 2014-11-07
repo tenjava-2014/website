@@ -15,14 +15,6 @@ class DriverServiceProvider extends ServiceProvider {
         $this->registerCustomDriver();
     }
 
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register() {
-    }
-
     private function registerCustomDriver() {
         Socialite::extend('github_email', function (Application $app) {
             $config = $app['config']['services.github'];
@@ -42,6 +34,14 @@ class DriverServiceProvider extends ServiceProvider {
             $this->app['request'], $config['client_id'],
             $config['client_secret'], $config['redirect']
         );
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register() {
     }
 
 }

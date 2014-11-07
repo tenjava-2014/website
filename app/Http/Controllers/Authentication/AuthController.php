@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Http\Controllers\Authentication;
+<?php namespace TenJava\Http\Controllers\Authentication;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -31,10 +30,11 @@ class AuthController extends BaseController {
     }
 
     public function showRefusal() {
-        return View::make("pages.auth.refusal");
+        return View::make('pages.auth.refusal');
     }
 
     public function toggleOptout() {
+        /** @var \TenJava\User $user */
         $user = Auth::user();
         $user->setOptoutStatus(!$user->getOptoutStatus());
         return Redirect::to('/privacy#email-access');

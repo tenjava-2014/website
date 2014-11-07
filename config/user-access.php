@@ -1,4 +1,5 @@
 <?php
+
 // NOTE: Never do auth checking with this. This is just for fast, no-query reference.
 return [
     'present' => [

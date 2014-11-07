@@ -2,10 +2,8 @@
 
 use App;
 use Config;
-use Github\Api\Repository\Hooks;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
-use TenJava\Models\Application;
 use TenJava\Repository\RepositoryActionInterface;
 use TenJava\Repository\RepoWebhookInterface;
 
@@ -47,11 +45,11 @@ class RepoWebhookCommand extends Command {
      */
     public function fire() {
         /** @var \TenJava\Repository\EloquentRepositoryAction $repoAction */
-        $repoAction = App::make("\\TenJava\\Repository\\RepositoryActionInterface");
-        $done = $repoAction->getReposForAction("webhook");
-        $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+        $repoAction = App::make('\TenJava\Repository\RepositoryActionInterface');
+        $done = $repoAction->getReposForAction('webhook');
+        $list = Application::with('timeEntry')->has('timeEntry', '>', '0')->where('judge', false)->get();
 
-        $this->comment("List has " . $list->count() . " items");
+        $this->comment('List has ' . $list->count() . ' items');
         foreach ($list as $entry) {
             /** @var \TenJava\Models\Application $entry */
             $this->handleEntry($entry, $repoAction, $done);
@@ -60,35 +58,37 @@ class RepoWebhookCommand extends Command {
 
     private function handleEntry(Application $app, RepositoryActionInterface $actionInterface, $completed) {
         $times = $app->timeEntry;
-        $possibleValues = ['t1','t2','t3'];
+        $possibleValues = ['t1', 't2', 't3'];
         $toFinalize = [];
         foreach ($possibleValues as $toCheck) {
-            $this->comment("Checking " . $toCheck . " for " . $app->gh_username);
+            $this->comment('Checking ' . $toCheck . ' for ' . $app->gh_username);
             if ($times->$toCheck) {
-                $this->info("Hit! " . $toCheck);
+                $this->info('Hit! ' . $toCheck);
 
-                $repoName = $app->gh_username . "-" . $toCheck;
+                $repoName = $app->gh_username . '-' . $toCheck;
                 if (in_array($repoName, $completed)) {
                     if ($this->option('update')) {
-                        $this->info("Updating webhook for " . $repoName);
+                        $this->info('Updating webhook for ' . $repoName);
                         $this->webhooks->updateWebhook($repoName);
                     } else {
-                        $this->info("Skipping " . $repoName . " it's done!");
+                        $this->info('Skipping ' . $repoName . " it's done!");
                     }
                     continue;
                 }
-                $this->info("Creating webhook for " . $repoName);
+                $this->info('Creating webhook for ' . $repoName);
                 $this->webhooks->addWebhook($repoName);
-                $this->info("Adding action to list...");
+                $this->info('Adding action to list...');
                 $toFinalize[] = $repoName;
             }
         }
-        $actionInterface->setMultipleReposActionComplete($toFinalize, "webhook");
+        $actionInterface->setMultipleReposActionComplete($toFinalize, 'webhook');
     }
 
 
     public function getOptions() {
-        return array(array("update", "upd", InputOption::VALUE_NONE, "update mode"));
+        return [
+            ['update', 'upd', InputOption::VALUE_NONE, 'update mode']
+        ];
     }
 
 }

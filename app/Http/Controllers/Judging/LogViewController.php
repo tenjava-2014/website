@@ -1,7 +1,4 @@
-<?php
-
-namespace TenJava\Http\Controllers\Judging;
-
+<?php namespace TenJava\Http\Controllers\Judging;
 
 use Auth;
 use Redirect;

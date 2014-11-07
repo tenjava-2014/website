@@ -1,11 +1,7 @@
-<?php
-namespace TenJava\QueueJobs;
+<?php namespace TenJava\QueueJobs;
 
-use \Config;
-use \Github\Api\Repo;
-use \Github\Client;
-use \Github\Exception\ValidationFailedException;
-use \Illuminate\Queue\Jobs\Job;
+use Config;
+use Illuminate\Queue\Jobs\Job;
 use TenJava\CI\BuildCreationInterface;
 use TenJava\Notification\IrcMessageBuilderInterface;
 use TenJava\Notification\IrcNotifierInterface;
@@ -61,15 +57,24 @@ class TimeSelectionJob {
     public function fire(Job $job, $data) {
         $client = $this->getRepoApiClient();
         if ($data['t1']) {
-            $this->addUserRepo($data['username'] . "-t1", $client);
+            $this->addUserRepo($data['username'] . '-t1', $client);
         }
         if ($data['t2']) {
-            $this->addUserRepo($data['username'] . "-t2", $client);
+            $this->addUserRepo($data['username'] . '-t2', $client);
         }
         if ($data['t3']) {
-            $this->addUserRepo($data['username'] . "-t3", $client);
+            $this->addUserRepo($data['username'] . '-t3', $client);
         }
         $job->delete();
+    }
+
+    /**
+     * @return Repo
+     */
+    public function getRepoApiClient() {
+        $client = new Client();
+        $client->authenticate('tenjava', Config::get('gh-data.pass'), Client::AUTH_HTTP_PASSWORD);
+        return $client->api('repo');
     }
 
     /**
@@ -85,17 +90,8 @@ class TimeSelectionJob {
 
         $this->builds->createJob($username);
         $this->webhooks->addWebhook($username);
-        $this->repo->setRepoActionComplete("webhook", $username);
-        $this->repo->setRepoActionComplete("jenkins", $username);
-        $this->irc->sendMessage("#ten.judge", $this->ircMessage->insertText("jkcclemens: I have good news! ")->insertSecureText($username)->insertText(" has chosen a time and needs a repo template :D"));
-    }
-
-    /**
-     * @return Repo
-     */
-    public function getRepoApiClient() {
-        $client = new Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), Client::AUTH_HTTP_PASSWORD);
-        return $client->api("repo");
+        $this->repo->setRepoActionComplete('webhook', $username);
+        $this->repo->setRepoActionComplete('jenkins', $username);
+        $this->irc->sendMessage('#ten.judge', $this->ircMessage->insertText('jkcclemens: I have good news! ')->insertSecureText($username)->insertText(' has chosen a time and needs a repo template :D'));
     }
 }

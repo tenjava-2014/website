@@ -2,14 +2,10 @@
 
 use App;
 use Config;
-use Exception;
-use Github\Api\Repository\Hooks;
-use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use TenJava\CI\BuildCreationInterface;
-use TenJava\Models\Application;
 use TenJava\Repository\RepositoryActionInterface;
 
 class JenkinsJobCommand extends Command {
@@ -53,10 +49,10 @@ class JenkinsJobCommand extends Command {
     public function fire() {
 
         /** @var \TenJava\Repository\EloquentRepositoryAction $repoAction */
-        $repoAction = App::make("\\TenJava\\Repository\\RepositoryActionInterface");
-        $done = $repoAction->getReposForAction("jenkins");
-        $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
-        $this->comment("List has " . $list->count() . " items");
+        $repoAction = App::make('\TenJava\Repository\RepositoryActionInterface');
+        $done = $repoAction->getReposForAction('jenkins');
+        $list = Application::with('timeEntry')->has('timeEntry', '>', '0')->where('judge', false)->get();
+        $this->comment('List has ' . $list->count() . ' items');
         foreach ($list as $entry) {
             /** @var \TenJava\Models\Application $entry */
             $this->handleEntry($entry, $repoAction, $done);
@@ -68,24 +64,25 @@ class JenkinsJobCommand extends Command {
         $possibleValues = [
             't1',
             't2',
-            't3'];
+            't3'
+        ];
         $toFinalize = [];
         foreach ($possibleValues as $toCheck) {
-            $this->comment("Checking " . $toCheck . " for " . $app->gh_username);
+            $this->comment('Checking ' . $toCheck . ' for ' . $app->gh_username);
             if ($times->$toCheck) {
-                $this->info("Hit! " . $toCheck);
+                $this->info('Hit! ' . $toCheck);
 
-                $repoName = $app->gh_username . "-" . $toCheck;
+                $repoName = $app->gh_username . '-' . $toCheck;
                 if (in_array($repoName, $completed)) {
-                    $this->info("Skip! " . $toCheck);
+                    $this->info('Skip! ' . $toCheck);
                     continue;
                 }
                 $this->builds->createJob($repoName);
-                $this->info("Adding action to list...");
+                $this->info('Adding action to list...');
                 $toFinalize[] = $repoName;
             }
         }
-        $actionInterface->setMultipleReposActionComplete($toFinalize, "jenkins");
+        $actionInterface->setMultipleReposActionComplete($toFinalize, 'jenkins');
     }
 
 

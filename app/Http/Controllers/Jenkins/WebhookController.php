@@ -47,25 +47,25 @@ class WebhookController extends BaseController {
 
     public function processWebhook() {
         $ip = Request::getClientIp();
-        Log::info("Got webhook req. from $ip, expecting " . Config::get("webhooks.jenkins"));
-        if ($ip !== Config::get("webhooks.jenkins")) {
-            Log::info("Rejecting webhook!");
-            return Response::json("Invalid origin IP.");
+        Log::info("Got webhook req. from $ip, expecting " . Config::get('webhooks.jenkins'));
+        if ($ip !== Config::get('webhooks.jenkins')) {
+            Log::info('Rejecting webhook!');
+            return Response::json('Invalid origin IP.');
         }
 
-        $job = Input::get("name");
-        $status = Input::get("build.status");
-        $buildUrl = str_replace("http://thor.tenjava.com:8080", "http://ci.tenjava.com", Input::get("build.full_url"));
-        if ($status === "FAILURE") {
-            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertSecureText($job)->insertText(" finished with status ")->insertRed()->insertSecureText($status)->insertReset()->insertText(" - " . $buildUrl);
-        } else if ($status === "SUCCESS") {
-            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertMungedText($job)->insertText(" finished with status ")->insertGreen()->insertSecureText($status);
+        $job = Input::get('name');
+        $status = Input::get('build.status');
+        $buildUrl = str_replace('http://thor.tenjava.com:8080', 'http://ci.tenjava.com', Input::get('build.full_url'));
+        if ($status === 'FAILURE') {
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText('[CI Build] ')->insertBold()->insertReset()->insertSecureText($job)->insertText(' finished with status ')->insertRed()->insertSecureText($status)->insertReset()->insertText(' - ' . $buildUrl);
+        } else if ($status === 'SUCCESS') {
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText('[CI Build] ')->insertBold()->insertReset()->insertMungedText($job)->insertText(' finished with status ')->insertGreen()->insertSecureText($status);
         } else {
-            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText("[CI Build] ")->insertBold()->insertReset()->insertMungedText($job)->insertText(" finished with status ")->insertSecureText($status)->insertReset()->insertText(" - " . $buildUrl);
+            $message = $this->messageBuilder->insertBold()->insertNavyBlue()->insertText('[CI Build] ')->insertBold()->insertReset()->insertMungedText($job)->insertText(' finished with status ')->insertSecureText($status)->insertReset()->insertText(' - ' . $buildUrl);
         }
 
-        $this->irc->sendMessage("#ten.commits", $message);
-        return Response::json("OK");
+        $this->irc->sendMessage('#ten.commits', $message);
+        return Response::json('OK');
     }
 
 

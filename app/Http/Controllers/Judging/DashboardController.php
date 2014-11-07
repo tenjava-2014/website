@@ -1,6 +1,4 @@
-<?php
-
-namespace TenJava\Http\Controllers\Judging;
+<?php namespace TenJava\Http\Controllers\Judging;
 
 use Auth;
 use TenJava\Http\Controllers\Abstracts\BaseJudgingController;
@@ -15,7 +13,9 @@ class DashboardController extends BaseJudgingController {
     }
 
     private function getViewData() {
-        return ['judgePort' => $this->getServerPort()];
+        return [
+            'judgePort' => $this->getServerPort()
+        ];
     }
 
     private function getServerPort() {

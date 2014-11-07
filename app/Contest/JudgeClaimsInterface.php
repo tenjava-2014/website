@@ -1,7 +1,7 @@
-<?php
-namespace TenJava\Contest;
+<?php namespace TenJava\Contest;
 
 interface JudgeClaimsInterface {
-    public function getClaimsForJudge($judgeId);
     public function getAllJudgesWithClaims();
+
+    public function getClaimsForJudge($judgeId);
 }

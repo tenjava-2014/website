@@ -1,10 +1,9 @@
-<?php
-namespace TenJava\QueueJobs;
+<?php namespace TenJava\QueueJobs;
 
 use Illuminate\Mail\Message;
 use Illuminate\Queue\Jobs\Job;
 use Mail;
-use TenJava\Models\Subscription;
+use TenJava\Subscription;
 
 class SendMailJob {
 

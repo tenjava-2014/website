@@ -45,15 +45,15 @@ abstract class BaseController extends Controller {
         ];
 
         /*if ($this->hasSelectedTimes() == 'notime') {
-         * $navigation['primary'][1] = new NavigationItem("Choose Time", "/times/select");
-         * } else if ($this->hasSelectedTimes() == 'timesdone') {
-         * unset($navigation['primary'][1]);
-         * }*/
+            $navigation['primary'][1] = new NavigationItem('Choose Time', '/times/select');
+        } else if ($this->hasSelectedTimes() == 'timesdone') {
+            unset($navigation['primary'][1]);
+        }
 
-        /*if ($this->auth->isStaff()) {
-            $navigation['primary'][] = new NavigationItem("App list", "/list");
-        }*/
-        $navigation['primary'][] = new NavigationItem("About", "/about");
+        if ($this->auth->isStaff()) {
+            $navigation['primary'][] = new NavigationItem('App list', '/list');
+        }
+        $navigation['primary'][] = new NavigationItem('About', '/about');*/
 
         foreach ($navigation['primary'] as $navItem) {
             /** @var $navItem \TenJava\Tools\UI\NavigationItem */
@@ -66,16 +66,12 @@ abstract class BaseController extends Controller {
     }
 
     protected function hasSelectedTimes() {
-        /*$appCount = Application::where("gh_id", $this->auth->getUserId())->where("judge", false)->first();
+        /*$appCount = Application::where('gh_id', $this->auth->getUserId())->where('judge', false)->first();
         if ($appCount == null) {
-            return "noapp";
+            return 'noapp';
         } else {
-            $timeSetting = ParticipantTimes::where("user_id", $appCount->id)->count();
-            if ($timeSetting == 0) {
-                return "notime";
-            } else {
-                return "timesdone";
-            }
+            $timeSetting = ParticipantTimes::where('user_id', $appCount->id)->count();
+            return $timeSetting == 0 ? 'notime' : 'timesdone';
         }*/
         return 'timesdone';
     }

@@ -1,7 +1,6 @@
-<?php
-namespace TenJava\Contest;
+<?php namespace TenJava\Contest;
 
 interface TwitchRepositoryInterface {
 
-    public function getOnlineStreamers($max=null, $random=false);
+    public function getOnlineStreamers($max = null, $random = false);
 }

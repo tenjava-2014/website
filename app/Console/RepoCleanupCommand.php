@@ -2,7 +2,6 @@
 
 use Config;
 use Illuminate\Console\Command;
-use TenJava\Models\Application;
 
 class RepoCleanupCommand extends Command {
 
@@ -35,12 +34,12 @@ class RepoCleanupCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $list = Application::where("judge", false)->get();
+        $list = Application::where('judge', false)->get();
         $apiClient = $this->getApiClient();
         foreach ($list as $entry) {
-            $this->comment("Deleting " . $entry->gh_username);
-            $apiClient->remove("tenjava", $entry->gh_username);
-            $this->info("Removed " . $entry->gh_username . "!");
+            $this->comment('Deleting ' . $entry->gh_username);
+            $apiClient->remove('tenjava', $entry->gh_username);
+            $this->info('Removed ' . $entry->gh_username . '!');
         }
     }
 
@@ -49,10 +48,9 @@ class RepoCleanupCommand extends Command {
      */
     private function getApiClient() {
         $client = new \Github\Client();
-        $client->authenticate("tenjava", Config::get("gh-data.pass"), \Github\Client::AUTH_HTTP_PASSWORD);
+        $client->authenticate('tenjava', Config::get('gh-data.pass'), \Github\Client::AUTH_HTTP_PASSWORD);
         return $client->api('repo');
     }
-
 
 
     /**
@@ -61,7 +59,7 @@ class RepoCleanupCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array();
+        return [];
     }
 
     /**
@@ -70,7 +68,7 @@ class RepoCleanupCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array();
+        return [];
     }
 
 }

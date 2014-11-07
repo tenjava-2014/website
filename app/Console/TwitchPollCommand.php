@@ -1,17 +1,13 @@
 <?php namespace TenJava\Console;
 
-
 use App;
 use DateTime;
 use DB;
 use Guzzle\Http\Exception\RequestException;
 use Guzzle\Http\Message\Request;
 use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Console\Command;
-use TenJava\Models\Application;
-
 
 class TwitchPollCommand extends Command {
 
@@ -44,8 +40,8 @@ class TwitchPollCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        DB::table("online_streams")->delete();
-        $list = Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+        DB::table('online_streams')->delete();
+        $list = Application::with('timeEntry')->has('timeEntry', '>', '0')->where('judge', false)->get();
         $toFinalize = [];
         $appIds = [];
         $requests = [];
@@ -53,19 +49,19 @@ class TwitchPollCommand extends Command {
         foreach ($list as $item) {
             /** @var Application $item */
             $name = $item->twitch_username;
-            $this->info("Got username of " . $name);
-            if ($name === "USER_REJECTED" || $name === null) {
-                $this->info("Skipping user due to rejection...");
+            $this->info('Got username of ' . $name);
+            if ($name === 'USER_REJECTED' || $name === null) {
+                $this->info('Skipping user due to rejection...');
                 continue;
             }
 
-            $requests[] = $client->createRequest("GET", "https://api.twitch.tv/kraken/streams/" . $name);
+            $requests[] = $client->createRequest('GET', 'https://api.twitch.tv/kraken/streams/' . $name);
             $appIds[] = ['id' => $item->id, 'name' => $name];
-            $this->info("Staged req for " . $name);
+            $this->info('Staged req for ' . $name);
 
 
         }
-        $this->comment("Sending batch...");
+        $this->comment('Sending batch...');
         $results = \GuzzleHttp\batch($client, $requests);
 
 
@@ -75,24 +71,24 @@ class TwitchPollCommand extends Command {
             if ($result instanceof ResponseInterface) {
                 // Interact with the response directly
                 $res = $result->json();
-                if (array_key_exists("stream", $res) && $res['stream'] != null) {
-                    $streamData = ["created_at" => new DateTime, "updated_at" => new DateTime, "app_id" => $appIds[$i]['id'], "preview_template" => "http://static-cdn.jtvnw.net/previews-ttv/live_user_" . strtolower($appIds[$i]['name']) . "-{WIDTH}x{HEIGHT}.jpg"];
+                if (array_key_exists('stream', $res) && $res['stream'] != null) {
+                    $streamData = ['created_at' => new DateTime, 'updated_at' => new DateTime, 'app_id' => $appIds[$i]['id'], 'preview_template' => 'http://static-cdn.jtvnw.net/previews-ttv/live_user_' . strtolower($appIds[$i]['name']) . '-{WIDTH}x{HEIGHT}.jpg'];
                     $toFinalize[] = $streamData;
-                    $this->info("Twitch channel is there and online! " . json_encode($streamData));
+                    $this->info('Twitch channel is there and online! ' . json_encode($streamData));
                 } else {
-                    $this->comment("Twitch channel offline!");
+                    $this->comment('Twitch channel offline!');
                 }
             } else {
                 // Get the exception message
                 /** @var $request Request */
                 /** @var $result RequestException */
-                $this->error("A request to " . $request->getUrl() . " failed.");
-                $this->error("We got a code of " . $result->getMessage());
+                $this->error('A request to ' . $request->getUrl() . ' failed.');
+                $this->error('We got a code of ' . $result->getMessage());
             }
         }
         // This is more efficient than using Eloquent.
         if (count($toFinalize) != 0) {
-            DB::table("online_streams")->insert($toFinalize);
+            DB::table('online_streams')->insert($toFinalize);
         }
     }
 

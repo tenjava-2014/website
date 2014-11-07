@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Tools\String;
+<?php namespace TenJava\Tools\String;
 
 /**
  * Interface StringTruncatorInterface
@@ -12,4 +11,4 @@ interface StringTruncatorInterface {
      * @return string The truncated string (if it's too long) or the original.
      */
     public function truncateString($string, $maxLength);
-} 
+}

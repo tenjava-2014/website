@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Tools\String;
+<?php namespace TenJava\Tools\String;
 
 /**
  * Class StringTruncator

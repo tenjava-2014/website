@@ -1,0 +1,12 @@
+$footerHeight: 100px;
+$mobileFooterHeight: 160px;
+$textColor: #444;
+$alertClassName: 'alert';
+
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

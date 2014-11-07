@@ -1,7 +1,4 @@
-<?php
-
-
-namespace TenJava\Security;
+<?php namespace TenJava\Security;
 
 
 class HmacCreation implements HmacCreationInterface {
@@ -12,6 +9,6 @@ class HmacCreation implements HmacCreationInterface {
      * @return string The data.
      */
     public function createSignature($data, $secret) {
-        return http_build_query(["sha1" => hash_hmac("sha1", $data, $secret)]);
+        return http_build_query(['sha1' => hash_hmac('sha1', $data, $secret)]);
     }
 }

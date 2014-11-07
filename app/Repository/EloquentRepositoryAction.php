@@ -1,12 +1,7 @@
-<?php
-
-
-namespace TenJava\Repository;
-
+<?php namespace TenJava\Repository;
 
 use DateTime;
 use DB;
-use TenJava\Models\RepoActions;
 
 class EloquentRepositoryAction implements RepositoryActionInterface {
 
@@ -15,7 +10,7 @@ class EloquentRepositoryAction implements RepositoryActionInterface {
      * @return array Array of repository names which have the completed action.
      */
     public function getReposForAction($action) {
-        return (RepoActions::where("action", $action)->lists("repo_name"));
+        return (RepoActions::where('action', $action)->lists('repo_name'));
     }
 
     /**
@@ -24,16 +19,7 @@ class EloquentRepositoryAction implements RepositoryActionInterface {
      * @return boolean Whether or not the action has been completed.
      */
     public function isRepoActionComplete($action, $repo) {
-        return (RepoActions::where("action", $action)->where("repo_name", $repo)->count() > 0);
-    }
-
-    /**
-     * @param string $action The action identifier to set.
-     * @param string $repo The repository name to set the action on.
-     * @return void
-     */
-    public function setRepoActionComplete($action, $repo) {
-        RepoActions::create(['repo_name' => $repo, 'action' => $action]);
+        return (RepoActions::where('action', $action)->where('repo_name', $repo)->count() > 0);
     }
 
     /**
@@ -47,6 +33,15 @@ class EloquentRepositoryAction implements RepositoryActionInterface {
         foreach ($repos as $repo) {
             $entries[] = ['action' => $action, 'repo_name' => $repo, 'updated_at' => new DateTime, 'created_at' => new DateTime];
         }
-        DB::table("repo_actions")->insert($entries);
+        DB::table('repo_actions')->insert($entries);
+    }
+
+    /**
+     * @param string $action The action identifier to set.
+     * @param string $repo The repository name to set the action on.
+     * @return void
+     */
+    public function setRepoActionComplete($action, $repo) {
+        RepoActions::create(['repo_name' => $repo, 'action' => $action]);
     }
 }

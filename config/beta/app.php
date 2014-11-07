@@ -1,2 +1,6 @@
 <?php
-return array("url" => "http://beta.tenjava.com", "debug" => true);
+
+return [
+    'url' => 'http://beta.tenjava.com',
+    'debug' => true
+];

@@ -2,7 +2,6 @@
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use TenJava\Team;
 use TenJava\User;
 
 class InviteToTeamRequest extends FormRequest {

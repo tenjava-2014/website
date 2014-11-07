@@ -7,8 +7,8 @@ use Mail;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use TenJava\Http\Controllers\Pages\NewsController;
-use TenJava\Models\Subscription;
 use TenJava\QueueJobs\SendMailJob;
+use TenJava\Subscription;
 
 class MailNewsCommand extends Command {
 
@@ -52,7 +52,7 @@ class MailNewsCommand extends Command {
             return;
         }
         foreach ($recipients as $recipient) {
-            $this->info("Queueing mail to " . $recipient->email . ".");
+            $this->info('Queueing mail to ' . $recipient->email . '.');
             $data = SendMailJob::getData($recipient);
             $data['unsubscribe_url'] = 'https://tenjava.com/unsubscribe/' . e($recipient->id) . '/' . e($this->news->getEmailHMAC($recipient));
             Mail::queue($template, $data, function (Message $message) use ($recipient, $subject) {
@@ -67,9 +67,9 @@ class MailNewsCommand extends Command {
      * @return array
      */
     protected function getArguments() {
-        return array(
+        return [
             ['template', InputArgument::REQUIRED, 'Template to send']
-        );
+        ];
     }
 
     /**
@@ -78,10 +78,10 @@ class MailNewsCommand extends Command {
      * @return array
      */
     protected function getOptions() {
-        return array(
+        return [
             ['test', null, InputOption::VALUE_NONE, 'Send the email to jkcclemens instead'],
             ['subject', null, InputOption::VALUE_REQUIRED, 'Subject of the email']
-        );
+        ];
     }
 
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * returns ordinal suffix.
  * @param int $number

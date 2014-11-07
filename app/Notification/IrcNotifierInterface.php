@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\Notification;
+<?php namespace TenJava\Notification;
 
 interface IrcNotifierInterface {
 
@@ -9,4 +8,4 @@ interface IrcNotifierInterface {
      * @return void
      */
     public function sendMessage($channel, IrcMessageBuilderInterface $message);
-} 
+}

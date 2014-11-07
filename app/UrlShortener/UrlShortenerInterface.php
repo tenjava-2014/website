@@ -1,5 +1,4 @@
-<?php
-namespace TenJava\UrlShortener;
+<?php namespace TenJava\UrlShortener;
 
 
 interface UrlShortenerInterface {
@@ -9,6 +8,6 @@ interface UrlShortenerInterface {
      * @param string|null $custom Custom identifier.
      * @return string The shortened URL.
      */
-    public function shortenUrl($url, $custom=null);
+    public function shortenUrl($url, $custom = null);
 
 }

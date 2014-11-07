@@ -1,10 +1,7 @@
 <?php namespace TenJava\Console;
 
 use Config;
-use Github\Api\Repository\Hooks;
 use Illuminate\Console\Command;
-use TenJava\Models\Application;
-use TenJava\Models\Judge;
 use TenJava\Security\HmacCreationInterface;
 
 class UserVerificationChecker extends Command {
@@ -44,8 +41,8 @@ class UserVerificationChecker extends Command {
      * @return mixed
      */
     public function fire() {
-        $githubName = $this->ask("Enter GitHub username:");
-        $githubId = $this->ask("Enter GitHub ID:");
-        $this->info($this->hmac->createSignature($githubId . "-" . $githubName, Config::get("gh-data.verification-key")));
+        $githubName = $this->ask('Enter GitHub username:');
+        $githubId = $this->ask('Enter GitHub ID:');
+        $this->info($this->hmac->createSignature($githubId . '-' . $githubName, Config::get('gh-data.verification-key')));
     }
 }

@@ -4,7 +4,11 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
 
     public function getConfirmedParticipants() {
         // let's return an eloquent model and defeat the entire purpose of abstracting our database logic
-        return Application::with('timeEntry')->has("timeEntry", ">", "0")->where('judge', false)->get();
+        return Application::with('timeEntry')->has('timeEntry', '>', '0')->where('judge', false)->get();
+    }
+
+    public function getParticipantByAuthId($id) {
+        return Application::with('commits')->where('gh_id', $id)->first();
     }
 
     public function getParticipantCount() {
@@ -18,10 +22,6 @@ class EloquentParticipantRepository implements ParticipantRepositoryInterface {
     }
 
     public function getUnconfirmedParticipants() {
-        return Application::with('timeEntry')->has("timeEntry", "=", "0")->where('judge', false)->get();
-    }
-
-    public function getParticipantByAuthId($id) {
-        return Application::with('commits')->where('gh_id', $id)->first();
+        return Application::with('timeEntry')->has('timeEntry', '=', '0')->where('judge', false)->get();
     }
 }

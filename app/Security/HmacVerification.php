@@ -1,6 +1,4 @@
-<?php
-namespace TenJava\Security;
-
+<?php namespace TenJava\Security;
 
 class HmacVerification implements HmacVerificationInterface {
 
@@ -14,7 +12,7 @@ class HmacVerification implements HmacVerificationInterface {
         if ($signature === null) {
             return false;
         }
-        $calculatedSignature = hash_hmac("sha1", $data, $secret);
+        $calculatedSignature = hash_hmac('sha1', $data, $secret);
         return ($this->compareHashes($signature, $calculatedSignature));
     }
 

@@ -1,8 +1,4 @@
-<?php
-
-
-namespace TenJava\CI;
-
+<?php namespace TenJava\CI;
 
 use App;
 use Config;
@@ -22,15 +18,16 @@ class JenkinsBuildCreation implements BuildCreationInterface {
 
     public function createJob($repoName) {
 
-        $jobConfig = str_replace("%%REPO_NAME%%", $repoName, $this->jobConfig);
-        Log::info("Sending req for new jenkins job " . $jobConfig);
+        $jobConfig = str_replace('%%REPO_NAME%%', $repoName, $this->jobConfig);
+        Log::info('Sending req for new jenkins job ' . $jobConfig);
         $client = new Client();
-        $client->post("http://ci.tenjava.com/createItem", [
-            "auth" => [
+        $client->post('http://ci.tenjava.com/createItem', [
+            'auth' => [
                 'tenjava',
-                Config::get("webhooks.jenkins_token")],
-            "query" => ["name" => $repoName],
-            "headers" => ["Content-Type" => "application/xml"],
-            "body" => $jobConfig, "debug" => true]);
+                Config::get('webhooks.jenkins_token')
+            ],
+            'query' => ['name' => $repoName],
+            'headers' => ['Content-Type' => 'application/xml'],
+            'body' => $jobConfig, 'debug' => true]);
     }
 }
