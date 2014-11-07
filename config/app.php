@@ -82,6 +82,21 @@ return [
 
     'cipher' => MCRYPT_RIJNDAEL_128,
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Logging Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log settings for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Settings: "single", "daily", "syslog"
+    |
+    */
+    'log' => 'daily',
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -98,11 +113,11 @@ return [
         /*
          * Application Service Providers...
          */
-        'TenJava\Providers\AppServiceProvider',
+        #'TenJava\Providers\AppServiceProvider',
         'TenJava\Providers\ArtisanServiceProvider',
-        'TenJava\Providers\ErrorServiceProvider',
+        #'TenJava\Providers\ErrorServiceProvider',
         'TenJava\Providers\EventServiceProvider',
-        'TenJava\Providers\LogServiceProvider',
+#        'TenJava\Providers\LogServiceProvider',
         'TenJava\Providers\RouteServiceProvider',
         'TenJava\Providers\DriverServiceProvider',
         'TenJava\Providers\RegistrationServiceProvider',
@@ -120,7 +135,7 @@ return [
         'Illuminate\Filesystem\FilesystemServiceProvider',
         'Illuminate\Foundation\Providers\FoundationServiceProvider',
         'Illuminate\Hashing\HashServiceProvider',
-        'Illuminate\Log\LogServiceProvider',
+        #'Illuminate\Log\LogServiceProvider',
         'Illuminate\Mail\MailServiceProvider',
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
