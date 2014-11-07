@@ -125,7 +125,7 @@
             $form.get(0).submit();
         }
     }
-    Stripe.setPublishableKey('{!! $_ENV["STRIPE_PUBLISHABLE_KEY"] !!}');
+    Stripe.setPublishableKey('{!! getenv("STRIPE_PUBLISHABLE_KEY") !!}');
     jQuery(function($) {
         $('#donation-form').submit(function(event) {
             var $form = $(this);

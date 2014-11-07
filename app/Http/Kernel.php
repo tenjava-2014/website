@@ -11,13 +11,13 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $middleware = [
-		'App\Http\Middleware\UnderMaintenance',
+		'TenJava\Http\Middleware\UnderMaintenance',
 		'Illuminate\Cookie\Middleware\EncryptCookies',
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToRequest',
 		'Illuminate\Session\Middleware\ReadSession',
 		'Illuminate\Session\Middleware\WriteSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'App\Http\Middleware\VerifyCsrfToken',
+		'TenJava\Http\Middleware\VerifyCsrfToken',
 	];
 
 	/**

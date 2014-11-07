@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'pass' => $_ENV['GITHUB_PASSWORD'],
-    'verification-key' => $_ENV['USER_VERIFICATION_KEY']
+    'pass' => getenv('GITHUB_PASSWORD'),
+    'verification-key' => getenv('USER_VERIFICATION_KEY')
 ];

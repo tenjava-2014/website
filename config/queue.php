@@ -37,7 +37,7 @@ return [
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host' => 'localhost',
-            'queue' => $_ENV['BEANSTALK_QUEUE'],
+            'queue' => getenv('BEANSTALK_QUEUE'),
             'ttr' => 60,
         ],
 

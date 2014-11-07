@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => isset($_ENV['DATABASE_HOST']) ? $_ENV['DATABASE_HOST'] : "localhost",
-            'database' => $_ENV['DATABASE_SCHEMA'],
-            'username' => $_ENV['DATABASE_USERNAME'],
-            'password' => $_ENV['DATABASE_PASSWORD'],
+            'host' => !getenv('DATABASE_HOST') ? getenv('DATABASE_HOST') : "localhost",
+            'database' => getenv('DATABASE_SCHEMA'),
+            'username' => getenv('DATABASE_USERNAME'),
+            'password' => getenv('DATABASE_PASSWORD'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

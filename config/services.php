@@ -29,9 +29,9 @@ return [
     ],
 
     'github' => [
-        'client_id' => $_ENV['GITHUB_CLIENT_ID'],
-        'client_secret' => $_ENV['GITHUB_CLIENT_SECRET'],
-        'redirect' => $_ENV['GITHUB_REDIRECT']
+        'client_id' => getenv('GITHUB_CLIENT_ID'),
+        'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
+        'redirect' => getenv('GITHUB_REDIRECT')
     ]
 
 ];

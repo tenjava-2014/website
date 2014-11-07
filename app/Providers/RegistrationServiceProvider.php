@@ -11,7 +11,7 @@ class RegistrationServiceProvider extends ServiceProvider {
         $factory = app('Illuminate\Contracts\View\Factory');
         $factory->composer('*', '\TenJava\Composers\GlobalComposer');
         Markdown::getParsedown()->setMarkupEscaped(true);
-        Stripe::setApiKey($_ENV['STRIPE_KEY']);
+        Stripe::setApiKey(getenv('STRIPE_KEY'));
     }
 
     private function registerFormMacros() {

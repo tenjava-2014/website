@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => $_ENV['MAIL_SMTP_USERNAME'],
+    'username' => getenv('MAIL_SMTP_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => $_ENV['MAIL_SMTP_PASSWORD'],
+    'password' => getenv('MAIL_SMTP_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,6 +119,6 @@ return [
     |
     */
 
-    'pretend' => $_ENV['MAIL_PRETEND'],
+    'pretend' => getenv('MAIL_PRETEND'),
 
 ];
