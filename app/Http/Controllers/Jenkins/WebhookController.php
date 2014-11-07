@@ -1,21 +1,18 @@
 <?php
 namespace TenJava\Http\Controllers\Jenkins;
 
-use DateTime;
+use Config;
 use DB;
+use Input;
 use Lang;
 use Log;
 use Request;
-use Config;
-use Input;
 use Response;
 use TenJava\Http\Controllers\Abstracts\BaseController;
-
 use TenJava\Models\Application;
 use TenJava\Models\ParticipantAvatar;
 use TenJava\Notification\IrcMessageBuilderInterface;
 use TenJava\Notification\IrcNotifierInterface;
-use TenJava\Security\HmacVerificationInterface;
 use TenJava\Tools\String\StringTruncatorInterface;
 use TenJava\UrlShortener\UrlShortenerInterface;
 

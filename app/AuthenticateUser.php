@@ -1,6 +1,5 @@
 <?php namespace TenJava;
 
-use Illuminate\Contracts\Auth\Authenticator;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Redirect;
 use Request;

@@ -1,7 +1,6 @@
 <?php namespace TenJava\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Auth\Authenticator;
 use Illuminate\Contracts\Routing\Middleware;
 
 class BasicAuthMiddleware implements Middleware {

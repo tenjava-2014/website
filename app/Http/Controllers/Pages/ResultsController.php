@@ -1,8 +1,8 @@
 <?php
 namespace TenJava\Http\Controllers\Pages;
 
-use TenJava\Http\Controllers\Abstracts\BaseController;
 use Response;
+use TenJava\Http\Controllers\Abstracts\BaseController;
 use View;
 
 class ResultsController extends BaseController {
