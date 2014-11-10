@@ -121,7 +121,7 @@ class TenJava extends ServiceProvider {
         |
         */
         $router->filter('csrf', function () {
-            if (\Session::token() != \Input::get('_token')) {
+            if (\Session::token() !== \Input::get('_token')) {
                 throw new TokenMismatchException;
             }
         });
