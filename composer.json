@@ -11,7 +11,6 @@
     "illuminate/remote": "5.0.*",
     "laravel/socialite": "2.0.*@dev",
     "guzzlehttp/guzzle": "4.2.*@dev",
-    "barryvdh/laravel-ide-helper": "1.11.*@dev",
     "pda/pheanstalk": "~3.0",
     "thujohn/twitter": "dev-master",
     "fzaninotto/faker": "1.5.*@dev",

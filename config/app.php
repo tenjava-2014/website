@@ -151,7 +151,6 @@ return [
          * Additional Service Providers
          */
         'Thujohn\Twitter\TwitterServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
 
