@@ -11,6 +11,7 @@
 				<li><a href="mailto:{{ HTML::obfuscate('tenjava@' . 'ten' . 'java.com') }}"><i class="fa fa-2x fa-envelope-square"></i></a></li>
 				<li><a target="_blank" href="https://github.com/tenjava"><i class="fa fa-2x fa-github-square"></i></a></li>
 				<li><a target="_blank" href="https://twitter.com/tenjava"><i class="fa fa-2x fa-generic-bird-square"></i></a></li>
+                                <li><a target="_blank" href="https://reddit.com/r/tenjava"><i class="fa fa-2x fa-generic-alien-creature"></i></a></li>
 			</ul>
 		</div>
 	</div>

@@ -603,6 +603,10 @@ blockquote.feedback p {
   content: "\f081";
 }
 
+.fa-generic-alien-creature:before { // See above
+  content: "\f1a2";
+}
+
 #donation-errors:empty {
   display: none;
 }
