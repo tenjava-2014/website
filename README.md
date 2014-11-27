@@ -1,17 +1,17 @@
 ten.java website
 ================
 
-ten.java 2014 official site!
+ten.java official site!
 
 Contributing
 ------------
 
-Please make PRs to the `redesign` branch so we can test stuff in beta first :smile:.
+Please make PRs to the `beta` branch so we can test stuff in beta first :smile:.
 
-In terms of actual code, you'll find most things you need in app/TenJava/.
-I really don't care too much about our controllers being coupled too tightly to Laravel. It's unlikely Laravel is going
-to disappear before the contest starts and this site will not have a lot of use while the contest is not running/about
-to start.
+In terms of actual code, you'll find most things you need in app/. The serve.sh script will let you test things.
+
+Please discuss any changes with us in #ten.java since we're usually planning new functionality and contests. We want to ensure any
+work fits in with our plan of future events.
 
 Environment
 -----------
