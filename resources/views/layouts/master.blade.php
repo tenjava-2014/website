@@ -55,7 +55,7 @@
 @include('partials.footer')
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 @yield('post-scripts')
-<script type="application/javascript" src="{!! elixir('js/all.min.js') !!}"></script>
+<script type="application/javascript" src="{!! elixir('js/all.js') !!}"></script>
 <script type="application/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
 </body>
 </html>

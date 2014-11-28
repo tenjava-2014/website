@@ -15,5 +15,5 @@ elixir(function(mix) {
     mix.sass(['styles.scss'])
        .styles(['css/styles.css', 'css/grid.css'])
        .scripts(['assets/js/jquery.timediff.min.js', 'assets/js/time-circles.js', 'assets/js/app.js'])
-       .version(['css/all.min.css', 'js/all.min.js']);
+       .version(['css/all.css', 'js/all.js']);
 });
