@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{!! asset('/assets/img/icons/apple-touch-icon-120x120.png') !!}"/>
     <link rel="apple-touch-icon" sizes="144x144" href="{!! asset('/assets/img/icons/apple-touch-icon-144x144.png') !!}"/>
     <link rel="apple-touch-icon" sizes="152x152" href="{!! asset('/assets/img/icons/apple-touch-icon-152x152.png') !!}"/>
-    <link href="{!! elixir('css/all.min.css') !!}" rel="stylesheet"/>
+    <link href="{!! elixir('css/all.css') !!}" rel="stylesheet"/>
     @yield('additional-scripts')
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
     <meta name="description" content="Ten-hour, Java development contests."/>
